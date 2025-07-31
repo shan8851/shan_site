@@ -22,7 +22,7 @@ export const Header = () => (
     </p>
 
     <p className="text-base leading-loose text-textSecondary max-w-prose">
-      Leading end-to-end development for DeFi platforms, crafting user-centric
+      Leading end to end development for DeFi platforms, crafting user-centric
       systems for onchain asset management and AI-driven solutions.
     </p>
     <div className="flex items-center gap-2">
