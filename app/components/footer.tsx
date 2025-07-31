@@ -1,61 +1,81 @@
-function ArrowIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
+import {
+  BUY_COFFEE_URL,
+  EMAIL_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  TELEGRAM_URL,
+  TWITTER_URL,
+} from 'app/constants';
+import { HiOutlineMail } from 'react-icons/hi';
+import { RiLinkedinBoxFill, RiTwitterXFill } from 'react-icons/ri';
+import { SiBuymeacoffee, SiGithub } from 'react-icons/si';
+import { FaTelegram } from 'react-icons/fa';
 
-export default function Footer() {
+export const Footer = () => {
   return (
-    <footer className="mb-16">
-      <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-        <li>
+    <footer className="flex flex-col gap-6 text-sm text-textSecondary mt-12">
+      <div className="h-px w-full bg-border" />
+
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="text-center sm:text-left">
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
+            href="https://opensource.org/license/mit/"
             target="_blank"
-            href="/rss"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/vercel/next.js"
+            className="hover:underline hover:text-text transition-colors"
           >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://vercel.com/templates/next.js/portfolio-starter-kit"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">view source</p>
-          </a>
-        </li>
-      </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
-        © {new Date().getFullYear()} MIT Licensed
-      </p>
+            MIT License
+          </a>{' '}
+          – 2025 © shan8851
+        </div>
+
+        <div className="flex gap-4 text-xl">
+          <IconLink
+            href={TELEGRAM_URL}
+            icon={<FaTelegram />}
+            label="Telegram"
+          />
+          <IconLink href={EMAIL_URL} icon={<HiOutlineMail />} label="Email" />
+          <IconLink
+            href={TWITTER_URL}
+            icon={<RiTwitterXFill />}
+            label="Twitter"
+          />
+          <IconLink href={GITHUB_URL} icon={<SiGithub />} label="GitHub" />
+          <IconLink
+            href={LINKEDIN_URL}
+            icon={<RiLinkedinBoxFill />}
+            label="LinkedIn"
+          />
+          <IconLink
+            href={BUY_COFFEE_URL}
+            icon={<SiBuymeacoffee />}
+            label="Buy Me a Coffee"
+          />
+        </div>
+      </div>
     </footer>
-  )
+  );
+};
+
+function IconLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label?: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="text-textSecondary hover:text-purple transition-colors duration-200 hover:scale-105"
+    >
+      {icon}
+    </a>
+  );
 }

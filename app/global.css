@@ -1,11 +1,29 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-background: #1e1f29;
+  --color-surface: #2b2d3c;
+  --color-border: #3f4154;
+  --color-text: #f8f8f2;
+  --color-textSecondary: #a0aec0;
+  --color-textTertiary: #718096;
+  --color-green: #4ade80;
+  --color-red: #f87171;
+  --color-orange: #fbbf24;
+  --color-yellow: #facc15;
+  --color-purple: #c084fc;
+  --color-pink: #f472b6;
+
+  --font-family-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
 }
 
 :root {
+  /* Syntax highlighting */
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -31,6 +49,8 @@
 
 html {
   min-width: 360px;
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .prose .anchor {
@@ -48,11 +68,11 @@ html {
 }
 
 .prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  @apply underline transition-all decoration-textSecondary underline-offset-2 decoration-[0.1em] text-purple hover:text-green;
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  @apply text-textTertiary;
   content: '#';
 }
 
@@ -61,11 +81,11 @@ html {
 }
 
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+  @apply bg-surface rounded-lg overflow-x-auto border border-border py-2 px-3 text-sm;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  @apply px-1 py-0.5 rounded-lg bg-surface border border-border;
 }
 
 .prose pre code {
@@ -84,23 +104,23 @@ html {
 }
 
 .prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
+  @apply my-4 text-text;
 }
 
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-4xl font-medium tracking-tight mt-6 mb-2 text-green;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-xl font-medium tracking-tight mt-6 mb-2 text-purple;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-xl font-medium tracking-tight mt-6 mb-2 text-text;
 }
 
 .prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2;
+  @apply text-lg font-medium tracking-tight mt-6 mb-2 text-text;
 }
 
 .prose strong {
@@ -108,11 +128,11 @@ html {
 }
 
 .prose ul {
-  @apply list-disc pl-6;
+  @apply list-disc pl-6 text-text;
 }
 
 .prose ol {
-  @apply list-decimal pl-6;
+  @apply list-decimal pl-6 text-text;
 }
 
 .prose > :first-child {

@@ -1,66 +1,96 @@
-import './global.css'
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Navbar } from './components/nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
+import './global.css';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Footer } from './components/footer';
+import Link from 'next/link';
+import { Space_Grotesk } from 'next/font/google';
+
+import type { Metadata } from 'next';
+import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
-  title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+  title: 'Shan8851',
+  description: 'Full Stack Web3 Engineer | DeFi Builder | Product-Focused',
+  icons: {
+    icon: '/avatar.png',
   },
-  description: 'This is my portfolio.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Shan8851',
+    description: 'Full Stack Web3 Engineer | DeFi Builder | Product-Focused',
     url: baseUrl,
-    siteName: 'My Portfolio',
-    locale: 'en_US',
+    siteName: 'Shan8851',
     type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: `${baseUrl}/og.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Shan8851 – Full Stack Web3 Engineer',
+      },
+    ],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shan8851',
+    description: 'Full Stack Web3 Engineer | DeFi Builder | Product-Focused',
+    creator: '@shan8851',
+    images: [`${baseUrl}/og.png`],
   },
-}
+};
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  weight: ['400', '500', '700'],
+});
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
-      )}
-    >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
+    <html lang="en" className={spaceGrotesk.variable}>
+      <body className="bg-background text-text antialiased font-sans min-h-screen">
+        <div className="flex flex-col min-h-screen">
+          <div className="px-4 sm:px-6 md:px-8 w-full max-w-3xl mx-auto flex-1 flex flex-col">
+            <SiteHeader />
+            <main className="flex-grow space-y-12">{children}</main>
+            <footer className="py-8 text-sm text-textSecondary">
+              <Footer />
+            </footer>
+          </div>
           <Analytics />
           <SpeedInsights />
-        </main>
+        </div>
       </body>
     </html>
-  )
+  );
+}
+
+function SiteHeader() {
+  return (
+    <header className="py-4">
+      <nav className="flex items-center justify-end gap-5 text-md font-medium text-text">
+        <NavLink href="/">home</NavLink>
+        <NavLink href="/now">/now</NavLink>
+        <NavLink href="/cv">cv</NavLink>
+        <NavLink href="/blog">writing</NavLink>
+      </nav>
+    </header>
+  );
+}
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="hover:text-green  transition-colors duration-200"
+    >
+      {children}
+    </Link>
+  );
 }

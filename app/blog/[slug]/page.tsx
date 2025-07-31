@@ -1,20 +1,22 @@
 import { notFound } from 'next/navigation'
-import { CustomMDX } from 'app/components/mdx'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
-import { baseUrl } from 'app/sitemap'
+import { CustomMarkdown } from 'app/components/markdown';
+import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { baseUrl } from 'app/sitemap';
+import { BiLeftArrowAlt } from 'react-icons/bi';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts()
+  let posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
 export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
-    return
+    return;
   }
 
   let {
@@ -22,10 +24,10 @@ export function generateMetadata({ params }) {
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.metadata
+  } = post.metadata;
   let ogImage = image
     ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -48,14 +50,14 @@ export function generateMetadata({ params }) {
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
 export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -82,17 +84,34 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
-      </div>
-      <article className="prose">
-        <CustomMDX source={post.content} />
+      <article className="py-2 text-text text-lg">
+        <Link
+          className="font-light flex gap-1 text-textSecondary hover:text-purple items-center my-4 transition-colors"
+          href="/blog"
+        >
+          <BiLeftArrowAlt />
+          go back
+        </Link>
+
+        <h1 className="title font-semibold text-2xl tracking-tighter">
+          {post.metadata.title}
+        </h1>
+        <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </div>
+        <div className="prose">
+          <CustomMarkdown source={post.content} />
+        </div>
+        <Link
+          className="font-light flex gap-1 text-textSecondary hover:text-purple items-center my-6 transition-colors"
+          href="/blog"
+        >
+          <BiLeftArrowAlt />
+          go back
+        </Link>
       </article>
     </section>
-  )
+  );
 }

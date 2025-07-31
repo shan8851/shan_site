@@ -3,7 +3,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next out dist",
+    "clean:all": "rm -rf .next out dist node_modules && pnpm install",
+    "clean:cache": "rm -rf .next/cache && pnpm store prune",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "analyze": "ANALYZE=true next build",
+    "postinstall": "next telemetry disable"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",
@@ -14,10 +24,12 @@
     "@vercel/speed-insights": "^1.0.9",
     "geist": "1.2.2",
     "next": "canary",
-    "next-mdx-remote": "^4.4.1",
     "postcss": "^8.4.35",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^5.5.0",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
     "sugar-high": "^0.6.0",
     "tailwindcss": "4.0.0-alpha.13",
     "typescript": "5.3.3"
