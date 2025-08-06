@@ -132,7 +132,7 @@ export function createBlogMetadata(
   return createMetadata({
     title: post.title,
     description: post.summary ?? `Read "${post.title}" on Shan8851's blog`,
-    path: `/blog/${slug}`,
+    path: `/writing/${slug}`,
     image: ogImage,
     type: 'article',
     publishedTime: post.publishedAt,

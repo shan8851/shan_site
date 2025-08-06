@@ -48,18 +48,16 @@ const spaceGrotesk = Space_Grotesk({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={spaceGrotesk.variable}>
-      <body className="bg-background text-text antialiased font-sans min-h-screen">
-        <div className="flex flex-col min-h-screen">
-          <div className="px-4 sm:px-6 md:px-8 w-full max-w-3xl mx-auto flex-1 flex flex-col">
-            <SiteHeader />
-            <main className="flex-grow space-y-12">{children}</main>
-            <footer className="py-8 text-sm text-textSecondary">
-              <Footer />
-            </footer>
-          </div>
-          <Analytics />
-          <SpeedInsights />
+      <body className="bg-background text-text antialiased font-sans min-h-screen flex flex-col">
+        <SiteHeader />
+        <div className="flex-1 flex flex-col">
+          <main className="flex-1 px-4 sm:px-6 md:px-8 w-full max-w-3xl mx-auto py-8">
+            {children}
+          </main>
+          <Footer />
         </div>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
@@ -67,13 +65,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 function SiteHeader() {
   return (
-    <header className="py-4">
-      <nav className="flex items-center justify-end gap-5 text-md font-medium text-text">
-        <NavLink href="/">home</NavLink>
-        <NavLink href="/now">/now</NavLink>
-        <NavLink href="/cv">cv</NavLink>
-        <NavLink href="/blog">writing</NavLink>
-      </nav>
+    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-background/80 border-b border-border/50">
+      <div className="px-4 sm:px-6 md:px-8 w-full max-w-3xl mx-auto">
+        <nav className="flex items-center justify-end gap-5 text-md font-medium text-text py-4">
+          <NavLink href="/">home</NavLink>
+          <NavLink href="/now">/now</NavLink>
+          <NavLink href="/cv">cv</NavLink>
+          <NavLink href="/writing">writing</NavLink>
+        </nav>
+      </div>
     </header>
   );
 }

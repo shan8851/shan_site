@@ -1,13 +1,13 @@
 import { BlogPosts } from 'app/components/posts'
 import { createMetadata } from 'app/lib/metadata'
 import { ScrollToTop } from 'app/components/scroll-to-top'
-import { getBlogPosts } from 'app/blog/utils'
+import { getBlogPosts } from 'app/writing/utils'
 import { BiBookOpen, BiTime } from 'react-icons/bi'
 
 export const metadata = createMetadata({
-  title: 'Blog',
+  title: 'Writing',
   description: 'Thoughts on Web3, DeFi, engineering, and building products that matter.',
-  path: '/blog',
+  path: '/writing',
   keywords: ['Blog', 'Articles', 'Writing', 'Web3 Blog', 'DeFi Blog'],
 })
 

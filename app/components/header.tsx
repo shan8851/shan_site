@@ -6,7 +6,7 @@ export const Header = () => (
   <header className="flex flex-col gap-6 pt-10">
     <div className="flex items-center gap-4">
       <Image
-        className="rounded-full w-20 h-20 border border-border"
+        className="rounded-full w-20 h-20 border-2 border-green/30"
         src="/avatar.png"
         alt="avatar"
         height={100}
@@ -25,20 +25,20 @@ export const Header = () => (
       Leading end to end development for DeFi platforms, crafting user-centric
       systems for onchain asset management and AI-driven solutions.
     </p>
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-3">
       <a
         download
         href="/cv.pdf"
-        className="border border-border rounded-xl hover:bg-surface py-2 px-4 flex gap-2 items-center"
+        className="bg-purple text-background hover:bg-purple/90 rounded-xl py-2.5 px-4 flex gap-2 items-center font-medium transition-all hover:scale-105"
       >
-        <LuDownload />
+        <LuDownload className="text-md" />
         Download CV
       </a>
       <a
         href={EMAIL_URL}
-        className="border border-border rounded-xl hover:bg-surface py-2 px-4 flex gap-2 items-center"
+        className="border border-border hover:border-purple text-text hover:bg-surface rounded-xl py-2.5 px-4 flex gap-2 items-center font-medium transition-all"
       >
-        <LuMail />
+        <LuMail className="text-md" />
         Contact me
       </a>
     </div>

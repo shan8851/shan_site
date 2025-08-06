@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
+import { formatDate, getBlogPosts } from 'app/writing/utils'
 import { BiRightArrowAlt } from 'react-icons/bi';
 
 export function BlogPosts({ isPage = false }: { isPage?: boolean }) {
@@ -33,7 +33,7 @@ export function BlogPosts({ isPage = false }: { isPage?: boolean }) {
           const date = formatDate(post.metadata.publishedAt);
           return (
             <Link
-              href={`/blog/${post.slug}`}
+              href={`/writing/${post.slug}`}
               key={post.slug}
               className="group block"
             >
@@ -72,7 +72,7 @@ export function BlogPosts({ isPage = false }: { isPage?: boolean }) {
 
         {!isPage && (
           <Link
-            href="/blog"
+            href="/writing"
             className="flex items-center gap-1 text-sm text-text hover:text-green"
           >
             all posts <BiRightArrowAlt className="inline-block" />
