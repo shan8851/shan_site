@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { CustomMarkdown } from 'app/components/markdown';
 import { formatDate, getBlogPosts } from 'app/blog/utils';
 import { baseUrl } from 'app/sitemap';
+import { createBlogMetadata } from 'app/lib/metadata';
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import Link from 'next/link';
 
@@ -19,38 +20,7 @@ export function generateMetadata({ params }) {
     return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+  return createBlogMetadata(post.metadata, post.slug);
 }
 
 export default function Blog({ params }) {
@@ -79,7 +49,7 @@ export default function Blog({ params }) {
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'My Portfolio',
+              name: 'shan8851',
             },
           }),
         }}
