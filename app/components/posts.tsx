@@ -28,46 +28,45 @@ export function BlogPosts({ isPage = false }: { isPage?: boolean }) {
         </div>
       )}
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         {sortedAndLimitedPosts.map((post, index) => {
           const date = formatDate(post.metadata.publishedAt);
-          const isLast = index === sortedAndLimitedPosts.length - 1;
           return (
-            <article
-              className={`pb-4 ${!isLast ? 'border-b border-border' : ''}`}
+            <Link
+              href={`/blog/${post.slug}`}
               key={post.slug}
+              className="group block"
             >
-              <div className="flex justify-between items-center mb-1 gap-4">
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="text-lg font-medium text-text hover:text-purple transition-colors"
-                >
-                  {post.metadata.title}
-                </Link>
-                <p className="text-sm text-textSecondary whitespace-nowrap">
-                  {date}
-                </p>
-              </div>
-
-              {post.metadata.summary && (
-                <p className="text-textSecondary text-sm leading-relaxed mt-1">
-                  {post.metadata.summary}
-                </p>
-              )}
-
-              {post.metadata.tags && (
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {post.metadata.tags.split(',').map((tag) => (
-                    <span
-                      key={tag.trim()}
-                      className="text-xs bg-surface text-textSecondary px-2 py-0.5 rounded-md border border-border"
-                    >
-                      {tag.trim()}
-                    </span>
-                  ))}
+              <article className="p-5 rounded-lg border border-border bg-surface/50 hover:bg-surface hover:border-textSecondary/30 transition-all duration-200">
+                <div className="flex justify-between items-start mb-2 gap-4">
+                  <h4 className="text-lg font-medium text-text group-hover:text-purple transition-colors">
+                    {post.metadata.title}
+                  </h4>
+                  <p className="text-sm text-textSecondary whitespace-nowrap">
+                    {date}
+                  </p>
                 </div>
-              )}
-            </article>
+
+                {post.metadata.summary && (
+                  <p className="text-textSecondary text-sm leading-relaxed">
+                    {post.metadata.summary}
+                  </p>
+                )}
+
+                {post.metadata.tags && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {post.metadata.tags.split(',').map((tag) => (
+                      <span
+                        key={tag.trim()}
+                        className="text-xs bg-background/60 text-textSecondary px-2 py-0.5 rounded-md border border-border"
+                      >
+                        {tag.trim()}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            </Link>
           );
         })}
 

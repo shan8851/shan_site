@@ -17,37 +17,35 @@ const Project: React.FC<ProjectProps> = ({
   isLast,
 }) => {
   return (
-    <div
-      className={`flex flex-col gap-2 pb-4 ${
-        !isLast ? 'border-b border-border' : ''
-      }`}
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block"
     >
-      <div className="flex items-center justify-between flex-wrap gap-3">
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lg font-medium text-text hover:text-purple transition-colors"
-        >
-          {title}
-        </a>
-        {tags && (
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="text-xs bg-surface text-textSecondary px-2 py-0.5 rounded-md border border-border"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+      <div className="p-5 rounded-lg border border-border bg-surface/50 hover:bg-surface hover:border-textSecondary/30 transition-all duration-200">
+        <div className="flex items-center justify-between flex-wrap gap-3 mb-2">
+          <h4 className="text-lg font-medium text-text group-hover:text-purple transition-colors">
+            {title}
+          </h4>
+          {tags && (
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="text-xs bg-background/60 text-textSecondary px-2 py-0.5 rounded-md border border-border"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        <p className="text-sm text-textSecondary leading-relaxed">
+          {description}
+        </p>
       </div>
-      <p className="text-sm text-textSecondary leading-relaxed">
-        {description}
-      </p>
-    </div>
+    </a>
   );
 };
 
@@ -66,7 +64,7 @@ export const ProjectsPage: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         {projectsData.map((project, index) => (
           <Project
             key={index}
