@@ -65,10 +65,18 @@ export default function Cv() {
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
-            <span className="text-xs bg-background/60 text-green px-2 py-1 rounded-md border border-border">6+ Years Experience</span>
-            <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">Lead Engineer</span>
-            <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">DeFi Expert</span>
-            <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">Full Stack</span>
+            <span className="text-xs bg-background/60 text-green px-2 py-1 rounded-md border border-border">
+              6+ Years Experience
+            </span>
+            <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">
+              Senior Engineer
+            </span>
+            <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">
+              DeFi Expert
+            </span>
+            <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">
+              Full Stack
+            </span>
           </div>
         </div>
       </header>
@@ -87,7 +95,10 @@ export default function Cv() {
             <h3 className="font-semibold text-green mb-2">Frontend</h3>
             <div className="flex flex-wrap gap-2">
               {['React', 'Next.js', 'Tailwind', 'TanStack'].map((tech) => (
-                <span key={tech} className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border">
+                <span
+                  key={tech}
+                  className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border"
+                >
                   {tech}
                 </span>
               ))}
@@ -97,7 +108,10 @@ export default function Cv() {
             <h3 className="font-semibold text-green mb-2">Web3</h3>
             <div className="flex flex-wrap gap-2">
               {['Viem', 'Wagmi', 'Solidity', 'Foundry'].map((tech) => (
-                <span key={tech} className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border">
+                <span
+                  key={tech}
+                  className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border"
+                >
                   {tech}
                 </span>
               ))}
@@ -106,8 +120,17 @@ export default function Cv() {
           <div className="p-4 rounded-lg bg-surface/30 border border-border">
             <h3 className="font-semibold text-green mb-2">Backend/Data</h3>
             <div className="flex flex-wrap gap-2">
-              {['Node.js', 'GraphQL', 'REST', 'Firebase', 'Rust (Learning)'].map((tech) => (
-                <span key={tech} className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border">
+              {[
+                'Node.js',
+                'GraphQL',
+                'REST',
+                'Firebase',
+                'Rust (Learning)',
+              ].map((tech) => (
+                <span
+                  key={tech}
+                  className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border"
+                >
                   {tech}
                 </span>
               ))}
@@ -117,7 +140,10 @@ export default function Cv() {
             <h3 className="font-semibold text-green mb-2">Infrastructure</h3>
             <div className="flex flex-wrap gap-2">
               {['Docker', 'CI/CD', 'GitHub Actions'].map((tech) => (
-                <span key={tech} className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border">
+                <span
+                  key={tech}
+                  className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded border border-border"
+                >
                   {tech}
                 </span>
               ))}
