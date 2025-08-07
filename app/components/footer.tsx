@@ -16,7 +16,7 @@ export const Footer = () => {
     <footer className="mt-auto border-t border-border/50 bg-surface/20">
       <div className="px-4 sm:px-6 md:px-8 w-full max-w-3xl mx-auto py-6">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-3 text-sm text-textSecondary">
+          <div className="flex flex-row items-center gap-3 text-sm text-textSecondary">
             <span className="font-medium text-text">shan8851.eth</span>
             <span className="hidden sm:inline text-border">•</span>
             <span>© 2025</span>
