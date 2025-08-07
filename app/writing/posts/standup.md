@@ -1,7 +1,7 @@
 ---
 title: The daily standup that takes 45 minutes (and why ee're all pretending it's fine)
 summary: I've had dailies that are longer than deep work sessions. And I'm sick od pretending it's normal.
-publishedAt: "2025-08-07"
+publishedAt: "2025-04-07"
 tags: software-teams, process
 ---
 
