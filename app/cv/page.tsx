@@ -30,7 +30,7 @@ const CvSection = ({
 
 export default function Cv() {
   return (
-    <div className="mt-10 space-y-10 text-base leading-relaxed text-text">
+    <div className="space-y-10 text-base leading-relaxed text-text">
       <header className="space-y-6">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <h1 className="text-4xl font-bold text-green">CV</h1>

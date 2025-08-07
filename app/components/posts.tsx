@@ -42,9 +42,11 @@ export function BlogPosts({ isPage = false }: { isPage?: boolean }) {
                   <h4 className="text-lg font-medium text-text group-hover:text-purple transition-colors">
                     {post.metadata.title}
                   </h4>
-                  <p className="text-sm text-textSecondary whitespace-nowrap">
-                    {date}
-                  </p>
+                  <span className="px-3 py-1 rounded-full bg-background/60 border border-border">
+                    <p className="text-sm text-textSecondary whitespace-nowrap">
+                      {date}
+                    </p>
+                  </span>
                 </div>
 
                 {post.metadata.summary && (

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { LuDownload, LuMail } from 'react-icons/lu';
 
 export const Header = () => (
-  <header className="flex flex-col gap-4 pt-10">
+  <header className="flex flex-col gap-4 ">
     <div className="flex items-center gap-4">
       <Image
         className="rounded-full w-20 h-20 border-2 border-green/30"

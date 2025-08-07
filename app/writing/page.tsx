@@ -23,17 +23,17 @@ export default function Page() {
 
   return (
     <>
-      <section className="flex flex-col gap-8 mt-10">
+      <section className="flex flex-col gap-8">
         <div className="space-y-4">
           <h1 className="text-4xl font-bold text-green">Writing</h1>
-          
+
           <div className="p-6 rounded-lg border border-border bg-surface/30 space-y-4">
             <p className="text-lg text-text/90 leading-relaxed">
-              A collection of thoughts on Web3, DeFi, engineering, and building products 
-              that matter. I write about my experiences in the crypto space, technical 
-              challenges, and lessons learned along the way.
+              A collection of thoughts on Web3, DeFi, engineering, and building
+              products that matter. I write about my experiences in the crypto
+              space, technical challenges, and lessons learned along the way.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-background/60 rounded-lg border border-border">
                 <BiBookOpen className="text-green" />
@@ -41,7 +41,9 @@ export default function Page() {
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-background/60 rounded-lg border border-border">
                 <BiTime className="text-purple" />
-                <span className="text-textSecondary">~{avgReadTime} min avg read</span>
+                <span className="text-textSecondary">
+                  ~{avgReadTime} min avg read
+                </span>
               </div>
             </div>
 
