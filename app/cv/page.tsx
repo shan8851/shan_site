@@ -48,22 +48,23 @@ export default function Cv() {
           <div className="flex items-center gap-3">
             <span className="text-2xl">👨‍💻</span>
             <p className="text-xl font-semibold text-purple">
-              Full Stack Engineer · DeFi
+              Full Stack Engineer · Making web3 less terrible
             </p>
           </div>
 
           <p className="text-text/90 leading-relaxed">
-            Full stack engineer with 6+ years of experience, currently leading
-            development at a stealth DeFi startup building an onchain asset
-            management platform. Passionate about crafting intuitive, scalable
-            systems that simplify complex DeFi interactions. Previously scaled a
-            DeFi analytics platform across 16+ EVM chains at Cielo Finance,
-            driving 800% engagement growth, and co-founded a B2C startup.
-            Focused on deepening expertise in backend infrastructure, AI
-            integrations, RWA tokenization, and stablecoin mechanics to create
-            user-centric, impactful crypto products.
+            Full stack engineer with 6+ years figuring out how to make
+            blockchain tech actually usable. Currently at Polygon working on
+            infrastructure that might (hopefully) bring millions to Web3.
           </p>
-
+          <p className="text-text/90 leading-relaxed">
+            Previously helped scale DeFi analytics across 16+ chains at Cielo,
+            built governance tools at Aragon, and co-founded a B2C startup that
+            taught me failure is just expensive education.
+          </p>
+          <p className="text-text/90 leading-relaxed">
+            Currently obsessing over making web3 usable for all.
+          </p>
           <div className="flex flex-wrap gap-2 pt-2">
             <span className="text-xs bg-background/60 text-green px-2 py-1 rounded-md border border-border">
               6+ Years Experience

@@ -21,9 +21,9 @@ export function BlogPosts({ isPage = false }: { isPage?: boolean }) {
             Writing
           </h3>
           <p className="text-textSecondary text-base mt-2 leading-loose">
-            Writing has always been part of how I learn and reflect. These days
-            I’m focused on DAO tooling, full-stack engineering in Web3, and
-            helping others navigate the space.
+            Writing has always been part of how I learn and reflect. Here, I
+            mostly share my thoughts on the industry and try and help newcomers
+            understand what the hell is going on.
           </p>
         </div>
       )}

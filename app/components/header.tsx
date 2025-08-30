@@ -18,18 +18,16 @@ export const Header = () => (
     </div>
     <div className="flex flex-col gap-2">
       <p className="text-xl font-medium leading-snug text-text">
-        Senior Full Stack <span className="text-purple">Web3 Engineer</span>{' '}
-        building intuitive DeFi products & scalable blockchain solutions.
+        Senior full stack engineer obsessed with making web3 actually usable.
       </p>
-
       <p className="text-base leading-loose text-textSecondary max-w-prose">
-        Leading product-driven development, creating intuitive DeFi solutions
-        that balance cutting-edge blockchain capabilities with seamless user
-        experiences.
+        From DeFi protocols to infrastructure layers - building products that
+        bridge the gap between blockchain potential and real world adoption.
       </p>
 
       <p className="text-base italic leading-loose text-textSecondary max-w-prose">
-        Prev Aragon | Cielo • Currently shaping DeFi at Stealth
+        Prev Aragon | Cielo • Currently at Polygon working on the future of
+        interoperability.
       </p>
     </div>
 

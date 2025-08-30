@@ -57,10 +57,12 @@ export const ProjectsPage: React.FC = () => {
           Tinkering
         </h3>
         <p className="text-base text-textSecondary mt-2 leading-loose">
-          I treat projects like prototypes: quick builds to explore new
-          patterns, tools, or mental models. Some grow into real tools, others
-          are pure learning. Either way, they’re a core part of how I stay sharp
-          and push deeper into the stack.
+          Building random stuff is basically my professional version of going to
+          the gym - except instead of getting stronger, I get better at googling
+          error messages. I throw together quick prototypes to test ideas,
+          explore tools, or scratch some itch I didn't know I had. Some turn
+          into something useful, others end up going nowhere. Either way, beats
+          getting rusty.
         </p>
       </div>
 

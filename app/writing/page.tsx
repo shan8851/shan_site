@@ -29,11 +29,11 @@ export default function Page() {
 
           <div className="p-6 rounded-lg border border-border bg-surface/30 space-y-4">
             <p className="text-lg text-text/90 leading-relaxed">
-              A collection of thoughts on Web3, DeFi, engineering, and building
-              products that matter. I write about my experiences in the crypto
-              space, technical challenges, and lessons learned along the way.
+              A collection of thoughts from someone who's definitely still
+              figuring it out. I write about Web3, engineering, and the
+              occasional crisis that comes with building in crypto. Mostly it's
+              me learning out loud and pretending I know what I'm talking about.
             </p>
-
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-background/60 rounded-lg border border-border">
                 <BiBookOpen className="text-green" />

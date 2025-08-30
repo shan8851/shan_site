@@ -27,29 +27,28 @@ export default function Now() {
           </h2>
           <div className="space-y-3 text-text/90">
             <p className="leading-loose">
-              I recently joined an early-stage DeFi startup as a Lead Full Stack
-              Engineer, building an onchain asset management platform. It's a
-              one-stop shop for decentralized finance, with AI-driven features
-              in development. I'm leading end-to-end development, crafting
-              scalable and user-focused systems across the stack.
+              Recently joined Polygon as a full stack engineer, working on
+              infrastructure and cross-chain solutions. Starting next week and
+              excited to dive into building tools that could actually scale Web3
+              to millions of users.
             </p>
             <p className="leading-loose">
-              I'm deepening my expertise in backend infrastructure and AI
-              integrations for DeFi, with a strong interest in RWA tokenization
-              and stablecoin mechanics.
+              Currently brushing up on infrastructure patterns and cross-chain
+              protocols - back to that sweet spot of being slightly out of my
+              depth.
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">
                 DeFi
               </span>
               <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">
-                Full Stack
+                full stack
               </span>
               <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">
-                AI Integration
+                cross chain
               </span>
               <span className="text-xs bg-background/60 text-textSecondary px-2 py-1 rounded-md border border-border">
-                RWA
+                dev tools
               </span>
             </div>
           </div>

@@ -7,19 +7,19 @@ export const Mentoring: React.FC = () => (
         Mentoring
       </h2>
       <p className="text-textSecondary text-base mt-2 max-w-prose leading-relaxed">
-        I’ve been mentoring developers for the past few years — starting with
-        friends, then growing into community-based and platform mentoring. I’ve
-        helped multiple people land their first tech roles and level up their
-        skills through focused support, honest feedback, and real-world
-        insights.
+        Started mentoring friends who kept asking "how do I break into tech?"
+        and somehow that turned into a whole thing. Over the past few years,
+        I've helped people land their first roles, navigate the early years, and
+        occasionally talk them out of quitting when imposter syndrome hits hard.
       </p>
     </div>
 
     <p className="text-base text-textSecondary leading-loose">
-      While I’m no longer active on platforms like Coding Coach or The Mentoring
-      Club, I’m always open to supporting motivated learners. If you’re serious
-      about growth and want guidance breaking into the industry, feel free to
-      reach out via{' '}
+      I'm no longer active on platforms like Coding Coach or The Mentoring Club
+      (turns out I prefer the organic, "let's grab coffee and figure this out"
+      approach), but I'm always up for helping motivated people navigate this
+      industry. If you're serious about levelling up and don't mind honest
+      feedback mixed with questionable life advice, hit me up via{' '}
       <a
         className="text-green underline underline-offset-4 hover:text-purple transition-colors"
         href={EMAIL_URL}
