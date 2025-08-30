@@ -2,16 +2,6 @@ import { JobDetails } from "app/components/job";
 
 export const jobsData: JobDetails[] = [
   {
-    company: 'Stealth (DeFi)',
-    title: 'Lead Full Stack Engineer',
-    date: 'Aug 2025 - Present',
-    description: [
-      'Leading end-to-end development for an early-stage DeFi startup building an onchain asset management platform, designed as a one-stop shop for decentralized finance.',
-      'Driving the creation of scalable, user-focused systems across the stack, with AI-driven features in development.',
-      'Deepening expertise in backend infrastructure and AI integrations, with a focus on RWA tokenization and stablecoin mechanics.',
-    ],
-  },
-  {
     company: 'Aragon',
     title: 'Senior Software Engineer',
     date: 'Jul 2024 - Jul 2025',
