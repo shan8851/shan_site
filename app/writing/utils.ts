@@ -54,6 +54,14 @@ export function getBlogPosts() {
   return getMDData(path.join(process.cwd(), 'app', 'writing', 'posts'))
 }
 
+export function sortPostsByDate(posts: ReturnType<typeof getBlogPosts>) {
+  return posts.sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+  );
+}
+
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date();
   if (!date.includes('T')) {

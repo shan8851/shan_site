@@ -6,6 +6,7 @@ import { baseUrl } from 'app/sitemap';
 import { createBlogMetadata } from 'app/lib/metadata';
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -15,17 +16,19 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  let post = getBlogPosts().find((post) => post.slug === slug);
   if (!post) {
-    return;
+    return {};
   }
 
   return createBlogMetadata(post.metadata, post.slug);
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function Blog({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  let post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

@@ -1,16 +1,11 @@
 import { baseUrl } from 'app/sitemap'
-import { getBlogPosts } from 'app/writing/utils'
+import { getBlogPosts, sortPostsByDate } from 'app/writing/utils'
 
 export async function GET() {
   let allBlogs = await getBlogPosts()
+  const sortedBlogs = sortPostsByDate(allBlogs)
 
-  const itemsXml = allBlogs
-    .sort((a, b) => {
-      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-        return -1
-      }
-      return 1
-    })
+  const itemsXml = sortedBlogs
     .map(
       (post) =>
         `<item>

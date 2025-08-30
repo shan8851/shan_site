@@ -1,16 +1,10 @@
 import Link from 'next/link'
-import { formatDate, getBlogPosts } from 'app/writing/utils'
+import { formatDate, getBlogPosts, sortPostsByDate } from 'app/writing/utils'
 import { BiRightArrowAlt } from 'react-icons/bi';
 
 export function BlogPosts({ isPage = false }: { isPage?: boolean }) {
   let allBlogs = getBlogPosts();
-
-  const sortedPosts = allBlogs.sort(
-    (a, b) =>
-      new Date(b.metadata.publishedAt).getTime() -
-      new Date(a.metadata.publishedAt).getTime()
-  );
-
+  const sortedPosts = sortPostsByDate(allBlogs);
   const sortedAndLimitedPosts = isPage ? sortedPosts : sortedPosts.slice(0, 3);
 
   return (
