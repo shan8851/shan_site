@@ -1,42 +1,32 @@
 import './global.css';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Footer } from './components/footer';
-import Link from 'next/link';
 import { Space_Grotesk } from 'next/font/google';
 
 import type { Metadata } from 'next';
 import { baseUrl } from './sitemap';
-import { Nav } from 'app/components/nav';
 
 export const metadata: Metadata = {
-  title: 'Shan8851',
-  description: 'Full Stack Web3 Engineer | DeFi Builder | Product-Focused',
+  title: 'shan8851.eth - Senior Full Stack Engineer',
+  description: 'Senior Full Stack Engineer at Polygon. Building the bridge between blockchain potential and real-world adoption.',
+  keywords: 'Web3, DeFi, Blockchain, Full Stack Engineer, Polygon, Cross-chain, Infrastructure',
+  authors: [{ name: 'shan8851' }],
   icons: {
     icon: '/avatar.png',
   },
   openGraph: {
-    title: 'Shan8851',
-    description: 'Full Stack Web3 Engineer | DeFi Builder | Product-Focused',
+    title: 'shan8851.eth',
+    description: 'Senior Full Stack Engineer at Polygon. Building the bridge between blockchain potential and real-world adoption.',
     url: baseUrl,
-    siteName: 'Shan8851',
+    siteName: 'shan8851.eth',
     type: 'website',
     locale: 'en_US',
-    images: [
-      {
-        url: `${baseUrl}/og.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Shan8851 – Full Stack Web3 Engineer',
-      },
-    ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Shan8851',
-    description: 'Full Stack Web3 Engineer | DeFi Builder | Product-Focused',
+    card: 'summary',
+    title: 'shan8851.eth',
+    description: 'Senior Full Stack Engineer at Polygon. Building the bridge between blockchain potential and real-world adoption.',
     creator: '@shan8851',
-    images: [`${baseUrl}/og.png`],
   },
 };
 
@@ -53,14 +43,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={spaceGrotesk.variable}>
-      <body className="bg-background text-text antialiased font-sans min-h-screen flex flex-col">
-        <Nav />
-        <div className="flex-1 flex flex-col">
-          <main className="flex-1 px-4 sm:px-6 md:px-8 w-full max-w-3xl mx-auto py-8">
-            {children}
-          </main>
-          <Footer />
-        </div>
+      <body className="bg-background text-text antialiased font-sans min-h-screen">
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>
