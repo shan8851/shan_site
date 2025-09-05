@@ -21,12 +21,21 @@ export const metadata: Metadata = {
     siteName: 'shan8851.eth',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: '/og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'shan8851.eth - Senior Full Stack Engineer',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'shan8851.eth',
     description: 'Senior Full Stack Engineer at Polygon. Building the bridge between blockchain potential and real-world adoption.',
     creator: '@shan8851',
+    images: ['/og.jpg'],
   },
 };
 
