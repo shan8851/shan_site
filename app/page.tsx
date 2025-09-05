@@ -42,7 +42,7 @@ export default function Home() {
             Senior Full Stack Engineer
           </p>
           <p className="text-base text-textSecondary max-w-md mx-auto leading-relaxed">
-            Building the bridge between blockchain potential and real-world
+            Building the bridge between blockchain potential and real world
             adoption. Currently at Polygon, working on the future of
             interoperability.
           </p>
@@ -60,60 +60,45 @@ export default function Home() {
         <div className="flex flex-wrap justify-center gap-4 w-full max-w-md">
           <a
             href={EMAIL_URL}
-            className="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface border border-border/50 hover:border-green/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all hover:scale-105 w-[130px]"
+            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-green/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all hover:scale-105 "
           >
             <LuMail className="text-2xl text-green" />
-            <span className="text-sm font-medium text-textSecondary group-hover:text-text">
-              Email
-            </span>
           </a>
 
           <a
             href={TWITTER_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface border border-border/50 hover:border-purple/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all hover:scale-105 w-[130px]"
+            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-purple/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all hover:scale-105 "
           >
             <FaXTwitter className="text-2xl text-purple" />
-            <span className="text-sm font-medium text-textSecondary group-hover:text-text">
-              X
-            </span>
           </a>
 
           <a
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface border border-border/50 hover:border-orange/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(249,115,22,0.15)] transition-all hover:scale-105 w-[130px]"
+            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-orange/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(249,115,22,0.15)] transition-all hover:scale-105 "
           >
             <LuLinkedin className="text-2xl text-orange" />
-            <span className="text-sm font-medium text-textSecondary group-hover:text-text">
-              LinkedIn
-            </span>
           </a>
 
           <a
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface border border-border/50 hover:border-red/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] transition-all hover:scale-105 w-[130px]"
+            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-red/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] transition-all hover:scale-105 "
           >
             <LuGithub className="text-2xl text-red" />
-            <span className="text-sm font-medium text-textSecondary group-hover:text-text">
-              GitHub
-            </span>
           </a>
 
           <a
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface border border-border/50 hover:border-pink/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(236,72,153,0.15)] transition-all hover:scale-105 w-[130px]"
+            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-pink/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(236,72,153,0.15)] transition-all hover:scale-105 "
           >
             <LuSend className="text-2xl text-pink" />
-            <span className="text-sm font-medium text-textSecondary group-hover:text-text">
-              Telegram
-            </span>
           </a>
         </div>
 
