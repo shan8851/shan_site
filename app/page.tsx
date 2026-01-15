@@ -6,111 +6,184 @@ import {
   EMAIL_URL,
   TELEGRAM_URL,
 } from 'app/constants';
-import {
-  LuMail,
-  LuGithub,
-  LuLinkedin,
-  LuTwitter,
-  LuSend,
-} from 'react-icons/lu';
-import { FaXTwitter } from 'react-icons/fa6';
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-2xl w-full flex flex-col items-center gap-8 py-12">
-        {/* Avatar */}
-        <div className="relative">
-          <Image
-            className="rounded-full w-32 h-32 border-2 border-purple/70 shadow-2xl"
-            src="/avatar.png"
-            alt="avatar"
-            height={128}
-            width={128}
-          />
-          <div className="absolute -bottom-2 -right-2 bg-purple text-background rounded-full p-2">
-            <span className="text-xl font-bold">gm</span>
+    <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
+      {/* Terminal Window */}
+      <div className="w-full max-w-2xl bg-surface border border-border rounded-lg overflow-hidden shadow-2xl shadow-green/5">
+        {/* Terminal Title Bar */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-background border-b border-border">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-red" />
+            <div className="w-3 h-3 rounded-full bg-amber" />
+            <div className="w-3 h-3 rounded-full bg-green" />
           </div>
-        </div>
-
-        {/* Name & Title */}
-        <div className="text-center space-y-3">
-          <h1 className="text-5xl font-extrabold bg-gradient-to-r from-green via-green to-purple/70 bg-clip-text text-transparent tracking-tight">
-            shan8851.eth
-          </h1>
-          <p className="text-xl font-medium text-text">
-            Senior Full Stack Engineer
-          </p>
-          <p className="text-base text-textSecondary max-w-md mx-auto leading-relaxed">
-            On a mission to bring all money on-chain. Building the future of
-            payments at Polygon.
-          </p>
-        </div>
-
-        {/* Status Badge */}
-        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-purple/70">
-          <div className="w-2 h-2 bg-purple rounded-full animate-pulse"></div>
-          <span className="text-sm font-medium text-textSecondary">
-            Payments on-chain
+          <span className="flex-1 text-center text-xs text-textTertiary">
+            shan@web3:~
           </span>
         </div>
 
-        {/* Social Links */}
-        <div className="flex flex-wrap justify-center gap-4 w-full max-w-md">
-          <a
-            href={EMAIL_URL}
-            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-green/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all hover:scale-105 "
-          >
-            <LuMail className="text-2xl text-green" />
-          </a>
+        {/* Terminal Content */}
+        <div className="p-6 md:p-8 space-y-6">
+          {/* Header with avatar */}
+          <div className="flex items-start gap-4">
+            <Image
+              className="rounded border border-green/50 w-16 h-16 md:w-20 md:h-20"
+              src="/avatar.png"
+              alt="avatar"
+              height={80}
+              width={80}
+            />
+            <div className="flex-1 space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="text-green">$</span>
+                <span className="text-amber">whoami</span>
+              </div>
+              <h1 className="text-2xl md:text-3xl font-bold text-greenMuted">
+                shan8851.eth
+              </h1>
+              <p className="text-sm text-textSecondary">
+                Senior Full Stack Engineer
+              </p>
+            </div>
+          </div>
 
-          <a
-            href={TWITTER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-purple/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all hover:scale-105 "
-          >
-            <FaXTwitter className="text-2xl text-purple" />
-          </a>
+          {/* Divider */}
+          <div className="text-textTertiary text-xs">
+            {'─'.repeat(50)}
+          </div>
 
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-orange/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(249,115,22,0.15)] transition-all hover:scale-105 "
-          >
-            <LuLinkedin className="text-2xl text-orange" />
-          </a>
+          {/* Bio */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">cat</span>
+              <span className="text-text">mission.txt</span>
+            </div>
+            <p className="text-text pl-4 leading-relaxed">
+              On a mission to bring all money on-chain.
+              <br />
+              Building the future of payments at{' '}
+              <span className="text-magenta">Polygon</span>.
+            </p>
+          </div>
 
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-red/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] transition-all hover:scale-105 "
-          >
-            <LuGithub className="text-2xl text-red" />
-          </a>
+          {/* Status */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">status</span>
+            </div>
+            <div className="flex items-center gap-2 pl-4">
+              <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
+              <span className="text-green text-sm">Payments on-chain</span>
+            </div>
+          </div>
 
-          <a
-            href={TELEGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col items-center gap-3 p-3 md:p-6 rounded-xl bg-surface border border-border/50 hover:border-pink/30 hover:bg-surface/80 hover:shadow-[0_0_20px_rgba(236,72,153,0.15)] transition-all hover:scale-105 "
-          >
-            <LuSend className="text-2xl text-pink" />
-          </a>
-        </div>
+          {/* Links */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">ls</span>
+              <span className="text-text">./links</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pl-4">
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">github</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  @shan8851
+                </span>
+              </a>
+              <a
+                href={TWITTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">x</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  @shan8851
+                </span>
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">linkedin</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  /in/asam-shan
+                </span>
+              </a>
+              <a
+                href={EMAIL_URL}
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">email</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  ping me
+                </span>
+              </a>
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">telegram</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  @shan8851
+                </span>
+              </a>
+            </div>
+          </div>
 
-        {/* Quick Bio */}
-        <div className="text-center max-w-lg space-y-2 pt-4">
-          <p className="text-sm text-textSecondary leading-relaxed">
-            Previously: Aragon | Cielo Finance
-          </p>
-          <p className="text-xs text-textTertiary">
-            Payments • Stablecoins • Infrastructure • DeFi
-          </p>
+          {/* Experience */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">history</span>
+              <span className="text-textTertiary">--previous</span>
+            </div>
+            <div className="pl-4 text-sm text-textSecondary">
+              <span className="text-amber">Aragon</span>
+              <span className="text-textTertiary"> | </span>
+              <span className="text-amber">Cielo Finance</span>
+            </div>
+          </div>
+
+          {/* Tags */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">echo</span>
+              <span className="text-text">$INTERESTS</span>
+            </div>
+            <div className="pl-4 text-xs text-textTertiary">
+              [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;]
+            </div>
+          </div>
+
+          {/* Prompt */}
+          <div className="flex items-center gap-2 pt-4">
+            <span className="text-green">$</span>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Home;

@@ -1,7 +1,7 @@
 import './global.css';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Space_Grotesk } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
 
 import type { Metadata } from 'next';
 import { baseUrl } from './sitemap';
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
 };
 
-const spaceGrotesk = Space_Grotesk({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-mono',
   weight: ['400', '500', '700'],
 });
 
@@ -51,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={spaceGrotesk.variable}>
-      <body className="bg-background text-text antialiased font-sans min-h-screen">
+    <html lang="en" className={jetbrainsMono.variable}>
+      <body className="bg-background text-text antialiased font-mono min-h-screen">
         {children}
         <Analytics />
         <SpeedInsights />
