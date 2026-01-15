@@ -8,15 +8,15 @@ import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
   title: 'shan8851.eth - Senior Full Stack Engineer',
-  description: 'Senior Full Stack Engineer at Polygon. Building the bridge between blockchain potential and real-world adoption.',
-  keywords: 'Web3, DeFi, Blockchain, Full Stack Engineer, Polygon, Cross-chain, Infrastructure',
+  description: 'Senior Full Stack Engineer at Polygon. On a mission to bring all money on-chain.',
+  keywords: 'Web3, Payments, Blockchain, Full Stack Engineer, Polygon, Stablecoins, Infrastructure',
   authors: [{ name: 'shan8851' }],
   icons: {
     icon: '/avatar.png',
   },
   openGraph: {
     title: 'shan8851.eth',
-    description: 'Senior Full Stack Engineer at Polygon. Building the bridge between blockchain potential and real-world adoption.',
+    description: 'Senior Full Stack Engineer at Polygon. On a mission to bring all money on-chain.',
     url: baseUrl,
     siteName: 'shan8851.eth',
     type: 'website',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'shan8851.eth',
-    description: 'Senior Full Stack Engineer at Polygon. Building the bridge between blockchain potential and real-world adoption.',
+    description: 'Senior Full Stack Engineer at Polygon. On a mission to bring all money on-chain.',
     creator: '@shan8851',
     images: ['/og.jpg'],
   },

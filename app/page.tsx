@@ -42,9 +42,8 @@ export default function Home() {
             Senior Full Stack Engineer
           </p>
           <p className="text-base text-textSecondary max-w-md mx-auto leading-relaxed">
-            Building the bridge between blockchain potential and real world
-            adoption. Currently at Polygon, working on the future of
-            interoperability.
+            On a mission to bring all money on-chain. Building the future of
+            payments at Polygon.
           </p>
         </div>
 
@@ -52,7 +51,7 @@ export default function Home() {
         <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-purple/70">
           <div className="w-2 h-2 bg-purple rounded-full animate-pulse"></div>
           <span className="text-sm font-medium text-textSecondary">
-            Shipping at Polygon
+            Payments on-chain
           </span>
         </div>
 
@@ -108,7 +107,7 @@ export default function Home() {
             Previously: Aragon | Cielo Finance
           </p>
           <p className="text-xs text-textTertiary">
-            DeFi • Infrastructure • Cross-chain • Developer Tools
+            Payments • Stablecoins • Infrastructure • DeFi
           </p>
         </div>
       </div>
