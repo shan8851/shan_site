@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: 'shan8851.eth - Senior Full Stack Engineer',
   description: 'Senior Full Stack Engineer at Polygon. On a mission to bring all money on-chain.',
   keywords: 'Web3, Payments, Blockchain, Full Stack Engineer, Polygon, Stablecoins, Infrastructure',
