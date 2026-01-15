@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   TWITTER_URL,
   GITHUB_URL,
@@ -147,6 +148,27 @@ const Home = () => {
                   @shan8851
                 </span>
               </a>
+            </div>
+          </div>
+
+          {/* Pages */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">ls</span>
+              <span className="text-text">./pages</span>
+            </div>
+            <div className="pl-4">
+              <Link
+                href="/uses"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">uses</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  tools & setup
+                </span>
+              </Link>
             </div>
           </div>
 
