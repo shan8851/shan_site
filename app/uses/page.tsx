@@ -47,25 +47,13 @@ const UsesPage = () => {
             </p>
           </div>
 
-          {/* Hardware */}
-          <Section title="hardware">
-            <Item name="MacBook Pro M4" description="Work machine" />
-            <Item name="Tuxedo Linux Laptop" description="Personal machine, TuxedoOS" />
-            <Item name="Dual Monitor Setup" description="External displays" />
-            <Item name="Logitech MX Keys" description="Keyboard" />
-            <Item name="Logitech MX Master" description="Mouse" />
-            <Item name="Sony WH-1000XM5" description="Headphones" />
-          </Section>
-
           {/* Editor & Terminal */}
           <Section title="editor">
             <Item name="VS Code" description="Primary editor, Gruvbox theme" />
             <Item name="Zed" description="Fast secondary editor" />
-            <Item name="Claude Code" description="AI-assisted coding" />
             <Item name="Codex" description="AI coding agent" />
             <Item name="Kitty" description="Terminal emulator" />
             <Item name="Zsh + Oh My Zsh" description="Shell setup" />
-            <Item name="IBM Plex Mono" description="Font everywhere" />
             <Item name="Lazygit" description="TUI git client" />
           </Section>
 
@@ -91,7 +79,6 @@ const UsesPage = () => {
             <Item name="Ledger" description="Hardware wallet" />
             <Item name="Polygon / EVM" description="Main chains" />
             <Item name="Tenderly" description="Debugging & simulations" />
-            <Item name="Dune Analytics" description="On-chain data" />
             <Item name="Block Explorers" description="Etherscan, Polygonscan, etc." />
           </Section>
 

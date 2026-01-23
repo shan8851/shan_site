@@ -3,10 +3,14 @@ import Link from 'next/link';
 import {
   TWITTER_URL,
   GITHUB_URL,
-  LINKEDIN_URL,
   EMAIL_URL,
   TELEGRAM_URL,
 } from 'app/constants';
+
+const AGGLAYER_UI_URL = 'https://ui.agglayer.dev/';
+const ARAGON_GOV_UI_KIT_URL = 'https://github.com/aragon/gov-ui-kit';
+const ARAGON_APP_URL = 'https://github.com/aragon/app';
+const WEB3PRIVACY_URL = 'https://web3privacy.info/';
 
 const Home = () => {
   return (
@@ -65,8 +69,7 @@ const Home = () => {
             <p className="text-text pl-4 leading-relaxed">
               On a mission to bring all money on-chain.
               <br />
-              Building the future of payments at{' '}
-              <span className="text-magenta">Polygon</span>.
+              Building payments stuff at <span className="text-magenta">Polygon</span>.
             </p>
           </div>
 
@@ -82,74 +85,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Links */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-green">$</span>
-              <span className="text-amber">ls</span>
-              <span className="text-text">./links</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pl-4">
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">github</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  @shan8851
-                </span>
-              </a>
-              <a
-                href={TWITTER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">x</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  @shan8851
-                </span>
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">linkedin</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  /in/asam-shan
-                </span>
-              </a>
-              <a
-                href={EMAIL_URL}
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">email</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  ping me
-                </span>
-              </a>
-              <a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">telegram</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  @shan8851
-                </span>
-              </a>
-            </div>
-          </div>
+          {/* Links (moved to footer) */}
 
           {/* Pages */}
           <div className="space-y-2">
@@ -158,7 +94,7 @@ const Home = () => {
               <span className="text-amber">ls</span>
               <span className="text-text">./pages</span>
             </div>
-            <div className="pl-4">
+            <div className="pl-4 space-y-2">
               <Link
                 href="/uses"
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
@@ -169,6 +105,75 @@ const Home = () => {
                   tools & setup
                 </span>
               </Link>
+              <Link
+                href="/now"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">now</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  what I’m up to
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Pinned */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">ls</span>
+              <span className="text-text">./pinned</span>
+            </div>
+            <div className="grid grid-cols-1 gap-2 pl-4">
+              <a
+                href={AGGLAYER_UI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">Agglayer UI</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  bridging to Agglayer chains (and back)
+                </span>
+              </a>
+              <a
+                href={ARAGON_GOV_UI_KIT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">Aragon gov-ui-kit</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  OSS: governance UI components
+                </span>
+              </a>
+              <a
+                href={ARAGON_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">Aragon app</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  on-chain governance app
+                </span>
+              </a>
+              <a
+                href={WEB3PRIVACY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">Web3Privacy Now</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  regular contributor (privacy nerd)
+                </span>
+              </a>
             </div>
           </div>
 
@@ -194,7 +199,64 @@ const Home = () => {
               <span className="text-text">$INTERESTS</span>
             </div>
             <div className="pl-4 text-xs text-textTertiary">
-              [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;]
+              [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;, &quot;AI&quot;]
+            </div>
+          </div>
+
+          {/* Links */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-green">$</span>
+              <span className="text-amber">ls</span>
+              <span className="text-text">./links</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pl-4">
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">telegram</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  @shan8851
+                </span>
+              </a>
+              <a
+                href={EMAIL_URL}
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">email</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  ping me
+                </span>
+              </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">github</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  @shan8851
+                </span>
+              </a>
+              <a
+                href={TWITTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">x</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  @shan8851
+                </span>
+              </a>
             </div>
           </div>
 
