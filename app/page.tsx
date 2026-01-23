@@ -34,7 +34,7 @@ const Home = () => {
           {/* Header with avatar */}
           <div className="flex items-start gap-4">
             <Image
-              className="rounded border border-green/50 w-16 h-16 md:w-20 md:h-20"
+              className="rounded border border-magenta/50 w-16 h-16 md:w-20 md:h-20"
               src="/avatar.png"
               alt="avatar"
               height={80}
