@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: 'Web3, Payments, Blockchain, Full Stack Engineer, Polygon, Stablecoins, Infrastructure',
   authors: [{ name: 'shan8851' }],
   icons: {
-    icon: '/avatar.png',
+    icon: '/favicon.png',
   },
   openGraph: {
     title: 'shan8851.eth',
