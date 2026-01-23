@@ -90,7 +90,7 @@ const NowPage = () => {
                   href={TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-magenta hover:text-green transition-colors"
+                  className="text-cyan hover:text-green transition-colors"
                 >
                   @shan8851
                 </a>
@@ -100,7 +100,7 @@ const NowPage = () => {
                 <span className="text-textSecondary">Email:</span>
                 <a
                   href={EMAIL_URL}
-                  className="text-magenta hover:text-green transition-colors"
+                  className="text-cyan hover:text-green transition-colors"
                 >
                   asamshan456@gmail.com
                 </a>
@@ -135,7 +135,7 @@ const Item = ({ name, description }: { name: string; description: string }) => {
   return (
     <div className="flex items-center gap-2 text-sm">
       <span className="text-textTertiary">{'>'}</span>
-      <span className="text-magenta">{name}</span>
+      <span className="text-cyan">{name}</span>
       <span className="text-textTertiary">—</span>
       <span className="text-textSecondary">{description}</span>
     </div>
@@ -158,7 +158,7 @@ const ItemLink = ({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-magenta hover:text-green transition-colors"
+        className="text-cyan hover:text-green transition-colors"
       >
         {name}
       </a>

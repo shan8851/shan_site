@@ -200,7 +200,7 @@ const Home = () => {
               <span className="text-text">$INTERESTS</span>
             </div>
             <div className="pl-4 text-xs text-textTertiary">
-              [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;]
+              [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;, &quot;AI&quot;]
             </div>
           </div>
 
