@@ -57,7 +57,7 @@ const NowPage = () => {
               description="working on moving money on-chain (bridging, staking, web3 UX)"
             />
             <Item
-              name="AggLayer"
+              name="Agglayer"
               description="shipping bridging UIs + the glue around them"
             />
           </Section>

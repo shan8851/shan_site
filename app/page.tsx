@@ -133,9 +133,9 @@ const Home = () => {
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
               >
                 <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">AggLayer UI</span>
+                <span className="text-cyan group-hover:text-green">Agglayer UI</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  bridging to AggLayer chains (and back)
+                  bridging to Agglayer chains (and back)
                 </span>
               </a>
               <a
