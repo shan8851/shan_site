@@ -10,9 +10,5 @@ export default async function sitemap() {
       url: `${baseUrl}/uses`,
       lastModified: new Date().toISOString().split('T')[0],
     },
-    {
-      url: `${baseUrl}/now`,
-      lastModified: new Date().toISOString().split('T')[0],
-    },
   ];
 }
