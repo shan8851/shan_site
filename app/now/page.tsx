@@ -2,6 +2,10 @@ import Link from 'next/link';
 
 import type { Metadata } from 'next';
 
+const DOTFILES_URL = 'https://github.com/shan8851/dotfiles';
+const TELEGRAM_URL = 'https://t.me/shan8851';
+const EMAIL_URL = 'mailto:asamshan456@gmail.com';
+
 export const metadata: Metadata = {
   title: 'Now - shan8851.eth',
   description: 'What I’m up to right now.',
@@ -61,7 +65,7 @@ const NowPage = () => {
           <Section title="playing-with">
             <Item name="AI + agents" description="CLI/TUI workflows, automation, weird little tools" />
             <Item name="UI/UX" description="making web3 apps feel less cursed" />
-            <Item name="dotfiles" description="my setup lives on GitHub: shan8851/dotfiles" />
+            <ItemLink name="dotfiles" href={DOTFILES_URL} description="my setup" />
           </Section>
 
           <Section title="open-to">
@@ -79,8 +83,28 @@ const NowPage = () => {
               <span className="text-text">$CONTACT</span>
             </div>
             <div className="pl-4 text-sm text-textSecondary space-y-1">
-              <p>• Telegram: @shan8851</p>
-              <p>• Email: asamshan456@gmail.com</p>
+              <div className="flex items-center gap-2">
+                <span>•</span>
+                <span className="text-textSecondary">Telegram:</span>
+                <a
+                  href={TELEGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-magenta hover:text-green transition-colors"
+                >
+                  @shan8851
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>•</span>
+                <span className="text-textSecondary">Email:</span>
+                <a
+                  href={EMAIL_URL}
+                  className="text-magenta hover:text-green transition-colors"
+                >
+                  asamshan456@gmail.com
+                </a>
+              </div>
             </div>
           </div>
 
@@ -111,7 +135,33 @@ const Item = ({ name, description }: { name: string; description: string }) => {
   return (
     <div className="flex items-center gap-2 text-sm">
       <span className="text-textTertiary">{'>'}</span>
-      <span className="text-cyan">{name}</span>
+      <span className="text-magenta">{name}</span>
+      <span className="text-textTertiary">—</span>
+      <span className="text-textSecondary">{description}</span>
+    </div>
+  );
+};
+
+const ItemLink = ({
+  name,
+  href,
+  description,
+}: {
+  name: string;
+  href: string;
+  description: string;
+}) => {
+  return (
+    <div className="flex items-center gap-2 text-sm">
+      <span className="text-textTertiary">{'>'}</span>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-magenta hover:text-green transition-colors"
+      >
+        {name}
+      </a>
       <span className="text-textTertiary">—</span>
       <span className="text-textSecondary">{description}</span>
     </div>

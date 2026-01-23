@@ -3,7 +3,6 @@ import Link from 'next/link';
 import {
   TWITTER_URL,
   GITHUB_URL,
-  LINKEDIN_URL,
   EMAIL_URL,
   TELEGRAM_URL,
 } from 'app/constants';
@@ -87,74 +86,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Links */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-green">$</span>
-              <span className="text-amber">ls</span>
-              <span className="text-text">./links</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 pl-4">
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">github</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  @shan8851
-                </span>
-              </a>
-              <a
-                href={TWITTER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">x</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  @shan8851
-                </span>
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">linkedin</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  /in/asam-shan
-                </span>
-              </a>
-              <a
-                href={EMAIL_URL}
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">email</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  ping me
-                </span>
-              </a>
-              <a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">telegram</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  @shan8851
-                </span>
-              </a>
-            </div>
-          </div>
+          {/* Links (moved to footer) */}
 
           {/* Pages */}
           <div className="space-y-2">
@@ -169,7 +101,7 @@ const Home = () => {
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
               >
                 <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">uses</span>
+                <span className="text-magenta group-hover:text-green">uses</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
                   tools & setup
                 </span>
@@ -179,7 +111,7 @@ const Home = () => {
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
               >
                 <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">now</span>
+                <span className="text-magenta group-hover:text-green">now</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
                   what I’m up to
                 </span>
@@ -202,7 +134,7 @@ const Home = () => {
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
               >
                 <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">AggLayer UI</span>
+                <span className="text-magenta group-hover:text-green">AggLayer UI</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
                   bridge to any AggLayer chain
                 </span>
@@ -214,7 +146,7 @@ const Home = () => {
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
               >
                 <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">Aragon gov-ui-kit</span>
+                <span className="text-magenta group-hover:text-green">Aragon gov-ui-kit</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
                   OSS component library for governance UIs
                 </span>
@@ -226,7 +158,7 @@ const Home = () => {
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
               >
                 <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">Aragon app</span>
+                <span className="text-magenta group-hover:text-green">Aragon app</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
                   on-chain governance dapp
                 </span>
@@ -238,7 +170,7 @@ const Home = () => {
                 className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
               >
                 <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">Web3Privacy Now</span>
+                <span className="text-magenta group-hover:text-green">Web3Privacy Now</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
                   regular contributor
                 </span>
@@ -272,9 +204,46 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Prompt */}
-          <div className="flex items-center gap-2 pt-4">
-            <span className="text-green">$</span>
+          {/* Footer links */}
+          <div className="pt-4 border-t border-border/60">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-magenta hover:text-green transition-colors"
+              >
+                telegram
+              </a>
+              <span className="text-textTertiary">·</span>
+              <a
+                href={EMAIL_URL}
+                className="text-magenta hover:text-green transition-colors"
+              >
+                email
+              </a>
+              <span className="text-textTertiary">·</span>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-magenta hover:text-green transition-colors"
+              >
+                github
+              </a>
+              <span className="text-textTertiary">·</span>
+              <a
+                href={TWITTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-magenta hover:text-green transition-colors"
+              >
+                x
+              </a>
+            </div>
+            <div className="flex items-center gap-2 pt-4">
+              <span className="text-green">$</span>
+            </div>
           </div>
         </div>
       </div>
