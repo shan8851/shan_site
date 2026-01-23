@@ -8,10 +8,10 @@ import {
   TELEGRAM_URL,
 } from 'app/constants';
 
-const DOTFILES_URL = 'https://github.com/shan8851/dotfiles';
 const AGGLAYER_UI_URL = 'https://ui.agglayer.dev/';
 const ARAGON_GOV_UI_KIT_URL = 'https://github.com/aragon/gov-ui-kit';
 const ARAGON_APP_URL = 'https://github.com/aragon/app';
+const WEB3PRIVACY_URL = 'https://web3privacy.info/';
 
 const Home = () => {
   return (
@@ -196,18 +196,6 @@ const Home = () => {
             </div>
             <div className="grid grid-cols-1 gap-2 pl-4">
               <a
-                href={DOTFILES_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
-              >
-                <span className="text-textTertiary">{'>'}</span>
-                <span className="text-cyan group-hover:text-green">dotfiles</span>
-                <span className="text-textTertiary group-hover:text-textSecondary">
-                  terminal + dev setup
-                </span>
-              </a>
-              <a
                 href={AGGLAYER_UI_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -216,7 +204,7 @@ const Home = () => {
                 <span className="text-textTertiary">{'>'}</span>
                 <span className="text-cyan group-hover:text-green">AggLayer UI</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  bridging UI at Polygon (powered by Li.Fi)
+                  bridge to any AggLayer chain
                 </span>
               </a>
               <a
@@ -228,7 +216,7 @@ const Home = () => {
                 <span className="text-textTertiary">{'>'}</span>
                 <span className="text-cyan group-hover:text-green">Aragon gov-ui-kit</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  meaningful OSS contributions
+                  OSS component library for governance UIs
                 </span>
               </a>
               <a
@@ -240,23 +228,21 @@ const Home = () => {
                 <span className="text-textTertiary">{'>'}</span>
                 <span className="text-cyan group-hover:text-green">Aragon app</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  legacy dapp codebase
+                  on-chain governance dapp
                 </span>
               </a>
-            </div>
-          </div>
-
-          {/* Highlights */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-green">$</span>
-              <span className="text-amber">cat</span>
-              <span className="text-text">highlights.txt</span>
-            </div>
-            <div className="pl-4 text-sm text-textSecondary space-y-1">
-              <p>• Building bridging + staking UX at Polygon (AggLayer / payments stuff)</p>
-              <p>• I like clean UI/UX, strong types, and shipping reliable systems</p>
-              <p>• Currently playing with AI/agents + CLI/TUI tooling</p>
+              <a
+                href={WEB3PRIVACY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm hover:text-green transition-colors"
+              >
+                <span className="text-textTertiary">{'>'}</span>
+                <span className="text-cyan group-hover:text-green">Web3Privacy Now</span>
+                <span className="text-textTertiary group-hover:text-textSecondary">
+                  regular contributor
+                </span>
+              </a>
             </div>
           </div>
 

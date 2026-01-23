@@ -61,6 +61,7 @@ const NowPage = () => {
           <Section title="playing-with">
             <Item name="AI + agents" description="CLI/TUI workflows, automation, weird little tools" />
             <Item name="UI/UX" description="making web3 apps feel less cursed" />
+            <Item name="dotfiles" description="my setup lives on GitHub: shan8851/dotfiles" />
           </Section>
 
           <Section title="open-to">
