@@ -128,11 +128,12 @@ export default async function Image() {
               <div
                 style={{
                   color: '#22bb22',
-                  fontSize: '72px',
+                  fontSize: '64px',
                   fontWeight: 700,
                   fontFamily: 'monospace',
                   marginLeft: '40px',
                   display: 'flex',
+                  lineHeight: 1.05,
                 }}
               >
                 shan8851.eth
@@ -141,10 +142,11 @@ export default async function Image() {
               <div
                 style={{
                   color: '#888888',
-                  fontSize: '32px',
+                  fontSize: '28px',
                   fontFamily: 'monospace',
                   marginLeft: '40px',
                   display: 'flex',
+                  marginTop: '-10px',
                 }}
               >
                 Senior Full Stack Engineer
@@ -176,15 +178,7 @@ export default async function Image() {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: 'auto' }}>
                 <span style={{ color: '#33ff33', fontSize: '24px', fontFamily: 'monospace' }}>$</span>
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#33ff33', display: 'flex' }} />
-                <span style={{ color: '#33ff33', fontSize: '24px', fontFamily: 'monospace' }}>Payments on-chain</span>
-                <span style={{ color: '#555555', fontSize: '22px', fontFamily: 'monospace' }}>·</span>
                 <span style={{ color: '#00ffff', fontSize: '24px', fontFamily: 'monospace' }}>shan8851.com</span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ color: '#33ff33', fontSize: '24px', fontFamily: 'monospace' }}>$</span>
-                <span style={{ color: '#555555', fontSize: '24px', fontFamily: 'monospace' }}>▍</span>
               </div>
             </div>
           </div>
