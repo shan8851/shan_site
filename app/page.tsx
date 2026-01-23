@@ -69,8 +69,7 @@ const Home = () => {
             <p className="text-text pl-4 leading-relaxed">
               On a mission to bring all money on-chain.
               <br />
-              Building the future of payments at{' '}
-              <span className="text-magenta">Polygon</span>.
+              Building payments stuff at <span className="text-magenta">Polygon</span>.
             </p>
           </div>
 
@@ -136,7 +135,7 @@ const Home = () => {
                 <span className="text-textTertiary">{'>'}</span>
                 <span className="text-cyan group-hover:text-green">AggLayer UI</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  bridge to any AggLayer chain
+                  bridging to AggLayer chains (and back)
                 </span>
               </a>
               <a
@@ -148,7 +147,7 @@ const Home = () => {
                 <span className="text-textTertiary">{'>'}</span>
                 <span className="text-cyan group-hover:text-green">Aragon gov-ui-kit</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  OSS component library for governance UIs
+                  OSS: governance UI components
                 </span>
               </a>
               <a
@@ -160,7 +159,7 @@ const Home = () => {
                 <span className="text-textTertiary">{'>'}</span>
                 <span className="text-cyan group-hover:text-green">Aragon app</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  on-chain governance dapp
+                  on-chain governance app
                 </span>
               </a>
               <a
@@ -172,7 +171,7 @@ const Home = () => {
                 <span className="text-textTertiary">{'>'}</span>
                 <span className="text-cyan group-hover:text-green">Web3Privacy Now</span>
                 <span className="text-textTertiary group-hover:text-textSecondary">
-                  regular contributor
+                  regular contributor (privacy nerd)
                 </span>
               </a>
             </div>

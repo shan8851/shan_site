@@ -54,25 +54,25 @@ const NowPage = () => {
           <Section title="work">
             <Item
               name="Polygon"
-              description="on a mission to move all money on-chain (bridging, staking, web3 UX)"
+              description="working on moving money on-chain (bridging, staking, web3 UX)"
             />
             <Item
               name="AggLayer"
-              description="building bridging UIs + the stuff around them (powered by Li.Fi)"
+              description="shipping bridging UIs + the glue around them"
             />
           </Section>
 
           <Section title="playing-with">
             <Item name="AI + agents" description="CLI/TUI workflows, automation, weird little tools" />
             <Item name="UI/UX" description="making web3 apps feel less cursed" />
-            <ItemLink name="dotfiles" href={DOTFILES_URL} description="my setup" />
+            <ItemLink name="dotfiles" href={DOTFILES_URL} description="config stuff" />
           </Section>
 
           <Section title="open-to">
             <Item name="connecting" description="with like-minded builders" />
             <Item
               name="mentoring"
-              description="folks trying to break into tech / web3 (happy to chat)"
+              description="breaking into tech/web3 (happy to chat)"
             />
           </Section>
 
