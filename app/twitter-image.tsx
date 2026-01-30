@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-import { baseUrl } from './sitemap';
+import { baseUrl } from './site';
 
 export const runtime = 'edge';
 
