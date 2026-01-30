@@ -4,7 +4,7 @@ import { baseUrl } from './sitemap';
 
 export const runtime = 'edge';
 
-export const alt = 'shan8851.eth - Senior Full Stack Engineer';
+export const alt = 'shan8851.com — shan. engineer. builder.';
 export const size = {
   width: 1200,
   height: 630,
@@ -13,10 +13,8 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   // NOTE: next/og is picky:
-  // - backgroundImage must be a valid image string (no inline "..., #000" combos)
-  // - any <div> with multiple children needs explicit display:flex/none
   // - keep the tree shallow + explicit
-
+  // - any <div> with multiple children needs explicit display:flex/none
   const avatarUrl = `${baseUrl}/avatar.png`;
 
   return new ImageResponse(
@@ -26,213 +24,252 @@ export default async function Image() {
           width: '100%',
           height: '100%',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#0c0c0c',
+          position: 'relative',
+          backgroundColor: '#07090f',
           backgroundImage:
-            'radial-gradient(1200px 600px at 30% 20%, rgba(255, 85, 255, 0.18), rgba(0,0,0,0) 55%), repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 3px)',
-          padding: '40px',
+            'radial-gradient(900px 520px at 22% 20%, rgba(34, 211, 238, 0.20), rgba(0,0,0,0) 60%), radial-gradient(900px 520px at 78% 35%, rgba(168, 85, 247, 0.26), rgba(0,0,0,0) 62%), radial-gradient(900px 520px at 40% 92%, rgba(99, 102, 241, 0.14), rgba(0,0,0,0) 60%), linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0) 55%)',
         }}
       >
+        {/* Subtle grid (denser) */}
         <div
           style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.05) 1px, rgba(0,0,0,0) 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, rgba(0,0,0,0) 1px)',
+            backgroundSize: '56px 56px',
+            opacity: 0.09,
+            display: 'flex',
+          }}
+        />
+
+        {/* Content */}
+        <div
+          style={{
+            position: 'relative',
             width: '100%',
             height: '100%',
             display: 'flex',
-            flexDirection: 'column',
-            backgroundColor: '#161616',
-            border: '1px solid #2a2a2a',
-            borderRadius: '14px',
-            overflow: 'hidden',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.55)',
+            padding: '64px',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '56px',
           }}
         >
-          {/* Title bar */}
+          {/* Left: avatar + glow */}
           <div
             style={{
+              width: '320px',
+              height: '420px',
+              borderRadius: '28px',
+              border: '1px solid rgba(255,255,255,0.14)',
+              backgroundColor: 'rgba(0,0,0,0.24)',
+              boxShadow:
+                '0 0 0 1px rgba(0,0,0,0.35) inset, 0 30px 80px rgba(0,0,0,0.55), 0 0 70px rgba(34,211,238,0.18)',
               display: 'flex',
               alignItems: 'center',
-              gap: '8px',
-              padding: '16px 20px',
-              backgroundColor: '#0c0c0c',
-              borderBottom: '1px solid #2a2a2a',
+              justifyContent: 'center',
+              overflow: 'hidden',
+              position: 'relative',
             }}
           >
             <div
               style={{
-                width: '14px',
-                height: '14px',
-                borderRadius: '50%',
-                backgroundColor: '#ff5555',
+                position: 'absolute',
+                inset: '-40px',
+                backgroundImage:
+                  'radial-gradient(240px 240px at 50% 35%, rgba(168,85,247,0.20), rgba(0,0,0,0) 65%), radial-gradient(240px 240px at 45% 70%, rgba(34,211,238,0.18), rgba(0,0,0,0) 62%)',
+                opacity: 0.9,
                 display: 'flex',
               }}
             />
-            <div
-              style={{
-                width: '14px',
-                height: '14px',
-                borderRadius: '50%',
-                backgroundColor: '#ffb000',
-                display: 'flex',
-              }}
-            />
-            <div
-              style={{
-                width: '14px',
-                height: '14px',
-                borderRadius: '50%',
-                backgroundColor: '#33ff33',
-                display: 'flex',
-              }}
-            />
-            <div
-              style={{
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <span
-                style={{
-                  color: '#555555',
-                  fontSize: '14px',
-                  fontFamily: 'monospace',
-                }}
-              >
-                shan@web3:~
-              </span>
-            </div>
-          </div>
-
-          {/* Body */}
-          <div
-            style={{
-              display: 'flex',
-              flex: 1,
-              padding: '44px',
-              gap: '32px',
-            }}
-          >
-            {/* Left */}
             <div
               style={{
                 width: '220px',
+                height: '220px',
+                borderRadius: '999px',
+                border: '2px solid rgba(255,255,255,0.16)',
+                boxShadow:
+                  '0 0 0 6px rgba(34,211,238,0.10), 0 0 55px rgba(168, 85, 247, 0.14)',
+                overflow: 'hidden',
                 display: 'flex',
-                flexDirection: 'column',
-                gap: '18px',
+                position: 'relative',
               }}
             >
               <img
                 src={avatarUrl}
-                width={180}
-                height={180}
+                width={220}
+                height={220}
                 alt=""
                 style={{
-                  borderRadius: '14px',
-                  border: '2px solid rgba(255, 85, 255, 0.55)',
+                  objectFit: 'cover',
                 }}
               />
-
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '6px',
-                }}
-              >
-                <div
-                  style={{
-                    color: '#555555',
-                    fontSize: '18px',
-                    fontFamily: 'monospace',
-                    display: 'flex',
-                  }}
-                >
-                  $ echo $INTERESTS
-                </div>
-                <div
-                  style={{
-                    color: '#555555',
-                    fontSize: '18px',
-                    fontFamily: 'monospace',
-                    display: 'flex',
-                  }}
-                >
-                  [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;,
-                  &quot;AI&quot;]
-                </div>
-              </div>
             </div>
 
-            {/* Right */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '26px',
+                left: '26px',
+                right: '26px',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  padding: '10px 14px',
+                  borderRadius: '999px',
+                  border: '1px solid rgba(255,255,255,0.14)',
+                  backgroundColor: 'rgba(0,0,0,0.25)',
+                  color: 'rgba(255,255,255,0.78)',
+                  fontSize: '18px',
+                  letterSpacing: '0.06em',
+                  fontFamily:
+                    'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
+                  display: 'flex',
+                }}
+              >
+                shan. engineer. builder.
+              </div>
+            </div>
+          </div>
+
+          {/* Right: text */}
+          <div
+            style={{
+              display: 'flex',
+              flex: 1,
+              flexDirection: 'column',
+              gap: '16px',
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+            }}
+          >
             <div
               style={{
                 display: 'flex',
-                flex: 1,
-                flexDirection: 'column',
-                gap: '18px',
+                padding: '8px 12px',
+                borderRadius: '999px',
+                border: '1px solid rgba(255,255,255,0.14)',
+                backgroundColor: 'rgba(0,0,0,0.20)',
+                color: 'rgba(255,255,255,0.82)',
+                fontSize: '18px',
+                letterSpacing: '0.04em',
+                fontFamily:
+                  'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ color: '#33ff33', fontSize: '28px', fontFamily: 'monospace' }}>$</span>
-                <span style={{ color: '#ffb000', fontSize: '28px', fontFamily: 'monospace' }}>whoami</span>
-              </div>
+              shan8851.com
+            </div>
 
+            <div
+              style={{
+                color: '#f5f7ff',
+                fontSize: '78px',
+                fontWeight: 850,
+                lineHeight: 1.02,
+                letterSpacing: '-0.04em',
+                fontFamily:
+                  'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
+                display: 'flex',
+              }}
+            >
+              shan8851.eth
+            </div>
+
+            <div
+              style={{
+                color: 'rgba(255,255,255,0.70)',
+                fontSize: '28px',
+                lineHeight: 1.25,
+                fontWeight: 600,
+                maxWidth: '640px',
+                fontFamily:
+                  'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
+                display: 'flex',
+              }}
+            >
+              On a mission to bring all money on-chain.
+            </div>
+
+            <div
+              style={{
+                marginTop: '18px',
+                display: 'flex',
+                gap: '10px',
+                alignItems: 'center',
+              }}
+            >
               <div
                 style={{
-                  color: '#22bb22',
-                  fontSize: '64px',
-                  fontWeight: 700,
-                  fontFamily: 'monospace',
-                  marginLeft: '40px',
+                  padding: '10px 14px',
+                  borderRadius: '12px',
+                  backgroundColor: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  color: 'rgba(255,255,255,0.78)',
+                  fontSize: '18px',
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                  fontFamily:
+                    'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
                   display: 'flex',
-                  lineHeight: 1.05,
                 }}
               >
-                shan8851.eth
+                payments
               </div>
-
               <div
                 style={{
-                  color: '#888888',
-                  fontSize: '28px',
-                  fontFamily: 'monospace',
-                  marginLeft: '40px',
+                  padding: '10px 14px',
+                  borderRadius: '12px',
+                  backgroundColor: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  color: 'rgba(255,255,255,0.78)',
+                  fontSize: '18px',
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                  fontFamily:
+                    'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
                   display: 'flex',
-                  marginTop: '-10px',
                 }}
               >
-                Senior Full Stack Engineer
+                stablecoins
               </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
-                <span style={{ color: '#33ff33', fontSize: '28px', fontFamily: 'monospace' }}>$</span>
-                <span style={{ color: '#ffb000', fontSize: '28px', fontFamily: 'monospace' }}>cat</span>
-                <span style={{ color: '#e0e0e0', fontSize: '28px', fontFamily: 'monospace' }}>mission.txt</span>
-              </div>
-
               <div
                 style={{
-                  color: '#e0e0e0',
-                  fontSize: '28px',
-                  fontFamily: 'monospace',
-                  marginLeft: '40px',
-                  lineHeight: 1.5,
+                  padding: '10px 14px',
+                  borderRadius: '12px',
+                  backgroundColor: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  color: 'rgba(255,255,255,0.78)',
+                  fontSize: '18px',
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                  fontFamily:
+                    'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
                   display: 'flex',
-                  flexDirection: 'column',
-                  gap: '6px',
                 }}
               >
-                <div style={{ display: 'flex' }}>On a mission to bring all money on-chain.</div>
-                <div style={{ display: 'flex' }}>
-                  Building payments stuff at <span style={{ color: '#ff55ff', marginLeft: '10px' }}>Polygon</span>.
-                </div>
+                infra
               </div>
+            </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: 'auto' }}>
-                <span style={{ color: '#33ff33', fontSize: '24px', fontFamily: 'monospace' }}>$</span>
-                <span style={{ color: '#00ffff', fontSize: '24px', fontFamily: 'monospace' }}>shan8851.com</span>
-              </div>
+            <div
+              style={{
+                position: 'absolute',
+                right: '64px',
+                bottom: '48px',
+                color: 'rgba(255,255,255,0.40)',
+                fontSize: '18px',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                fontFamily:
+                  'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"',
+                display: 'flex',
+              }}
+            >
+              dark • minimal • builder-ish
             </div>
           </div>
         </div>
