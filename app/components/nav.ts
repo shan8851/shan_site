@@ -53,7 +53,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     href: '/contact',
-    label: 'Contact',
+    label: 'Ping',
     shortLabel: 'Ping',
     Icon: FiMessageCircle,
     description: 'Say hi',

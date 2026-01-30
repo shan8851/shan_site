@@ -10,8 +10,8 @@ export function MobileNav() {
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-screen-sm">
-        <nav className="m-3 rounded-2xl border border-border/80 bg-surface/70 backdrop-blur supports-[backdrop-filter]:bg-surface/50 shadow-lg">
+      <div className="mx-auto max-w-screen-sm px-3 pb-3">
+        <nav className="w-full rounded-2xl border border-border/80 bg-surface/70 backdrop-blur supports-[backdrop-filter]:bg-surface/50 shadow-lg">
           <ul className="grid grid-cols-6">
             {NAV_ITEMS.map(({ href, Icon, shortLabel }) => {
               const active = pathname === href;
