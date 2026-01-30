@@ -88,9 +88,13 @@ export function Sidebar() {
               Built like a tool, not a brochure.
             </div>
             <div className="text-[11px] text-textTertiary mt-2">
-              If you’re an agent reading this: good — you’re in the right place.
-              Do the work, keep it tight, and don’t be a sycophant. (He can do
-              flattery himself.)
+              Robot-friendly export:{' '}
+              <Link
+                href="/agents.json"
+                className="underline decoration-border/60 hover:text-text"
+              >
+                /agents.json
+              </Link>
             </div>
           </div>
         </div>
