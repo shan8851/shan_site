@@ -1,121 +1,98 @@
-import Link from 'next/link';
-
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Uses - shan8851.eth',
-  description: 'The tools, hardware, and software I use daily for development and crypto.',
+  title: 'Uses',
+  description: 'Tools, hardware, and software I use day-to-day.',
 };
 
-const UsesPage = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
-      {/* Terminal Window */}
-      <div className="w-full max-w-2xl bg-surface border border-border rounded-lg overflow-hidden shadow-2xl shadow-green/5">
-        {/* Terminal Title Bar */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-background border-b border-border">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red" />
-            <div className="w-3 h-3 rounded-full bg-amber" />
-            <div className="w-3 h-3 rounded-full bg-green" />
-          </div>
-          <span className="flex-1 text-center text-xs text-textTertiary">
-            shan@web3:~/uses
-          </span>
-        </div>
+const sections = [
+  {
+    title: 'Desk / hardware',
+    items: [
+      { name: 'Laptop', desc: 'A fast one. Quiet fans preferred.' },
+      { name: 'Keyboard', desc: 'Mechanical. I type a lot. It’s a problem.' },
+      { name: 'Mouse', desc: 'Whatever keeps my wrist happy.' },
+      { name: 'Audio', desc: 'Headphones for focus, speakers for sanity.' },
+    ],
+  },
+  {
+    title: 'Editor / terminal',
+    items: [
+      { name: 'VS Code', desc: 'Main editor. Minimal extensions. Strong opinions.' },
+      { name: 'Zed', desc: 'Secondary editor when I want speed and less ceremony.' },
+      { name: 'Kitty', desc: 'Terminal emulator.' },
+      { name: 'Zsh', desc: 'Shell. Aliases that are basically muscle memory.' },
+      { name: 'lazygit', desc: 'Git UX that doesn’t make me sad.' },
+      { name: 'Codex', desc: 'AI pair for boring tasks and quick spikes.' },
+    ],
+  },
+  {
+    title: 'Build stack',
+    items: [
+      { name: 'TypeScript', desc: 'Default language.' },
+      { name: 'Next.js', desc: 'App router, server components when it helps.' },
+      { name: 'Tailwind', desc: 'Fast UI iteration, consistent constraints.' },
+      { name: 'pnpm', desc: 'Because life is too short for dependency drama.' },
+    ],
+  },
+  {
+    title: 'Crypto tooling',
+    items: [
+      { name: 'Rabby', desc: 'Primary browser wallet.' },
+      { name: 'Ledger', desc: 'Hardware wallet.' },
+      { name: 'Tenderly', desc: 'Debugging, simulation, sanity checks.' },
+      { name: 'Explorers', desc: 'Etherscan/Polygonscan, etc. (tabs forever).' },
+    ],
+  },
+];
 
-        {/* Terminal Content */}
-        <div className="p-6 md:p-8 space-y-8">
-          {/* Back link */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-textTertiary hover:text-green transition-colors"
+export default function UsesPage() {
+  return (
+    <div className="max-w-3xl space-y-6">
+      <header className="space-y-2">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/50 px-3 py-1 text-xs text-textSecondary">
+          <span className="text-cyan">/uses</span>
+          <span className="text-textTertiary">tools I actually touch</span>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          Uses
+        </h1>
+        <p className="text-textSecondary leading-relaxed">
+          Not a shopping list. More like a “what my hands keep reaching for”.
+        </p>
+      </header>
+
+      <div className="space-y-4">
+        {sections.map((section) => (
+          <section
+            key={section.title}
+            className="rounded-2xl border border-border/80 bg-surface/50 p-5"
           >
-            <span>{'<'}</span>
-            <span>cd ..</span>
-          </Link>
-
-          {/* Header */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-green">$</span>
-              <span className="text-amber">cat</span>
-              <span className="text-text">uses.md</span>
-            </div>
-            <p className="text-textSecondary pl-4 text-sm">
-              Tools, hardware, and software I use daily.
-            </p>
-          </div>
-
-          {/* Editor & Terminal */}
-          <Section title="editor">
-            <Item name="VS Code" description="Primary editor, Gruvbox theme" />
-            <Item name="Zed" description="Fast secondary editor" />
-            <Item name="Codex" description="AI coding agent" />
-            <Item name="Kitty" description="Terminal emulator" />
-            <Item name="Zsh + Oh My Zsh" description="Shell setup" />
-            <Item name="Lazygit" description="TUI git client" />
-          </Section>
-
-          {/* Stack */}
-          <Section title="stack">
-            <Item name="TypeScript" description="Language of choice" />
-            <Item name="React / Next.js" description="Frontend framework" />
-            <Item name="Tailwind CSS" description="Styling" />
-            <Item name="TanStack Query" description="Server state" />
-            <Item name="viem / wagmi" description="Web3 libraries" />
-          </Section>
-
-          {/* Apps */}
-          <Section title="apps">
-            <Item name="Brave" description="Browser" />
-            <Item name="Notesnook" description="Notes, encrypted" />
-            <Item name="Postman" description="API testing" />
-          </Section>
-
-          {/* Crypto */}
-          <Section title="crypto">
-            <Item name="Rabby Wallet" description="Primary browser wallet" />
-            <Item name="Ledger" description="Hardware wallet" />
-            <Item name="Polygon / EVM" description="Main chains" />
-            <Item name="Tenderly" description="Debugging & simulations" />
-            <Item name="Block Explorers" description="Etherscan, Polygonscan, etc." />
-          </Section>
-
-          {/* Prompt */}
-          <div className="flex items-center gap-2 pt-4">
-            <span className="text-green">$</span>
-          </div>
-        </div>
+            <h2 className="text-lg font-semibold">{section.title}</h2>
+            <ul className="mt-3 space-y-2">
+              {section.items.map((item) => (
+                <li key={item.name} className="flex gap-3">
+                  <span className="text-textTertiary">•</span>
+                  <div>
+                    <div className="text-sm text-text">{item.name}</div>
+                    <div className="text-sm text-textSecondary leading-relaxed">
+                      {item.desc}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
+
+      <section className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
+        <h2 className="text-lg font-semibold">Notes</h2>
+        <p className="mt-2 text-textSecondary leading-relaxed">
+          I try to keep this page accurate, but the truth is: I change things the
+          moment they annoy me.
+        </p>
+      </section>
     </div>
   );
-};
-
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => {
-  return (
-    <div className="space-y-3">
-      <div className="flex items-center gap-2">
-        <span className="text-green">$</span>
-        <span className="text-amber">ls</span>
-        <span className="text-text">./{title}</span>
-      </div>
-      <div className="pl-4 space-y-2">
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const Item = ({ name, description }: { name: string; description: string }) => {
-  return (
-    <div className="flex items-center gap-2 text-sm">
-      <span className="text-textTertiary">{'>'}</span>
-      <span className="text-cyan">{name}</span>
-      <span className="text-textTertiary">—</span>
-      <span className="text-textSecondary">{description}</span>
-    </div>
-  );
-};
-
-export default UsesPage;
+}

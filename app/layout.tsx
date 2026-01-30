@@ -1,23 +1,32 @@
 import './global.css';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { JetBrains_Mono } from 'next/font/google';
 
 import type { Metadata } from 'next';
+import { JetBrains_Mono } from 'next/font/google';
+
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
+import { Shell } from './components/Shell';
 import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: 'shan8851.eth - Senior Full Stack Engineer',
-  description: 'Senior Full Stack Engineer at Polygon. On a mission to bring all money on-chain.',
-  keywords: 'Web3, Payments, Blockchain, Full Stack Engineer, Polygon, Stablecoins, Infrastructure',
+  title: {
+    default: 'shan8851.eth',
+    template: '%s · shan8851.eth',
+  },
+  description:
+    'Senior full‑stack engineer shipping payments and infrastructure. Minimal vibes, maximal output.',
+  keywords:
+    'Shan, shan8851, full stack, payments, infrastructure, web3, polygon, stablecoins, engineering',
   authors: [{ name: 'shan8851' }],
   icons: {
     icon: '/favicon.png',
   },
   openGraph: {
     title: 'shan8851.eth',
-    description: 'Senior Full Stack Engineer at Polygon. On a mission to bring all money on-chain.',
+    description:
+      'Senior full‑stack engineer shipping payments and infrastructure. Minimal vibes, maximal output.',
     url: baseUrl,
     siteName: 'shan8851.eth',
     type: 'website',
@@ -26,7 +35,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'shan8851.eth',
-    description: 'Senior Full Stack Engineer at Polygon. On a mission to bring all money on-chain.',
+    description:
+      'Senior full‑stack engineer shipping payments and infrastructure. Minimal vibes, maximal output.',
     creator: '@shan8851',
   },
 };
@@ -44,12 +54,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={jetbrainsMono.variable}>
-      <body className="bg-background text-text antialiased font-mono min-h-screen">
-        {children}
+      <body className="font-mono antialiased">
+        <Shell>{children}</Shell>
         <Analytics />
         <SpeedInsights />
       </body>
     </html>
   );
 }
-

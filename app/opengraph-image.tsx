@@ -102,6 +102,7 @@ export default async function Image() {
                 src={avatarUrl}
                 width={180}
                 height={180}
+                alt=""
                 style={{
                   borderRadius: '14px',
                   border: '2px solid rgba(255, 85, 255, 0.55)',
