@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'shan8851.eth — Senior full-stack engineer',
+        alt: 'shan8851.eth — Senior Full Stack Engineer',
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       'Senior full‑stack engineer shipping payments and infrastructure. Minimal vibes, maximal output.',
     creator: '@shan8851',
-    images: ['/og.png'],
+    images: ['/twitter-image'],
   },
 };
 
