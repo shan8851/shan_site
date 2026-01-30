@@ -28,10 +28,10 @@ export default async function Image() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#0c0c0c',
+          backgroundColor: '#0b0c10',
           backgroundImage:
-            'radial-gradient(1200px 600px at 30% 20%, rgba(255, 85, 255, 0.18), rgba(0,0,0,0) 55%), repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 3px)',
-          padding: '40px',
+            'radial-gradient(1200px 900px at 20% 10%, rgba(124, 247, 255, 0.14), rgba(0,0,0,0) 55%), radial-gradient(900px 700px at 80% 30%, rgba(255, 124, 255, 0.12), rgba(0,0,0,0) 55%), radial-gradient(1000px 800px at 50% 90%, rgba(51, 255, 51, 0.09), rgba(0,0,0,0) 55%), repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 3px)',
+          padding: '44px',
         }}
       >
         <div
@@ -75,7 +75,7 @@ export default async function Image() {
                   fontFamily: 'monospace',
                 }}
               >
-                shan@web3:~
+shan8851.com — /
               </span>
             </div>
           </div>
@@ -111,10 +111,10 @@ export default async function Image() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <div style={{ color: '#555555', fontSize: '18px', fontFamily: 'monospace', display: 'flex' }}>
-                  $ echo $INTERESTS
+                  $ echo $FOCUS
                 </div>
                 <div style={{ color: '#555555', fontSize: '18px', fontFamily: 'monospace', display: 'flex' }}>
-                  [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;, &quot;AI&quot;]
+                  [&quot;Payments&quot;, &quot;Infrastructure&quot;, &quot;Onchain money&quot;]
                 </div>
               </div>
             </div>
@@ -173,7 +173,8 @@ export default async function Image() {
               >
                 <div style={{ display: 'flex' }}>On a mission to bring all money on-chain.</div>
                 <div style={{ display: 'flex' }}>
-                  Building payments stuff at <span style={{ color: '#ff55ff', marginLeft: '10px' }}>Polygon</span>.
+                  Building payments stuff at{' '}
+                  <span style={{ color: '#7cf7ff', marginLeft: '10px' }}>Polygon</span>.
                 </div>
               </div>
 
