@@ -58,9 +58,33 @@ export default async function Image() {
               borderBottom: '1px solid #2a2a2a',
             }}
           >
-            <div style={{ width: '14px', height: '14px', borderRadius: '50%', backgroundColor: '#ff5555', display: 'flex' }} />
-            <div style={{ width: '14px', height: '14px', borderRadius: '50%', backgroundColor: '#ffb000', display: 'flex' }} />
-            <div style={{ width: '14px', height: '14px', borderRadius: '50%', backgroundColor: '#33ff33', display: 'flex' }} />
+            <div
+              style={{
+                width: '14px',
+                height: '14px',
+                borderRadius: '50%',
+                backgroundColor: '#ff5555',
+                display: 'flex',
+              }}
+            />
+            <div
+              style={{
+                width: '14px',
+                height: '14px',
+                borderRadius: '50%',
+                backgroundColor: '#ffb000',
+                display: 'flex',
+              }}
+            />
+            <div
+              style={{
+                width: '14px',
+                height: '14px',
+                borderRadius: '50%',
+                backgroundColor: '#33ff33',
+                display: 'flex',
+              }}
+            />
             <div
               style={{
                 flex: 1,
@@ -109,18 +133,46 @@ export default async function Image() {
                 }}
               />
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <div style={{ color: '#555555', fontSize: '18px', fontFamily: 'monospace', display: 'flex' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '6px',
+                }}
+              >
+                <div
+                  style={{
+                    color: '#555555',
+                    fontSize: '18px',
+                    fontFamily: 'monospace',
+                    display: 'flex',
+                  }}
+                >
                   $ echo $INTERESTS
                 </div>
-                <div style={{ color: '#555555', fontSize: '18px', fontFamily: 'monospace', display: 'flex' }}>
-                  [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;, &quot;AI&quot;]
+                <div
+                  style={{
+                    color: '#555555',
+                    fontSize: '18px',
+                    fontFamily: 'monospace',
+                    display: 'flex',
+                  }}
+                >
+                  [&quot;Payments&quot;, &quot;Stablecoins&quot;, &quot;Infrastructure&quot;, &quot;DeFi&quot;,
+                  &quot;AI&quot;]
                 </div>
               </div>
             </div>
 
             {/* Right */}
-            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: '18px' }}>
+            <div
+              style={{
+                display: 'flex',
+                flex: 1,
+                flexDirection: 'column',
+                gap: '18px',
+              }}
+            >
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <span style={{ color: '#33ff33', fontSize: '28px', fontFamily: 'monospace' }}>$</span>
                 <span style={{ color: '#ffb000', fontSize: '28px', fontFamily: 'monospace' }}>whoami</span>

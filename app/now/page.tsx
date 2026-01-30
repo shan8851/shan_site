@@ -1,171 +1,86 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import type { Metadata } from 'next';
-
-const DOTFILES_URL = 'https://github.com/shan8851/dotfiles';
-const TELEGRAM_URL = 'https://t.me/shan8851';
-const EMAIL_URL = 'mailto:asamshan456@gmail.com';
-
 export const metadata: Metadata = {
-  title: 'Now - shan8851.eth',
-  description: 'What I’m up to right now.',
+  title: 'Now',
+  description: 'What I’m focused on right now.',
 };
 
-const NowPage = () => {
+export default function NowPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
-      {/* Terminal Window */}
-      <div className="w-full max-w-2xl bg-surface border border-border rounded-lg overflow-hidden shadow-2xl shadow-green/5">
-        {/* Terminal Title Bar */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-background border-b border-border">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red" />
-            <div className="w-3 h-3 rounded-full bg-amber" />
-            <div className="w-3 h-3 rounded-full bg-green" />
-          </div>
-          <span className="flex-1 text-center text-xs text-textTertiary">
-            shan@web3:~/now
-          </span>
+    <div className="max-w-3xl space-y-6">
+      <header className="space-y-2">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/50 px-3 py-1 text-xs text-textSecondary">
+          <span className="text-cyan">/now</span>
+          <span className="text-textTertiary">status page, but human</span>
         </div>
-
-        {/* Terminal Content */}
-        <div className="p-6 md:p-8 space-y-8">
-          {/* Back link */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-textTertiary hover:text-green transition-colors"
-          >
-            <span>{'<'}</span>
-            <span>cd ..</span>
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          What I’m doing now
+        </h1>
+        <p className="text-textSecondary leading-relaxed">
+          A lightweight update. If it’s out of date, blame{' '}
+          <Link className="text-amber hover:underline" href="/giles">
+            Giles
           </Link>
+          .
+        </p>
+      </header>
 
-          {/* Header */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-green">$</span>
-              <span className="text-amber">cat</span>
-              <span className="text-text">now.md</span>
-            </div>
-            <p className="text-textSecondary pl-4 text-sm">
-              A quick snapshot. I try to keep this current-ish.
-            </p>
-          </div>
+      <section className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
+        <h2 className="text-lg font-semibold">Primary focus</h2>
+        <ul className="mt-3 space-y-2 text-textSecondary">
+          <li>• Payments infrastructure: make it fast, predictable, boring.</li>
+          <li>• Developer experience: fewer footguns, better defaults.</li>
+          <li>
+            • Reliability: measure first, then fix the thing that matters.
+          </li>
+        </ul>
+      </section>
 
-          <Section title="work">
-            <Item
-              name="Polygon"
-              description="working on moving money on-chain (bridging, staking, web3 UX)"
-            />
-            <Item
-              name="Agglayer"
-              description="shipping bridging UIs + the glue around them"
-            />
-          </Section>
-
-          <Section title="playing-with">
-            <Item name="AI + agents" description="CLI/TUI workflows, automation, weird little tools" />
-            <Item name="UI/UX" description="making web3 apps feel less cursed" />
-            <ItemLink name="dotfiles" href={DOTFILES_URL} description="config stuff" />
-          </Section>
-
-          <Section title="open-to">
-            <Item name="connecting" description="with like-minded builders" />
-            <Item
-              name="mentoring"
-              description="breaking into tech/web3 (happy to chat)"
-            />
-          </Section>
-
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-green">$</span>
-              <span className="text-amber">echo</span>
-              <span className="text-text">$CONTACT</span>
-            </div>
-            <div className="pl-4 text-sm text-textSecondary space-y-1">
-              <div className="flex items-center gap-2">
-                <span>•</span>
-                <span className="text-textSecondary">Telegram:</span>
-                <a
-                  href={TELEGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan hover:text-green transition-colors"
-                >
-                  @shan8851
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <span>•</span>
-                <span className="text-textSecondary">Email:</span>
-                <a
-                  href={EMAIL_URL}
-                  className="text-cyan hover:text-green transition-colors"
-                >
-                  asamshan456@gmail.com
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Prompt */}
-          <div className="flex items-center gap-2 pt-4">
-            <span className="text-green">$</span>
-          </div>
+      <section className="rounded-2xl border border-border/80 bg-surface/50 p-5">
+        <h2 className="text-lg font-semibold">On the bench</h2>
+        <div className="mt-3 grid gap-3 md:grid-cols-2">
+          <BenchItem
+            title="Small automations"
+            note="Little scripts that save 30 seconds, 20 times a day. Very serious business."
+          />
+          <BenchItem
+            title="Personal site"
+            note="Turning this into something useful instead of an online business card..."
+          />
+          <BenchItem
+            title="AI tooling"
+            note="Agents, evals, and guardrails so it helps more than it distracts."
+          />
+          <BenchItem
+            title="Health"
+            note="Sleep, lifting, football (the real kind). Boring inputs. Real output."
+          />
         </div>
+      </section>
+
+      <section className="rounded-2xl border border-border/80 bg-surface/50 p-5">
+        <h2 className="text-lg font-semibold">How to work with me</h2>
+        <ul className="mt-3 space-y-2 text-textSecondary">
+          <li>• Send context. I’ll send decisions.</li>
+          <li>• If it’s ambiguous, I’ll ask. If it’s clear, I’ll ship.</li>
+          <li>• I like written specs, but I love tiny PRs.</li>
+        </ul>
+        <p className="mt-3 text-xs text-textTertiary">
+          Last updated: “recently” (this is intentionally low maintenance).
+        </p>
+      </section>
+    </div>
+  );
+}
+
+function BenchItem({ title, note }: { title: string; note: string }) {
+  return (
+    <div className="rounded-xl border border-border/70 bg-background/30 p-4">
+      <div className="text-sm text-text">{title}</div>
+      <div className="mt-1 text-sm text-textSecondary leading-relaxed">
+        {note}
       </div>
     </div>
   );
-};
-
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => {
-  return (
-    <div className="space-y-3">
-      <div className="flex items-center gap-2">
-        <span className="text-green">$</span>
-        <span className="text-amber">ls</span>
-        <span className="text-text">./{title}</span>
-      </div>
-      <div className="pl-4 space-y-2">{children}</div>
-    </div>
-  );
-};
-
-const Item = ({ name, description }: { name: string; description: string }) => {
-  return (
-    <div className="flex items-center gap-2 text-sm">
-      <span className="text-textTertiary">{'>'}</span>
-      <span className="text-cyan">{name}</span>
-      <span className="text-textTertiary">—</span>
-      <span className="text-textSecondary">{description}</span>
-    </div>
-  );
-};
-
-const ItemLink = ({
-  name,
-  href,
-  description,
-}: {
-  name: string;
-  href: string;
-  description: string;
-}) => {
-  return (
-    <div className="flex items-center gap-2 text-sm">
-      <span className="text-textTertiary">{'>'}</span>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-cyan hover:text-green transition-colors"
-      >
-        {name}
-      </a>
-      <span className="text-textTertiary">—</span>
-      <span className="text-textSecondary">{description}</span>
-    </div>
-  );
-};
-
-export default NowPage;
+}

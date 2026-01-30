@@ -1,100 +1,118 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: #0c0c0c;
-  --color-surface: #161616;
-  --color-border: #2a2a2a;
-  --color-text: #e0e0e0;
-  --color-textSecondary: #888888;
-  --color-textTertiary: #555555;
+  --color-background: #0b0c10;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.10);
+  --color-text: rgba(255, 255, 255, 0.92);
+  --color-textSecondary: rgba(255, 255, 255, 0.70);
+  --color-textTertiary: rgba(255, 255, 255, 0.42);
 
-  /* Terminal palette */
+  /* Accent palette (quiet by default) */
   --color-green: #33ff33;
-  --color-greenMuted: #22bb22;
-  --color-amber: #ffb000;
-  --color-amberMuted: #cc8800;
-  --color-cyan: #00ffff;
-  --color-red: #ff5555;
-  --color-magenta: #ff55ff;
+  --color-cyan: #7cf7ff;
+  --color-amber: #ffcc66;
+  --color-red: #ff6b6b;
+  --color-magenta: #ff7cff;
 
-  /* Legacy colors for compatibility */
+  /* Legacy aliases */
+  --color-greenMuted: #22bb22;
+  --color-amberMuted: #cc8800;
   --color-orange: #ffb000;
   --color-yellow: #ffff55;
   --color-purple: #ff55ff;
   --color-pink: #ff55ff;
 
-  --font-family-mono: var(--font-mono), ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+  --font-family-mono: var(--font-mono), ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
 }
 
-::selection {
-  background-color: #33ff33;
-  color: #0c0c0c;
+html {
+  min-width: 360px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
   /* Syntax highlighting */
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
+  --sh-class: #4c97f8;
+  --sh-identifier: rgba(255, 255, 255, 0.9);
+  --sh-sign: rgba(255, 255, 255, 0.6);
+  --sh-string: #0fa295;
+  --sh-keyword: #f47067;
+  --sh-comment: rgba(255, 255, 255, 0.45);
+  --sh-jsxliterals: #9aa2ff;
+  --sh-property: #ffb86c;
+  --sh-entity: #ffb86c;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
   html {
     color-scheme: dark;
   }
 }
 
-html {
-  min-width: 360px;
-   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+::selection {
+  background-color: rgba(124, 247, 255, 0.35);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.prose .anchor {
-  @apply absolute invisible no-underline;
-
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
+/* Openclaw-ish background: subtle gradients + noise + a few hand-drawn-ish strokes */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 900px at 20% 10%, rgba(124, 247, 255, 0.12), transparent 55%),
+    radial-gradient(900px 700px at 80% 30%, rgba(255, 124, 255, 0.10), transparent 55%),
+    radial-gradient(1000px 800px at 50% 90%, rgba(51, 255, 51, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 25%),
+    #0b0c10;
+}
+.site-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  mix-blend-mode: overlay;
+}
+.site-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 42%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
+    radial-gradient(circle at 86% 76%, rgba(255,255,255,0.08) 0 1px, transparent 2px);
 }
 
-.anchor:hover {
-  @apply visible;
+/* A tiny builder/tinkerer nod: stitched/dashed borders you see on “components on a bench” */
+.stitch {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: color-mix(in oklab, var(--color-border) 80%, transparent);
 }
 
+/* Prose defaults */
 .prose a {
   @apply underline transition-all decoration-textSecondary underline-offset-2 decoration-[0.1em] text-cyan hover:text-green;
 }
 
-.prose .anchor:after {
-  @apply text-textTertiary;
-  content: '#';
-}
-
-.prose *:hover > .anchor {
-  @apply visible;
-}
-
 .prose pre {
-  @apply bg-surface rounded-lg overflow-x-auto border border-border py-2 px-3 text-sm;
+  @apply rounded-xl overflow-x-auto border border-border bg-background/40 py-3 px-4 text-sm;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg bg-surface border border-border;
+  @apply px-1 py-0.5 rounded-lg bg-background/30 border border-border;
 }
 
 .prose pre code {
@@ -103,12 +121,7 @@ html {
   line-height: 1.5;
 }
 
-.prose code span {
-  @apply font-medium;
-}
-
 .prose img {
-  /* Don't apply styles to next/image */
   @apply m-0;
 }
 
@@ -117,23 +130,15 @@ html {
 }
 
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2 text-green;
+  @apply text-4xl font-semibold tracking-tight mt-2 mb-2 text-text;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2 text-amber;
+  @apply text-xl font-semibold tracking-tight mt-8 mb-2 text-text;
 }
 
 .prose h3 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2 text-cyan;
-}
-
-.prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2 text-text;
-}
-
-.prose strong {
-  @apply font-medium;
+  @apply text-lg font-semibold tracking-tight mt-6 mb-2 text-text;
 }
 
 .prose ul {
@@ -144,19 +149,13 @@ html {
   @apply list-decimal pl-6 text-text;
 }
 
-.prose > :first-child {
-  /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
-}
-
 pre::-webkit-scrollbar {
   display: none;
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Remove Safari input shadow on mobile */
@@ -167,40 +166,19 @@ input[type='email'] {
   appearance: none;
 }
 
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
+/* Small, tasteful motion */
+@keyframes floaty {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.title {
-  text-wrap: balance;
-}
-
-/* Terminal cursor blink */
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-}
-
-/* Scanline effect */
-.scanlines {
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-}
-
-/* Terminal glow effect */
-.terminal-glow {
-  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+.floaty {
+  animation: floaty 6s ease-in-out infinite;
 }
