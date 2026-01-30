@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Now',
@@ -17,7 +18,11 @@ export default function NowPage() {
           What I’m doing now
         </h1>
         <p className="text-textSecondary leading-relaxed">
-          A lightweight update. If it’s out of date, assume I’m heads‑down.
+          A lightweight update. If it’s out of date, blame{' '}
+          <Link className="text-amber hover:underline" href="/giles">
+            Giles
+          </Link>
+          .
         </p>
       </header>
 
@@ -26,7 +31,9 @@ export default function NowPage() {
         <ul className="mt-3 space-y-2 text-textSecondary">
           <li>• Payments infrastructure: make it fast, predictable, boring.</li>
           <li>• Developer experience: fewer footguns, better defaults.</li>
-          <li>• Reliability: measure first, then fix the thing that matters.</li>
+          <li>
+            • Reliability: measure first, then fix the thing that matters.
+          </li>
         </ul>
       </section>
 
@@ -39,7 +46,7 @@ export default function NowPage() {
           />
           <BenchItem
             title="Personal site"
-            note="Turning this into a useful control panel instead of a résumé cosplay."
+            note="Turning this into something useful instead of an online business card..."
           />
           <BenchItem
             title="AI tooling"
@@ -47,7 +54,7 @@ export default function NowPage() {
           />
           <BenchItem
             title="Health"
-            note="Sleep, lifting, walking. Boring inputs. Real output."
+            note="Sleep, lifting, football (the real kind). Boring inputs. Real output."
           />
         </div>
       </section>

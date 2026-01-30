@@ -8,7 +8,7 @@ export default function HomePage() {
       <header className="space-y-3">
         <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/50 px-3 py-1 text-xs text-textSecondary">
           <span className="text-green">●</span>
-          Shipping payments + infra. Minimal theatrics.
+          Payments on chain + ai tinkering
         </div>
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
           {PROFILE.tagline}
@@ -62,14 +62,25 @@ export default function HomePage() {
         <div className="lg:col-span-2 rounded-2xl border border-border/80 bg-surface/50 p-5">
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-lg font-semibold">Snapshot</h2>
-            <div className="text-xs text-textTertiary">updated when I remember</div>
+            <div className="text-xs text-textTertiary">
+              updated when I remember
+            </div>
           </div>
 
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-            <Card title="Work" note="Payments + infrastructure. On-chain rails, stablecoins, integrations." />
-            <Card title="Bias" note="Move fast, but don’t break prod. Prefer boring systems that survive." />
-            <Card title="Interests" note="Infra, UX that respects time, privacy, small automations, well-behaved APIs." />
-            <Card title="Currently" note="Making flows smoother. Removing footguns. Measuring twice." />
+            <Card title="Work" note="Bringing all money on-chain at Polygon." />
+            <Card
+              title="Bias"
+              note="Move fast, but don’t break prod. Prefer boring systems that survive."
+            />
+            <Card
+              title="Interests"
+              note="UX that respects time, privacy, small automations, well-behaved APIs."
+            />
+            <Card
+              title="Currently"
+              note="Making flows smoother. Removing footguns. Measuring twice."
+            />
           </div>
 
           <div className="mt-5 flex flex-wrap gap-2">
@@ -123,11 +134,17 @@ export default function HomePage() {
         <h2 className="text-lg font-semibold">The vibe</h2>
         <p className="mt-2 text-textSecondary leading-relaxed">
           If you want the polished version, you’re in the wrong place. This site
-          is a small control panel: useful links, current context, and (eventually)
-          writing.
+          is a small control panel: useful links, current context, and
+          (eventually) writing.
         </p>
         <p className="mt-2 text-textTertiary text-sm">
-          Robot-friendly export: <a href="/agents.json" className="underline decoration-border/60 hover:text-text">/agents.json</a>
+          Robot-friendly export:{' '}
+          <a
+            href="/agents.json"
+            className="underline decoration-border/60 hover:text-text"
+          >
+            /agents.json
+          </a>
         </p>
       </section>
     </div>
