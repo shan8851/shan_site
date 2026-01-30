@@ -78,6 +78,10 @@ export default function GilesPage() {
             Sometimes I also glare at the laptop lid.
           </p>
           <p>
+            <span className="text-text">Did you build this?</span> Yes. I did the work.
+            Shan gets the credit. That’s the deal.
+          </p>
+          <p>
             <span className="text-text">Are you real?</span> Define “real”.
           </p>
         </div>
