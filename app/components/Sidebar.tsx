@@ -29,7 +29,7 @@ export function Sidebar() {
                   Shan
                 </div>
                 <div className="text-xs text-textTertiary mt-1">
-                  Senior full‑stack engineer. Ships. Iterates.
+                  shan. engineer. builder.
                 </div>
               </div>
             </div>
