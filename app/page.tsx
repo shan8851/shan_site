@@ -39,7 +39,7 @@ export default function HomePage() {
           Shipping payments + infra. Minimal theatrics.
         </div>
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-          Shan. Full‑stack engineer. Builder.
+          shan. engineer. builder.
         </h1>
         <p className="max-w-2xl text-textSecondary leading-relaxed">
           I work on systems that move money around without drama. I like clean
