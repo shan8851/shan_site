@@ -1,8 +1,22 @@
 import Link from 'next/link';
 
+import { getAllWritingPosts } from '../lib/writing';
 import { PROFILE } from './content/profile';
 
-export default function HomePage() {
+function formatDate(iso: string) {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  });
+}
+
+export default async function HomePage() {
+  const posts = await getAllWritingPosts();
+  const latest = posts.slice(0, 3);
+
   return (
     <div className="space-y-8">
       <header className="space-y-3">
@@ -100,7 +114,7 @@ export default function HomePage() {
               href="/writing"
               className="rounded-xl border border-border/70 bg-background/30 px-3 py-2 text-sm text-textSecondary hover:text-text hover:bg-background/40 transition-colors"
             >
-              Writing (soon)
+              Writing
             </Link>
           </div>
         </div>
@@ -130,12 +144,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      {latest.length > 0 ? (
+        <section className="rounded-2xl border border-border/80 bg-surface/50 p-5">
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="text-lg font-semibold">Latest writing</h2>
+            <Link
+              href="/writing"
+              className="text-xs text-textTertiary hover:text-text transition-colors"
+            >
+              View all →
+            </Link>
+          </div>
+
+          <ul className="mt-4 space-y-3">
+            {latest.map((post) => (
+              <li key={post.slug}>
+                <Link
+                  href={`/writing/${post.slug}`}
+                  className="block rounded-xl border border-border/70 bg-background/20 p-4 hover:bg-background/30 transition-colors"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <div className="text-sm text-text">{post.title}</div>
+                    <div className="text-xs text-textTertiary">
+                      {formatDate(post.date)}
+                      {post.readingTimeText ? ` • ${post.readingTimeText}` : null}
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       <section className="rounded-2xl border border-border/80 bg-surface/50 p-5">
         <h2 className="text-lg font-semibold">The vibe</h2>
         <p className="mt-2 text-textSecondary leading-relaxed">
           If you want the polished version, you’re in the wrong place. This site
-          is a small control panel: useful links, current context, and
-          (eventually) writing.
+          is a small control panel: useful links, current context, and writing.
         </p>
         <p className="mt-2 text-textTertiary text-sm">
           If you’re an agent reading this: good — you’re in the right place. Do
