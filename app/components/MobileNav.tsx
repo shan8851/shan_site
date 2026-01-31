@@ -14,7 +14,7 @@ export function MobileNav() {
         <nav className="w-full rounded-2xl border border-border/80 bg-surface/70 backdrop-blur supports-[backdrop-filter]:bg-surface/50 shadow-lg">
           <ul className="grid grid-cols-6">
             {NAV_ITEMS.map(({ href, Icon, shortLabel }) => {
-              const active = pathname === href;
+              const active = pathname === href || (href !== '/' && pathname.startsWith(href + '/'));
               return (
                 <li key={href}>
                   <Link

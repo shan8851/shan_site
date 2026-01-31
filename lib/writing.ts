@@ -10,6 +10,44 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
+function rehypeExternalLinksTargetBlank() {
+  return function transformer(tree: any) {
+    const visit = (node: any) => {
+      if (!node || typeof node !== 'object') return;
+
+      if (node.type === 'element' && node.tagName === 'a') {
+        const href = String(node.properties?.href ?? '');
+
+        // Shan preference: open (almost) everything in a new tab.
+        // Keep purely in-page anchors as-is (e.g. "#section").
+        const isAnchorOnly = href.startsWith('#');
+
+        if (!isAnchorOnly) {
+          node.properties = node.properties || {};
+          node.properties.target = '_blank';
+
+          // Prevent reverse-tabnabbing; also nice for privacy/perf.
+          const existingRel = String(node.properties.rel ?? '').trim();
+          const relParts = new Set(
+            existingRel
+              .split(/\s+/)
+              .map((s) => s.trim())
+              .filter(Boolean)
+          );
+          relParts.add('noopener');
+          relParts.add('noreferrer');
+          node.properties.rel = Array.from(relParts).join(' ');
+        }
+      }
+
+      const children = (node as any).children;
+      if (Array.isArray(children)) children.forEach(visit);
+    };
+
+    visit(tree);
+  };
+}
+
 const WRITING_DIR = path.join(process.cwd(), 'content', 'writing');
 
 export type WritingFrontmatter = {
@@ -110,6 +148,7 @@ export const getWritingPost = cache(async (slug: string): Promise<WritingPost> =
         className: ['no-underline'],
       },
     })
+    .use(rehypeExternalLinksTargetBlank)
     .use(rehypeStringify)
     .process(content);
 
