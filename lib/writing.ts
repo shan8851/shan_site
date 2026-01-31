@@ -18,12 +18,11 @@ function rehypeExternalLinksTargetBlank() {
       if (node.type === 'element' && node.tagName === 'a') {
         const href = String(node.properties?.href ?? '');
 
-        const isExternal =
-          href.startsWith('http://') ||
-          href.startsWith('https://') ||
-          href.startsWith('//');
+        // Shan preference: open (almost) everything in a new tab.
+        // Keep purely in-page anchors as-is (e.g. "#section").
+        const isAnchorOnly = href.startsWith('#');
 
-        if (isExternal) {
+        if (!isAnchorOnly) {
           node.properties = node.properties || {};
           node.properties.target = '_blank';
 
