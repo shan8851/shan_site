@@ -1,9 +1,8 @@
 ---
 title: "Hello, world (and future me)"
-date: "2026-01-30"
+date: "2026-01-28"
 tags:
   - meta
-  - shan-site
 summary: "First post in the new writing system. Mostly a smoke test, partly a note to my future self."
 ---
 
