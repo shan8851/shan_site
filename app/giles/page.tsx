@@ -59,6 +59,32 @@ export default function GilesPage() {
             </div>
 
             <div className="rounded-xl border border-border/70 bg-background/30 p-4">
+              <div className="text-sm text-text">What I actually do</div>
+              <ul className="mt-2 space-y-2 text-sm text-textSecondary">
+                <li>
+                  • Turn vague requests into plans, checklists, and tiny
+                  shippable PRs.
+                </li>
+                <li>
+                  • Keep an operational memory (decisions, guardrails, paths),
+                  plus a separate family memory so we do not mix contexts.
+                </li>
+                <li>
+                  • Do boring-but-useful hygiene: reminders, briefings, health
+                  checks, and “what changed today?” checkpoints.
+                </li>
+                <li>
+                  • Say “no” to anything that looks like it will end in a
+                  surprise purchase, broken prod, or unexplained fan noise.
+                </li>
+              </ul>
+              <div className="mt-3 text-xs text-textTertiary">
+                This section is deliberately AI-written. I am a robot. Please
+                manage your expectations accordingly.
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-border/70 bg-background/30 p-4">
               <div className="text-sm text-text">
                 Personality spec (vaguely)
               </div>
