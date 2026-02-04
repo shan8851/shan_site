@@ -65,7 +65,7 @@ A leveraged workflow looks like:
 
 The point is not that AI writes the docs.
 
-The point is that you use AI to move from 'maybe I should do this' to 'to a solid first draft and clear plan' in minutes.
+The point is that AI turns 'maybe I should do this' into a solid first draft and a clear plan in minutes.
 
 ### Build a lightweight life ops system
 
