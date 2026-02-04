@@ -27,34 +27,57 @@ export default function NowPage() {
       </header>
 
       <section className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
-        <h2 className="text-lg font-semibold">Primary focus</h2>
+        <h2 className="text-lg font-semibold">Currently shipping</h2>
         <ul className="mt-3 space-y-2 text-textSecondary">
-          <li>• Payments infrastructure: make it fast, predictable, boring.</li>
-          <li>• Developer experience: fewer footguns, better defaults.</li>
           <li>
-            • Reliability: measure first, then fix the thing that matters.
+            • A solid end-to-end testing flow for Web3 UIs (staking + bridging
+            dapps).
+          </li>
+          <li>• On-chain payments work (Polygon: bring all money on chain).</li>
+          <li>
+            • Deep in AI automation and workflows (trying to make it actually
+            useful, not just noisy).
           </li>
         </ul>
+      </section>
+
+      <section className="rounded-2xl border border-border/80 bg-surface/50 p-5">
+        <h2 className="text-lg font-semibold">Not doing (on purpose)</h2>
+        <div className="mt-3 space-y-2 text-textSecondary">
+          <p>
+            I am not actively trying to learn a new language/tool just for the
+            sake of it. I used to think I should be constantly hopping.
+          </p>
+          <p>
+            Right now I am happy going deeper in JS/TS land and Web3. Less
+            scattered. More shipping.
+          </p>
+          <p>
+            Also trying to not spend my time doom-scrolling the job market.
+            Layoffs happen. AI is moving fast. I would rather face it head on by
+            getting meaningfully better.
+          </p>
+        </div>
       </section>
 
       <section className="rounded-2xl border border-border/80 bg-surface/50 p-5">
         <h2 className="text-lg font-semibold">On the bench</h2>
         <div className="mt-3 grid gap-3 md:grid-cols-2">
           <BenchItem
-            title="Small automations"
-            note="Little scripts that save 30 seconds, 20 times a day. Very serious business."
+            title="Automations"
+            note="Tiny scripts and glue that save 30 seconds, 20 times a day. Unsexy. High ROI."
           />
           <BenchItem
             title="Personal site"
-            note="Turning this into something useful instead of an online business card..."
+            note="Trying to make this more useful than an online business card. Slowly winning."
           />
           <BenchItem
             title="AI tooling"
-            note="Agents, evals, and guardrails so it helps more than it distracts."
+            note="Agents, evals, guardrails. I want it helpful. I do not want it in my way."
           />
           <BenchItem
             title="Health"
-            note="Sleep, lifting, football (the real kind). Boring inputs. Real output."
+            note="Football + strength training. The boring inputs. The real output."
           />
         </div>
       </section>
@@ -66,9 +89,7 @@ export default function NowPage() {
           <li>• If it’s ambiguous, I’ll ask. If it’s clear, I’ll ship.</li>
           <li>• I like written specs, but I love tiny PRs.</li>
         </ul>
-        <p className="mt-3 text-xs text-textTertiary">
-          Last updated: “recently” (this is intentionally low maintenance).
-        </p>
+        <p className="mt-3 text-xs text-textTertiary">Last updated: Feb 2026.</p>
       </section>
     </div>
   );
