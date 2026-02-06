@@ -10,24 +10,36 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
+import { resolveWritingAuthor } from './writingAuthors';
+
+import type { WritingAuthor } from './writingAuthors';
+
+type RecordValue = Record<string, unknown>;
+
+const isRecord = (value: unknown): value is RecordValue =>
+  typeof value === 'object' && value !== null;
+
 function rehypeExternalLinksTargetBlank() {
-  return function transformer(tree: any) {
-    const visit = (node: any) => {
-      if (!node || typeof node !== 'object') return;
+  return function transformer(tree: unknown) {
+    const visit = (node: unknown) => {
+      if (!isRecord(node)) return;
 
       if (node.type === 'element' && node.tagName === 'a') {
-        const href = String(node.properties?.href ?? '');
+        const properties = isRecord(node.properties) ? node.properties : {};
+        const href = String(properties.href ?? '');
 
         // Shan preference: open (almost) everything in a new tab.
         // Keep purely in-page anchors as-is (e.g. "#section").
         const isAnchorOnly = href.startsWith('#');
 
         if (!isAnchorOnly) {
-          node.properties = node.properties || {};
-          node.properties.target = '_blank';
+          const nextProperties: RecordValue = {
+            ...properties,
+            target: '_blank',
+          };
 
           // Prevent reverse-tabnabbing; also nice for privacy/perf.
-          const existingRel = String(node.properties.rel ?? '').trim();
+          const existingRel = String(properties.rel ?? '').trim();
           const relParts = new Set(
             existingRel
               .split(/\s+/)
@@ -36,12 +48,12 @@ function rehypeExternalLinksTargetBlank() {
           );
           relParts.add('noopener');
           relParts.add('noreferrer');
-          node.properties.rel = Array.from(relParts).join(' ');
+          nextProperties.rel = Array.from(relParts).join(' ');
+          node.properties = nextProperties;
         }
       }
 
-      const children = (node as any).children;
-      if (Array.isArray(children)) children.forEach(visit);
+      if (Array.isArray(node.children)) node.children.forEach(visit);
     };
 
     visit(tree);
@@ -55,6 +67,7 @@ export type WritingFrontmatter = {
   date: string; // ISO yyyy-mm-dd recommended
   tags: string[];
   summary: string;
+  author: WritingAuthor;
 };
 
 export type WritingPostListItem = WritingFrontmatter & {
@@ -83,17 +96,19 @@ function normalizeTags(tags: unknown): string[] {
   return [];
 }
 
-function assertFrontmatter(data: any, slug: string): WritingFrontmatter {
-  const title = String(data?.title ?? '').trim();
-  const date = String(data?.date ?? '').trim();
-  const summary = String(data?.summary ?? data?.description ?? '').trim();
-  const tags = normalizeTags(data?.tags);
+function assertFrontmatter(data: unknown, slug: string): WritingFrontmatter {
+  const metadata = isRecord(data) ? data : {};
+  const title = String(metadata.title ?? '').trim();
+  const date = String(metadata.date ?? '').trim();
+  const summary = String(metadata.summary ?? metadata.description ?? '').trim();
+  const tags = normalizeTags(metadata.tags);
+  const author = resolveWritingAuthor(metadata.author);
 
   if (!title) throw new Error(`Missing frontmatter 'title' in ${slug}.md`);
   if (!date) throw new Error(`Missing frontmatter 'date' in ${slug}.md`);
   if (!summary) throw new Error(`Missing frontmatter 'summary' in ${slug}.md`);
 
-  return { title, date, tags, summary };
+  return { title, date, tags, summary, author };
 }
 
 async function readPostFile(slug: string) {
@@ -103,35 +118,35 @@ async function readPostFile(slug: string) {
   return { ...parsed, raw };
 }
 
-export const getAllWritingPosts = cache(async (): Promise<WritingPostListItem[]> => {
-  let files: string[];
-  try {
-    files = await fs.readdir(WRITING_DIR);
-  } catch {
-    return [];
+export const getAllWritingPosts = cache(
+  async (): Promise<WritingPostListItem[]> => {
+    try {
+      const files = await fs.readdir(WRITING_DIR);
+      const mdFiles = files.filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
+      const posts = await Promise.all(
+        mdFiles.map(async (filename) => {
+          const slug = fileSlug(filename);
+          const { content, data } = await readPostFile(slug);
+          const fm = assertFrontmatter(data, slug);
+          const rt = readingTime(content);
+
+          return {
+            slug,
+            ...fm,
+            readingTimeText: rt.text,
+            readingTimeMinutes: rt.minutes,
+          } satisfies WritingPostListItem;
+        })
+      );
+
+      return posts.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+    } catch {
+      return [];
+    }
   }
-
-  const mdFiles = files.filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
-  const posts = await Promise.all(
-    mdFiles.map(async (filename) => {
-      const slug = fileSlug(filename);
-      const { content, data } = await readPostFile(slug);
-      const fm = assertFrontmatter(data, slug);
-      const rt = readingTime(content);
-
-      return {
-        slug,
-        ...fm,
-        readingTimeText: rt.text,
-        readingTimeMinutes: rt.minutes,
-      } satisfies WritingPostListItem;
-    })
-  );
-
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-});
+);
 
 export const getWritingPost = cache(async (slug: string): Promise<WritingPost> => {
   const { content, data } = await readPostFile(slug);

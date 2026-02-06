@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { getAllWritingPosts, getWritingPost } from '../../../lib/writing';
+import {
+  getWritingAuthorAbout,
+  getWritingAuthorLabel,
+} from '../../../lib/writingAuthors';
 
 export async function generateStaticParams() {
   const posts = await getAllWritingPosts();
@@ -69,6 +73,10 @@ export default async function WritingPostPage(
         <div className="flex flex-wrap items-center gap-2 text-sm text-textSecondary">
           <span>{formatDate(post.date)}</span>
           <span className="text-textTertiary">•</span>
+          <span className="rounded-full border border-border/70 bg-surface/50 px-2.5 py-0.5 text-xs text-textSecondary">
+            {getWritingAuthorLabel(post.author)}
+          </span>
+          <span className="text-textTertiary">•</span>
           <span>{post.readingTimeText}</span>
           {post.tags.length > 0 && (
             <>
@@ -95,7 +103,15 @@ export default async function WritingPostPage(
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 
-      <footer className="pt-2">
+      <footer className="space-y-3 pt-2">
+        <div className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
+          <div className="text-xs uppercase tracking-widest text-textTertiary">
+            About the author
+          </div>
+          <p className="mt-2 text-sm text-textSecondary leading-relaxed">
+            {getWritingAuthorAbout(post.author)}
+          </p>
+        </div>
         <div className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
           <div className="text-sm text-textSecondary">
             If this post was useful (or wildly wrong), I’m reachable via{' '}

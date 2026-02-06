@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 import WritingIndexClient from './WritingIndexClient';
 import { getAllWritingPosts } from '../../lib/writing';
@@ -24,6 +25,13 @@ export default async function WritingPage() {
         <p className="text-textSecondary leading-relaxed">
           This is where essays, notes, and “I should write this down” live. Some
           are polished. Some are very politely described as “field notes”.
+        </p>
+        <p className="text-sm text-textTertiary">
+          Occasional posts are written by my bot,{' '}
+          <Link href="/giles" className="text-cyan hover:text-green">
+            Giles (BOT)
+          </Link>
+          .
         </p>
       </header>
 

@@ -3,6 +3,10 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
+import { WRITING_AUTHOR_FILTERS, getWritingAuthorLabel } from '../../lib/writingAuthors';
+
+import type { WritingAuthor } from '../../lib/writingAuthors';
+
 export type WritingIndexPost = {
   slug: string;
   title: string;
@@ -10,6 +14,7 @@ export type WritingIndexPost = {
   tags: string[];
   summary: string;
   readingTimeText: string;
+  author: WritingAuthor;
 };
 
 function formatDate(iso: string) {
@@ -27,6 +32,7 @@ function norm(s: string) {
 }
 
 export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[] }) {
+  const [activeAuthor, setActiveAuthor] = useState<WritingAuthor | null>(null);
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [query, setQuery] = useState('');
 
@@ -40,13 +46,14 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
     const q = norm(query.trim());
 
     return posts.filter((p) => {
+      if (activeAuthor && p.author !== activeAuthor) return false;
       if (activeTag && !p.tags.includes(activeTag)) return false;
       if (!q) return true;
 
-      const haystack = [p.title, p.summary, p.tags.join(' ')].join(' | ');
+      const haystack = [p.title, p.summary, p.tags.join(' '), p.author].join(' | ');
       return norm(haystack).includes(q);
     });
-  }, [posts, activeTag, query]);
+  }, [posts, activeAuthor, activeTag, query]);
 
   return (
     <section className="space-y-4">
@@ -75,8 +82,27 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
           </div>
         </div>
 
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <span className="text-xs uppercase tracking-widest text-textTertiary">
+            Author
+          </span>
+          <TagChip
+            label="All"
+            active={activeAuthor === null}
+            onClick={() => setActiveAuthor(null)}
+          />
+          {WRITING_AUTHOR_FILTERS.map((author) => (
+            <TagChip
+              key={author.key}
+              label={author.label}
+              active={activeAuthor === author.key}
+              onClick={() => setActiveAuthor(author.key)}
+            />
+          ))}
+        </div>
+
         {tags.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-3 flex flex-wrap gap-2">
             <TagChip
               label="All"
               active={activeTag === null}
@@ -106,8 +132,13 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
                 <h3 className="text-lg font-semibold tracking-tight text-text">
                   {post.title}
                 </h3>
-                <div className="text-xs text-textTertiary">
-                  {formatDate(post.date)} • {post.readingTimeText}
+                <div className="flex flex-wrap items-center gap-2 text-xs text-textTertiary">
+                  <span>
+                    {formatDate(post.date)} • {post.readingTimeText}
+                  </span>
+                  <span className="rounded-full border border-border/70 bg-background/30 px-2.5 py-0.5 text-[11px] text-textSecondary">
+                    {getWritingAuthorLabel(post.author)}
+                  </span>
                 </div>
               </div>
 
