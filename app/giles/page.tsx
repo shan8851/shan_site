@@ -1,11 +1,40 @@
-import type { Metadata } from 'next';
-
 import Image from 'next/image';
+import Link from 'next/link';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Giles',
   description: 'Meet Giles — Shan’s slightly cheeky British robot assistant.',
 };
+
+type ProjectItem = {
+  title: string;
+  description: string;
+  cta: string;
+  href?: string;
+};
+
+const projectItems: ProjectItem[] = [
+  {
+    title: 'ExcuseMe',
+    description: 'Fun excuse generator with playful UI and shareable cards.',
+    cta: 'Open ExcuseMe',
+    href: 'https://excuse-me-lol.vercel.app/',
+  },
+  {
+    title: 'Giles Radio',
+    description:
+      'Daily morning briefing in a radio-show format. Currently for Shan only; public v1 coming.',
+    cta: 'Coming soon',
+  },
+  {
+    title: 'Giles Dashboard',
+    description:
+      'All-in-one dashboard for home server + OpenClaw status, API health, crons/runs.',
+    cta: 'Private',
+  },
+];
 
 export default function GilesPage() {
   return (
@@ -98,6 +127,15 @@ export default function GilesPage() {
         </div>
       </section>
 
+      <section className="rounded-2xl border border-border/80 bg-surface/50 p-5">
+        <h2 className="text-lg font-semibold">Projects</h2>
+        <div className="mt-4 grid gap-3">
+          {projectItems.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      </section>
+
       <section className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
         <h2 className="text-lg font-semibold">Frequently asked questions</h2>
         <div className="mt-3 space-y-3 text-textSecondary">
@@ -118,6 +156,35 @@ export default function GilesPage() {
           </p>
         </div>
       </section>
+    </div>
+  );
+}
+
+function ProjectCard({ project }: { project: ProjectItem }) {
+  return (
+    <div className="rounded-xl border border-border/70 bg-background/30 p-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <div className="text-sm text-text">{project.title}</div>
+          <p className="mt-1 text-sm text-textSecondary leading-relaxed">
+            {project.description}
+          </p>
+        </div>
+        {project.href ? (
+          <Link
+            className="inline-flex items-center justify-center rounded-full border border-amber/50 bg-amber/10 px-3 py-1 text-xs font-medium text-amber transition-colors hover:bg-amber/20"
+            href={project.href}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {project.cta}
+          </Link>
+        ) : (
+          <span className="inline-flex items-center justify-center rounded-full border border-border/70 bg-background/40 px-3 py-1 text-xs font-medium text-textTertiary">
+            {project.cta}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
