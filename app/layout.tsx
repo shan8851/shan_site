@@ -10,11 +10,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Shell } from './components/Shell';
 export const metadata: Metadata = {
   metadataBase: new URL('https://shan8851.com'),
-  title: {
-    default: 'Shan',
-    template: '%s · Shan',
-  },
-  description: 'Engineer and builder.',
+  title: 'Shan',
+  description: 'engineer. builder.',
   keywords:
     'Shan, shan8851, full stack, payments, infrastructure, web3, polygon, stablecoins, engineering',
   authors: [{ name: 'shan8851' }],
@@ -23,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Shan',
-    description: 'Engineer and builder.',
+    description: 'engineer. builder.',
     url: 'https://shan8851.com',
     siteName: 'Shan',
     type: 'website',
@@ -32,16 +29,21 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Shan — Engineer. Builder.',
+        alt: 'Shan — engineer. builder. payment + automation systems.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shan',
-    description: 'Engineer and builder.',
+    description: 'engineer. builder.',
     creator: '@shan8851',
-    images: ['/twitter-image'],
+    images: [
+      {
+        url: '/twitter-image',
+        alt: 'Shan — engineer. builder. payment + automation systems.',
+      },
+    ],
   },
 };
 
