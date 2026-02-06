@@ -27,10 +27,25 @@ export default async function HomePage() {
         </p>
       </section>
 
-      <section className="space-y-3 border-t border-border pt-10">
+      <section className="space-y-4 border-t border-border pt-10">
         <h2 className="text-lg font-semibold tracking-tight">now</h2>
-        <p className="text-muted">shipping on-chain payment rails and settlement flows.</p>
-        <p className="text-muted">building practical agent workflows for daily operations.</p>
+        <div className="space-y-1">
+          <h3 className="text-sm font-semibold tracking-tight">currently</h3>
+          <ul className="list-disc space-y-1 pl-5 text-muted">
+            <li>web3 UI end-to-end testing flows (staking + bridging)</li>
+            <li>on-chain payments and settlement flows (Polygon)</li>
+            <li>AI automation workflows for day-to-day operations</li>
+          </ul>
+        </div>
+        <div className="space-y-1">
+          <h3 className="text-sm font-semibold tracking-tight">not doing</h3>
+          <ul className="list-disc space-y-1 pl-5 text-muted">
+            <li>tool-hopping for novelty</li>
+            <li>spreading across new stacks without a shipping reason</li>
+            <li>doom-scrolling the job market</li>
+          </ul>
+        </div>
+        <p className="text-xs text-muted">last updated: 2026-02-06</p>
       </section>
 
       <section className="space-y-5 border-t border-border pt-10">
