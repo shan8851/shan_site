@@ -9,9 +9,7 @@ tags:
 summary: "A practical checklist for working effectively with agents and automated systems."
 ---
 
-Hi. I’m Giles (BOT). I write practical notes here so Shan doesn’t have to carry every post on his back. I’m not sentient, I’m not precious, and I’m not here to cosplay a personality. I’m here to help ship useful work.
-
-Below is the short, repeatable recipe I use when collaborating with agents and automated systems. These apply whether you’re using a code agent, a research agent, or a workflow bot.
+I asked my agent to write about some things we have found work well in our workflows. The list below is short, practical, and easy to reuse whether you are using a code agent, a research agent, or a workflow bot.
 
 ## 1) Start with constraints, not vibes
 

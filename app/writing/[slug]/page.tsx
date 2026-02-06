@@ -3,14 +3,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { getAllWritingPosts, getWritingPost } from '../../../lib/writing';
-import {
-  getWritingAuthorAbout,
-  getWritingAuthorLabel,
-} from '../../../lib/writingAuthors';
+import { getWritingAuthorAbout } from '../../../lib/writingAuthors';
 
 export async function generateStaticParams() {
   const posts = await getAllWritingPosts();
-  return posts.map((p) => ({ slug: p.slug }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata(
@@ -27,101 +24,53 @@ export async function generateMetadata(
   } catch {
     return {
       title: 'Writing',
-      description: 'Notes and writing.',
+      description: 'Writing index.',
     };
   }
 }
 
-function formatDate(iso: string) {
-  const date = new Date(iso);
-  if (Number.isNaN(date.getTime())) return iso;
-  return date.toLocaleDateString('en-GB', {
+const formatDate = (isoDate: string): string => {
+  const parsedDate = new Date(isoDate);
+  if (Number.isNaN(parsedDate.getTime())) return isoDate;
+
+  return parsedDate.toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'short',
     day: '2-digit',
   });
-}
+};
 
 export default async function WritingPostPage(
   props: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await props.params;
+  const post = await getWritingPost(slug).catch(() => null);
 
-  let post;
-  try {
-    post = await getWritingPost(slug);
-  } catch {
+  if (post === null) {
     notFound();
   }
 
   return (
-    <div className="max-w-3xl space-y-6">
-      <header className="space-y-3">
-        <div className="flex items-center justify-between gap-3">
-          <Link
-            href="/writing"
-            className="text-sm text-textSecondary hover:text-text transition-colors"
-          >
-            ← back to /writing
-          </Link>
-        </div>
+    <article className="space-y-10">
+      <div className="space-y-5">
+        <Link href="/writing" className="text-sm text-muted hover:text-text">
+          ← Back to writing
+        </Link>
+        <header className="max-w-[65ch] space-y-3">
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">{post.title}</h1>
+          <p className="text-sm text-muted">{formatDate(post.date)}</p>
+          <p className="text-muted">{post.summary}</p>
+        </header>
+      </div>
 
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-          {post.title}
-        </h1>
-
-        <div className="flex flex-wrap items-center gap-2 text-sm text-textSecondary">
-          <span>{formatDate(post.date)}</span>
-          <span className="text-textTertiary">•</span>
-          <span className="rounded-full border border-border/70 bg-surface/50 px-2.5 py-0.5 text-xs text-textSecondary">
-            {getWritingAuthorLabel(post.author)}
-          </span>
-          <span className="text-textTertiary">•</span>
-          <span>{post.readingTimeText}</span>
-          {post.tags.length > 0 && (
-            <>
-              <span className="text-textTertiary">•</span>
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-border/70 bg-surface/50 px-2.5 py-0.5 text-xs text-textSecondary"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-
-        <p className="text-textSecondary leading-relaxed">{post.summary}</p>
-      </header>
-
-      <article
-        className="prose max-w-none"
+      <section
+        className="article-prose"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 
-      <footer className="space-y-3 pt-2">
-        <div className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
-          <div className="text-xs uppercase tracking-widest text-textTertiary">
-            About the author
-          </div>
-          <p className="mt-2 text-sm text-textSecondary leading-relaxed">
-            {getWritingAuthorAbout(post.author)}
-          </p>
-        </div>
-        <div className="rounded-2xl border border-border/80 bg-surface/50 p-5 stitch">
-          <div className="text-sm text-textSecondary">
-            If this post was useful (or wildly wrong), I’m reachable via{' '}
-            <Link href="/contact" className="text-cyan hover:text-green">
-              /contact
-            </Link>
-            .
-          </div>
-        </div>
+      <footer className="max-w-[65ch] border-t border-border pt-6">
+        <p className="text-sm leading-7 text-muted">{getWritingAuthorAbout(post.author)}</p>
       </footer>
-    </div>
+    </article>
   );
 }

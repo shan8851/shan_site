@@ -1,152 +1,189 @@
 @import 'tailwindcss';
 
+:root {
+  --background: #fafafa;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #5a5a5a;
+  --border: #dfdfdf;
+  --link: #1f1f1f;
+  color-scheme: light;
+
+  --sh-class: #1d4ed8;
+  --sh-identifier: #111111;
+  --sh-sign: #6b7280;
+  --sh-string: #0f766e;
+  --sh-keyword: #b91c1c;
+  --sh-comment: #6b7280;
+  --sh-jsxliterals: #7c3aed;
+  --sh-property: #92400e;
+  --sh-entity: #92400e;
+}
+
+html[data-theme='dark'] {
+  --background: #111111;
+  --surface: #161616;
+  --text: #f5f5f5;
+  --muted: #ababab;
+  --border: #2a2a2a;
+  --link: #ffffff;
+  color-scheme: dark;
+
+  --sh-class: #93c5fd;
+  --sh-identifier: #f3f4f6;
+  --sh-sign: #9ca3af;
+  --sh-string: #5eead4;
+  --sh-keyword: #fda4af;
+  --sh-comment: #9ca3af;
+  --sh-jsxliterals: #c4b5fd;
+  --sh-property: #fdba74;
+  --sh-entity: #fdba74;
+}
+
+html[data-theme='oled'] {
+  --background: #000000;
+  --surface: #000000;
+  --text: #ffffff;
+  --muted: #b3b3b3;
+  --border: #262626;
+  --link: #ffffff;
+  color-scheme: dark;
+
+  --sh-class: #93c5fd;
+  --sh-identifier: #f9fafb;
+  --sh-sign: #9ca3af;
+  --sh-string: #5eead4;
+  --sh-keyword: #fda4af;
+  --sh-comment: #9ca3af;
+  --sh-jsxliterals: #c4b5fd;
+  --sh-property: #fdba74;
+  --sh-entity: #fdba74;
+}
+
 @theme {
-  --color-background: #0b0c10;
-  --color-surface: rgba(255, 255, 255, 0.04);
-  --color-border: rgba(255, 255, 255, 0.10);
-  --color-text: rgba(255, 255, 255, 0.92);
-  --color-textSecondary: rgba(255, 255, 255, 0.70);
-  --color-textTertiary: rgba(255, 255, 255, 0.42);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-link: var(--link);
 
-  /* Accent palette (quiet by default) */
-  --color-green: #33ff33;
-  --color-cyan: #7cf7ff;
-  --color-amber: #ffcc66;
-  --color-red: #ff6b6b;
-  --color-magenta: #ff7cff;
-
-  /* Legacy aliases */
-  --color-greenMuted: #22bb22;
-  --color-amberMuted: #cc8800;
-  --color-orange: #ffb000;
-  --color-yellow: #ffff55;
-  --color-purple: #ff55ff;
-  --color-pink: #ff55ff;
-
-  --font-family-mono: var(--font-mono), ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
+  --font-family-mono: var(--font-mono), 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
 }
 
 html {
-  min-width: 360px;
+  min-width: 320px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  /* Syntax highlighting */
-  --sh-class: #4c97f8;
-  --sh-identifier: rgba(255, 255, 255, 0.9);
-  --sh-sign: rgba(255, 255, 255, 0.6);
-  --sh-string: #0fa295;
-  --sh-keyword: #f47067;
-  --sh-comment: rgba(255, 255, 255, 0.45);
-  --sh-jsxliterals: #9aa2ff;
-  --sh-property: #ffb86c;
-  --sh-entity: #ffb86c;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
-::selection {
-  background-color: rgba(124, 247, 255, 0.35);
-  color: rgba(255, 255, 255, 0.92);
-}
-
-/* Openclaw-ish background: subtle gradients + noise + a few hand-drawn-ish strokes */
-.site-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(1200px 900px at 20% 10%, rgba(124, 247, 255, 0.12), transparent 55%),
-    radial-gradient(900px 700px at 80% 30%, rgba(255, 124, 255, 0.10), transparent 55%),
-    radial-gradient(1000px 800px at 50% 90%, rgba(51, 255, 51, 0.08), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 25%),
-    #0b0c10;
-}
-.site-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.08;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  mix-blend-mode: overlay;
-}
-.site-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.12;
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
-    radial-gradient(circle at 68% 42%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
-    radial-gradient(circle at 86% 76%, rgba(255,255,255,0.08) 0 1px, transparent 2px);
-}
-
-/* A tiny builder/tinkerer nod: stitched/dashed borders you see on “components on a bench” */
-.stitch {
-  border-style: dashed;
-  border-width: 1px;
-  border-color: color-mix(in oklab, var(--color-border) 80%, transparent);
-}
-
-/* Prose defaults */
-.prose a {
-  @apply underline transition-all decoration-textSecondary underline-offset-2 decoration-[0.1em] text-cyan hover:text-green;
-}
-
-.prose pre {
-  @apply rounded-xl overflow-x-auto border border-border bg-background/40 py-3 px-4 text-sm;
-}
-
-.prose code {
-  @apply px-1 py-0.5 rounded-lg bg-background/30 border border-border;
-}
-
-.prose pre code {
-  @apply p-0;
-  border: initial;
+body {
+  background: var(--background);
+  color: var(--text);
+  font-size: 16px;
   line-height: 1.5;
 }
 
-.prose img {
-  @apply m-0;
+a {
+  color: var(--link);
 }
 
-.prose p {
-  @apply my-4 text-text;
+::selection {
+  background: color-mix(in oklab, var(--text) 18%, transparent);
 }
 
-.prose h1 {
-  @apply text-4xl font-semibold tracking-tight mt-2 mb-2 text-text;
+input[type='text'],
+input[type='search'],
+input[type='email'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-.prose h2 {
-  @apply text-xl font-semibold tracking-tight mt-8 mb-2 text-text;
+.article-prose {
+  max-width: 65ch;
+  line-height: 1.7;
 }
 
-.prose h3 {
-  @apply text-lg font-semibold tracking-tight mt-6 mb-2 text-text;
+.article-prose h1,
+.article-prose h2,
+.article-prose h3,
+.article-prose h4 {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
 }
 
-.prose ul {
-  @apply list-disc pl-6 text-text;
+.article-prose h1 {
+  font-size: 2rem;
+  margin-top: 0;
 }
 
-.prose ol {
-  @apply list-decimal pl-6 text-text;
+.article-prose h2 {
+  font-size: 1.5rem;
+}
+
+.article-prose h3 {
+  font-size: 1.25rem;
+}
+
+.article-prose p,
+.article-prose ul,
+.article-prose ol,
+.article-prose blockquote,
+.article-prose pre {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.article-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.article-prose ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.article-prose a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.article-prose blockquote {
+  border-left: 2px solid var(--border);
+  color: var(--muted);
+  padding-left: 1rem;
+}
+
+.article-prose pre {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: color-mix(in oklab, var(--surface) 90%, var(--background));
+  overflow-x: auto;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+}
+
+.article-prose code {
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  padding: 0.1rem 0.3rem;
+}
+
+.article-prose pre code {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.article-prose img {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
 }
 
 pre::-webkit-scrollbar {
@@ -156,29 +193,4 @@ pre::-webkit-scrollbar {
 pre {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* Small, tasteful motion */
-@keyframes floaty {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.floaty {
-  animation: floaty 6s ease-in-out infinite;
 }
