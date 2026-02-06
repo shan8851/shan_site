@@ -16,9 +16,6 @@ export function Shell({ children }: { children: ReactNode }) {
               <Link href="/" className="transition-colors hover:text-text">
                 Home
               </Link>
-              <Link href="/now" className="transition-colors hover:text-text">
-                Now
-              </Link>
               <Link href="/writing" className="transition-colors hover:text-text">
                 Writing
               </Link>
@@ -40,7 +37,7 @@ export function Shell({ children }: { children: ReactNode }) {
             rel="noreferrer"
             className="transition-colors hover:text-text"
           >
-            X
+            x
           </a>{' '}
           /{' '}
           <a
@@ -49,7 +46,7 @@ export function Shell({ children }: { children: ReactNode }) {
             rel="noreferrer"
             className="transition-colors hover:text-text"
           >
-            GitHub
+            github
           </a>{' '}
           /{' '}
           <a
@@ -58,14 +55,14 @@ export function Shell({ children }: { children: ReactNode }) {
             rel="noreferrer"
             className="transition-colors hover:text-text"
           >
-            Telegram
+            telegram
           </a>{' '}
           /{' '}
           <a
             href="mailto:shan8851@proton.me"
             className="transition-colors hover:text-text"
           >
-            shan8851@proton.me
+            email
           </a>
         </div>
       </footer>

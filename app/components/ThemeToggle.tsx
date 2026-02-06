@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 
-type ThemeMode = 'light' | 'dark' | 'oled';
+type ThemeMode = 'light' | 'dark';
 
-const THEME_MODES: ThemeMode[] = ['light', 'dark', 'oled'];
+const THEME_MODES: ThemeMode[] = ['light', 'dark'];
 
 const isThemeMode = (value: string | null): value is ThemeMode =>
-  value === 'light' || value === 'dark' || value === 'oled';
+  value === 'light' || value === 'dark';
 
 const applyThemeMode = (themeMode: ThemeMode) => {
   if (themeMode === 'light') {
@@ -24,6 +24,10 @@ const getInitialThemeMode = (): ThemeMode => {
   }
 
   const storedThemeMode = window.localStorage.getItem('theme-mode');
+  if (storedThemeMode === 'oled') {
+    return 'dark';
+  }
+
   return isThemeMode(storedThemeMode) ? storedThemeMode : 'light';
 };
 
@@ -38,7 +42,7 @@ export const ThemeToggle = () => {
   const updateThemeMode = (themeMode: ThemeMode) => setActiveThemeMode(themeMode);
 
   return (
-    <div className="inline-flex rounded-md border border-border p-0.5">
+    <div className="inline-flex w-fit self-start rounded-md border border-border p-0.5">
       {THEME_MODES.map((themeMode) => {
         const isActive = activeThemeMode === themeMode;
 
@@ -48,7 +52,7 @@ export const ThemeToggle = () => {
             type="button"
             onClick={() => updateThemeMode(themeMode)}
             className={
-              'rounded px-2 py-1 text-xs uppercase tracking-wide transition-colors ' +
+              'rounded px-2 py-1 text-xs tracking-wide transition-colors ' +
               (isActive
                 ? 'bg-text text-background'
                 : 'text-muted hover:text-text')

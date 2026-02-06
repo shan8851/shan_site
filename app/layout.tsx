@@ -64,7 +64,7 @@ export default function RootLayout({
             try {
               const themeMode = window.localStorage.getItem('theme-mode');
               if (themeMode === 'dark' || themeMode === 'oled') {
-                document.documentElement.setAttribute('data-theme', themeMode);
+                document.documentElement.setAttribute('data-theme', 'dark');
                 return;
               }
               document.documentElement.removeAttribute('data-theme');

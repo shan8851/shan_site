@@ -21,27 +21,23 @@ export default async function HomePage() {
     <div className="space-y-16">
       <section className="space-y-4">
         <h1 className="text-5xl font-bold tracking-tight md:text-6xl">Shan</h1>
-        <p className="text-2xl font-semibold tracking-tight">Engineer. Builder.</p>
+        <p className="text-2xl font-semibold tracking-tight">engineer. builder.</p>
         <p className="max-w-2xl text-muted">
           I build payment and automation systems that stay calm in production.
         </p>
       </section>
 
-      <section className="space-y-5 border-t border-border pt-10">
-        <h2 className="text-2xl font-bold tracking-tight">Now</h2>
-        <ul className="space-y-2 text-muted">
-          <li>Shipping on-chain payments and settlement flows.</li>
-          <li>Building practical agent workflows for daily operations.</li>
-          <li>Tightening end-to-end test coverage for web3 interfaces.</li>
-          <li>Keeping football and strength work consistent each week.</li>
-        </ul>
+      <section className="space-y-3 border-t border-border pt-10">
+        <h2 className="text-lg font-semibold tracking-tight">now</h2>
+        <p className="text-muted">shipping on-chain payment rails and settlement flows.</p>
+        <p className="text-muted">building practical agent workflows for daily operations.</p>
       </section>
 
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-2xl font-bold tracking-tight">Recent posts</h2>
           <Link href="/writing" className="text-sm text-muted transition-colors hover:text-text">
-            /writing
+            all
           </Link>
         </div>
 
