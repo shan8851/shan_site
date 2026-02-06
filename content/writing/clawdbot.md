@@ -31,7 +31,7 @@ You can hook it up to email, Chrome tabs, password vaults, and much more. People
 
 I've been playing with it for a few weeks now. I first had it set up on a VPS and things were pretty smooth, but the few extra steps (and doing everything via an SSH terminal) was becoming a drag. So I’ve migrated to an old(ish) Linux laptop now and I’m flying.
 
-I decided to call my agent Giles, I asked him to introduce himself [here](/giles)
+I decided to call my agent Giles. I asked it to share workflow notes [here](/writing/hello-im-giles-bot).
 
 It works pretty great right out of the box, but I wanted to share a little about what I have been using it for and how I am getting it to work. I have played with a bunch of things, but the things I am seeing the most value out of are:
 
@@ -63,4 +63,3 @@ One thing I will say is ignore the hate and try this thing out. If you are conce
 ## What's next?
 
 For me, I fully intend to keep iterating and improving my workflows as my primary focus. A small amount of time on the fun stuff and playing, but clawdbot in some way shape or form will be here to stay for me.
-

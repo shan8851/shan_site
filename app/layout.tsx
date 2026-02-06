@@ -2,6 +2,7 @@ import './global.css';
 
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono } from 'next/font/google';
+import Script from 'next/script';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -10,11 +11,10 @@ import { Shell } from './components/Shell';
 export const metadata: Metadata = {
   metadataBase: new URL('https://shan8851.com'),
   title: {
-    default: 'shan8851.eth',
-    template: '%s · shan8851.eth',
+    default: 'Shan',
+    template: '%s · Shan',
   },
-  description:
-    'Senior full‑stack engineer shipping payments and infrastructure. Minimal vibes, maximal output.',
+  description: 'Engineer and builder.',
   keywords:
     'Shan, shan8851, full stack, payments, infrastructure, web3, polygon, stablecoins, engineering',
   authors: [{ name: 'shan8851' }],
@@ -22,26 +22,24 @@ export const metadata: Metadata = {
     icon: '/favicon.png',
   },
   openGraph: {
-    title: 'shan8851.eth',
-    description:
-      'Senior full‑stack engineer shipping payments and infrastructure. Minimal vibes, maximal output.',
+    title: 'Shan',
+    description: 'Engineer and builder.',
     url: 'https://shan8851.com',
-    siteName: 'shan8851.eth',
+    siteName: 'Shan',
     type: 'website',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'shan8851.eth — Senior Full Stack Engineer',
+        alt: 'Shan — Engineer. Builder.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'shan8851.eth',
-    description:
-      'Senior full‑stack engineer shipping payments and infrastructure. Minimal vibes, maximal output.',
+    title: 'Shan',
+    description: 'Engineer and builder.',
     creator: '@shan8851',
     images: ['/twitter-image'],
   },
@@ -59,8 +57,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ibmPlexMono.variable}>
+    <html lang="en" className={ibmPlexMono.variable} suppressHydrationWarning>
       <body className="font-mono antialiased">
+        <Script id="theme-mode-init" strategy="beforeInteractive">
+          {`(() => {
+            try {
+              const themeMode = window.localStorage.getItem('theme-mode');
+              if (themeMode === 'dark' || themeMode === 'oled') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                return;
+              }
+              document.documentElement.removeAttribute('data-theme');
+            } catch {}
+          })();`}
+        </Script>
         <Shell>{children}</Shell>
         <Analytics />
         <SpeedInsights />
