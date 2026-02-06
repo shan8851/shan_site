@@ -1,7 +1,7 @@
 import './global.css';
 
 import type { Metadata } from 'next';
-import { IBM_Plex_Mono } from 'next/font/google';
+import { DM_Mono } from 'next/font/google';
 import Script from 'next/script';
 
 import { Analytics } from '@vercel/analytics/react';
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
   },
 };
 
-const ibmPlexMono = IBM_Plex_Mono({
+const dmMono = DM_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500'],
 });
 
 export default function RootLayout({
@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ibmPlexMono.variable} suppressHydrationWarning>
+    <html lang="en" className={dmMono.variable} suppressHydrationWarning>
       <body className="font-mono antialiased">
         <Script id="theme-mode-init" strategy="beforeInteractive">
           {`(() => {

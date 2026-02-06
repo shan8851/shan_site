@@ -48,7 +48,7 @@ html[data-theme='dark'] {
   --color-border: var(--border);
   --color-link: var(--link);
 
-  --font-family-mono: var(--font-mono), 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --font-family-mono: var(--font-mono), 'DM Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
 }
 
 html {
