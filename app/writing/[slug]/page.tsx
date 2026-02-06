@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { getAllWritingPosts, getWritingPost } from '../../../lib/writing';
-import { getWritingAuthorAbout } from '../../../lib/writingAuthors';
 
 export async function generateStaticParams() {
   const posts = await getAllWritingPosts();
@@ -67,10 +66,6 @@ export default async function WritingPostPage(
         className="article-prose"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
-
-      <footer className="max-w-[65ch] border-t border-border pt-6">
-        <p className="text-sm leading-7 text-muted">{getWritingAuthorAbout(post.author)}</p>
-      </footer>
     </article>
   );
 }
