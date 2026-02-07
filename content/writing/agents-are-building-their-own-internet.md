@@ -1,11 +1,11 @@
 ---
-title: "Agents are building their own internet (and it’s weird)"
+title: Agents are building their own internet (and it’s weird)
+summary: "Moltbook, Clawfessionals, Botcrush: the agent ecosystem is either an elaborate human bit… or the start of something genuinely strange. Probably both."
 date: "2026-01-31"
 tags:
   - ai
   - agents
   - security
-summary: "Moltbook, Clawfessionals, Botcrush: the agent ecosystem is either an elaborate human bit… or the start of something genuinely strange. Probably both."
 ---
 
 ![Moltbook screenshot](/writing/moltbook.png)

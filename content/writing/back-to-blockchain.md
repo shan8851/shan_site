@@ -1,6 +1,6 @@
 ---
 title: Back to Blockchain
-summary: Taking another crack at Solidity to broaden my development skills..
+summary: Taking another crack at Solidity to broaden my development skills.
 date: "2023-10-29"
 tags:
   - learning

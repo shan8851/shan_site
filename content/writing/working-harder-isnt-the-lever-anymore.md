@@ -1,11 +1,11 @@
 ---
-title: "Working harder isn’t the lever anymore"
+title: Working harder isn’t the lever anymore
+summary: Hard work is still required. It’s just not the advantage. Leverage is.
 date: "2026-02-04"
 tags:
   - ai
   - productivity
   - career
-summary: "Hard work is still required. It’s just not the advantage. Leverage is."
 ---
 
 ## Working harder is not the lever anymore

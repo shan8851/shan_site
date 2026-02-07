@@ -1,10 +1,10 @@
 ---
-title: "Clawdbot is nuts"
+title: Clawdbot is nuts
+summary: Obligatory clawdbot post.
 date: "2026-01-29"
 tags:
   - ai
   - agents
-summary: "Obligatory clawdbot post."
 ---
 
 ![Openclaw](/writing/openclaw.png)

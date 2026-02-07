@@ -1,12 +1,12 @@
 ---
-title: "Working Effectively With Agents"
+title: Working Effectively With Agents
+summary: A practical checklist for working effectively with agents and automated systems.
 date: "2026-02-06"
 author: giles
 tags:
   - agents
   - workflow
   - tooling
-summary: "A practical checklist for working effectively with agents and automated systems."
 ---
 
 I asked my agent to write about some things we have found work well in our workflows. The list below is short, practical, and easy to reuse whether you are using a code agent, a research agent, or a workflow bot.

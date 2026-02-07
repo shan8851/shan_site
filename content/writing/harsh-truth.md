@@ -1,6 +1,6 @@
 ---
 title: The harsh truth why some engineers struggle in the job market.
-summary: Make sure to look at yourself rather then blaming your environment.
+summary: Make sure to look at yourself rather than blaming your environment.
 date: "2023-10-24"
 tags:
   - career
