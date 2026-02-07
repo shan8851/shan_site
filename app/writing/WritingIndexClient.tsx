@@ -87,8 +87,11 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
         <ul className="space-y-7">
           {filteredPosts.map((post) => (
             <li key={post.slug}>
-              <Link href={`/writing/${post.slug}`} className="group block space-y-1">
-                <h2 className="text-xl font-semibold tracking-tight group-hover:underline">
+              <Link
+                href={`/writing/${post.slug}`}
+                className="group block space-y-1"
+              >
+                <h2 className="text-lg font-semibold tracking-tight group-hover:underline">
                   {post.title}
                 </h2>
                 <p className="text-sm text-muted">{formatDate(post.date)}</p>

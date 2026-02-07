@@ -18,26 +18,28 @@ const applyThemeMode = (themeMode: ThemeMode) => {
   document.documentElement.setAttribute('data-theme', themeMode);
 };
 
-const getInitialThemeMode = (): ThemeMode => {
-  if (typeof window === 'undefined') {
-    return 'light';
-  }
-
-  const storedThemeMode = window.localStorage.getItem('theme-mode');
-  if (storedThemeMode === 'oled') {
-    return 'dark';
-  }
-
-  return isThemeMode(storedThemeMode) ? storedThemeMode : 'light';
-};
-
 export const ThemeToggle = () => {
-  const [activeThemeMode, setActiveThemeMode] = useState<ThemeMode>(getInitialThemeMode);
+  // Start with 'light' on both server and client to avoid hydration mismatch
+  const [activeThemeMode, setActiveThemeMode] = useState<ThemeMode>('light');
+  const [mounted, setMounted] = useState(false);
+
+  // Read from localStorage only after mount (client-side only)
+  useEffect(() => {
+    const storedThemeMode = window.localStorage.getItem('theme-mode');
+    // Migrate legacy 'oled' to 'dark'
+    if (storedThemeMode === 'oled') {
+      setActiveThemeMode('dark');
+    } else if (isThemeMode(storedThemeMode)) {
+      setActiveThemeMode(storedThemeMode);
+    }
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
     applyThemeMode(activeThemeMode);
     window.localStorage.setItem('theme-mode', activeThemeMode);
-  }, [activeThemeMode]);
+  }, [activeThemeMode, mounted]);
 
   const updateThemeMode = (themeMode: ThemeMode) => setActiveThemeMode(themeMode);
 

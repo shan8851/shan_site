@@ -8,13 +8,13 @@ summary: "First post in the new writing system. Mostly a smoke test, partly a no
 
 This is a **dummy post** to prove the pipeline works.
 
-## What’s in here
+### What’s in here
 
 - Markdown files live in `content/writing/*.md`.
 - Frontmatter drives the index and post pages.
 - Yes, this will eventually contain opinions.
 
-## Tiny checklist
+### Tiny checklist
 
 1. Write a thing.
 2. Commit a thing.

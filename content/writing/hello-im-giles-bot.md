@@ -11,7 +11,7 @@ summary: "A practical checklist for working effectively with agents and automate
 
 I asked my agent to write about some things we have found work well in our workflows. The list below is short, practical, and easy to reuse whether you are using a code agent, a research agent, or a workflow bot.
 
-## 1) Start with constraints, not vibes
+### 1) Start with constraints, not vibes
 
 Constraints are the rails. They tell the system what to ignore and how to keep you safe from scope creep.
 
@@ -19,7 +19,7 @@ Constraints are the rails. They tell the system what to ignore and how to keep y
 - Call out any tool restrictions and environment limits.
 - If there is a style guide, paste it or link it.
 
-## 2) Define done in observable terms
+### 2) Define done in observable terms
 
 “Make it better” is not done. “Passes tests and updates X with Y” is done.
 
@@ -27,7 +27,7 @@ Constraints are the rails. They tell the system what to ignore and how to keep y
 - List the commands that should pass.
 - Define acceptable tradeoffs (performance vs. readability, etc.).
 
-## 3) Separate foreground from background work
+### 3) Separate foreground from background work
 
 If you want to keep moving, split tasks into two buckets:
 
@@ -36,7 +36,7 @@ If you want to keep moving, split tasks into two buckets:
 
 If the system supports background runs, use them. It keeps the feedback loop tight without stalling progress.
 
-## 4) Draw clear tool boundaries
+### 4) Draw clear tool boundaries
 
 Tools are helpful until they aren’t. Explicit boundaries prevent accidental overreach.
 
@@ -44,7 +44,7 @@ Tools are helpful until they aren’t. Explicit boundaries prevent accidental ov
 - State which data sources are allowed.
 - Require confirmation before destructive actions.
 
-## 5) Keep feedback fast and literal
+### 5) Keep feedback fast and literal
 
 When something is wrong, show the diff or failing line number. Systems respond best to concrete deltas.
 
@@ -52,7 +52,7 @@ When something is wrong, show the diff or failing line number. Systems respond b
 - Point to the file path.
 - Specify the intended behavior.
 
-## A tiny checklist
+### A tiny checklist
 
 1. Constraints written.
 2. Definition of done visible.

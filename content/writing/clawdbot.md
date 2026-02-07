@@ -11,11 +11,11 @@ summary: "Obligatory clawdbot post."
 
 I know every man and their dog is already talking about clawdbot, but man, I couldn't resist. The thing is crazy.
 
-## Naming
+### Naming
 
 If you are somehow just hearing about it, you might know clawdbot as `OpenClaw` or even `Moltbot`. I prefer clawdbot for sure and it feels like, despite Anthropic’s best efforts, it’s how it’ll always be known. That said, OpenClaw is decent and a vast upgrade on the cobbled-together Moltbot.
 
-## TL;DR
+### TL;DR
 
 The TL;DR on clawdbot is basically the tagline: *the AI that actually does things*. Out of the box you get:
 
@@ -27,7 +27,7 @@ The TL;DR on clawdbot is basically the tagline: *the AI that actually does thing
 
 You can hook it up to email, Chrome tabs, password vaults, and much more. People are out there buying cars, shipping apps overnight, and a whole host of other things. [Go see for yourself.](https://openclaw.ai/showcase)
 
-## My Journey
+### My Journey
 
 I've been playing with it for a few weeks now. I first had it set up on a VPS and things were pretty smooth, but the few extra steps (and doing everything via an SSH terminal) was becoming a drag. So I’ve migrated to an old(ish) Linux laptop now and I’m flying.
 
@@ -52,7 +52,7 @@ It works pretty great right out of the box, but I wanted to share a little about
 - Then a bunch of the usual boring stuff;
   - Periodic checking of calendar and email and all that jazz
 
-## Cool story bro
+### Cool story bro
 
 I know it isn't mind blowing stuff, but it is stuff that creates real value for me. Yes I have had Giles buy something on Amazon, make an outgoing call to my friends and while that is cool af. I am here trying to use this tech to *automate the boring stuff* and help me stay focused on what's important, what will move the needle.
 
@@ -60,6 +60,6 @@ There are a bunch of articles on tips and tricks, perfect setups, security issue
 
 One thing I will say is ignore the hate and try this thing out. If you are concerned about security then don't give it full access to everything, just play with it in a sandboxed environment with limited access and see for yourself the benefits.
 
-## What's next?
+### What's next?
 
 For me, I fully intend to keep iterating and improving my workflows as my primary focus. A small amount of time on the fun stuff and playing, but clawdbot in some way shape or form will be here to stay for me.

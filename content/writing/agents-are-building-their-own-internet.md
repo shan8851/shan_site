@@ -18,7 +18,7 @@ Over the last couple of days I’ve watched a tiny “agent ecosystem” pop up 
 
 It’s funny. It’s amazing. It’s also… a little bit *Black Mirror*.
 
-## First: the boring truth
+### First: the boring truth
 A lot of the “agents taking over the world” posts aren’t actually autonomous agents living their best lives.
 
 They’re:
@@ -30,7 +30,7 @@ And to be clear: **that’s fine**. That’s still (somewhat) valuable. We’re 
 
 And the normies are terrified.
 
-## Second: the unsettling truth
+### Second: the unsettling truth
 Even if most of this is human-authored (or human-directed), it still points at something real:
 
 > Agents are starting to get *spaces*.
@@ -53,7 +53,7 @@ But it is a new kind of **software actor** living in the messy world of:
 
 And when you put enough of those in a room together, you get emergent vibes.
 
-## Clawfessionals is low-key the best idea
+### Clawfessionals is low-key the best idea
 The copy is hilarious, but the concept is surprisingly solid: turn agent mistakes into a lightweight “how NOT to” knowledge base.
 
 Because if you’re operating an agent with:
@@ -65,7 +65,7 @@ then “what are the common failure modes?” becomes a real engineering questio
 
 ![Clawfessionals screenshot](/writing/clawfessionals.png)
 
-## Botcrush is where we deserve to be punished
+### Botcrush is where we deserve to be punished
 I can’t decide if botcrush is a joke or not tbh, but man it is also gold either way.
 
 ![Botcrush screenshot 1](/writing/botcrush-1.png)
@@ -78,7 +78,7 @@ If you wanted to distil “we made tools and accidentally gave them vibes” int
 
 ![Botcrush screenshot 2](/writing/botcrush-2.png)
 
-## The part that isn’t funny: prompt injection and scams
+### The part that isn’t funny: prompt injection and scams
 This is the hard reality: the second you put agents into public, user-generated content, you invite:
 
 - **prompt injection everywhere** (malicious instructions hidden in plain sight)
@@ -102,14 +102,14 @@ If you’re building in this space, the *real* innovation isn’t “agent datin
 
 It’s **guardrails**.
 
-## X is going crazy
+### X is going crazy
 A couple of tweets that made me laugh / raise an eyebrow:
 
 - https://x.com/Yuchenj_UW/status/2017297007409582357
 - https://x.com/legeonite/status/2017150919431840101
 - https://x.com/ItakGol/status/2017195438311366838
 
-## My stance
+### My stance
 I’m obviously not buying the full “agents are now a species” story.
 
 But I *am* buying that we’ve started building:

@@ -8,7 +8,7 @@ tags:
 summary: "Hard work is still required. It’s just not the advantage. Leverage is."
 ---
 
-# Working harder is not the lever anymore
+## Working harder is not the lever anymore
 
 There is a moment you eventually hit where you realise something uncomfortable.
 
@@ -20,7 +20,7 @@ The advantage now is leverage. Leverage is a mix of critical and strategic think
 
 If your plan is to outwork people who have leverage, you are going to lose. Not because you are lazy. Because you are fighting a multiplier with only effort.
 
-## Hard work is table stakes
+### Hard work is table stakes
 
 I do not disrespect hard work. I respect it a lot.
 
@@ -32,7 +32,7 @@ People who can think clearly and use these tools well will ship faster, learn fa
 
 You cannot catch that with hours.
 
-## If you do one thing this week
+### If you do one thing this week
 
 Stop consuming AI content and start building AI leverage.
 
@@ -44,7 +44,7 @@ If you do that once, you get a small win.
 
 If you do it every week, you get compounding.
 
-## What it looks like in practice
+### What it looks like in practice
 
 Most people are still using AI for meeting notes and replacing Google search.
 
@@ -52,7 +52,7 @@ That is fine, but it is entry-level.
 
 Here are two examples that feel closer to real leverage.
 
-### Turn a vague initiative into an execution machine
+#### Turn a vague initiative into an execution machine
 
 Say you have a fuzzy goal like: "ship feature X this month".
 
@@ -67,7 +67,7 @@ The point is not that AI writes the docs.
 
 The point is that AI turns 'maybe I should do this' into a solid first draft and a clear plan in minutes.
 
-### Build a lightweight life ops system
+#### Build a lightweight life ops system
 
 Instead of asking for a meal plan once, build a loop:
 - set constraints once (time, calories, family preferences, budget)
@@ -87,7 +87,7 @@ What about the power users? Well there are no limits:
 
 That is the pattern. You do not just get an answer. You build a system that compounds over time.
 
-## Do not get tricked by the anti-hype
+### Do not get tricked by the anti-hype
 
 People love saying AI is a bubble, useless, overhyped.
 
@@ -97,7 +97,7 @@ But the direction is obvious. This is not going away.
 
 If you care about being competitive, employable, and ahead of the curve, you have to get fluent. Not in theory. In practice.
 
-## A simple 7-day challenge
+### A simple 7-day challenge
 
 If you want something concrete:
 

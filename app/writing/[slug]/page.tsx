@@ -56,7 +56,9 @@ export default async function WritingPostPage(
           ← Back to writing
         </Link>
         <header className="max-w-[65ch] space-y-3">
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl">{post.title}</h1>
+          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+            {post.title}
+          </h1>
           <p className="text-sm text-muted">{formatDate(post.date)}</p>
           <p className="text-muted">{post.summary}</p>
         </header>
