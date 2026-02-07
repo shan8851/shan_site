@@ -64,8 +64,10 @@ body {
   line-height: 1.5;
 }
 
-a {
-  color: var(--link);
+@layer base {
+  a {
+    color: var(--link);
+  }
 }
 
 ::selection {
