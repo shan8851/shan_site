@@ -42,7 +42,7 @@ export default async function HomePage() {
 
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Recent posts</h2>
+          <h2 className="text-xl font-bold tracking-tight">Notes</h2>
           <Link
             href="/writing"
             className="text-sm text-muted transition-colors hover:text-text hover:underline"

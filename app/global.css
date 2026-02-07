@@ -64,11 +64,9 @@ body {
   line-height: 1.5;
 }
 
-@layer base {
-  a {
-    color: var(--link);
-  }
-}
+/* Note: don’t force a default <a> color here.
+   We rely on Tailwind utility classes (e.g. text-muted / hover:text-text)
+   and inherited text color for nav/footer links. */
 
 ::selection {
   background: color-mix(in oklab, var(--text) 18%, transparent);

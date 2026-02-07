@@ -25,14 +25,20 @@ export const ThemeToggle = () => {
 
   // Read from localStorage only after mount (client-side only)
   useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect */
+    // We intentionally hydrate theme preference from localStorage after mount
+    // to avoid SSR/client mismatch.
     const storedThemeMode = window.localStorage.getItem('theme-mode');
+
     // Migrate legacy 'oled' to 'dark'
     if (storedThemeMode === 'oled') {
       setActiveThemeMode('dark');
     } else if (isThemeMode(storedThemeMode)) {
       setActiveThemeMode(storedThemeMode);
     }
+
     setMounted(true);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   useEffect(() => {
