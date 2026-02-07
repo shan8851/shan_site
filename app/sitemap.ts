@@ -8,9 +8,9 @@ export default async function sitemap() {
 
   return [
     { url: baseUrl, lastModified },
-    { url: `${baseUrl}/writing`, lastModified },
+    { url: `${baseUrl}/notes`, lastModified },
     ...posts.map((post) => ({
-      url: `${baseUrl}/writing/${post.slug}`,
+      url: `${baseUrl}/notes/${post.slug}`,
       lastModified: post.date,
     })),
   ];

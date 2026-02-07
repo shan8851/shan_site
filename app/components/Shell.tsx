@@ -13,11 +13,8 @@ export function Shell({ children }: { children: ReactNode }) {
               Shan
             </Link>
             <nav className="flex items-center gap-4 text-sm text-muted">
-              <Link
-                href="/writing"
-                className="transition-colors hover:text-text"
-              >
-                Writing
+              <Link href="/notes" className="transition-colors hover:text-text">
+                notes
               </Link>
             </nav>
           </div>

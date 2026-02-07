@@ -9,8 +9,8 @@ export default function NotFound() {
         <Link href="/" className="underline underline-offset-4">
           Home
         </Link>
-        <Link href="/writing" className="underline underline-offset-4">
-          Writing
+        <Link href="/notes" className="underline underline-offset-4">
+          notes
         </Link>
       </div>
     </section>

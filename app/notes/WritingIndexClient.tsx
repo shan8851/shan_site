@@ -88,7 +88,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
           {filteredPosts.map((post) => (
             <li key={post.slug}>
               <Link
-                href={`/writing/${post.slug}`}
+                href={`/notes/${post.slug}`}
                 className="group block space-y-1"
               >
                 <h2 className="text-lg font-semibold tracking-tight group-hover:underline">
@@ -118,7 +118,7 @@ const TagButton = ({
     type="button"
     onClick={onClick}
     className={
-      'rounded-md border px-2 py-1 text-xs transition-colors ' +
+      'rounded-md border px-2 py-1 text-xs transition-colors cursor-pointer ' +
       (active
         ? 'border-text text-text'
         : 'border-border text-muted hover:border-text hover:text-text')

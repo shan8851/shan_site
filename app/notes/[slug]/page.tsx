@@ -52,8 +52,8 @@ export default async function WritingPostPage(
   return (
     <article className="space-y-10">
       <div className="space-y-5">
-        <Link href="/writing" className="text-sm text-muted hover:text-text">
-          ← Back to writing
+        <Link href="/notes" className="text-sm text-muted hover:text-text">
+          ← Back to notes
         </Link>
         <header className="max-w-[65ch] space-y-3">
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl">

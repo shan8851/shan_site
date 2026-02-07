@@ -44,7 +44,7 @@ export default async function HomePage() {
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-bold tracking-tight">Notes</h2>
           <Link
-            href="/writing"
+            href="/notes"
             className="text-sm text-muted transition-colors hover:text-text hover:underline"
           >
             all
@@ -58,7 +58,7 @@ export default async function HomePage() {
             {recentPosts.map((post) => (
               <li key={post.slug}>
                 <Link
-                  href={`/writing/${post.slug}`}
+                  href={`/notes/${post.slug}`}
                   className="group block space-y-1"
                 >
                   <h3 className="font-semibold tracking-tight transition-colors group-hover:underline">

@@ -60,7 +60,7 @@ export const ThemeToggle = () => {
             type="button"
             onClick={() => updateThemeMode(themeMode)}
             className={
-              'rounded px-2 py-1 text-xs tracking-wide transition-colors ' +
+              'rounded px-2 py-1 text-xs tracking-wide transition-colors cursor-pointer ' +
               (isActive
                 ? 'bg-text text-background'
                 : 'text-muted hover:text-text')
