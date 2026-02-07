@@ -21,7 +21,7 @@ export default async function HomePage() {
     <div className="space-y-16">
       <section className="space-y-4">
         <h1 className="text-5xl font-bold tracking-tight md:text-6xl">Shan</h1>
-        <p className="text-2xl font-semibold tracking-tight">engineer. builder.</p>
+        <p className="text-2xl font-semibold tracking-tight">engineer. builder. onchain.</p>
         <p className="max-w-2xl text-muted">
           I build payment and automation systems that stay calm in production.
         </p>

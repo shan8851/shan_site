@@ -11,7 +11,7 @@ import { Shell } from './components/Shell';
 export const metadata: Metadata = {
   metadataBase: new URL('https://shan8851.com'),
   title: 'Shan',
-  description: 'engineer. builder.',
+  description: 'engineer. builder. onchain.',
   keywords:
     'Shan, shan8851, full stack, payments, infrastructure, web3, polygon, stablecoins, engineering',
   authors: [{ name: 'shan8851' }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Shan',
-    description: 'engineer. builder.',
+    description: 'engineer. builder. onchain.',
     url: 'https://shan8851.com',
     siteName: 'Shan',
     type: 'website',
@@ -29,19 +29,19 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Shan — engineer. builder. payment + automation systems.',
+        alt: 'Shan — engineer. builder. onchain. payment + automation systems.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shan',
-    description: 'engineer. builder.',
+    description: 'engineer. builder. onchain.',
     creator: '@shan8851',
     images: [
       {
         url: '/twitter-image',
-        alt: 'Shan — engineer. builder. payment + automation systems.',
+        alt: 'Shan — engineer. builder. onchain. payment + automation systems.',
       },
     ],
   },

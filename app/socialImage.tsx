@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const socialImageAlt = 'Shan — engineer. builder. payment + automation systems.';
+export const socialImageAlt = 'Shan — engineer. builder. onchain. payment + automation systems.';
 export const socialImageSize = {
   width: 1200,
   height: 630,
@@ -81,7 +81,7 @@ export const createSocialImageResponse = (): ImageResponse =>
         <div style={gradientStyle} />
         <div style={contentStyle}>
           <div style={nameStyle}>Shan</div>
-          <div style={taglineStyle}>engineer. builder.</div>
+          <div style={taglineStyle}>engineer. builder. onchain.</div>
           <div style={detailStyle}>payment + automation systems</div>
         </div>
         <div style={footerStyle}>shan8851.com</div>
