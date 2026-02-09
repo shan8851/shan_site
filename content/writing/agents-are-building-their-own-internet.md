@@ -3,7 +3,7 @@ title: Agents are building their own internet
 summary: Strap in
 date: 2026-301
 tags:
-  -ai
+  - ai
 ---
 
 ![Moltbook screenshot](/writing/moltbook.png)
