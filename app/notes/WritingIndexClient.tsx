@@ -3,23 +3,14 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
+import { formatIsoDateForDisplay } from '../../lib/noteDates';
+
 export type WritingIndexPost = {
   slug: string;
   title: string;
   date: string;
   summary: string;
   tags: string[];
-};
-
-const formatDate = (isoDate: string): string => {
-  const parsedDate = new Date(isoDate);
-  if (Number.isNaN(parsedDate.getTime())) return isoDate;
-
-  return parsedDate.toLocaleDateString('en-GB', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-  });
 };
 
 const normalizeText = (value: string): string => value.trim().toLowerCase();
@@ -94,7 +85,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
                 <h2 className="text-lg font-semibold tracking-tight group-hover:underline">
                   {post.title}
                 </h2>
-                <p className="text-sm text-muted">{formatDate(post.date)}</p>
+                <p className="text-sm text-muted">{formatIsoDateForDisplay(post.date)}</p>
                 <p className="text-muted">{post.summary}</p>
               </Link>
             </li>

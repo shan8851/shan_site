@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { formatIsoDateForDisplay } from '../../../lib/noteDates';
 import { getAllWritingPosts, getWritingPost } from '../../../lib/writing';
 
 export async function generateStaticParams() {
@@ -28,17 +29,6 @@ export async function generateMetadata(
   }
 }
 
-const formatDate = (isoDate: string): string => {
-  const parsedDate = new Date(isoDate);
-  if (Number.isNaN(parsedDate.getTime())) return isoDate;
-
-  return parsedDate.toLocaleDateString('en-GB', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-  });
-};
-
 export default async function WritingPostPage(
   props: { params: Promise<{ slug: string }> }
 ) {
@@ -59,7 +49,7 @@ export default async function WritingPostPage(
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
             {post.title}
           </h1>
-          <p className="text-sm text-muted">{formatDate(post.date)}</p>
+          <p className="text-sm text-muted">{formatIsoDateForDisplay(post.date)}</p>
           <p className="text-muted">{post.summary}</p>
         </header>
       </div>

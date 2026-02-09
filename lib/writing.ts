@@ -10,6 +10,7 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
+import { getIsoDateSortValue } from './noteDates';
 import { resolveWritingAuthor } from './writingAuthors';
 
 import type { WritingAuthor } from './writingAuthors';
@@ -139,9 +140,7 @@ export const getAllWritingPosts = cache(
         })
       );
 
-      return posts.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
+      return posts.sort((a, b) => getIsoDateSortValue(b.date) - getIsoDateSortValue(a.date));
     } catch {
       return [];
     }

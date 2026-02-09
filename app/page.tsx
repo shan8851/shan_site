@@ -1,17 +1,7 @@
 import Link from 'next/link';
 
+import { formatIsoDateForDisplay } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
-
-const formatDate = (isoDate: string): string => {
-  const parsedDate = new Date(isoDate);
-  if (Number.isNaN(parsedDate.getTime())) return isoDate;
-
-  return parsedDate.toLocaleDateString('en-GB', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-  });
-};
 
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
@@ -64,7 +54,7 @@ export default async function HomePage() {
                   <h3 className="font-semibold tracking-tight transition-colors group-hover:underline">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-muted">{formatDate(post.date)}</p>
+                  <p className="text-sm text-muted">{formatIsoDateForDisplay(post.date)}</p>
                   <p className="text-muted">{post.summary}</p>
                 </Link>
               </li>

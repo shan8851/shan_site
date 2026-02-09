@@ -1,7 +1,7 @@
 ---
 title: Agents are building their own internet
 summary: Strap in
-date: 2026-301
+date: "2026-01-31"
 tags:
   - ai
 ---
