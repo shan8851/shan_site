@@ -5,7 +5,7 @@ import { ThemeToggle } from './ThemeToggle';
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-background text-text">
+    <div className="flex min-h-screen flex-col bg-background text-text">
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-3xl flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-6">
@@ -22,7 +22,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-3xl px-5 py-14 md:py-16">
+      <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-14 md:py-16">
         {children}
       </main>
 
