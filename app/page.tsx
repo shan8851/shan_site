@@ -5,7 +5,7 @@ import { getAllWritingPosts } from '../lib/writing';
 
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
-  const recentPosts = writingPosts.slice(0, 3);
+  const recentPosts = writingPosts.slice(0, 5);
 
   return (
     <div className="space-y-16">
@@ -23,11 +23,11 @@ export default async function HomePage() {
         <div className="space-y-1">
           <ul className="list-disc space-y-1 pl-5 text-muted">
             <li>moving all money onchain at Polygon</li>
-            <li>predictable end-to-end testing flows for web3 UIs</li>
-            <li>automated workflows for day-to-day operations</li>
+            <li>building automated workflows for day-to-day operations</li>
+            <li>playing too much with OpenClaw while helping the uninitiated use AI to its full potential</li>
           </ul>
         </div>
-        <p className="text-xs text-muted">last updated: 2026-02-06</p>
+        <p className="text-xs text-muted">last updated: 2026-02-13</p>
       </section>
 
       <section className="space-y-5 border-t border-border pt-10">
