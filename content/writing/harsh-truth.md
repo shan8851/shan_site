@@ -1,7 +1,8 @@
 ---
-title: The harsh truth why some engineers struggle in the job market.
-summary: Make sure to look at yourself rather than blaming your environment.
+title: The Harsh Truth About Struggling in the Job Market
+summary: The market can be hard, but your positioning and execution still decide outcomes.
 date: "2023-10-24"
+updated: "2026-02-15"
 tags:
   - career
   - jobs

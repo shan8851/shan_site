@@ -1,7 +1,8 @@
 ---
-title: Work life balance
-summary: Does it exist for high achievers?
+title: Work-Life Balance
+summary: High performance and balance can coexist when you manage in deliberate phases.
 date: "2025-08-30"
+updated: "2026-02-15"
 tags:
   - career
 ---

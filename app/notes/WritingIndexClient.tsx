@@ -9,8 +9,10 @@ export type WritingIndexPost = {
   slug: string;
   title: string;
   date: string;
+  updated: string | null;
   summary: string;
   tags: string[];
+  readingTimeText: string;
 };
 
 const normalizeText = (value: string): string => value.trim().toLowerCase();
@@ -85,7 +87,10 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
                 <h2 className="text-lg font-semibold tracking-tight group-hover:underline">
                   {post.title}
                 </h2>
-                <p className="text-sm text-muted">{formatIsoDateForDisplay(post.date)}</p>
+                <p className="text-sm text-muted">
+                  {formatIsoDateForDisplay(post.date)} · {post.readingTimeText}
+                  {post.updated ? ` · updated ${formatIsoDateForDisplay(post.updated)}` : ''}
+                </p>
                 <p className="text-muted">{post.summary}</p>
               </Link>
             </li>

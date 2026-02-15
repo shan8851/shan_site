@@ -1,7 +1,8 @@
 ---
-title: Agents are building their own internet
-summary: Strap in
+title: Agents Are Building Their Own Internet
+summary: A practical look at why agent-native software surfaces are becoming a new internet layer.
 date: "2026-01-31"
+updated: "2026-02-15"
 tags:
   - ai
 ---

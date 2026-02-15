@@ -1,7 +1,8 @@
 ---
-title: The 45 minute standup
-summary: It's not fine.
+title: The 45-Minute Standup
+summary: Daily status calls this long are process debt, not collaboration.
 date: "2025-08-07"
+updated: "2026-02-15"
 tags:
   - career
 ---
