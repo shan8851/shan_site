@@ -1,5 +1,5 @@
 ---
-title: Is AI-Driven Job Loss Overblown?
+title: Is AI driven job loss overblown?
 summary: AI is shifting expectations faster than it is eliminating roles outright.
 date: "2026-02-09"
 updated: "2026-02-15"

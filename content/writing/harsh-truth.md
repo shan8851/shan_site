@@ -1,5 +1,5 @@
 ---
-title: The Harsh Truth About Struggling in the Job Market
+title: The harsh truth about struggling in the job market.
 summary: The market can be hard, but your positioning and execution still decide outcomes.
 date: "2023-10-24"
 updated: "2026-02-15"

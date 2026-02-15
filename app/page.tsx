@@ -20,13 +20,13 @@ export default async function HomePage() {
         <p className="max-w-2xl text-muted">
           I build payment and automation systems that stay calm in production.
         </p>
-        <p className="max-w-2xl rounded-sm bg-subtle px-2 py-1 text-sm text-muted">
-          I share practical notes on systems, AI leverage, and execution. Follow along on{' '}
+        <p className="max-w-2xl rounded-sm border border-border bg-surface/60 px-2 py-1 text-sm text-muted">
+          I share practical notes on systems, AI leverage, and execution. <span className="font-medium text-text">Follow along on </span>
           <a
             href={TWITTER_URL}
             target="_blank"
             rel="noreferrer"
-            className="font-medium underline decoration-border underline-offset-4 transition-colors hover:text-text"
+            className="font-semibold underline decoration-border underline-offset-4 transition-colors hover:text-text"
           >
             X
           </a>
