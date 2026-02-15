@@ -1,6 +1,6 @@
 ---
-title: OpenClaw Is Absurdly Useful
-summary: Why OpenClaw feels like the first AI assistant that actually executes.
+title: OpenClaw is insane
+summary: Obligatory OpenClaw post.
 date: "2026-01-29"
 updated: "2026-02-15"
 tags:

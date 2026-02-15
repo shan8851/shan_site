@@ -1,6 +1,6 @@
 ---
-title: Take-Home Tests
-summary: How to treat take-homes as signal exercises and stand out professionally.
+title: Take home tests
+summary: How to actually get them right.
 date: "2023-11-01"
 updated: "2026-02-15"
 tags:
