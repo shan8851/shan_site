@@ -1,7 +1,8 @@
 ---
 title: Take home tests
-summary: How to get them right.
+summary: How to actually get them right.
 date: "2023-11-01"
+updated: "2026-02-15"
 tags:
   - career
 ---

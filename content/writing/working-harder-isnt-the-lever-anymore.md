@@ -5,6 +5,7 @@ date: "2026-02-04"
 tags:
   - ai
   - career
+featured: true
 ---
 
 Hard work still matters.

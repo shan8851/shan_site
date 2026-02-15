@@ -4,6 +4,7 @@ summary: A practical checklist for working effectively with agents and automated
 date: "2026-02-06"
 tags:
   - agents
+featured: true
 ---
 
 Working with agents will become the new normal. The best thing you can do is get started now. This list is by no means exhaustive and you should be iterating based on your own needs and experiences.

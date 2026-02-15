@@ -69,6 +69,8 @@ export type WritingFrontmatter = {
   tags: string[];
   summary: string;
   author: WritingAuthor;
+  featured: boolean;
+  updated: string | null;
 };
 
 export type WritingPostListItem = WritingFrontmatter & {
@@ -104,12 +106,15 @@ function assertFrontmatter(data: unknown, slug: string): WritingFrontmatter {
   const summary = String(metadata.summary ?? metadata.description ?? '').trim();
   const tags = normalizeTags(metadata.tags);
   const author = resolveWritingAuthor(metadata.author);
+  const featured = Boolean(metadata.featured);
+  const updatedRaw = String(metadata.updated ?? '').trim();
+  const updated = updatedRaw.length > 0 ? updatedRaw : null;
 
   if (!title) throw new Error(`Missing frontmatter 'title' in ${slug}.md`);
   if (!date) throw new Error(`Missing frontmatter 'date' in ${slug}.md`);
   if (!summary) throw new Error(`Missing frontmatter 'summary' in ${slug}.md`);
 
-  return { title, date, tags, summary, author };
+  return { title, date, tags, summary, author, featured, updated };
 }
 
 async function readPostFile(slug: string) {

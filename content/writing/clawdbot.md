@@ -1,7 +1,8 @@
 ---
-title: Clawdbot is nuts
-summary: Obligatory clawdbot post.
+title: OpenClaw is insane
+summary: Obligatory OpenClaw post.
 date: "2026-01-29"
+updated: "2026-02-15"
 tags:
   - ai
   - agents

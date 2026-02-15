@@ -1,7 +1,8 @@
 ---
 title: Agents are building their own internet
-summary: Strap in
+summary: Strap in.
 date: "2026-01-31"
+updated: "2026-02-15"
 tags:
   - ai
 ---

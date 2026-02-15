@@ -2,6 +2,7 @@
 title: Work life balance
 summary: Does it exist for high achievers?
 date: "2025-08-30"
+updated: "2026-02-15"
 tags:
   - career
 ---

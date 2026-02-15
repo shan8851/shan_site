@@ -1,7 +1,8 @@
 ---
 title: The 45 minute standup
-summary: It's not fine.
+summary: It's not fine. It's not collaboration. It is process debt.
 date: "2025-08-07"
+updated: "2026-02-15"
 tags:
   - career
 ---

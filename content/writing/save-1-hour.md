@@ -1,10 +1,12 @@
 ---
 title: One AI system to save an hour+ this week
-summary: Here is a simple system you can run today to save at least an hour a week without learning new tools..
+summary: A simple weekly AI execution loop that can save you at least an hour without new tools.
 date: "2026-02-13"
+updated: "2026-02-15"
 tags:
   - ai
   - productivity
+featured: true
 ---
 
 If your todo list is constantly growing or worse you don’t have one, don’t increase the effort. Add a better process.
