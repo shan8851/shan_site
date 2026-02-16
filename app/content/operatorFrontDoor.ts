@@ -39,8 +39,8 @@ export const currentFocusTracks: FocusTrack[] = [
   {
     title: 'Payments, bridging, and staking work at Polygon',
     status: 'shipping',
-    objective: 'Ship clean, reliable product and engineering outcomes in core onchain rails.',
-    nextMove: 'Keep execution focused on work that has direct user and platform impact.',
+    objective: 'Ship clean, reliable product and engineering outcomes across payments, bridging, and staking.',
+    nextMove: 'Keep execution on work that has direct user impact.',
     signal: 'Shipped outcomes and clearer ownership over noisy activity.',
   },
   {

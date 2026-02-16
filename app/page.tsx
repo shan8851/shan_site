@@ -60,7 +60,9 @@ export default async function HomePage() {
           {homeFocus.map((track) => (
             <li key={track.title} className="space-y-1 border-b border-border/60 pb-4">
               <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
-                <span style={statusStyleByTrackStatus[track.status]}>{track.status}</span>
+                <span className="font-semibold" style={statusStyleByTrackStatus[track.status]}>
+                  {track.status}
+                </span>
                 <span>·</span>
                 <span>{track.title}</span>
               </p>
