@@ -4,13 +4,14 @@ import Link from 'next/link';
 import {
   currentFocusTracks,
   deprioritizedItems,
-  operatorLastUpdated,
+  northStar,
+  siteLastUpdated,
   weeklyCadence,
 } from '../content/operatorFrontDoor';
 
 export const metadata: Metadata = {
   title: 'Now',
-  description: 'What Shan is actively focused on right now.',
+  description: 'What Shan is focused on right now.',
 };
 
 const statusClassByTrackStatus = {
@@ -25,14 +26,18 @@ export default function NowPage() {
       <header className="space-y-3">
         <h1 className="text-4xl font-bold tracking-tight">Now</h1>
         <p className="max-w-2xl text-muted">
-          Current focus lanes. This is intentionally practical: what is active, what is next,
-          and what is intentionally not in scope.
+          What I am focused on at the moment. Kept intentionally simple so it stays honest and current.
         </p>
-        <p className="text-xs text-muted">last updated: {operatorLastUpdated}</p>
+        <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
 
+      <section className="space-y-3 border-t border-border pt-8">
+        <h2 className="text-xl font-semibold tracking-tight">North star</h2>
+        <p className="max-w-2xl text-muted">{northStar}</p>
+      </section>
+
       <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-xl font-semibold tracking-tight">Focus lanes</h2>
+        <h2 className="text-xl font-semibold tracking-tight">Current focus</h2>
         <ul className="space-y-4">
           {currentFocusTracks.map((track) => (
             <li key={track.title} className="space-y-1 rounded-sm border border-border bg-surface/40 px-3 py-3">
@@ -73,13 +78,9 @@ export default function NowPage() {
       </section>
 
       <section className="border-t border-border pt-8 text-sm text-muted">
-        For project-level detail, check{' '}
+        Project detail lives on{' '}
         <Link href="/projects" className="underline underline-offset-4 hover:text-text">
           /projects
-        </Link>{' '}
-        and{' '}
-        <Link href="/operator" className="underline underline-offset-4 hover:text-text">
-          /operator
         </Link>
         .
       </section>

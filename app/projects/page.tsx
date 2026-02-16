@@ -1,13 +1,18 @@
 import type { Metadata } from 'next';
 
-import { activeProjects, operatorLastUpdated } from '../content/operatorFrontDoor';
+import { activeProjects, siteLastUpdated } from '../content/operatorFrontDoor';
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Active projects and systems Shan is currently building.',
+  description: 'Projects Shan is actively building and experimenting with.',
 };
 
-const projectTrackOrder = ['work', 'systems', 'builds'] as const;
+const projectTrackOrder = ['core', 'experiments'] as const;
+
+const trackHeading = {
+  core: 'Core builds',
+  experiments: 'Experiments',
+} as const;
 
 export default function ProjectsPage() {
   return (
@@ -15,9 +20,9 @@ export default function ProjectsPage() {
       <header className="space-y-3">
         <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
         <p className="max-w-2xl text-muted">
-          Active builds only. If it is here, it is either shipping now or actively being tightened.
+          A mix of serious builds and messy experiments. Some are polished, some are intentionally raw.
         </p>
-        <p className="text-xs text-muted">last updated: {operatorLastUpdated}</p>
+        <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
 
       {projectTrackOrder.map((track) => {
@@ -29,7 +34,7 @@ export default function ProjectsPage() {
 
         return (
           <section key={track} className="space-y-4 border-t border-border pt-8">
-            <h2 className="text-lg font-semibold uppercase tracking-wide text-muted">{track}</h2>
+            <h2 className="text-lg font-semibold tracking-tight">{trackHeading[track]}</h2>
             <ul className="space-y-4">
               {projectsInTrack.map((project) => (
                 <li key={project.title} className="space-y-1 rounded-sm border border-border bg-surface/40 px-3 py-3">
@@ -38,9 +43,11 @@ export default function ProjectsPage() {
                     <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
                       {project.status}
                     </span>
-                    <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                      {project.track}
-                    </span>
+                    {project.maturity ? (
+                      <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
+                        {project.maturity}
+                      </span>
+                    ) : null}
                   </div>
                   <p className="text-sm text-muted">{project.summary}</p>
                   <p className="text-sm">
@@ -53,7 +60,7 @@ export default function ProjectsPage() {
                       rel="noreferrer"
                       className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-muted"
                     >
-                      open project
+                      open repo
                     </a>
                   ) : null}
                 </li>
