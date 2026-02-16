@@ -4,9 +4,9 @@ import type { ReactNode } from 'react';
 import { ThemeToggle } from './ThemeToggle';
 
 const navigationItems = [
-  { href: '/now', label: 'now' },
-  { href: '/projects', label: 'work' },
-  { href: '/notes', label: 'notes' },
+  { href: '/now', label: '/now' },
+  { href: '/projects', label: '/work' },
+  { href: '/notes', label: '/notes' },
 ] as const;
 
 export function Shell({ children }: { children: ReactNode }) {
