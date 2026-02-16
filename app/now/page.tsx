@@ -30,7 +30,7 @@ export default function NowPage() {
         <p className="max-w-2xl text-soft">{northStar}</p>
       </section>
 
-      <section className="space-y-4 border-t border-border pt-8">
+      <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">Current focus</h2>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowLogItems.map((item) => (
@@ -39,18 +39,18 @@ export default function NowPage() {
         </ul>
       </section>
 
-      <section className="space-y-4 border-t border-border pt-8">
+      <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">Not now (on purpose)</h2>
-        <ul className="list-disc space-y-1 pl-5 text-soft">
+        <ul className="list-disc space-y-3 pl-5 text-soft">
           {deprioritizedItems.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </section>
 
-      <section className="space-y-4 border-t border-border pt-8">
+      <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">Open questions & asks</h2>
-        <ul className="list-disc space-y-2 pl-5 text-soft">
+        <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowOpenQuestionsAndAsks.map((item) => (
             <li key={item}>{item}</li>
           ))}
