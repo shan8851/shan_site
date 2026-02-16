@@ -29,7 +29,7 @@ export default async function HomePage() {
     <div className="space-y-16">
       <section className="space-y-4">
         <h1 className="text-5xl font-bold tracking-tight md:text-6xl">Shan</h1>
-        <p className="text-2xl font-semibold tracking-tight">engineer. builder. still figuring it out in public.</p>
+        <p className="text-2xl font-semibold tracking-tight">engineer. builder. onchain.</p>
         <p className="max-w-2xl text-muted">{homeIntro}</p>
         <p className="max-w-2xl text-sm text-muted">Last updated: {siteLastUpdated}</p>
       </section>
@@ -58,7 +58,7 @@ export default async function HomePage() {
 
         <ul className="space-y-4">
           {homeFocus.map((track) => (
-            <li key={track.title} className="space-y-1 rounded-sm border border-border bg-surface/40 px-3 py-3">
+            <li key={track.title} className="space-y-1 border-b border-border/60 pb-4">
               <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
                 <span className={statusClassByTrackStatus[track.status]}>{track.status}</span>
                 <span>·</span>
@@ -83,7 +83,7 @@ export default async function HomePage() {
 
         <ul className="space-y-4">
           {homeWork.map((project) => (
-            <li key={project.title} className="space-y-1">
+            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-semibold tracking-tight">{project.title}</h3>
                 <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">

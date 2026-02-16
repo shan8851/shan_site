@@ -16,7 +16,7 @@ export type ActiveProject = {
   track: 'core' | 'experiments';
   status: 'live' | 'in-progress' | 'exploring';
   summary: string;
-  nextMove: string;
+  nextMove?: string;
   maturity?: 'raw';
   href?: string;
 };
@@ -110,7 +110,7 @@ export const activeProjects: ActiveProject[] = [
   {
     title: 'Agglayer SDK',
     track: 'core',
-    status: 'in-progress',
+    status: 'live',
     summary: 'Unified client interface for native and aggregator bridging.',
     nextMove: 'Keep hardening ergonomics and integration reliability.',
     href: 'https://github.com/agglayer/sdk',
@@ -123,20 +123,13 @@ export const activeProjects: ActiveProject[] = [
     nextMove: 'Tighten first-run UX and get it in shape for broader sharing.',
   },
   {
-    title: 'OpenClaw agent dashboard',
+    title: 'OpenClaw dashboard + API',
     track: 'core',
     status: 'in-progress',
-    summary: 'Personal ops and tracking surface for agent runs, system health, and execution visibility.',
-    nextMove: 'Keep pushing mission-control-lite features without adding noise.',
+    summary:
+      'Mission-control-lite setup for agent runs, personal tracking, and server health, spanning both giles-dashboard and giles-api layers.',
+    nextMove: 'Keep pushing reliability, clean reporting, and practical operator visibility.',
     href: 'https://github.com/shan8851/giles-dashboard',
-  },
-  {
-    title: 'OpenClaw agent API',
-    track: 'core',
-    status: 'in-progress',
-    summary: 'Backend that powers the dashboard and automation endpoints behind it.',
-    nextMove: 'Harden reliability boundaries and tighten diagnostics.',
-    href: 'https://github.com/shan8851/giles-api',
   },
   {
     title: 'clawtop',
@@ -182,7 +175,8 @@ export const selectedShippedWork: ShippedWorkItem[] = [
   },
   {
     title: 'Aragon UI Kit',
-    summary: 'Major contributor to the governance UI kit used across Aragon ecosystem products.',
+    summary:
+      'Major contributor to the open-source governance UI kit used to build onchain governance experiences.',
     href: 'https://uikit.aragon.org/?path=/docs/docs-documentation--docs',
   },
   {
