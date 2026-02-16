@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { formatIsoDateForDisplay } from '../../lib/noteDates';
@@ -15,6 +16,9 @@ export type WritingIndexPost = {
   readingTimeText: string;
 };
 
+const TAG_QUERY_PARAM = 'tag';
+const QUICK_FILTER_TAG_LIMIT = 5;
+
 const normalizeText = (value: string): string => value.trim().toLowerCase();
 
 const isTypingTarget = (target: EventTarget | null): boolean => {
@@ -26,9 +30,32 @@ const isTypingTarget = (target: EventTarget | null): boolean => {
   return target.isContentEditable || tagName === 'input' || tagName === 'textarea' || tagName === 'select';
 };
 
+const buildTagQueryHref = ({
+  pathname,
+  currentQuery,
+  tag,
+}: {
+  pathname: string;
+  currentQuery: string;
+  tag: string | null;
+}): string => {
+  const nextSearchParams = new URLSearchParams(currentQuery);
+
+  if (tag === null) {
+    nextSearchParams.delete(TAG_QUERY_PARAM);
+  } else {
+    nextSearchParams.set(TAG_QUERY_PARAM, tag);
+  }
+
+  const nextQuery = nextSearchParams.toString();
+  return nextQuery.length > 0 ? `${pathname}?${nextQuery}` : pathname;
+};
+
 export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[] }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [searchValue, setSearchValue] = useState('');
-  const [activeTag, setActiveTag] = useState<string | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -53,10 +80,51 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
     };
   }, []);
 
-  const availableTags = useMemo(() => {
-    const uniqueTags = new Set(posts.flatMap((post) => post.tags));
-    return Array.from(uniqueTags).sort((leftTag, rightTag) => leftTag.localeCompare(rightTag));
+  const rankedTags = useMemo(() => {
+    const tagCounts = posts.reduce((countMap, post) => {
+      post.tags.forEach((tag) => {
+        const previousCount = countMap.get(tag) ?? 0;
+        countMap.set(tag, previousCount + 1);
+      });
+
+      return countMap;
+    }, new Map<string, number>());
+
+    return Array.from(tagCounts.entries())
+      .sort(([leftTag, leftCount], [rightTag, rightCount]) => {
+        if (leftCount === rightCount) {
+          return leftTag.localeCompare(rightTag);
+        }
+
+        return rightCount - leftCount;
+      })
+      .map(([tag]) => tag);
   }, [posts]);
+
+  const tagLookup = useMemo(
+    () => new Map(rankedTags.map((tag) => [normalizeText(tag), tag])),
+    [rankedTags]
+  );
+
+  const activeTag = useMemo(() => {
+    const tagFromQuery = searchParams.get(TAG_QUERY_PARAM);
+
+    if (tagFromQuery === null) {
+      return null;
+    }
+
+    return tagLookup.get(normalizeText(tagFromQuery)) ?? null;
+  }, [searchParams, tagLookup]);
+
+  const quickFilterTags = useMemo(() => {
+    const topTags = rankedTags.slice(0, QUICK_FILTER_TAG_LIMIT);
+
+    if (activeTag === null || topTags.includes(activeTag)) {
+      return topTags;
+    }
+
+    return [...topTags, activeTag];
+  }, [activeTag, rankedTags]);
 
   const filteredPosts = useMemo(() => {
     const normalizedSearchValue = normalizeText(searchValue);
@@ -74,6 +142,17 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
       return normalizeText(searchableText).includes(normalizedSearchValue);
     });
   }, [activeTag, posts, searchValue]);
+
+  const applyTagFilter = (tag: string | null): void => {
+    const nextTag = tag === activeTag ? null : tag;
+    const nextHref = buildTagQueryHref({
+      pathname,
+      currentQuery: searchParams.toString(),
+      tag: nextTag,
+    });
+
+    router.replace(nextHref, { scroll: false });
+  };
 
   return (
     <section className="space-y-8">
@@ -102,21 +181,26 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
         />
         <p className="text-xs text-muted">Tip: press / to jump to search.</p>
 
-        {availableTags.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            <TagButton
-              active={activeTag === null}
-              label="all"
-              onClick={() => setActiveTag(null)}
-            />
-            {availableTags.map((tag) => (
+        {quickFilterTags.length > 0 ? (
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-xs text-muted">Quick filters:</p>
+            {quickFilterTags.map((tag) => (
               <TagButton
                 key={tag}
                 active={activeTag === tag}
                 label={tag}
-                onClick={() => setActiveTag(tag)}
+                onClick={() => applyTagFilter(tag)}
               />
             ))}
+            {activeTag !== null ? (
+              <button
+                type="button"
+                onClick={() => applyTagFilter(null)}
+                className="text-xs text-muted underline-offset-2 transition-colors hover:text-text hover:underline"
+              >
+                clear
+              </button>
+            ) : null}
           </div>
         ) : null}
       </div>
@@ -160,8 +244,9 @@ const TagButton = ({
   <button
     type="button"
     onClick={onClick}
+    aria-pressed={active}
     className={
-      'rounded-md border px-2 py-1 text-xs transition-colors cursor-pointer ' +
+      'rounded-full border px-2.5 py-1 text-xs transition-colors cursor-pointer ' +
       (active
         ? 'border-text text-text'
         : 'border-border text-muted hover:border-text hover:text-text')

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import WritingIndexClient from './WritingIndexClient';
 import { getAllWritingPosts } from '../../lib/writing';
@@ -14,7 +15,9 @@ export default async function WritingPage() {
   return (
     <div className="max-w-3xl space-y-8">
       <h1 className="text-4xl font-bold tracking-tight">Notes</h1>
-      <WritingIndexClient posts={posts} />
+      <Suspense fallback={<p className="text-sm text-muted">Loading notes…</p>}>
+        <WritingIndexClient posts={posts} />
+      </Suspense>
     </div>
   );
 }
