@@ -174,7 +174,26 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
   return (
     <section className="space-y-8">
       <div className="space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
+          <label
+            htmlFor="notes-search"
+            className="inline-flex items-center gap-1"
+          >
+            <span>Search notes</span>
+            <kbd className="rounded border border-border px-1.5 py-0.5 text-[11px] text-muted">/</kbd>
+          </label>
+          <button
+            type="button"
+            onClick={handleShuffle}
+            disabled={filteredPosts.length === 0}
+            className="rounded-md border border-border px-2 py-1 text-xs text-muted transition-colors hover:border-text hover:text-text disabled:cursor-not-allowed disabled:opacity-50"
+            aria-label="Open a random visible note"
+          >
+            surprise me
+          </button>
+        </div>
         <input
+          id="notes-search"
           ref={searchInputRef}
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
@@ -196,18 +215,6 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
           inputMode="search"
           className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-text placeholder:text-muted focus:border-text focus:outline-none"
         />
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
-          <p>Tip: press / to jump to search.</p>
-          <button
-            type="button"
-            onClick={handleShuffle}
-            disabled={filteredPosts.length === 0}
-            className="rounded-md border border-border px-2 py-1 text-xs text-muted transition-colors hover:border-text hover:text-text disabled:cursor-not-allowed disabled:opacity-50"
-            aria-label="Open a random note"
-          >
-            shuffle
-          </button>
-        </div>
 
         {quickFilterTags.length > 0 ? (
           <div className="flex flex-wrap items-center gap-2">
