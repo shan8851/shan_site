@@ -120,12 +120,17 @@ const stripHtmlTags = (value: string): string => value
   .replace(/\s+/g, ' ')
   .trim();
 
+const normalizeHeadingTextForNav = (headingText: string): string => headingText
+  .replace(/^\s*\d+[.)]\s+/, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+
 const extractPostHeadings = (contentHtml: string): WritingHeading[] => Array
   .from(contentHtml.matchAll(HEADING_PATTERN))
   .map((match) => {
     const [, levelString, id, headingHtml] = match;
     const level = Number(levelString) as 2 | 3;
-    const text = decodeHtmlEntities(stripHtmlTags(String(headingHtml)));
+    const text = normalizeHeadingTextForNav(decodeHtmlEntities(stripHtmlTags(String(headingHtml))));
 
     return {
       id,
