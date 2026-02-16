@@ -102,6 +102,7 @@ export default async function WritingPostPage(
   const canonicalUrl = `${baseUrl}/notes/${post.slug}`;
   const shareText = `${post.title} — ${canonicalUrl}`;
   const xShareUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+  const tableOfContents = post.headings;
 
   return (
     <article className="space-y-10">
@@ -127,6 +128,30 @@ export default async function WritingPostPage(
               link
             </a>
           </div>
+
+          {tableOfContents.length > 1 ? (
+            <nav
+              aria-label="On this page"
+              className="rounded-sm border border-border bg-surface/60 px-3 py-2.5"
+            >
+              <p className="text-[11px] uppercase tracking-wide text-muted">On this page</p>
+              <ul className="mt-2 space-y-1.5">
+                {tableOfContents.map((heading) => (
+                  <li key={heading.id}>
+                    <a
+                      href={`#${heading.id}`}
+                      className={`block text-sm leading-snug text-muted transition-colors hover:text-text hover:underline ${
+                        heading.level === 3 ? 'pl-2' : ''
+                      }`}
+                    >
+                      {heading.level === 3 ? <span className="mr-1 text-muted">↳</span> : null}
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
         </header>
       </div>
 

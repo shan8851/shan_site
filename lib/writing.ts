@@ -79,8 +79,15 @@ export type WritingPostListItem = WritingFrontmatter & {
   readingTimeMinutes: number;
 };
 
+export type WritingHeading = {
+  id: string;
+  text: string;
+  level: 2 | 3;
+};
+
 export type WritingPost = WritingPostListItem & {
   contentHtml: string;
+  headings: WritingHeading[];
 };
 
 function fileSlug(filename: string) {
@@ -98,6 +105,40 @@ function normalizeTags(tags: unknown): string[] {
   }
   return [];
 }
+
+const HEADING_PATTERN = /<h([2-3])\s+id="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g;
+
+const decodeHtmlEntities = (value: string): string => value
+  .replaceAll('&amp;', '&')
+  .replaceAll('&quot;', '"')
+  .replaceAll('&#39;', "'")
+  .replaceAll('&lt;', '<')
+  .replaceAll('&gt;', '>');
+
+const stripHtmlTags = (value: string): string => value
+  .replace(/<[^>]+>/g, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+const normalizeHeadingTextForNav = (headingText: string): string => headingText
+  .replace(/^\s*\d+[.)]\s+/, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+const extractPostHeadings = (contentHtml: string): WritingHeading[] => Array
+  .from(contentHtml.matchAll(HEADING_PATTERN))
+  .map((match) => {
+    const [, levelString, id, headingHtml] = match;
+    const level = Number(levelString) as 2 | 3;
+    const text = normalizeHeadingTextForNav(decodeHtmlEntities(stripHtmlTags(String(headingHtml))));
+
+    return {
+      id,
+      text,
+      level,
+    } satisfies WritingHeading;
+  })
+  .filter((heading) => heading.text.length > 0);
 
 function assertFrontmatter(data: unknown, slug: string): WritingFrontmatter {
   const metadata = isRecord(data) ? data : {};
@@ -171,11 +212,15 @@ export const getWritingPost = cache(async (slug: string): Promise<WritingPost> =
     .use(rehypeStringify)
     .process(content);
 
+  const contentHtml = String(processed);
+  const headings = extractPostHeadings(contentHtml);
+
   return {
     slug,
     ...fm,
     readingTimeText: rt.text,
     readingTimeMinutes: rt.minutes,
-    contentHtml: String(processed),
+    contentHtml,
+    headings,
   };
 });
