@@ -6,9 +6,9 @@ export type FocusTrack = {
   signal: string;
 };
 
-export type WeeklyCadenceItem = {
-  window: string;
-  focus: string;
+export type NowLogItem = {
+  title: string;
+  detail: string;
 };
 
 export type ActiveProject = {
@@ -59,19 +59,28 @@ export const currentFocusTracks: FocusTrack[] = [
   },
 ];
 
-export const weeklyCadence: WeeklyCadenceItem[] = [
+export const nowLogItems: NowLogItem[] = [
   {
-    window: 'Daily',
-    focus: 'Ship core work first, then invest in systems that compound.',
+    title: 'Payments, bridging, and staking at Polygon',
+    detail:
+      'Focused on shipping clean outcomes across core onchain rails, with less noise and more ownership.',
   },
   {
-    window: 'Mon / Thu',
-    focus: 'Refresh X opportunities and post/reply ideas without forcing volume.',
+    title: 'Practical AI agents in real workflows',
+    detail:
+      'Turning experiments into boring, reliable systems that save real time day to day.',
   },
   {
-    window: 'Weekly review',
-    focus: 'Check what shipped, what drifted, and what to cut.',
+    title: 'Teaching practical AI in public',
+    detail:
+      'Sharing what actually worked for me in agent workflows, without hype and without performative posting.',
   },
+];
+
+export const nowOpenQuestionsAndAsks: string[] = [
+  'I am looking for a small, high-signal builder community to learn and ship with.',
+  'If you are building practical agent systems (especially in engineering or ops), I am up for comparing notes.',
+  'Open to intros to thoughtful builders in onchain product and AI tooling.',
 ];
 
 export const workingStylePoints: string[] = [
