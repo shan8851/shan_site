@@ -6,10 +6,7 @@ export type FocusTrack = {
   signal: string;
 };
 
-export type NowLogItem = {
-  title: string;
-  detail: string;
-};
+export type NowLogItem = string;
 
 export type ActiveProject = {
   title: string;
@@ -60,21 +57,11 @@ export const currentFocusTracks: FocusTrack[] = [
 ];
 
 export const nowLogItems: NowLogItem[] = [
-  {
-    title: 'Payments, bridging, and staking at Polygon',
-    detail:
-      'Building comprehensive end-to-end testing that ties web3 app flows, onchain calls, and backend services for full-confidence releases, plus stronger monitoring across onchain and backend systems.',
-  },
-  {
-    title: 'Practical AI agents in real workflows',
-    detail:
-      'Turning experiments into boring, reliable systems that save real time day to day.',
-  },
-  {
-    title: 'Sharing practical AI in public',
-    detail:
-      'Leaning into sharing while I play and build CLIs/TUIs; agentic coding is powerful but mentally heavy because output volume is intense, so I am tightening how I review and track context.',
-  },
+  'Payments, bridging, and staking at Polygon: building comprehensive end-to-end testing that ties web3 app flows, onchain calls, and backend services for full-confidence releases, plus stronger monitoring across onchain and backend systems.',
+  'Practical AI agents in real workflows: turning experiments into boring, reliable systems that save real time day to day.',
+  'Sharing practical AI workflows in public.',
+  "Dealing with the cognitive overload from agentic coding and the 'one more prompt' syndrome.",
+  'Hacking on CLIs and TUIs.',
 ];
 
 export const nowOpenQuestionsAndAsks: string[] = [

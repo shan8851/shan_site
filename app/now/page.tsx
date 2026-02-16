@@ -37,9 +37,7 @@ export default function NowPage() {
         <h2 className="text-xl font-semibold tracking-tight">Current focus</h2>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowLogItems.map((item) => (
-            <li key={item.title}>
-              <span className="text-text">{item.title}.</span> {item.detail}
-            </li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </section>
