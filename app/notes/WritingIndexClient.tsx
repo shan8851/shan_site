@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { formatIsoDateForDisplay } from '../../lib/noteDates';
 
@@ -94,8 +94,6 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
     filterKey: '',
     visiblePostLimit: POSTS_PAGE_SIZE,
   });
-  const searchInputRef = useRef<HTMLInputElement | null>(null);
-  const lastShuffledSlugRef = useRef<string | null>(null);
 
   useEffect(() => {
     const focusSearchInput = (event: KeyboardEvent) => {
@@ -108,8 +106,9 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
       }
 
       event.preventDefault();
-      searchInputRef.current?.focus();
-      searchInputRef.current?.select();
+      const notesSearchInput = document.getElementById('notes-search') as HTMLInputElement | null;
+      notesSearchInput?.focus();
+      notesSearchInput?.select();
     };
 
     window.addEventListener('keydown', focusSearchInput);
@@ -295,46 +294,16 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
     router.replace(nextHref, { scroll: false });
   };
 
-  const handleShuffle = () => {
-    if (visiblePosts.length === 0) {
-      return;
-    }
-
-    const lastSlug = lastShuffledSlugRef.current;
-    const candidatePool =
-      visiblePosts.length > 1 && lastSlug
-        ? visiblePosts.filter((post) => post.slug !== lastSlug)
-        : visiblePosts;
-    const nextPost = candidatePool[Math.floor(Math.random() * candidatePool.length)] ?? visiblePosts[0];
-
-    lastShuffledSlugRef.current = nextPost.slug;
-    router.push(`/notes/${nextPost.slug}`);
-  };
-
   return (
-    <section className="space-y-8">
-      <div className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
-          <label
-            htmlFor="notes-search"
-            className="inline-flex items-center gap-1"
-          >
-            <span>Search notes</span>
-            <kbd className="rounded border border-border px-1.5 py-0.5 text-[11px] text-muted">/</kbd>
-          </label>
-          <button
-            type="button"
-            onClick={handleShuffle}
-            disabled={visiblePosts.length === 0}
-            className="rounded-md border border-border px-2 py-1 text-xs text-muted transition-colors hover:border-text hover:text-text disabled:cursor-not-allowed disabled:opacity-50"
-            aria-label="Open a random visible note"
-          >
-            surprise me
-          </button>
-        </div>
+    <section className="space-y-6">
+      <div className="space-y-2">
+        <label htmlFor="notes-search" className="inline-flex items-center gap-1 text-xs text-muted">
+          <span>search</span>
+          <kbd className="rounded border border-border px-1.5 py-0.5 text-[11px] text-muted">/</kbd>
+        </label>
+
         <input
           id="notes-search"
-          ref={searchInputRef}
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
           onKeyDown={(event) => {
@@ -349,7 +318,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
 
             event.currentTarget.blur();
           }}
-          placeholder="Search"
+          placeholder="Search notes"
           type="search"
           aria-label="Search notes"
           inputMode="search"
@@ -357,15 +326,10 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
         />
 
         {quickFilterTags.length > 0 ? (
-          <div className="flex flex-wrap items-center gap-2">
-            <p className="text-xs text-muted">Quick filters:</p>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
+            <p className="text-xs text-muted">tags:</p>
             {quickFilterTags.map((tag) => (
-              <FilterButton
-                key={tag}
-                active={activeTag === tag}
-                label={tag}
-                onClick={() => applyTagFilter(tag)}
-              />
+              <FilterButton key={tag} active={activeTag === tag} label={tag} onClick={() => applyTagFilter(tag)} />
             ))}
             {activeTag !== null ? (
               <button
@@ -380,18 +344,14 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
         ) : null}
 
         {yearOptions.length > 0 ? (
-          <div className="flex flex-wrap items-center gap-2">
-            <p className="text-xs text-muted">Years:</p>
-            <FilterButton
-              active={activeYear === null}
-              label={`All (${postsMatchingTagAndSearch.length})`}
-              onClick={() => applyYearFilter(null)}
-            />
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <p className="text-xs text-muted">archive:</p>
+            <FilterButton active={activeYear === null} label="all" onClick={() => applyYearFilter(null)} />
             {yearOptions.map((yearOption) => (
               <FilterButton
                 key={yearOption.yearValue}
                 active={activeYear === yearOption.yearValue}
-                label={`${yearOption.label} (${yearOption.count})`}
+                label={yearOption.label}
                 onClick={() => applyYearFilter(yearOption.yearValue)}
               />
             ))}
@@ -402,49 +362,33 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
       {filteredPosts.length === 0 ? (
         <p className="text-muted">No matching posts.</p>
       ) : (
-        <div className="space-y-8">
-          <p className="text-xs text-muted">
-            Showing {visiblePosts.length} of {filteredPosts.length}
-          </p>
+        <div className="space-y-7">
+          {visiblePostGroups.map((group) => (
+            <section key={group.yearValue} className="space-y-4">
+              <div className="flex items-center justify-between border-b border-border/50 pb-2">
+                <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-muted">{group.yearLabel}</h2>
+                <p className="text-xs text-muted">{group.totalMatchingCount}</p>
+              </div>
 
-          <div className="space-y-8">
-            {visiblePostGroups.map((group) => (
-              <section
-                key={group.yearValue}
-                className="space-y-4"
-              >
-                <div className="flex items-center justify-between border-b border-border/50 pb-2">
-                  <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-muted">
-                    {group.yearLabel}
-                  </h2>
-                  <p className="text-xs text-muted">{group.totalMatchingCount}</p>
-                </div>
-
-                <ul className="space-y-7">
-                  {group.posts.map((post) => (
-                    <li key={post.slug}>
-                      <Link
-                        href={`/notes/${post.slug}`}
-                        className="group block space-y-1"
-                      >
-                        <h3 className="text-lg font-semibold tracking-tight group-hover:underline">
-                          {post.title}
-                        </h3>
-                        <p className="text-sm text-muted">
-                          {formatIsoDateForDisplay(post.date)} · {post.readingTimeText}
-                          {post.updated ? ` · updated ${formatIsoDateForDisplay(post.updated)}` : ''}
-                        </p>
-                        <p className="text-muted">{post.summary}</p>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
+              <ul className="space-y-7">
+                {group.posts.map((post) => (
+                  <li key={post.slug}>
+                    <Link href={`/notes/${post.slug}`} className="group block space-y-1">
+                      <h3 className="text-lg font-semibold tracking-tight group-hover:underline">{post.title}</h3>
+                      <p className="text-sm text-muted">
+                        {formatIsoDateForDisplay(post.date)} · {post.readingTimeText}
+                        {post.updated ? ` · updated ${formatIsoDateForDisplay(post.updated)}` : ''}
+                      </p>
+                      <p className="text-soft">{post.summary}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
 
           {canLoadMore ? (
-            <div className="pt-2">
+            <div className="pt-1">
               <button
                 type="button"
                 onClick={() =>
@@ -486,10 +430,8 @@ const FilterButton = ({
     onClick={onClick}
     aria-pressed={active}
     className={
-      'rounded-full border px-2.5 py-1 text-xs transition-colors cursor-pointer ' +
-      (active
-        ? 'border-text text-text'
-        : 'border-border text-muted hover:border-text hover:text-text')
+      'text-xs transition-colors underline-offset-2 cursor-pointer ' +
+      (active ? 'text-text underline' : 'text-muted hover:text-text hover:underline')
     }
   >
     {label}
