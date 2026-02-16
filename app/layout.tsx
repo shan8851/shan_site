@@ -69,7 +69,11 @@ export default function RootLayout({
                 document.documentElement.setAttribute('data-theme', 'dark');
                 return;
               }
+              // warm is default; also migrate legacy light -> warm by clearing the theme attr.
               document.documentElement.removeAttribute('data-theme');
+              if (themeMode === 'light') {
+                window.localStorage.setItem('theme-mode', 'warm');
+              }
             } catch {}
           })();`}
         </Script>

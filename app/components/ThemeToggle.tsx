@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 
-type ThemeMode = 'light' | 'dark';
+type ThemeMode = 'warm' | 'dark';
 
-const THEME_MODES: ThemeMode[] = ['light', 'dark'];
+const THEME_MODES: ThemeMode[] = ['warm', 'dark'];
 
 const isThemeMode = (value: string | null): value is ThemeMode =>
-  value === 'light' || value === 'dark';
+  value === 'warm' || value === 'dark';
 
 const applyThemeMode = (themeMode: ThemeMode) => {
-  if (themeMode === 'light') {
+  if (themeMode === 'warm') {
     document.documentElement.removeAttribute('data-theme');
     return;
   }
@@ -19,8 +19,8 @@ const applyThemeMode = (themeMode: ThemeMode) => {
 };
 
 export const ThemeToggle = () => {
-  // Start with 'light' on both server and client to avoid hydration mismatch
-  const [activeThemeMode, setActiveThemeMode] = useState<ThemeMode>('light');
+  // Start with warm on both server and client to avoid hydration mismatch
+  const [activeThemeMode, setActiveThemeMode] = useState<ThemeMode>('warm');
   const [mounted, setMounted] = useState(false);
 
   // Read from localStorage only after mount (client-side only)
@@ -30,9 +30,11 @@ export const ThemeToggle = () => {
     // to avoid SSR/client mismatch.
     const storedThemeMode = window.localStorage.getItem('theme-mode');
 
-    // Migrate legacy 'oled' to 'dark'
+    // Migrate legacy modes.
     if (storedThemeMode === 'oled') {
       setActiveThemeMode('dark');
+    } else if (storedThemeMode === 'light') {
+      setActiveThemeMode('warm');
     } else if (isThemeMode(storedThemeMode)) {
       setActiveThemeMode(storedThemeMode);
     }

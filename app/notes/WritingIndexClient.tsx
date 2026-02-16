@@ -434,7 +434,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
                           {formatIsoDateForDisplay(post.date)} · {post.readingTimeText}
                           {post.updated ? ` · updated ${formatIsoDateForDisplay(post.updated)}` : ''}
                         </p>
-                        <p className="text-muted">{post.summary}</p>
+                        <p className="text-soft">{post.summary}</p>
                       </Link>
                     </li>
                   ))}

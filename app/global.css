@@ -1,12 +1,16 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #fafafa;
-  --surface: #ffffff;
-  --text: #111111;
-  --muted: #5a5a5a;
-  --border: #dfdfdf;
-  --link: #1f1f1f;
+  --background: #f7f3ea;
+  --surface: #fdfaf4;
+  --text: #171412;
+  --soft-text: #433c35;
+  --muted: #72675e;
+  --border: #d9d0c4;
+  --link: #171412;
+  --status-shipping: #2d8d66;
+  --status-active: #a37714;
+  --status-tightening: #4a739f;
   color-scheme: light;
 
   --sh-class: #1d4ed8;
@@ -24,9 +28,13 @@ html[data-theme='dark'] {
   --background: #000000;
   --surface: #050505;
   --text: #ffffff;
-  --muted: #cccccc;
-  --border: #3a3a3a;
+  --soft-text: #dfdfdf;
+  --muted: #b2b2b2;
+  --border: #323232;
   --link: #ffffff;
+  --status-shipping: #76dfab;
+  --status-active: #f2c14d;
+  --status-tightening: #8db6e2;
   color-scheme: dark;
 
   --sh-class: #93c5fd;
@@ -44,6 +52,7 @@ html[data-theme='dark'] {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-text: var(--text);
+  --color-soft: var(--soft-text);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-link: var(--link);

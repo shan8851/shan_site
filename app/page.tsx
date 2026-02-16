@@ -11,10 +11,10 @@ import {
 import { formatIsoDateForDisplay } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
 
-const statusClassByTrackStatus = {
-  active: 'text-amber-600 dark:text-amber-300',
-  shipping: 'text-emerald-700 dark:text-emerald-300',
-  tightening: 'text-sky-700 dark:text-sky-300',
+const statusStyleByTrackStatus = {
+  active: { color: 'var(--status-active)' },
+  shipping: { color: 'var(--status-shipping)' },
+  tightening: { color: 'var(--status-tightening)' },
 } as const;
 
 export default async function HomePage() {
@@ -60,11 +60,11 @@ export default async function HomePage() {
           {homeFocus.map((track) => (
             <li key={track.title} className="space-y-1 border-b border-border/60 pb-4">
               <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
-                <span className={statusClassByTrackStatus[track.status]}>{track.status}</span>
+                <span style={statusStyleByTrackStatus[track.status]}>{track.status}</span>
                 <span>·</span>
                 <span>{track.title}</span>
               </p>
-              <p className="text-sm text-muted">{track.objective}</p>
+              <p className="text-sm text-soft">{track.objective}</p>
               <p className="text-sm">
                 <span className="text-muted">next:</span> {track.nextMove}
               </p>
@@ -90,7 +90,7 @@ export default async function HomePage() {
                   {project.status}
                 </span>
               </div>
-              <p className="text-sm text-muted">{project.summary}</p>
+              <p className="text-sm text-soft">{project.summary}</p>
             </li>
           ))}
         </ul>
@@ -125,7 +125,7 @@ export default async function HomePage() {
                     {formatIsoDateForDisplay(post.date)} · {post.readingTimeText}
                     {post.updated ? ` · updated ${formatIsoDateForDisplay(post.updated)}` : ''}
                   </p>
-                  <p className="text-muted">{post.summary}</p>
+                  <p className="text-soft">{post.summary}</p>
                 </Link>
               </li>
             ))}

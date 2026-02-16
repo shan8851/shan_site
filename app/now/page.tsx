@@ -14,10 +14,10 @@ export const metadata: Metadata = {
   description: 'What Shan is focused on right now.',
 };
 
-const statusClassByTrackStatus = {
-  active: 'text-amber-600 dark:text-amber-300',
-  shipping: 'text-emerald-700 dark:text-emerald-300',
-  tightening: 'text-sky-700 dark:text-sky-300',
+const statusStyleByTrackStatus = {
+  active: { color: 'var(--status-active)' },
+  shipping: { color: 'var(--status-shipping)' },
+  tightening: { color: 'var(--status-tightening)' },
 } as const;
 
 export default function NowPage() {
@@ -42,11 +42,11 @@ export default function NowPage() {
           {currentFocusTracks.map((track) => (
             <li key={track.title} className="space-y-1 rounded-sm border border-border bg-surface/40 px-3 py-3">
               <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
-                <span className={statusClassByTrackStatus[track.status]}>{track.status}</span>
+                <span style={statusStyleByTrackStatus[track.status]}>{track.status}</span>
                 <span>·</span>
                 <span>{track.title}</span>
               </p>
-              <p className="text-sm text-muted">{track.objective}</p>
+              <p className="text-sm text-soft">{track.objective}</p>
               <p className="text-sm">
                 <span className="text-muted">next:</span> {track.nextMove}
               </p>
