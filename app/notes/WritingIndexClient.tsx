@@ -327,7 +327,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
 
         {quickFilterTags.length > 0 ? (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
-            <p className="text-xs text-muted">tags</p>
+            <p className="text-xs text-muted">tags:</p>
             {quickFilterTags.map((tag) => (
               <FilterButton key={tag} active={activeTag === tag} label={tag} onClick={() => applyTagFilter(tag)} />
             ))}
@@ -345,7 +345,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
 
         {yearOptions.length > 0 ? (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <p className="text-xs text-muted">archive</p>
+            <p className="text-xs text-muted">archive:</p>
             <FilterButton active={activeYear === null} label="all" onClick={() => applyYearFilter(null)} />
             {yearOptions.map((yearOption) => (
               <FilterButton
