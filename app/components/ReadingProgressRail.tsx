@@ -71,7 +71,7 @@ export const ReadingProgressRail = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-x-0 top-0 z-40 h-px bg-border/40"
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 h-0.5 bg-border/40 sm:h-px"
     >
       <div
         className="h-full origin-left bg-text/45 will-change-transform"
