@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { ReadingProgressRail } from '../../components/ReadingProgressRail';
 import { baseUrl } from '../../site';
 import { formatIsoDateForDisplay } from '../../../lib/noteDates';
 import { getAllWritingPosts, getWritingPost } from '../../../lib/writing';
@@ -106,6 +107,8 @@ export default async function WritingPostPage(
 
   return (
     <article className="space-y-10">
+      <ReadingProgressRail />
+
       <div className="space-y-5">
         <Link href="/notes" className="text-sm text-muted hover:text-text">
           ← Back to notes
