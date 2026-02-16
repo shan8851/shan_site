@@ -22,7 +22,10 @@ export default function NowPage() {
         <p className="max-w-2xl text-muted">
           A month-to-quarter log of what I am focused on, what I am not doing, and what I am looking for.
         </p>
-        <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
+        <p className="text-xs">
+          <span className="text-muted">last updated:</span>{' '}
+          <span className="text-soft">{siteLastUpdated}</span>
+        </p>
       </header>
 
       <section className="space-y-3 border-t border-border pt-8">
@@ -35,7 +38,7 @@ export default function NowPage() {
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowLogItems.map((item) => (
             <li key={item.title}>
-              <span className="font-semibold text-text">{item.title}.</span> {item.detail}
+              <span className="text-text">{item.title}.</span> {item.detail}
             </li>
           ))}
         </ul>

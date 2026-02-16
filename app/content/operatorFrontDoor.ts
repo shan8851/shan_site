@@ -63,7 +63,7 @@ export const nowLogItems: NowLogItem[] = [
   {
     title: 'Payments, bridging, and staking at Polygon',
     detail:
-      'Focused on shipping clean outcomes across core onchain rails, with less noise and more ownership.',
+      'Building comprehensive end-to-end testing that ties web3 app flows, onchain calls, and backend services for full-confidence releases, plus stronger monitoring across onchain and backend systems.',
   },
   {
     title: 'Practical AI agents in real workflows',
@@ -71,14 +71,14 @@ export const nowLogItems: NowLogItem[] = [
       'Turning experiments into boring, reliable systems that save real time day to day.',
   },
   {
-    title: 'Teaching practical AI in public',
+    title: 'Sharing practical AI in public',
     detail:
-      'Sharing what actually worked for me in agent workflows, without hype and without performative posting.',
+      'Leaning into sharing while I play and build CLIs/TUIs; agentic coding is powerful but mentally heavy because output volume is intense, so I am tightening how I review and track context.',
   },
 ];
 
 export const nowOpenQuestionsAndAsks: string[] = [
-  'I am looking for a small, high-signal builder community to learn and ship with.',
+  'I am looking for a small, high-signal builder community to learn and ship with — DM me on X if you are building one or want to join one.',
   'If you are building practical agent systems (especially in engineering or ops), I am up for comparing notes.',
   'Open to intros to thoughtful builders in onchain product and AI tooling.',
 ];
@@ -93,9 +93,9 @@ export const workingStylePoints: string[] = [
 ];
 
 export const deprioritizedItems: string[] = [
-  'Publishing sensitive internal details before they are clearly public.',
   'Chasing vanity posting volume over useful signal.',
   'Turning this site into a gimmicky personal dashboard.',
+  'Over-worrying that some goals are paused while I double down on AI learning and agent orchestration; short-term sacrifice is worth the long-term leverage.',
 ];
 
 export const activeProjects: ActiveProject[] = [
