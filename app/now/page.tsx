@@ -19,18 +19,15 @@ export default function NowPage() {
     <div className="space-y-10">
       <header className="space-y-3">
         <h1 className="text-4xl font-bold tracking-tight">Now</h1>
-        <p className="max-w-2xl text-muted">
+        <p className="max-w-2xl text-soft">
           A month-to-quarter log of what I am focused on, what I am not doing, and what I am looking for.
         </p>
-        <p className="text-xs">
-          <span className="text-muted">last updated:</span>{' '}
-          <span className="text-soft">{siteLastUpdated}</span>
-        </p>
+        <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
 
       <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">North star</h2>
-        <p className="max-w-2xl text-muted">{northStar}</p>
+        <p className="max-w-2xl text-soft">{northStar}</p>
       </section>
 
       <section className="space-y-4 border-t border-border pt-8">
@@ -44,7 +41,7 @@ export default function NowPage() {
 
       <section className="space-y-4 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">Not now (on purpose)</h2>
-        <ul className="list-disc space-y-1 pl-5 text-muted">
+        <ul className="list-disc space-y-1 pl-5 text-soft">
           {deprioritizedItems.map((item) => (
             <li key={item}>{item}</li>
           ))}
