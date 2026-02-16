@@ -78,7 +78,7 @@ export default function NowPage() {
       </section>
 
       <section className="border-t border-border pt-8 text-sm text-muted">
-        Project detail lives on{' '}
+        Work detail lives on{' '}
         <Link href="/projects" className="underline underline-offset-4 hover:text-text">
           /projects
         </Link>

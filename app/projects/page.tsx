@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 
-import { activeProjects, siteLastUpdated } from '../content/operatorFrontDoor';
+import { activeProjects, selectedShippedWork, siteLastUpdated } from '../content/operatorFrontDoor';
 
 export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Projects Shan is actively building and experimenting with.',
+  title: 'Work',
+  description: 'Current builds, experiments, and selected shipped work by Shan.',
 };
 
 const projectTrackOrder = ['core', 'experiments'] as const;
 
 const trackHeading = {
-  core: 'Core builds',
+  core: 'Building now',
   experiments: 'Experiments',
 } as const;
 
@@ -18,9 +18,9 @@ export default function ProjectsPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-3">
-        <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Work</h1>
         <p className="max-w-2xl text-muted">
-          A mix of serious builds and messy experiments. Some are polished, some are intentionally raw.
+          Current builds, ongoing experiments, and selected shipped work.
         </p>
         <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
                       rel="noreferrer"
                       className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-muted"
                     >
-                      open repo
+                      open link
                     </a>
                   ) : null}
                 </li>
@@ -69,6 +69,26 @@ export default function ProjectsPage() {
           </section>
         );
       })}
+
+      <section className="space-y-4 border-t border-border pt-8">
+        <h2 className="text-lg font-semibold tracking-tight">Selected shipped work</h2>
+        <ul className="space-y-4">
+          {selectedShippedWork.map((work) => (
+            <li key={work.title} className="space-y-1 rounded-sm border border-border bg-surface/40 px-3 py-3">
+              <h3 className="font-semibold tracking-tight">{work.title}</h3>
+              <p className="text-sm text-muted">{work.summary}</p>
+              <a
+                href={work.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-muted"
+              >
+                open link
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }

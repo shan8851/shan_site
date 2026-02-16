@@ -21,6 +21,12 @@ export type ActiveProject = {
   href?: string;
 };
 
+export type ShippedWorkItem = {
+  title: string;
+  summary: string;
+  href: string;
+};
+
 export const siteLastUpdated = '2026-02-16';
 
 export const homeIntro =
@@ -68,6 +74,15 @@ export const weeklyCadence: WeeklyCadenceItem[] = [
   },
 ];
 
+export const workingStylePoints: string[] = [
+  'Public by default. If it can help others and is not sensitive, it should be in-channel, not buried in DMs.',
+  'Direct and clear. Cut fluff, get to the ask, and respect people\'s time.',
+  'Async first for documentation and reuse. Sync when collaboration genuinely benefits.',
+  'Meetings need value. I should be giving value or getting value I cannot get from notes, transcript, or recording.',
+  'Feedback should be direct and honest. Understand the why, then help unblock.',
+  'Priorities: ownership and speed.',
+];
+
 export const deprioritizedItems: string[] = [
   'Publishing sensitive internal details before they are clearly public.',
   'Chasing vanity posting volume over useful signal.',
@@ -75,6 +90,31 @@ export const deprioritizedItems: string[] = [
 ];
 
 export const activeProjects: ActiveProject[] = [
+  {
+    title: 'Agglayer bridge interface',
+    track: 'core',
+    status: 'live',
+    summary: 'Bridge anything to Agglayer via a production-ready web experience.',
+    nextMove: 'Keep tightening UX and reliability across supported routes.',
+    href: 'https://ui.agglayer.dev/',
+  },
+  {
+    title: 'Agglayer Dev UI',
+    track: 'core',
+    status: 'live',
+    summary:
+      'Configurable, self-hosted bridging interface powered by the Agglayer SDK and Bridge Hub API.',
+    nextMove: 'Continue improving developer setup and customization paths.',
+    href: 'https://github.com/agglayer/agglayer-dev-ui',
+  },
+  {
+    title: 'Agglayer SDK',
+    track: 'core',
+    status: 'in-progress',
+    summary: 'Unified client interface for native and aggregator bridging.',
+    nextMove: 'Keep hardening ergonomics and integration reliability.',
+    href: 'https://github.com/agglayer/sdk',
+  },
   {
     title: 'type-safe',
     track: 'core',
@@ -86,7 +126,7 @@ export const activeProjects: ActiveProject[] = [
     title: 'OpenClaw agent dashboard',
     track: 'core',
     status: 'in-progress',
-    summary: 'Personal ops and tracking surface for agent runs, system health, and day-to-day execution visibility.',
+    summary: 'Personal ops and tracking surface for agent runs, system health, and execution visibility.',
     nextMove: 'Keep pushing mission-control-lite features without adding noise.',
     href: 'https://github.com/shan8851/giles-dashboard',
   },
@@ -133,9 +173,21 @@ export const activeProjects: ActiveProject[] = [
   },
 ];
 
-export const operatingPrinciples: string[] = [
-  'Keep it practical: useful beats clever.',
-  'Ship receipts, not theatre.',
-  'Prefer compounding systems over one-off hustle.',
-  'If it adds noise, cut it.',
+export const selectedShippedWork: ShippedWorkItem[] = [
+  {
+    title: 'Cielo',
+    summary:
+      'Instrumental in evolving Cielo from a Discord bot into a fully-fledged wallet discovery platform.',
+    href: 'https://cielo.finance/',
+  },
+  {
+    title: 'Aragon UI Kit',
+    summary: 'Major contributor to the governance UI kit used across Aragon ecosystem products.',
+    href: 'https://uikit.aragon.org/?path=/docs/docs-documentation--docs',
+  },
+  {
+    title: 'Aragon App 2.0',
+    summary: 'Helped bring Aragon App 2.0 to life, shipping modular onchain governance UX.',
+    href: 'https://app.aragon.org/?daoFilter=all',
+  },
 ];

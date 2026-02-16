@@ -5,8 +5,8 @@ import {
   currentFocusTracks,
   homeIntro,
   northStar,
-  operatingPrinciples,
   siteLastUpdated,
+  workingStylePoints,
 } from './content/operatorFrontDoor';
 import { formatIsoDateForDisplay } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
@@ -23,7 +23,7 @@ export default async function HomePage() {
   const latestNonFeaturedPosts = writingPosts.filter((post) => !post.featured).slice(0, 1);
   const homeNotes = [...featuredPosts, ...latestNonFeaturedPosts].slice(0, 4);
   const homeFocus = currentFocusTracks.slice(0, 3);
-  const homeProjects = activeProjects.slice(0, 4);
+  const homeWork = activeProjects.filter((project) => project.track === 'core').slice(0, 4);
 
   return (
     <div className="space-y-16">
@@ -37,6 +37,15 @@ export default async function HomePage() {
       <section className="space-y-4 border-t border-border pt-10">
         <h2 className="text-xl font-semibold tracking-tight">North star</h2>
         <p className="max-w-2xl text-muted">{northStar}</p>
+      </section>
+
+      <section className="space-y-4 border-t border-border pt-10">
+        <h2 className="text-xl font-semibold tracking-tight">How I work</h2>
+        <ul className="list-disc space-y-1 pl-5 text-muted">
+          {workingStylePoints.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="space-y-5 border-t border-border pt-10">
@@ -66,37 +75,23 @@ export default async function HomePage() {
 
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Projects</h2>
+          <h2 className="text-xl font-bold tracking-tight">Work</h2>
           <Link href="/projects" className="text-sm text-muted transition-colors hover:text-text hover:underline">
-            all projects
+            all work
           </Link>
         </div>
 
         <ul className="space-y-4">
-          {homeProjects.map((project) => (
+          {homeWork.map((project) => (
             <li key={project.title} className="space-y-1">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-semibold tracking-tight">{project.title}</h3>
                 <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
                   {project.status}
                 </span>
-                {project.maturity ? (
-                  <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                    {project.maturity}
-                  </span>
-                ) : null}
               </div>
               <p className="text-sm text-muted">{project.summary}</p>
             </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="space-y-4 border-t border-border pt-10">
-        <h2 className="text-xl font-semibold tracking-tight">Operating defaults</h2>
-        <ul className="list-disc space-y-1 pl-5 text-muted">
-          {operatingPrinciples.map((principle) => (
-            <li key={principle}>{principle}</li>
           ))}
         </ul>
       </section>
