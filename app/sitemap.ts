@@ -10,6 +10,7 @@ export default async function sitemap() {
     { url: baseUrl, lastModified },
     { url: `${baseUrl}/now`, lastModified },
     { url: `${baseUrl}/projects`, lastModified },
+    { url: `${baseUrl}/uses`, lastModified },
     { url: `${baseUrl}/notes`, lastModified },
     ...posts.map((post) => ({
       url: `${baseUrl}/notes/${post.slug}`,
