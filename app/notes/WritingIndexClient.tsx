@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { formatIsoDateForDisplay } from '../../lib/noteDates';
 
@@ -17,9 +17,41 @@ export type WritingIndexPost = {
 
 const normalizeText = (value: string): string => value.trim().toLowerCase();
 
+const isTypingTarget = (target: EventTarget | null): boolean => {
+  if (!(target instanceof HTMLElement)) {
+    return false;
+  }
+
+  const tagName = target.tagName.toLowerCase();
+  return target.isContentEditable || tagName === 'input' || tagName === 'textarea' || tagName === 'select';
+};
+
 export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[] }) {
   const [searchValue, setSearchValue] = useState('');
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    const focusSearchInput = (event: KeyboardEvent) => {
+      if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey) {
+        return;
+      }
+
+      if (isTypingTarget(event.target)) {
+        return;
+      }
+
+      event.preventDefault();
+      searchInputRef.current?.focus();
+      searchInputRef.current?.select();
+    };
+
+    window.addEventListener('keydown', focusSearchInput);
+
+    return () => {
+      window.removeEventListener('keydown', focusSearchInput);
+    };
+  }, []);
 
   const availableTags = useMemo(() => {
     const uniqueTags = new Set(posts.flatMap((post) => post.tags));
@@ -47,13 +79,28 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
     <section className="space-y-8">
       <div className="space-y-4">
         <input
+          ref={searchInputRef}
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key !== 'Escape') {
+              return;
+            }
+
+            if (searchValue.length > 0) {
+              setSearchValue('');
+              return;
+            }
+
+            event.currentTarget.blur();
+          }}
           placeholder="Search"
           type="search"
+          aria-label="Search notes"
           inputMode="search"
           className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-text placeholder:text-muted focus:border-text focus:outline-none"
         />
+        <p className="text-xs text-muted">Tip: press / to jump to search.</p>
 
         {availableTags.length > 0 ? (
           <div className="flex flex-wrap gap-2">
