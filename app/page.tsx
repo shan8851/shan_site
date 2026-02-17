@@ -19,9 +19,7 @@ const statusStyleByTrackStatus = {
 
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
-  const featuredPosts = writingPosts.filter((post) => post.featured).slice(0, 3);
-  const latestNonFeaturedPosts = writingPosts.filter((post) => !post.featured).slice(0, 1);
-  const homeNotes = [...featuredPosts, ...latestNonFeaturedPosts].slice(0, 4);
+  const homeNotes = writingPosts.slice(0, 5);
   const homeFocus = currentFocusTracks.slice(0, 3);
   const homeWork = activeProjects.filter((project) => project.track === 'core').slice(0, 4);
 
@@ -113,16 +111,9 @@ export default async function HomePage() {
             {homeNotes.map((post) => (
               <li key={post.slug}>
                 <Link href={`/notes/${post.slug}`} className="group block space-y-1">
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-semibold tracking-tight transition-colors group-hover:underline">
-                      {post.title}
-                    </h3>
-                    {post.featured ? (
-                      <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                        featured
-                      </span>
-                    ) : null}
-                  </div>
+                  <h3 className="font-semibold tracking-tight transition-colors group-hover:underline">
+                    {post.title}
+                  </h3>
                   <p className="text-sm text-muted">
                     {formatIsoDateForDisplay(post.date)} · {post.readingTimeText}
                     {post.updated ? ` · updated ${formatIsoDateForDisplay(post.updated)}` : ''}

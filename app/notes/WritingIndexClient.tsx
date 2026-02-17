@@ -19,7 +19,7 @@ export type WritingIndexPost = {
 const TAG_QUERY_PARAM = 'tag';
 const YEAR_QUERY_PARAM = 'year';
 const QUICK_FILTER_TAG_LIMIT = 5;
-const POSTS_PAGE_SIZE = 18;
+const POSTS_PAGE_SIZE = 12;
 const UNKNOWN_YEAR_VALUE = 'unknown';
 
 const normalizeText = (value: string): string => value.trim().toLowerCase();
