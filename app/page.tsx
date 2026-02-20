@@ -22,7 +22,7 @@ const getProjectLinkLabel = (href: string) =>
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 5);
-  const homeWork = activeProjects.filter((project) => project.track === 'core').slice(0, 5);
+  const homeProjects = activeProjects.filter((project) => project.track === 'core').slice(0, 5);
 
   return (
     <div className="space-y-16">
@@ -74,7 +74,7 @@ export default async function HomePage() {
                 )}
               </h3>
               <p className="text-sm text-soft">{item.summary}</p>
-              <p className="text-sm text-muted">Next: {item.nextMove}</p>
+              {item.detail ? <p className="text-sm text-muted">{item.detail}</p> : null}
             </li>
           ))}
         </ul>
@@ -82,15 +82,15 @@ export default async function HomePage() {
 
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Work</h2>
+          <h2 className="text-xl font-bold tracking-tight">Projects</h2>
           <Link href="/projects" className="text-sm text-muted transition-colors hover:text-text hover:underline">
-            all work
+            all projects
           </Link>
         </div>
 
         <ul className="space-y-4">
-          {homeWork.map((project) => (
-            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4">
+          {homeProjects.map((project) => (
+            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
               <div className="flex flex-wrap items-center gap-2">
                 {project.href ? (
                   <a

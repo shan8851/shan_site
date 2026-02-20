@@ -36,7 +36,25 @@ export default function NowPage() {
         <p className="max-w-3xl text-soft">{nowFocusNarrative}</p>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowLogItems.map((item) => (
-            <li key={item}>{item}</li>
+            <li key={item.label}>
+              {item.href ? (
+                <>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline underline-offset-4 transition-colors hover:text-text"
+                  >
+                    {item.label}
+                  </a>
+                  : {item.text}
+                </>
+              ) : (
+                <>
+                  <span className="font-medium">{item.label}:</span> {item.text}
+                </>
+              )}
+            </li>
           ))}
         </ul>
       </section>
@@ -60,7 +78,7 @@ export default function NowPage() {
       </section>
 
       <section className="border-t border-border pt-8 text-sm text-muted">
-        More build context lives on{' '}
+        More project context lives on{' '}
         <Link href="/projects" className="underline underline-offset-4 hover:text-text">
           /projects
         </Link>

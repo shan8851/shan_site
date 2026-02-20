@@ -9,7 +9,7 @@ import {
 } from '../content/operatorFrontDoor';
 
 export const metadata: Metadata = {
-  title: 'Work',
+  title: 'Projects',
   description: 'Current builds, experiments, and selected shipped work by Shan.',
 };
 
@@ -22,7 +22,7 @@ const getLinkLabel = (href: string) =>
 
 export default function ProjectsPage() {
   const aiProjectTitleSet = new Set(aiProjects.map((project) => project.title));
-  const buildingNow = activeProjects.filter(
+  const coreProjects = activeProjects.filter(
     (project) => project.track === 'core' && !aiProjectTitleSet.has(project.title),
   );
   const experiments = activeProjects.filter((project) => project.track === 'experiments');
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-3">
-        <h1 className="text-4xl font-bold tracking-tight">Work</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
         <p className="max-w-2xl text-muted">
           Current builds, ongoing experiments, and selected shipped work.
         </p>
@@ -38,11 +38,11 @@ export default function ProjectsPage() {
       </header>
 
       <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">AI products: positioning + applied learning</h2>
+        <h2 className="text-lg font-semibold tracking-tight">AI products</h2>
         <p className="max-w-3xl text-sm text-soft">{aiProjectsFraming}</p>
         <ul className="space-y-4">
           {aiProjects.map((project) => (
-            <li key={project.title} className="space-y-2 border-b border-border/60 pb-4">
+            <li key={project.title} className="space-y-2 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-semibold tracking-tight">{project.title}</h3>
                 <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
@@ -50,7 +50,7 @@ export default function ProjectsPage() {
                 </span>
               </div>
               <p className="text-sm text-muted">{project.summary}</p>
-              <p className="text-sm text-soft">Why this matters: {project.proofOfWork}</p>
+              <p className="text-sm text-soft">What I am learning: {project.learning}</p>
               <a
                 href={project.href}
                 target="_blank"
@@ -65,10 +65,10 @@ export default function ProjectsPage() {
       </section>
 
       <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">Core builds</h2>
+        <h2 className="text-lg font-semibold tracking-tight">Core projects</h2>
         <ul className="space-y-4">
-          {buildingNow.map((project) => (
-            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4">
+          {coreProjects.map((project) => (
+            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-semibold tracking-tight">{project.title}</h3>
                 <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
@@ -98,7 +98,7 @@ export default function ProjectsPage() {
         <h2 className="text-lg font-semibold tracking-tight">Selected shipped work</h2>
         <ul className="space-y-4">
           {selectedShippedWork.map((work) => (
-            <li key={work.title} className="space-y-1 border-b border-border/60 pb-4">
+            <li key={work.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
               <h3 className="font-semibold tracking-tight">{work.title}</h3>
               <p className="text-sm text-muted">{work.summary}</p>
               <a
@@ -118,7 +118,7 @@ export default function ProjectsPage() {
         <h2 className="text-lg font-semibold tracking-tight">Experiments</h2>
         <ul className="space-y-4">
           {experiments.map((project) => (
-            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4">
+            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-semibold tracking-tight">{project.title}</h3>
                 <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
