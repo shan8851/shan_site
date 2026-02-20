@@ -1,12 +1,17 @@
-export type FocusTrack = {
+export type HomeRightNowItem = {
   title: string;
-  status: 'active' | 'shipping' | 'tightening';
-  objective: string;
+  summary: string;
   nextMove: string;
-  signal: string;
+  href?: string;
 };
 
-export type NowLogItem = string;
+export type AIProject = {
+  title: string;
+  status: 'live' | 'in-progress';
+  summary: string;
+  proofOfWork: string;
+  href: string;
+};
 
 export type ActiveProject = {
   title: string;
@@ -27,57 +32,79 @@ export type ShippedWorkItem = {
 export const siteLastUpdated = '2026-02-20';
 
 export const homeIntro =
-  'I work on payments, bridging, and staking at Polygon. Outside work, I build practical AI agent systems, share what I learn, and keep things useful over flashy.';
+  'I work on payments, bridging, and staking at Polygon. Outside work, I ship small AI products, build agent systems, and share what actually works.';
 
 export const northStar =
-  'Build reliable systems that help people move faster — onchain and with AI.';
+  'Build reliable systems that help people move faster onchain and with AI by tightening prompts, context windows, token usage, and agent reliability instead of chasing hype.';
 
-export const currentFocusTracks: FocusTrack[] = [
+export const rightNowNarrative =
+  'I am treating small AI products as positioning plus proof-of-work. Ship fast, watch real usage, then tighten prompts, context strategy, and product loops.';
+
+export const rightNowItems: HomeRightNowItem[] = [
+  {
+    title: 'Excuse Me',
+    summary:
+      'Newly shipped AI app that turns messy situations into clean excuses with quick, adjustable tone.',
+    nextMove:
+      'Tighten tone control, edge-case handling, and retention hooks beyond the first laugh.',
+    href: 'https://excuse-me.xyz/',
+  },
   {
     title: 'RoastMaster',
-    status: 'shipping',
-    objective:
-      'Tinkering with AI outputs and distribution to find repeat usage loops that feel good and shareable.',
+    summary:
+      'AI roast and glaze app with auth, credits, and share loops that surface real usage signal.',
     nextMove:
-      'Keep tweaking output quality and consider richer output control.',
-    signal:
-      'Daily usage, repeat sessions, and screenshot shares without manual hand-holding.',
+      'Keep improving output quality, first-run experience, and distribution that does not feel forced.',
+    href: 'https://roastmyphoto.app/',
   },
   {
-    title: 'Payments, bridging, and staking work at Polygon',
-    status: 'shipping',
-    objective:
-      'Ship clean, reliable product and engineering outcomes across payments, bridging, and staking.',
-    nextMove: 'Keep execution on work that has direct user impact.',
-    signal: 'Shipped outcomes and clearer ownership over noisy activity.',
+    title: 'AI systems loop',
+    summary:
+      'Using shipped apps to sharpen prompt structure, token budgets, context assembly, and agent behavior.',
+    nextMove: 'Keep turning ad hoc experiments into boring, reliable workflows.',
   },
   {
-    title: 'Practical AI agents in real workflows',
-    status: 'active',
-    objective:
-      'Turn agent experiments into repeatable systems that save real time.',
-    nextMove:
-      'Keep tightening reliability, reporting, and low-friction daily usage.',
-    signal: 'Fewer manual loops and more trustworthy automation receipts.',
-  },
-  {
-    title: 'Share useful AI lessons in public',
-    status: 'tightening',
-    objective:
-      'Help people get to grips with AI, especially agent workflows, without hype spam.',
-    nextMove:
-      'Publish practical notes and tighter X content around what actually worked.',
-    signal: 'Higher-quality interactions and repeatable content cadence.',
+    title: 'Core Polygon execution',
+    summary:
+      'Shipping product and engineering outcomes across payments, bridging, and staking.',
+    nextMove: 'Keep driving work that has direct user impact and cleaner reliability.',
   },
 ];
 
-export const nowLogItems: NowLogItem[] = [
-  'RoastMaster (https://roastmyphoto.app): launched with auth + payments; now focused on tightening first-run UX, safe-chaos output quality, and distribution that does not feel cringe.',
-  'Payments, bridging, and staking at Polygon: building comprehensive end-to-end testing that ties web3 app flows, onchain calls, and backend services for full-confidence releases, plus stronger monitoring across onchain and backend systems.',
-  'Practical AI agents in real workflows: turning experiments into boring, reliable systems that save real time day to day.',
-  'Sharing practical AI workflows in public.',
-  "Dealing with the cognitive overload from agentic coding and the 'one more prompt' syndrome.",
-  'Hacking on CLIs and TUIs.',
+export const aiProjectsFraming =
+  'I use AI projects as applied learning and positioning. Each launch is a public receipt that I can ship, learn from real usage, and improve with data instead of vibes.';
+
+export const aiProjects: AIProject[] = [
+  {
+    title: 'Excuse Me',
+    status: 'live',
+    summary:
+      'Fast AI excuse generator built for quick, useful copy with controllable tone.',
+    proofOfWork:
+      'Forces tight prompt constraints, short context handling, and rapid iteration with live feedback.',
+    href: 'https://excuse-me.xyz/',
+  },
+  {
+    title: 'RoastMaster',
+    status: 'live',
+    summary:
+      'Roast and glaze photo app with uploads, auth, credits, and share loops.',
+    proofOfWork:
+      'Stress-tests prompt reliability, guardrails, and repeat usage loops under real traffic.',
+    href: 'https://roastmyphoto.app/',
+  },
+];
+
+export const nowFocusNarrative =
+  'Current loop: ship small AI apps, get usage signal, then tighten prompts, token and context strategy, and agent reliability. The target is useful systems, not gimmicks.';
+
+export const nowLogItems: string[] = [
+  'Excuse Me (https://excuse-me.xyz/): shipped and now tightening tone controls, edge-case handling, and repeat usage loops.',
+  'RoastMaster (https://roastmyphoto.app/): improving first-run UX, output quality, and distribution loops that feel native.',
+  'AI systems work: making prompt templates, token budgets, and context assembly more reliable under messy real input.',
+  'Payments, bridging, and staking at Polygon: shipping user-impactful work with stronger end-to-end confidence and observability.',
+  'Sharing practical AI workflows in public with honest notes on what failed and what actually held up.',
+  'Hacking on CLIs and TUIs for operator workflows.',
 ];
 
 export const nowOpenQuestionsAndAsks: string[] = [
@@ -133,10 +160,20 @@ export const activeProjects: ActiveProject[] = [
     track: 'core',
     status: 'live',
     summary:
-      'Playful AI roast/glaze web app with image uploads, auth, quota/credits, and share-friendly output loops.',
+      'Roast and glaze photo app with image uploads, auth, credits, and share-friendly output loops.',
     nextMove:
       'Keep tuning output quality and run focused distribution pushes to find repeat usage loops.',
     href: 'https://roastmyphoto.app/',
+  },
+  {
+    title: 'Excuse Me',
+    track: 'core',
+    status: 'live',
+    summary:
+      'Small AI app that generates direct, context-aware excuses with adjustable tone.',
+    nextMove:
+      'Tighten edge-case quality and evolve it from novelty to a sticky quick-use utility.',
+    href: 'https://excuse-me.xyz/',
   },
   {
     title: 'type-safe',

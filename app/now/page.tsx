@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {
   deprioritizedItems,
   northStar,
+  nowFocusNarrative,
   nowLogItems,
   nowOpenQuestionsAndAsks,
   siteLastUpdated,
@@ -32,6 +33,7 @@ export default function NowPage() {
 
       <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">Current focus</h2>
+        <p className="max-w-3xl text-soft">{nowFocusNarrative}</p>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowLogItems.map((item) => (
             <li key={item}>{item}</li>
