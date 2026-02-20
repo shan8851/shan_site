@@ -17,6 +17,13 @@ const statusStyleByTrackStatus = {
   tightening: { color: 'var(--status-tightening)' },
 } as const;
 
+const getProjectLinkLabel = (href: string) =>
+  href.includes('github.com')
+    ? 'view repo'
+    : href.includes('agglayer.dev') || href.includes('roastmyphoto.app')
+      ? 'view live'
+      : 'view project';
+
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 5);
@@ -85,12 +92,33 @@ export default async function HomePage() {
           {homeWork.map((project) => (
             <li key={project.title} className="space-y-1 border-b border-border/60 pb-4">
               <div className="flex flex-wrap items-center gap-2">
-                <h3 className="font-semibold tracking-tight">{project.title}</h3>
+                {project.href ? (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold tracking-tight underline-offset-4 transition-colors hover:text-text hover:underline"
+                  >
+                    {project.title}
+                  </a>
+                ) : (
+                  <h3 className="font-semibold tracking-tight">{project.title}</h3>
+                )}
                 <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
                   {project.status}
                 </span>
               </div>
               <p className="text-sm text-soft">{project.summary}</p>
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                >
+                  {getProjectLinkLabel(project.href)}
+                </a>
+              ) : null}
             </li>
           ))}
         </ul>

@@ -24,7 +24,7 @@ export type ShippedWorkItem = {
   href: string;
 };
 
-export const siteLastUpdated = '2026-02-16';
+export const siteLastUpdated = '2026-02-20';
 
 export const homeIntro =
   'I work on payments, bridging, and staking at Polygon. Outside work, I build practical AI agent systems, share what I learn, and keep things useful over flashy.';
@@ -34,29 +34,45 @@ export const northStar =
 
 export const currentFocusTracks: FocusTrack[] = [
   {
+    title: 'RoastMaster',
+    status: 'shipping',
+    objective:
+      'Tinkering with AI outputs and distribution to find repeat usage loops that feel good and shareable.',
+    nextMove:
+      'Keep tweaking output quality and consider richer output control.',
+    signal:
+      'Daily usage, repeat sessions, and screenshot shares without manual hand-holding.',
+  },
+  {
     title: 'Payments, bridging, and staking work at Polygon',
     status: 'shipping',
-    objective: 'Ship clean, reliable product and engineering outcomes across payments, bridging, and staking.',
+    objective:
+      'Ship clean, reliable product and engineering outcomes across payments, bridging, and staking.',
     nextMove: 'Keep execution on work that has direct user impact.',
     signal: 'Shipped outcomes and clearer ownership over noisy activity.',
   },
   {
     title: 'Practical AI agents in real workflows',
     status: 'active',
-    objective: 'Turn agent experiments into repeatable systems that save real time.',
-    nextMove: 'Keep tightening reliability, reporting, and low-friction daily usage.',
+    objective:
+      'Turn agent experiments into repeatable systems that save real time.',
+    nextMove:
+      'Keep tightening reliability, reporting, and low-friction daily usage.',
     signal: 'Fewer manual loops and more trustworthy automation receipts.',
   },
   {
     title: 'Share useful AI lessons in public',
     status: 'tightening',
-    objective: 'Help people get to grips with AI, especially agent workflows, without hype spam.',
-    nextMove: 'Publish practical notes and tighter X content around what actually worked.',
+    objective:
+      'Help people get to grips with AI, especially agent workflows, without hype spam.',
+    nextMove:
+      'Publish practical notes and tighter X content around what actually worked.',
     signal: 'Higher-quality interactions and repeatable content cadence.',
   },
 ];
 
 export const nowLogItems: NowLogItem[] = [
+  'RoastMaster (https://roastmyphoto.app): launched with auth + payments; now focused on tightening first-run UX, safe-chaos output quality, and distribution that does not feel cringe.',
   'Payments, bridging, and staking at Polygon: building comprehensive end-to-end testing that ties web3 app flows, onchain calls, and backend services for full-confidence releases, plus stronger monitoring across onchain and backend systems.',
   'Practical AI agents in real workflows: turning experiments into boring, reliable systems that save real time day to day.',
   'Sharing practical AI workflows in public.',
@@ -90,7 +106,8 @@ export const activeProjects: ActiveProject[] = [
     title: 'Agglayer bridge interface',
     track: 'core',
     status: 'live',
-    summary: 'Bridge anything to Agglayer via a production-ready web experience.',
+    summary:
+      'Bridge anything to Agglayer via a production-ready web experience.',
     nextMove: 'Keep tightening UX and reliability across supported routes.',
     href: 'https://ui.agglayer.dev/',
   },
@@ -112,10 +129,21 @@ export const activeProjects: ActiveProject[] = [
     href: 'https://github.com/agglayer/sdk',
   },
   {
+    title: 'RoastMaster',
+    track: 'core',
+    status: 'live',
+    summary:
+      'Playful AI roast/glaze web app with image uploads, auth, quota/credits, and share-friendly output loops.',
+    nextMove:
+      'Keep tuning output quality and run focused distribution pushes to find repeat usage loops.',
+    href: 'https://roastmyphoto.app/',
+  },
+  {
     title: 'type-safe',
     track: 'core',
     status: 'in-progress',
-    summary: 'Typing trainer I am building because I make typos constantly and wanted a tool that actually helps.',
+    summary:
+      'Typing trainer I am building because I make typos constantly and wanted a tool that actually helps.',
     nextMove: 'Tighten first-run UX and get it in shape for broader sharing.',
   },
   {
@@ -124,7 +152,8 @@ export const activeProjects: ActiveProject[] = [
     status: 'in-progress',
     summary:
       'Mission-control-lite setup for agent runs, personal tracking, and server health, spanning both giles-dashboard and giles-api layers.',
-    nextMove: 'Keep pushing reliability, clean reporting, and practical operator visibility.',
+    nextMove:
+      'Keep pushing reliability, clean reporting, and practical operator visibility.',
     href: 'https://github.com/shan8851/giles-dashboard',
   },
   {
@@ -132,8 +161,10 @@ export const activeProjects: ActiveProject[] = [
     track: 'experiments',
     status: 'exploring',
     maturity: 'raw',
-    summary: 'Raw experiment while I play with agent-native interaction patterns.',
-    nextMove: 'Keep exploring and decide whether it graduates into a clearer product shape.',
+    summary:
+      'Raw experiment while I play with agent-native interaction patterns.',
+    nextMove:
+      'Keep exploring and decide whether it graduates into a clearer product shape.',
     href: 'https://github.com/shan8851/clawtop',
   },
   {
@@ -142,7 +173,8 @@ export const activeProjects: ActiveProject[] = [
     status: 'exploring',
     maturity: 'raw',
     summary: 'Sandbox repo for fast trials, prototypes, and rough ideas.',
-    nextMove: 'Keep using it as a pressure release valve for rapid experiments.',
+    nextMove:
+      'Keep using it as a pressure release valve for rapid experiments.',
     href: 'https://github.com/shan8851/scratch',
   },
   {
@@ -150,15 +182,18 @@ export const activeProjects: ActiveProject[] = [
     track: 'experiments',
     status: 'exploring',
     summary: 'Small project for focus and time-structure experiments.',
-    nextMove: 'Decide whether to keep it lightweight or fold insights into broader systems.',
+    nextMove:
+      'Decide whether to keep it lightweight or fold insights into broader systems.',
     href: 'https://github.com/shan8851/pomo',
   },
   {
     title: 'Onchain agent experiments',
     track: 'experiments',
     status: 'exploring',
-    summary: 'Playing with agent workflows around DeFi and meme-coin style experimentation.',
-    nextMove: 'Keep this experimental and risk-aware while patterns are still forming.',
+    summary:
+      'Playing with agent workflows around DeFi and meme-coin style experimentation.',
+    nextMove:
+      'Keep this experimental and risk-aware while patterns are still forming.',
   },
 ];
 
