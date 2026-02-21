@@ -2,33 +2,27 @@ import Link from 'next/link';
 
 import {
   activeProjects,
-  currentFocusTracks,
   homeIntro,
   northStar,
+  rightNowItems,
+  rightNowNarrative,
   siteLastUpdated,
   workingStylePoints,
 } from './content/operatorFrontDoor';
 import { formatIsoDateForDisplay } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
 
-const statusStyleByTrackStatus = {
-  active: { color: 'var(--status-active)' },
-  shipping: { color: 'var(--status-shipping)' },
-  tightening: { color: 'var(--status-tightening)' },
-} as const;
-
 const getProjectLinkLabel = (href: string) =>
   href.includes('github.com')
     ? 'view repo'
-    : href.includes('agglayer.dev') || href.includes('roastmyphoto.app')
+    : href.includes('agglayer.dev') || href.includes('roastmyphoto.app') || href.includes('excuse-me.xyz')
       ? 'view live'
       : 'view project';
 
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 5);
-  const homeFocus = currentFocusTracks.slice(0, 3);
-  const homeWork = activeProjects.filter((project) => project.track === 'core').slice(0, 4);
+  const homeProjects = activeProjects.filter((project) => project.track === 'core').slice(0, 5);
 
   return (
     <div className="space-y-16">
@@ -60,21 +54,27 @@ export default async function HomePage() {
             full now page
           </Link>
         </div>
+        <p className="max-w-3xl text-soft">{rightNowNarrative}</p>
 
-        <ul className="space-y-4">
-          {homeFocus.map((track) => (
-            <li key={track.title} className="space-y-1 border-b border-border/60 pb-4">
-              <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
-                <span className="font-semibold" style={statusStyleByTrackStatus[track.status]}>
-                  {track.status}
-                </span>
-                <span>·</span>
-                <span>{track.title}</span>
-              </p>
-              <p className="text-sm text-soft">{track.objective}</p>
-              <p className="text-sm">
-                <span className="text-muted">next:</span> {track.nextMove}
-              </p>
+        <ul className="grid gap-3 md:grid-cols-2">
+          {rightNowItems.map((item) => (
+            <li key={item.title} className="space-y-2 rounded border border-border/70 bg-surface/40 p-3">
+              <h3 className="font-semibold tracking-tight">
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline-offset-4 transition-colors hover:text-text hover:underline"
+                  >
+                    {item.title}
+                  </a>
+                ) : (
+                  item.title
+                )}
+              </h3>
+              <p className="text-sm text-soft">{item.summary}</p>
+              {item.detail ? <p className="text-sm text-muted">{item.detail}</p> : null}
             </li>
           ))}
         </ul>
@@ -82,15 +82,15 @@ export default async function HomePage() {
 
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Work</h2>
+          <h2 className="text-xl font-bold tracking-tight">Projects</h2>
           <Link href="/projects" className="text-sm text-muted transition-colors hover:text-text hover:underline">
-            all work
+            all projects
           </Link>
         </div>
 
         <ul className="space-y-4">
-          {homeWork.map((project) => (
-            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4">
+          {homeProjects.map((project) => (
+            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
               <div className="flex flex-wrap items-center gap-2">
                 {project.href ? (
                   <a

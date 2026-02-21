@@ -3,17 +3,19 @@ export type UseItem = {
   value: string;
 };
 
-export const usesLastUpdated = '2026-02-16';
+export const usesLastUpdated = '2026-02-20';
 
 export const usesSections: Array<{ title: string; items: UseItem[] }> = [
   {
     title: 'AI + model stack',
     items: [
-      { label: 'Writing', value: 'Claude Opus 4.6 (primary), Grok 4 (spice pass)' },
-      { label: 'Coding', value: 'Codex 5.3 (primary), Claude Opus 4.6' },
-      { label: 'Research', value: 'ChatGPT Pro + Grok for real-time checks' },
-      { label: 'Voice/transcription', value: 'OpenAI Whisper (gpt-4.1-mini)' },
-      { label: 'Image generation', value: 'Nano Banana Pro' },
+      { label: 'Coding', value: 'Codex 5.3 (primary)' },
+      { label: 'Search/research', value: 'Perplexity (default)' },
+      { label: 'Fast/cheap tasks', value: 'Gemini + Claude Haiku/Sonnet' },
+      { label: 'Voice/transcription', value: 'Whisper, plus playing with Pocket TTS' },
+      { label: 'Image generation', value: 'Nano Banana Pro (still great)' },
+      { label: 'Routing', value: 'OpenRouter for one API key + easy model switching' },
+      { label: 'Want to try', value: 'Kimi K2.5' },
     ],
   },
   {
