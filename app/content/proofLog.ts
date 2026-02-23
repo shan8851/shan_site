@@ -2,6 +2,7 @@ export type ProofEntry = {
   id: string;
   date: string;
   title: string;
+  summary: string;
   problem: string;
   fix: string;
   result: string;
@@ -21,6 +22,7 @@ export const proofEntries: ProofEntry[] = [
     id: 'LOG-2026-02-20-A',
     date: '2026-02-20',
     title: 'Shipped Excuse Me and started prompt tuning loop',
+    summary: 'Shipped Excuse Me and set up a practical prompt tuning loop.',
     problem:
       'Quick AI excuse tools usually break on messy context and output sounds samey.',
     fix:
@@ -32,6 +34,7 @@ export const proofEntries: ProofEntry[] = [
     id: 'LOG-2026-02-19-A',
     date: '2026-02-19',
     title: 'RoastMaster hardening pass before next growth/testing cycle',
+    summary: 'Reduced RoastMaster product friction before the next growth/testing cycle.',
     problem:
       'Output quality was improving, but auth/nav friction hurt repeat usage.',
     fix:
@@ -43,6 +46,7 @@ export const proofEntries: ProofEntry[] = [
     id: 'LOG-2026-02-18-A',
     date: '2026-02-18',
     title: 'Hardened OpenClaw heartbeat and observer checks',
+    summary: 'Hardened OpenClaw health checks to catch failures earlier.',
     problem:
       'Health and cron issues were surfacing too late.',
     fix:
@@ -54,6 +58,7 @@ export const proofEntries: ProofEntry[] = [
     id: 'LOG-2026-02-17-A',
     date: '2026-02-17',
     title: 'Consolidated Discord routing lanes for agent execution',
+    summary: 'Organised Discord routing to keep signal-to-noise high.',
     problem:
       'Too many channels with overlapping intent. Lots of context switching. More noise than signal.',
     fix:
@@ -65,6 +70,7 @@ export const proofEntries: ProofEntry[] = [
     id: 'LOG-2026-02-16-A',
     date: '2026-02-16',
     title: 'Standardised background-task completion receipts',
+    summary: 'Standardised background task receipts so autonomous runs stay auditable.',
     problem:
       'Background runs could finish without a clear summary of change, validation, and risk.',
     fix:

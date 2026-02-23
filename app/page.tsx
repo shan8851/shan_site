@@ -9,7 +9,8 @@ import {
   siteLastUpdated,
   workingStylePoints,
 } from './content/operatorFrontDoor';
-import { formatIsoDateForDisplay } from '../lib/noteDates';
+import { proofEntries } from './content/proofLog';
+import { formatIsoDateForDisplay, getIsoDateSortValue } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
 
 const getProjectLinkLabel = (href: string) =>
@@ -23,6 +24,9 @@ export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 5);
   const homeProjects = activeProjects.filter((project) => project.track === 'core').slice(0, 5);
+  const latestProofEntries = [...proofEntries]
+    .sort((entryA, entryB) => getIsoDateSortValue(entryB.date) - getIsoDateSortValue(entryA.date))
+    .slice(0, 3);
 
   return (
     <div className="space-y-16">
@@ -75,6 +79,24 @@ export default async function HomePage() {
               </h3>
               <p className="text-sm text-soft">{item.summary}</p>
               {item.detail ? <p className="text-sm text-muted">{item.detail}</p> : null}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="space-y-5 border-t border-border pt-10">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="text-xl font-bold tracking-tight">Latest ops log</h2>
+          <Link href="/proof" className="text-sm text-muted transition-colors hover:text-text hover:underline">
+            full log
+          </Link>
+        </div>
+
+        <ul className="space-y-2">
+          {latestProofEntries.map((entry) => (
+            <li key={entry.id} className="text-sm text-soft">
+              <span className="text-muted">{formatIsoDateForDisplay(entry.date)} — </span>
+              {entry.summary}
             </li>
           ))}
         </ul>
