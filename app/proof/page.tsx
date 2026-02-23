@@ -41,17 +41,20 @@ export default function ProofPage() {
 
               <h3 className="font-semibold tracking-tight">{entry.title}</h3>
 
-              <div className="space-y-2 text-sm text-soft">
-                <p>
-                  <span className="text-text">Problem:</span> {entry.problem}
-                </p>
-                <p>
-                  <span className="text-text">Fix:</span> {entry.fix}
-                </p>
-                <p>
-                  <span className="text-text">Result:</span> {entry.result}
-                </p>
-              </div>
+              <dl className="space-y-2 text-sm text-soft">
+                <div className="grid gap-1 sm:grid-cols-[72px_1fr] sm:gap-3">
+                  <dt className="font-semibold text-text">Problem</dt>
+                  <dd>{entry.problem}</dd>
+                </div>
+                <div className="grid gap-1 sm:grid-cols-[72px_1fr] sm:gap-3">
+                  <dt className="font-semibold text-text">Fix</dt>
+                  <dd>{entry.fix}</dd>
+                </div>
+                <div className="grid gap-1 sm:grid-cols-[72px_1fr] sm:gap-3">
+                  <dt className="font-semibold text-text">Result</dt>
+                  <dd>{entry.result}</dd>
+                </div>
+              </dl>
             </li>
           ))}
         </ul>

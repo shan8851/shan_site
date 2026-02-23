@@ -20,44 +20,44 @@ export const proofEntries: ProofEntry[] = [
   {
     id: 'LOG-2026-02-20-A',
     date: '2026-02-20',
-    title: 'Shipped Excuse Me and started reliability tuning',
+    title: 'Shipped Excuse Me and started prompt tuning loop',
     problem:
-      'Most quick AI excuse tools break when context is messy and output sounds generic.',
+      'Quick AI excuse tools usually break on messy context and output sounds samey.',
     fix:
-      'Built a tighter context -> intent -> tone flow and started iterative tuning on edge cases.',
+      'Built a tighter context -> intent -> tone path, then iterated on edge cases.',
     result:
-      'Live app is fast and useful, with a clear loop for improving consistency under real-world input.',
+      'Live app is useful out of the box with a clear loop for quality tuning.',
   },
   {
     id: 'LOG-2026-02-19-A',
     date: '2026-02-19',
     title: 'RoastMaster hardening pass before next growth/testing cycle',
     problem:
-      'Core output quality was improving but UX friction in navigation/auth flow slowed repeat usage.',
+      'Output quality was improving, but auth/nav friction hurt repeat usage.',
     fix:
-      'Simplified flow touchpoints, cleaned user path, and tightened docs for quicker iteration.',
+      'Simplified flow touchpoints, cleaned the user path, and tightened docs for faster iteration.',
     result:
-      'Stronger base for distribution and output tuning, with less product friction.',
+      'Less product friction and a better base for distribution and tuning.',
   },
   {
     id: 'LOG-2026-02-18-A',
     date: '2026-02-18',
     title: 'Hardened OpenClaw heartbeat and observer checks',
     problem:
-      'Health and cron issues could surface too late, which made ops noisier than needed.',
+      'Health and cron issues were surfacing too late.',
     fix:
-      'Tightened heartbeat checks across gateway/channel health, cron sanity, briefing readiness, and browser hygiene.',
+      'Hardened heartbeat checks across gateway/channel health, cron sanity, briefing readiness, and browser hygiene.',
     result:
-      'Faster fault detection and cleaner day-to-day reliability on agent operations.',
+      'Faster fault detection and steadier day-to-day ops.',
   },
   {
     id: 'LOG-2026-02-17-A',
     date: '2026-02-17',
     title: 'Consolidated Discord routing lanes for agent execution',
     problem:
-      'Execution and status outputs were scattered, causing context switching and avoidable noise.',
+      'Too many channels with overlapping intent. Lots of context switching. More noise than signal.',
     fix:
-      'Moved to a tighter channel allowlist with clearer lane ownership for execution and monitoring.',
+      'Consolidated lane ownership and tightened the allowlist for execution and monitoring.',
     result:
       'Lower noise, faster triage, and better operational clarity when something breaks.',
   },
@@ -66,10 +66,10 @@ export const proofEntries: ProofEntry[] = [
     date: '2026-02-16',
     title: 'Standardised background-task completion receipts',
     problem:
-      'Long-running agent tasks could finish without a crisp summary of change, validation, and risk.',
+      'Background runs could finish without a clear summary of change, validation, and risk.',
     fix:
-      'Enforced structured completion reporting for background runs and explicit task-state updates.',
+      'Standardised completion receipts and explicit task-state updates.',
     result:
-      'Higher trust in autonomous runs and fewer ambiguous “done” states.',
+      'Higher trust in autonomous runs and fewer ambiguous done states.',
   },
 ];
