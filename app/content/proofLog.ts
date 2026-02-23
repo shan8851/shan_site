@@ -11,9 +11,9 @@ export const proofLastUpdated = '2026-02-23';
 
 export const playbooksRepo = {
   description:
-    'Detailed workflow playbooks are being moved into a separate git repo with personal details redacted.',
-  href: 'https://github.com/shan8851?tab=repositories',
-  cta: 'view repos',
+    'Skills + playbooks are now in a dedicated repo. Detailed entries are being added next, with personal details redacted.',
+  href: 'https://github.com/shan8851/skills-playbooks',
+  cta: 'view skills-playbooks',
 };
 
 export const proofEntries: ProofEntry[] = [
