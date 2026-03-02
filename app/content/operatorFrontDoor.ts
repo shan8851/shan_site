@@ -35,7 +35,7 @@ export type ShippedWorkItem = {
   href: string;
 };
 
-export const siteLastUpdated = '2026-02-20';
+export const siteLastUpdated = '2026-03-02';
 
 export const homeIntro =
   'I work on payments, bridging, and staking at Polygon. Outside work, I ship small AI products, build agent systems, and share what actually works.';
@@ -176,6 +176,16 @@ export const activeProjects: ActiveProject[] = [
     summary: 'Unified client interface for native and aggregator bridging.',
     nextMove: 'Keep hardening ergonomics and integration reliability.',
     href: 'https://github.com/agglayer/sdk',
+  },
+  {
+    title: 'FairSide',
+    track: 'core',
+    status: 'live',
+    summary:
+      'Simple app for generating fair 5v5, 6v6, and 7v7 football teams with constraint support.',
+    nextMove:
+      'Collect real match feedback, tighten balancing logic, and improve repeat setup speed.',
+    href: 'https://www.fairside.app/',
   },
   {
     title: 'RoastMaster',
