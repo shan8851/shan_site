@@ -1,6 +1,6 @@
 ---
 title: Working harder isn’t the lever anymore
-summary: Hard work is still required. It’s just not the advantage. Leverage is.
+summary: Hard work is still required. It’s just not the advantage. Systems are.
 date: "2026-02-04"
 tags:
   - ai
@@ -11,8 +11,8 @@ featured: true
 Hard work still matters.
 It’s just not the edge anymore.
 
-The edge is leverage: clear thinking, repeatable systems, and AI that helps you ship faster.
-If you try to outwork people who have leverage, you lose.
+The edge is systems: clear thinking, repeatable loops, and AI that helps you ship faster.
+If you try to outwork people who have that, you lose.
 
 ## What to do this week
 Pick one task you already do every week.
@@ -29,4 +29,4 @@ Using AI for notes and search is fine, but it won’t change your trajectory.
 Using AI to plan, de-risk, execute, and review repeatedly will.
 
 Hard work is table stakes.
-Leverage is the differentiator.
+Systems are the differentiator.

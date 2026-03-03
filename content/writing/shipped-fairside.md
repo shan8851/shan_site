@@ -30,7 +30,7 @@ So this was mostly a selfish build.
 I just wanted our games to start faster and feel fairer.
 
 ## What it does
-Pretty straightforward:
+Pretty simple:
 1. Add players
 2. Pick format (5/6/7-a-side)
 3. Add constraints if needed (keep together / keep apart)

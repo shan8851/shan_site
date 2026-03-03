@@ -130,7 +130,7 @@ export const nowLogItems: NowLogItem[] = [
 ];
 
 export const nowOpenQuestionsAndAsks: string[] = [
-  'I am looking for a small, high-signal builder community to learn and ship with — DM me on X if you are building one or want to join one.',
+  'I am looking for a small, high-signal builder community to learn and ship with. DM me on X if you are building one or want to join one.',
   'If you are building practical agent systems (especially in engineering or ops), I am up for comparing notes.',
   'Open to intros to thoughtful builders in onchain product and AI tooling.',
 ];

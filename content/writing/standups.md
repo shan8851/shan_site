@@ -7,10 +7,24 @@ tags:
   - career
 ---
 
-A 45-minute daily standup is process debt. Status sharing should be constrained, and problem-solving should happen in smaller follow-up threads or chats.
+9 AM, another "quick" daily standup. Everyone's there with their morning coffee, someone kicks off with "what did you do yesterday, what are you doing today, any blockers?"
 
-Use strict async updates for yesterday/today/blockers, then spin up targeted calls only when blocked work needs collaboration.
+Should take 10 minutes. Maybe 15 if something's actually blocked.
 
-Honestly most standups should be run async. Face time matters, especially in remote teams, so save it for things that actually benefit from it. Reciting what you did yesterday helps nobody and is wildly inefficient.
+It's now 9:47 and someone is still going on about a niche CSS issue they ran into, or somebody's giving a full architecture talk on a refactor nobody asked for. Everyone else has zoned out or is looking at another screen.
 
+## How it happens
 
+It doesn't start like this. It creeps in over time and eventually eats 30-60 minutes a day for something that should take 5. Somebody needs to take control, but everyone feels that's too rude. So it just keeps growing.
+
+## Fix it
+
+If it's a status meeting then it should go like this:
+
+- **Yesterday** - one sentence
+- **Today** - one sentence
+- **Blockers** - actual blockers. Things that mean you cannot move forward. Not things you're slightly concerned about.
+
+But honestly, if that's all it is, why is it a meeting at all? Move it async. Something like Geekbot can ping each person, dump the responses in a channel, and threads can break out from there. Calls get set up between the people with the problem and the people who can help fix it.
+
+Face time matters, especially in remote teams. So save it for things that actually benefit from being synchronous. Reciting what you did yesterday helps nobody and is wildly inefficient.

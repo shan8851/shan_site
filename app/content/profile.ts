@@ -31,7 +31,7 @@ export const PROFILE: Profile = {
     x: 'https://x.com/shan8851',
     telegram: 'https://t.me/shan8851',
     email: 'mailto:shan8851@proton.me',
-    // optional — de-emphasised in UI, but useful for future-you.
+    // optional, de-emphasised in UI but useful for future-you.
     linkedin: 'https://www.linkedin.com/',
   },
   pinned: [
