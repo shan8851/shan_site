@@ -11,6 +11,6 @@ A 45-minute daily standup is process debt. Status sharing should be constrained,
 
 Use strict async updates for yesterday/today/blockers, then spin up targeted calls only when blocked work needs collaboration.
 
-Honestly most standups should be run async. Save face time for things that are more valuable - including bonding with your team if in a remote setting. It is not that facetime is not important, but reeling off exactly what you did yesterday is helpful to nobody and wildly inefficient.
+Honestly most standups should be run async. Face time matters, especially in remote teams, so save it for things that actually benefit from it. Reciting what you did yesterday helps nobody and is wildly inefficient.
 
 

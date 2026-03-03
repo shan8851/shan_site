@@ -7,16 +7,15 @@ tags:
   - career
 ---
 
-Firstly I think it is important to point out that you should absolutely not take every piece of feedback as gospel.
+Don't take every piece of rejection feedback as gospel. But don't ignore it either.
 
-I hear many people say, they were rejected for a position because of *x* and assume that is it, they got unlucky and move on with their life. Of course the reality is not at all that. Companies will often use some AI template and move on.
+I hear people say they were rejected for *x*, shrug it off as bad luck and move on. The reality is most companies send a templated rejection email and never tell you the real reason. So you have to read between the lines.
 
-I have also heard complaints like these:
+I've also heard complaints like these:
 - I did everything they asked
 - I got told they would have liked to see **X** but it wasn't on the list of things to do
 - I wish they would just say exactly what they wanted to see
 
-Honestly, most of these are red flags. Take home tests are signal tests, not checkbox tests. Every choice you make communicates a judgement call from you. Things like naming, readability, responsiveness, tests and most importantly prioritisation.
+These are red flags (yours, not theirs). Take home tests are signal tests, not checkbox tests. Every choice you make communicates a judgement call. Naming, readability, responsiveness, tests and most importantly prioritisation.
 
-Don't optimise for minimum compliance. Optimise for professionalism under constraint. That is what reviews are actually evaluating.
-
+Don't optimise for minimum compliance. Optimise for professionalism under constraint. That's what reviewers are actually looking for. Show them you can make smart tradeoffs when time is limited, because that's exactly what the job looks like.

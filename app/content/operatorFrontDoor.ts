@@ -147,7 +147,7 @@ export const workingStylePoints: string[] = [
 export const deprioritizedItems: string[] = [
   'Chasing vanity posting volume over useful signal.',
   'Turning this site into a gimmicky personal dashboard.',
-  'Over-worrying that some goals are paused while I double down on AI learning and agent orchestration; short-term sacrifice is worth the long-term leverage.',
+  'Over-worrying that some goals are paused while I double down on AI learning and agent orchestration; short-term sacrifice for stronger long-term capability.',
 ];
 
 export const activeProjects: ActiveProject[] = [

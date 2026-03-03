@@ -7,8 +7,8 @@ tags:
   - career
 ---
 
-Breadth vs depth is a false binary for most developers. Default to depth where you earn and deliver value; use selective breadth to stay curious and import better ideas back into your core domain.
+Breadth vs depth is a false binary for most developers. Default to depth where you earn and deliver value, then use selective breadth to stay curious and import better ideas back into your core domain.
 
-The answer has always been to aim for T-shaped. Specialise and be an expert somewhere. Know your way around everywhere else too. As the tools around us get stronger, it is more important than ever to understand the whole system.
+The answer has always been to aim for T-shaped. Specialise and be an expert somewhere. Know your way around everywhere else too. With AI handling more of the surface-level implementation, understanding the full system matters more than ever.
 
-If you feel stuck, then do both: for a few months go deep, then for a few months cast your net wide. You will see both are valuable. Now rinse and repeat.
+If you feel stuck, do both: spend a few months going deep, then a few months casting the net wide. You'll see both compound. Then do it again.
