@@ -11,16 +11,16 @@ import { Shell } from './components/Shell';
 export const metadata: Metadata = {
   metadataBase: new URL('https://shan8851.com'),
   title: 'Shan',
-  description: 'payments, onchain systems, and practical AI agent builds.',
+  description: 'full-stack systems for payments, bridging, and staking, plus practical AI agent orchestration.',
   keywords:
-    'Shan, shan8851, payments, bridging, staking, ai agents, web3, polygon, engineering',
+    'Shan, shan8851, full-stack, payments, bridging, staking, reliability, testing, docs, ai agents, orchestration, polygon, engineering',
   authors: [{ name: 'shan8851' }],
   icons: {
     icon: '/favicon.png',
   },
   openGraph: {
     title: 'Shan',
-    description: 'payments, onchain systems, and practical AI agent builds.',
+    description: 'full-stack systems for payments, bridging, and staking, plus practical AI agent orchestration.',
     url: 'https://shan8851.com',
     siteName: 'Shan',
     type: 'website',
@@ -29,19 +29,19 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Shan — payments, onchain systems, and practical AI agent builds.',
+        alt: 'Shan — full-stack systems for payments, bridging, and staking, plus practical AI orchestration.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shan',
-    description: 'payments, onchain systems, and practical AI agent builds.',
+    description: 'full-stack systems for payments, bridging, and staking, plus practical AI agent orchestration.',
     creator: '@shan8851',
     images: [
       {
         url: '/twitter-image',
-        alt: 'Shan — payments, onchain systems, and practical AI agent builds.',
+        alt: 'Shan — full-stack systems for payments, bridging, and staking, plus practical AI orchestration.',
       },
     ],
   },
