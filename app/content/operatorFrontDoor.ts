@@ -111,41 +111,34 @@ export const aiProjects: AIProject[] = [
 ];
 
 export const nowFocusNarrative =
-  'Current loop: ship small AI apps, get usage signal, then tighten prompts, context strategy, token usage, and reliability.';
+  'Current loop: deliver reliable full-stack systems at work, and sharpen practical agent orchestration through fast shipping outside work.';
 
 export const nowLogItems: NowLogItem[] = [
   {
-    label: 'Excuse Me',
-    href: 'https://excuse-me.xyz/',
-    text: 'shipped and now tightening tone controls, edge-case handling, and repeat usage loops.',
+    label: 'Polygon',
+    text: 'shipping full-stack outcomes across payments, bridging, and staking with stronger testing, reliability, docs, and observability.',
   },
   {
-    label: 'RoastMaster',
-    href: 'https://roastmyphoto.app/',
-    text: 'improving first-run UX, output quality, and distribution loops that feel natural.',
+    label: 'Docs & runbooks',
+    text: 'turning tribal knowledge into clear, operable context so teams can move faster with confidence.',
   },
   {
     label: 'AI systems work',
-    text: 'making prompt templates, token budgets, and context assembly more reliable under messy real input.',
-  },
-  {
-    label: 'Polygon',
-    text: 'shipping user-impactful work across payments, bridging, and staking with stronger end-to-end confidence and observability.',
+    text: 'tightening agent orchestration through better prompt patterns, token budgets, and context assembly under messy real input.',
   },
   {
     label: 'Public sharing',
-    text: 'writing practical AI notes on what failed and what actually held up.',
+    text: 'writing practical notes on what worked, what failed, and what changed.',
   },
   {
-    label: 'Operator tools',
-    text: 'hacking on CLIs and TUIs.',
+    label: 'Operator tooling',
+    text: 'building practical CLI/TUI workflows for daily execution.',
   },
 ];
 
 export const nowOpenQuestionsAndAsks: string[] = [
-  'I am looking for a small, high-signal builder community to learn and ship with. DM me on X if you are building one or want to join one.',
-  'If you are building practical agent systems (especially in engineering or ops), I am up for comparing notes.',
-  'Open to intros to thoughtful builders in onchain product and AI tooling.',
+  'Looking for a small, high-signal builder community to learn and ship with (Discord + occasional calls works).',
+  'Open to comparing notes with people building practical agent systems for engineering, ops, and product execution.',
 ];
 
 export const workingStylePoints: string[] = [
@@ -160,7 +153,7 @@ export const workingStylePoints: string[] = [
 export const deprioritizedItems: string[] = [
   'Chasing vanity posting volume over useful signal.',
   'Turning this site into a gimmicky personal dashboard.',
-  'Over-worrying that some goals are paused while I double down on AI learning and agent orchestration; short-term sacrifice for stronger long-term capability.',
+  'Trying to optimise every goal at once; this season is about depth in systems and AI craft.',
 ];
 
 export const activeProjects: ActiveProject[] = [
@@ -179,7 +172,7 @@ export const activeProjects: ActiveProject[] = [
     status: 'live',
     summary:
       'Configurable, self-hosted bridging interface powered by the Agglayer SDK and Bridge Hub API.',
-    nextMove: 'Continue improving developer setup and customization paths.',
+    nextMove: 'Continue improving developer setup and customisation paths.',
     href: 'https://github.com/agglayer/agglayer-dev-ui',
   },
   {

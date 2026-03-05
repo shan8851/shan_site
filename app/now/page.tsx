@@ -6,7 +6,6 @@ import {
   northStarLead,
   northStarOutsideWork,
   northStarWork,
-  nowFocusNarrative,
   nowLogItems,
   nowOpenQuestionsAndAsks,
   siteLastUpdated,
@@ -23,7 +22,8 @@ export default function NowPage() {
       <header className="space-y-3">
         <h1 className="text-4xl font-bold tracking-tight">Now</h1>
         <p className="max-w-2xl text-soft">
-          A month-to-quarter log of what I am focused on, what I am not doing, and what I am looking for.
+          A quarter-by-quarter snapshot of what I am focused on, what I am
+          de-prioritising, and where I am looking for signal.
         </p>
         <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
@@ -32,16 +32,17 @@ export default function NowPage() {
         <h2 className="text-xl font-semibold tracking-tight">North star</h2>
         <p className="max-w-2xl text-soft">{northStarLead}</p>
         <p className="max-w-2xl text-soft">
-          <span className="font-semibold text-text">At work:</span> {northStarWork}
+          <span className="font-semibold text-text">At work:</span>{' '}
+          {northStarWork}
         </p>
         <p className="max-w-2xl text-soft">
-          <span className="font-semibold text-text">Outside work:</span> {northStarOutsideWork}
+          <span className="font-semibold text-text">Outside work:</span>{' '}
+          {northStarOutsideWork}
         </p>
       </section>
 
       <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">Current focus</h2>
-        <p className="max-w-3xl text-soft">{nowFocusNarrative}</p>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowLogItems.map((item) => (
             <li key={item.label}>
@@ -68,7 +69,9 @@ export default function NowPage() {
       </section>
 
       <section className="space-y-3 border-t border-border pt-8">
-        <h2 className="text-xl font-semibold tracking-tight">Not now (on purpose)</h2>
+        <h2 className="text-xl font-semibold tracking-tight">
+          Not now (on purpose)
+        </h2>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {deprioritizedItems.map((item) => (
             <li key={item}>{item}</li>
@@ -77,7 +80,9 @@ export default function NowPage() {
       </section>
 
       <section className="space-y-3 border-t border-border pt-8">
-        <h2 className="text-xl font-semibold tracking-tight">Open questions & asks</h2>
+        <h2 className="text-xl font-semibold tracking-tight">
+          Open questions & asks
+        </h2>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowOpenQuestionsAndAsks.map((item) => (
             <li key={item}>{item}</li>
@@ -87,7 +92,10 @@ export default function NowPage() {
 
       <section className="border-t border-border pt-8 text-sm text-muted">
         More project context lives on{' '}
-        <Link href="/projects" className="underline underline-offset-4 hover:text-text">
+        <Link
+          href="/projects"
+          className="underline underline-offset-4 hover:text-text"
+        >
           /projects
         </Link>
         .
