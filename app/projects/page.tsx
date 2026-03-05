@@ -17,7 +17,7 @@ const getLinkLabel = (href: string) =>
       ? 'view live'
       : 'view project';
 
-const highlightedTitles = new Set(['FairSide', 'RoastMaster', 'Excuse Me', 'Agglayer bridge interface']);
+const highlightedTitles = new Set(['FairSide', 'RoastMaster', 'Excuse Me', 'Agglayer UI']);
 
 export default function ProjectsPage() {
   const highlightedProjects = activeProjects.filter((project) => highlightedTitles.has(project.title));

@@ -3,7 +3,9 @@ import Link from 'next/link';
 
 import {
   deprioritizedItems,
-  northStar,
+  northStarLead,
+  northStarOutsideWork,
+  northStarWork,
   nowFocusNarrative,
   nowLogItems,
   nowOpenQuestionsAndAsks,
@@ -28,7 +30,13 @@ export default function NowPage() {
 
       <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">North star</h2>
-        <p className="max-w-2xl text-soft">{northStar}</p>
+        <p className="max-w-2xl text-soft">{northStarLead}</p>
+        <p className="max-w-2xl text-soft">
+          <span className="font-semibold text-text">At work:</span> {northStarWork}
+        </p>
+        <p className="max-w-2xl text-soft">
+          <span className="font-semibold text-text">Outside work:</span> {northStarOutsideWork}
+        </p>
       </section>
 
       <section className="space-y-3 border-t border-border pt-8">

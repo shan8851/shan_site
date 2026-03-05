@@ -6,7 +6,7 @@ import { ThemeToggle } from './ThemeToggle';
 const navigationItems = [
   { href: '/now', label: '/now' },
   { href: '/projects', label: '/projects' },
-  { href: '/proof', label: '/proof' },
+  { href: '/log', label: '/log' },
   { href: '/uses', label: '/uses' },
   { href: '/notes', label: '/notes' },
 ] as const;

@@ -38,13 +38,26 @@ export type ShippedWorkItem = {
 export const siteLastUpdated = '2026-03-02';
 
 export const homeIntro =
-  'I work on payments, bridging, and staking at Polygon. Outside work, I ship small AI products, build agent systems, and share what actually works.';
+  'I work full-stack on payments, bridging, and staking at Polygon, focused on shipping systems that improve speed and confidence through testing, reliability, and clear docs. Outside work, I build with AI and use personal projects to sharpen agent orchestration in real-world workflows.';
 
-export const northStar =
-  'Build reliable systems that help people move faster onchain and with AI by tightening prompts, context windows, token usage, and agent reliability instead of chasing hype.';
+export const northStarLead = 'Build systems that help people move faster with confidence.';
+
+export const northStarWork =
+  'make complex systems reliable, testable, and operable.';
+
+export const northStarOutsideWork =
+  'keep refining practical AI and agent orchestration through fast iteration and shipping.';
+
+export const northStar = `${northStarLead} At work: ${northStarWork} Outside work: ${northStarOutsideWork}`;
 
 export const rightNowNarrative =
-  'I ship small AI apps to learn in public. Build fast, see what people actually use, then make it better.';
+  'Current focus across work and outside-work systems.';
+
+export const rightNowSnapshot: string[] = [
+  'At work: full-stack delivery on payments, bridging, and staking with stronger testing, reliability, and docs.',
+  'Outside work: sharpening agent orchestration through real shipped tools and tight iteration loops.',
+  'Writing: sharing practical notes on what worked, what failed, and what changed.',
+];
 
 export const rightNowItems: HomeRightNowItem[] = [
   {
@@ -139,8 +152,8 @@ export const workingStylePoints: string[] = [
   'Public by default. If it can help others and is not sensitive, it should be in-channel, not buried in DMs.',
   'Direct and clear. Cut fluff, get to the ask, and respect people\'s time.',
   'Async first for documentation and reuse. Sync when collaboration genuinely benefits.',
-  'Meetings need value. I should be giving value or getting value I cannot get from notes, transcript, or recording.',
-  'Feedback should be direct and honest. Understand the why, then help unblock.',
+  'Meetings need value. I should be giving value or getting value I cannot get from notes, transcripts, or recordings.',
+  'Feedback should be direct and honest: understand the why, then help unblock.',
   'Priorities: ownership and speed.',
 ];
 
@@ -152,7 +165,7 @@ export const deprioritizedItems: string[] = [
 
 export const activeProjects: ActiveProject[] = [
   {
-    title: 'Agglayer bridge interface',
+    title: 'Agglayer UI',
     track: 'core',
     status: 'live',
     summary:
