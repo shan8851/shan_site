@@ -4,7 +4,7 @@ import { activeProjects, selectedShippedWork, siteLastUpdated } from '../content
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Current builds, experiments, and selected shipped work by Shan.',
+  description: 'Featured builds, shipped-at-scale work, and selected active projects by Shan.',
 };
 
 const getLinkLabel = (href: string) =>
@@ -17,46 +17,93 @@ const getLinkLabel = (href: string) =>
       ? 'view live'
       : 'view project';
 
-const highlightedTitles = new Set(['FairSide', 'RoastMaster', 'Excuse Me', 'Agglayer UI']);
+const featuredProjectConfigs = [
+  {
+    title: 'Agglayer UI',
+    outcome: 'Production bridge UI covering native Agglayer routes and aggregator paths.',
+    technicalHighlights: [
+      'Native Agglayer routes for direct bridge flows.',
+      'LI.FI integration for multihop bridging paths.',
+      'Multisig wallet support for team and treasury usage.',
+    ],
+  },
+  {
+    title: 'Agglayer SDK',
+    outcome: 'Core bridging SDK for native mode integrations and approval-heavy onchain flows.',
+    technicalHighlights: [
+      'Native mode support for direct protocol integrations.',
+      'Onchain approvals and transaction flow handling.',
+      'Integration ergonomics tuned for production developer usage.',
+    ],
+  },
+  {
+    title: 'RoastMaster',
+    outcome: 'Consumer AI app with real monetisation, prompt-control depth, and abuse-resistant generation flows.',
+    technicalHighlights: [
+      'Mode-aware model routing via OpenRouter (`ROAST_MODEL` vs `GLAZE_MODEL`) with profile-based behaviour.',
+      'Prompt steering with hard constraints (intensity bands, output structure, line limits), schema-validated JSON parsing, and retry logic when unhinged output comes back too tame.',
+      'Upstash-backed quota/rate controls (anon cookie + IP backstop), with free-tier gating and paid credit paths.',
+    ],
+  },
+] as const;
+
+const otherActiveProjectTitles = ['FairSide', 'Excuse Me', 'OpenClaw dashboard + API'] as const;
 
 export default function ProjectsPage() {
-  const highlightedProjects = activeProjects.filter((project) => highlightedTitles.has(project.title));
-  const allActiveProjects = activeProjects.filter((project) => !highlightedTitles.has(project.title));
+  const featuredProjects = featuredProjectConfigs
+    .map((config) => ({
+      ...config,
+      project: activeProjects.find((project) => project.title === config.title),
+    }))
+    .filter((item): item is (typeof featuredProjectConfigs)[number] & { project: (typeof activeProjects)[number] } =>
+      Boolean(item.project),
+    );
+
+  const otherActiveProjects = otherActiveProjectTitles
+    .map((title) => activeProjects.find((project) => project.title === title))
+    .filter((project): project is (typeof activeProjects)[number] => Boolean(project));
 
   return (
     <div className="space-y-10">
       <header className="space-y-3">
         <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
-        <p className="max-w-2xl text-muted">Current builds, ongoing experiments, and selected shipped work.</p>
+        <p className="max-w-2xl text-muted">Key builds, real-world shipped work, and what I am actively refining now.</p>
         <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
 
       <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">Highlighted projects</h2>
-        <p className="max-w-3xl text-sm text-soft">
-          The current focus set: live products and systems I am actively refining.
-        </p>
-        <ul className="space-y-4">
-          {highlightedProjects.map((project) => (
-            <li key={project.title} className="space-y-2 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
+        <h2 className="text-lg font-semibold tracking-tight">Featured builds</h2>
+        <ul className="space-y-5">
+          {featuredProjects.map((item) => (
+            <li key={item.project.title} className="space-y-3 border-b border-border/60 pb-5 last:border-b-0 last:pb-0">
               <div className="flex flex-wrap items-center gap-2">
-                <h3 className="font-semibold tracking-tight">{project.title}</h3>
+                <h3 className="font-semibold tracking-tight">{item.project.title}</h3>
                 <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                  {project.status}
+                  {item.project.status}
                 </span>
               </div>
-              <p className="text-sm text-muted">
-                {project.summary}
-                {project.nextMove ? ` ${project.nextMove}` : ''}
-              </p>
-              {project.href ? (
+
+              <p className="text-sm text-muted">{item.outcome}</p>
+
+              <div>
+                <p className="text-xs uppercase tracking-wide text-muted">Technical highlights</p>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-soft">
+                  {item.technicalHighlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {item.project.nextMove ? <p className="text-sm text-soft">Current focus: {item.project.nextMove}</p> : null}
+
+              {item.project.href ? (
                 <a
-                  href={project.href}
+                  href={item.project.href}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
                 >
-                  {getLinkLabel(project.href)}
+                  {getLinkLabel(item.project.href)}
                 </a>
               ) : null}
             </li>
@@ -65,45 +112,7 @@ export default function ProjectsPage() {
       </section>
 
       <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">All active projects</h2>
-        <ul className="space-y-4">
-          {allActiveProjects.map((project) => (
-            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="font-semibold tracking-tight">{project.title}</h3>
-                <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                  {project.status}
-                </span>
-                <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                  {project.track}
-                </span>
-                {project.maturity ? (
-                  <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                    {project.maturity}
-                  </span>
-                ) : null}
-              </div>
-              <p className="text-sm text-muted">
-                {project.summary}
-                {project.nextMove ? ` ${project.nextMove}` : ''}
-              </p>
-              {project.href ? (
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
-                >
-                  {getLinkLabel(project.href)}
-                </a>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">Selected shipped work</h2>
+        <h2 className="text-lg font-semibold tracking-tight">Shipped at scale</h2>
         <ul className="space-y-4">
           {selectedShippedWork.map((work) => (
             <li key={work.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
@@ -117,6 +126,33 @@ export default function ProjectsPage() {
               >
                 {getLinkLabel(work.href)}
               </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="space-y-4 border-t border-border pt-8">
+        <h2 className="text-lg font-semibold tracking-tight">Other active work</h2>
+        <ul className="space-y-3">
+          {otherActiveProjects.map((project) => (
+            <li key={project.title} className="space-y-1 border-b border-border/60 pb-3 last:border-b-0 last:pb-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="font-semibold tracking-tight">{project.title}</h3>
+                <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
+                  {project.status}
+                </span>
+              </div>
+              <p className="text-sm text-muted">{project.summary}</p>
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                >
+                  {getLinkLabel(project.href)}
+                </a>
+              ) : null}
             </li>
           ))}
         </ul>
