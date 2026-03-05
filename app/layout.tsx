@@ -16,7 +16,12 @@ export const metadata: Metadata = {
     'Shan, shan8851, full-stack, payments, bridging, staking, reliability, testing, docs, ai agents, orchestration, polygon, engineering',
   authors: [{ name: 'shan8851' }],
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.png',
   },
   openGraph: {
     title: 'Shan',

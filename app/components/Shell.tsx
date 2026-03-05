@@ -17,8 +17,14 @@ export function Shell({ children }: { children: ReactNode }) {
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-3xl flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-6">
-            <Link href="/" className="text-xl font-bold tracking-tight">
-              Shan
+            <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
+              <span aria-hidden className="inline-flex h-5 w-5 text-text/90">
+                <svg viewBox="0 0 512 512" className="h-full w-full fill-current" focusable="false">
+                  <path d="M105 145L295 238C304 243 304 257 295 262L105 355V290L210 250L105 210V145Z" />
+                  <rect x="315" y="223" width="140" height="54" rx="12" />
+                </svg>
+              </span>
+              <span>Shan</span>
             </Link>
             <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
               {navigationItems.map((navigationItem) => (

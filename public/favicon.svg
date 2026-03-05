@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <style>
+    :root {
+      --bg: #0b0b0a;
+      --fg: #f8f8f5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #f8f8f5;
+        --fg: #0b0b0a;
+      }
+    }
+  </style>
+
+  <rect width="512" height="512" rx="112" fill="var(--bg)" />
+
+  <path
+    d="M105 145L295 238C304 243 304 257 295 262L105 355V290L210 250L105 210V145Z"
+    fill="var(--fg)"
+  />
+  <rect x="315" y="223" width="140" height="54" rx="12" fill="var(--fg)" />
+</svg>
