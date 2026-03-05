@@ -1,63 +1,84 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
-import { proofEntries, proofLastUpdated, playbooksRepo } from '../content/proofLog';
-import { formatIsoDateForDisplay } from '../../lib/noteDates';
+import { logEntries, logLastUpdated } from '../content/proofLog';
 
 export const metadata: Metadata = {
   title: 'Log',
-  description: 'Operator log: problem, fix, and result from shipped app and OpenClaw workflow work.',
+  description: 'Shareable work, project, writing, and ops updates in a simple running log.',
 };
 
-export default function LogPage() {
+const pageSize = 20;
+
+const parsePage = (rawPage: string | undefined, totalPages: number): number => {
+  const parsed = Number.parseInt(rawPage ?? '1', 10);
+
+  if (Number.isNaN(parsed) || parsed < 1) {
+    return 1;
+  }
+
+  return Math.min(parsed, totalPages);
+};
+
+const pageHref = (page: number): string => (page <= 1 ? '/log' : `/log?page=${page}`);
+
+export default async function LogPage(props: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const searchParams = await props.searchParams;
+
+  const sortedEntries = [...logEntries].sort((leftEntry, rightEntry) => rightEntry.date.localeCompare(leftEntry.date));
+  const totalPages = Math.max(1, Math.ceil(sortedEntries.length / pageSize));
+  const currentPage = parsePage(searchParams.page, totalPages);
+
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedEntries = sortedEntries.slice(startIndex, startIndex + pageSize);
+
   return (
     <div className="space-y-10">
       <header className="space-y-3">
         <h1 className="text-4xl font-bold tracking-tight">Log</h1>
-        <p className="max-w-2xl text-soft">Log format only. Date, id, problem, fix, result.</p>
-        <p className="text-xs text-muted">last updated: {proofLastUpdated}</p>
+        <p className="max-w-2xl text-soft">Shareable updates only. Format: date, short text.</p>
+        <p className="text-xs text-muted">last updated: {logLastUpdated}</p>
       </header>
 
-      <section className="space-y-3 border-t border-border pt-8">
-        <h2 className="text-xl font-semibold tracking-tight">Playbooks</h2>
-        <p className="max-w-3xl text-soft">{playbooksRepo.description}</p>
-        <a
-          href={playbooksRepo.href}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
-        >
-          {playbooksRepo.cta}
-        </a>
-      </section>
-
       <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-xl font-semibold tracking-tight">Entries</h2>
-        <ul className="space-y-4">
-          {proofEntries.map((entry) => (
-            <li key={entry.id} className="space-y-3 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
-              <p className="text-xs uppercase tracking-wide text-muted">
-                {formatIsoDateForDisplay(entry.date)} / {entry.id}
+        <div className="flex items-center justify-between text-xs text-muted">
+          <span>{sortedEntries.length} entries</span>
+          <span>
+            page {currentPage} / {totalPages}
+          </span>
+        </div>
+
+        <ul className="space-y-0 font-mono text-[13px] leading-6">
+          {paginatedEntries.map((entry, index) => (
+            <li
+              key={`${entry.id}-${startIndex + index}`}
+              className="border-l border-border/70 pl-3 py-1.5"
+            >
+              <p className="min-w-0 break-words text-soft">
+                <span className="text-muted">› {entry.date}:</span>{' '}
+                <span>{entry.text}</span>
               </p>
-
-              <h3 className="font-semibold tracking-tight">{entry.title}</h3>
-
-              <dl className="space-y-2 text-sm text-soft">
-                <div className="grid gap-1 sm:grid-cols-[72px_1fr] sm:gap-3">
-                  <dt className="font-semibold text-text">Problem</dt>
-                  <dd>{entry.problem}</dd>
-                </div>
-                <div className="grid gap-1 sm:grid-cols-[72px_1fr] sm:gap-3">
-                  <dt className="font-semibold text-text">Fix</dt>
-                  <dd>{entry.fix}</dd>
-                </div>
-                <div className="grid gap-1 sm:grid-cols-[72px_1fr] sm:gap-3">
-                  <dt className="font-semibold text-text">Result</dt>
-                  <dd>{entry.result}</dd>
-                </div>
-              </dl>
             </li>
           ))}
         </ul>
+
+        <div className="flex items-center justify-between pt-2 text-sm">
+          {currentPage < totalPages ? (
+            <Link href={pageHref(currentPage + 1)} className="text-muted underline underline-offset-4 hover:text-text">
+              older entries
+            </Link>
+          ) : (
+            <span />
+          )}
+
+          {currentPage > 1 ? (
+            <Link href={pageHref(currentPage - 1)} className="text-muted underline underline-offset-4 hover:text-text">
+              newer entries
+            </Link>
+          ) : null}
+        </div>
       </section>
     </div>
   );

@@ -1,117 +1,160 @@
-export type ProofEntry = {
+export type LogEntry = {
   id: string;
   date: string;
-  title: string;
-  summary: string;
-  problem: string;
-  fix: string;
-  result: string;
+  text: string;
 };
 
-export const proofLastUpdated = '2026-03-02';
+export const logLastUpdated = '2026-03-05';
 
-export const playbooksRepo = {
-  description:
-    'Skills + playbooks are now in a dedicated repo. Detailed entries are being added next, with personal details redacted.',
-  href: 'https://github.com/shan8851/skills-playbooks',
-  cta: 'view skills-playbooks',
-};
-
-export const proofEntries: ProofEntry[] = [
+export const logEntries: LogEntry[] = [
+  {
+    id: 'LOG-2026-03-05-A',
+    date: '2026-03-05',
+    text: 'Reshaped site messaging around full-stack systems, reliability, docs, and practical AI orchestration.',
+  },
+  {
+    id: 'LOG-2026-03-04-A',
+    date: '2026-03-04',
+    text: 'Published note: Prompting beat model choice on RoastMaster (until it didn’t).',
+  },
+  {
+    id: 'LOG-2026-03-03-A',
+    date: '2026-03-03',
+    text: 'Published note: Surviving the overload.',
+  },
   {
     id: 'LOG-2026-03-02-A',
     date: '2026-03-02',
-    title: 'Shipped FairSide with an agent-first coding workflow',
-    summary: 'Shipped the app using agent-driven implementation end-to-end.',
-    problem:
-      'Wanted to ship faster while improving orchestration skill, not hand-writing every line.',
-    fix:
-      'Ran the build as a 100% agent-coding loop and focused personally on direction, prompts, and review.',
-    result:
-      'FairSide shipped without manual line-by-line coding, with stronger orchestration reps.',
+    text: 'Shipped FairSide with an agent-first build loop and published the launch note.',
+  },
+  {
+    id: 'LOG-2026-03-01-A',
+    date: '2026-03-01',
+    text: 'Pushed integration-test and tooling improvements on a backend work service.',
+  },
+  {
+    id: 'LOG-2026-02-28-A',
+    date: '2026-02-28',
+    text: 'Set up a backend integration-testing lane with local emulator support.',
   },
   {
     id: 'LOG-2026-02-25-A',
     date: '2026-02-25',
-    title: 'Started shan-api as a standalone content service discovery',
-    summary: 'Created the first docs scaffold for turning site content into a reusable API.',
-    problem:
-      'Site content was tightly coupled to one frontend, limiting reuse across CLI, agents, and future surfaces.',
-    fix:
-      'Defined discovery docs covering contract, versioning, auth, deployment, and observability questions.',
-    result:
-      'Clear path to build a canonical data layer instead of duplicating content logic per surface.',
+    text: 'Ran a non-frontend strategy/docs/config-heavy work day; doubling down on reliability and observability reps.',
   },
   {
     id: 'LOG-2026-02-24-A',
     date: '2026-02-24',
-    title: 'Built email assistant loop and reduced inbox noise hard',
-    summary: 'Cleaned inbox backlog and shipped twice-daily cron email triage workflows.',
-    problem:
-      'Email noise was burying important actions and wasting focus time.',
-    fix:
-      'Ran a major cleanup pass and set up automated triage routines that run twice daily.',
-    result:
-      'Inbox dropped from thousands to under 200, with a durable twice-daily process for staying clean.',
+    text: 'Built an email assistant loop and cut inbox backlog from thousands to under 200.',
+  },
+  {
+    id: 'LOG-2026-02-24-B',
+    date: '2026-02-24',
+    text: 'Added twice-daily triage crons to keep inbox signal high.',
+  },
+  {
+    id: 'LOG-2026-02-24-C',
+    date: '2026-02-24',
+    text: 'Shipped a first runbook PR for a work system (sanitised).',
+  },
+  {
+    id: 'LOG-2026-02-24-D',
+    date: '2026-02-24',
+    text: 'Committed to shipping a v0 of ShanClaw as a hands-on learning build.',
+  },
+  {
+    id: 'LOG-2026-02-22-A',
+    date: '2026-02-22',
+    text: 'Shipped Excuse Me and RoastMaster, then moved into quality and distribution loops.',
   },
   {
     id: 'LOG-2026-02-20-A',
     date: '2026-02-20',
-    title: 'Shipped Excuse Me and started prompt tuning loop',
-    summary: 'Shipped Excuse Me and set up a practical prompt tuning loop.',
-    problem:
-      'Quick AI excuse tools usually break on messy context and output sounds samey.',
-    fix:
-      'Built a tighter context -> intent -> tone path, then iterated on edge cases.',
-    result:
-      'Live app is useful out of the box with a clear loop for quality tuning.',
+    text: 'Pseudo-launched RoastMaster with payments wired in production.',
   },
   {
-    id: 'LOG-2026-02-19-A',
-    date: '2026-02-19',
-    title: 'RoastMaster hardening pass before next growth/testing cycle',
-    summary: 'Reduced RoastMaster product friction before the next growth/testing cycle.',
-    problem:
-      'Output quality was improving, but auth/nav friction hurt repeat usage.',
-    fix:
-      'Simplified flow touchpoints, cleaned the user path, and tightened docs for faster iteration.',
-    result:
-      'Less product friction and a better base for distribution and tuning.',
+    id: 'LOG-2026-02-20-B',
+    date: '2026-02-20',
+    text: 'Published note: I built RoastMaster this week.',
   },
   {
     id: 'LOG-2026-02-18-A',
     date: '2026-02-18',
-    title: 'Hardened OpenClaw heartbeat and observer checks',
-    summary: 'Hardened OpenClaw health checks to catch failures earlier.',
-    problem:
-      'Health and cron issues were surfacing too late.',
-    fix:
-      'Hardened heartbeat checks across gateway/channel health, cron sanity, briefing readiness, and browser hygiene.',
-    result:
-      'Faster fault detection and steadier day-to-day ops.',
+    text: 'Moved OpenClaw ops into Discord lane-based workflows for cleaner multi-session context.',
   },
   {
     id: 'LOG-2026-02-17-A',
     date: '2026-02-17',
-    title: 'Consolidated Discord routing lanes for agent execution',
-    summary: 'Organised Discord routing to keep signal-to-noise high.',
-    problem:
-      'Too many channels with overlapping intent. Lots of context switching. More noise than signal.',
-    fix:
-      'Consolidated lane ownership and tightened the allowlist for execution and monitoring.',
-    result:
-      'Lower noise, faster triage, and better operational clarity when something breaks.',
+    text: 'Consolidated Discord routing and improved task surfacing/organisation.',
   },
   {
     id: 'LOG-2026-02-16-A',
     date: '2026-02-16',
-    title: 'Standardised background-task completion receipts',
-    summary: 'Standardised background task receipts so autonomous runs stay auditable.',
-    problem:
-      'Background runs could finish without a clear summary of change, validation, and risk.',
-    fix:
-      'Standardised completion receipts and explicit task-state updates.',
-    result:
-      'Higher trust in autonomous runs and fewer ambiguous done states.',
+    text: 'Migrated to a fresh OpenClaw instance, tightened cron/autonomy setup, and shipped a major site refresh.',
+  },
+  {
+    id: 'LOG-2026-02-15-A',
+    date: '2026-02-15',
+    text: 'Published note: The cognitive overload from agentic coding is real.',
+  },
+  {
+    id: 'LOG-2026-02-14-A',
+    date: '2026-02-14',
+    text: 'Made major progress on e2e testing for web3 app workflows.',
+  },
+  {
+    id: 'LOG-2026-02-14-B',
+    date: '2026-02-14',
+    text: 'Vibe-coded three small CLI/TUI projects: Pomo, Clawtop, and Scratch.',
+  },
+  {
+    id: 'LOG-2026-02-13-A',
+    date: '2026-02-13',
+    text: 'Published note: One AI system to save an hour+ this week.',
+  },
+  {
+    id: 'LOG-2026-02-09-A',
+    date: '2026-02-09',
+    text: 'Kicked off a backend webhooks service and leaned into docs/runbooks as execution tools.',
+  },
+  {
+    id: 'LOG-2026-02-09-B',
+    date: '2026-02-09',
+    text: 'Published note: Is AI driven job loss overblown?',
+  },
+  {
+    id: 'LOG-2026-02-06-A',
+    date: '2026-02-06',
+    text: 'Published note: Working Effectively With Agents.',
+  },
+  {
+    id: 'LOG-2026-02-04-A',
+    date: '2026-02-04',
+    text: 'Published note: Working harder isn’t the lever anymore.',
+  },
+  {
+    id: 'LOG-2026-02-03-A',
+    date: '2026-02-03',
+    text: 'Sorted ClawDBot setup on laptop, reorged clawd-notes, and restarted public writing.',
+  },
+  {
+    id: 'LOG-2026-01-31-A',
+    date: '2026-01-31',
+    text: 'Published note: Agents are building their own internet.',
+  },
+  {
+    id: 'LOG-2026-01-29-A',
+    date: '2026-01-29',
+    text: 'Published note: OpenClaw is insane.',
+  },
+  {
+    id: 'LOG-2026-01-27-A',
+    date: '2026-01-27',
+    text: 'Restarted regular writing drafts and AI workflow deep-dives.',
+  },
+  {
+    id: 'LOG-2026-01-26-A',
+    date: '2026-01-26',
+    text: 'Set a 2026 operating baseline for AI learning, fitness, writing, and consistent execution systems.',
   },
 ];

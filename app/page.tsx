@@ -11,7 +11,7 @@ import {
   siteLastUpdated,
   workingStylePoints,
 } from './content/operatorFrontDoor';
-import { proofEntries } from './content/proofLog';
+import { logEntries } from './content/proofLog';
 import { formatIsoDateForDisplay, getIsoDateSortValue } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
 
@@ -29,9 +29,9 @@ export default async function HomePage() {
   const homeProjects = homeProjectTitleOrder
     .map((title) => activeProjects.find((project) => project.title === title))
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
-  const latestProofEntries = [...proofEntries]
+  const latestLogEntries = [...logEntries]
     .sort((entryA, entryB) => getIsoDateSortValue(entryB.date) - getIsoDateSortValue(entryA.date))
-    .slice(0, 3);
+    .slice(0, 5);
 
   return (
     <div className="space-y-16">
@@ -155,17 +155,19 @@ export default async function HomePage() {
 
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Latest workflow log</h2>
+          <h2 className="text-xl font-bold tracking-tight">Latest log</h2>
           <Link href="/log" className="text-sm text-muted transition-colors hover:text-text hover:underline">
             full log
           </Link>
         </div>
 
-        <ul className="space-y-2">
-          {latestProofEntries.map((entry) => (
-            <li key={entry.id} className="text-sm text-soft">
-              <span className="text-muted">{formatIsoDateForDisplay(entry.date)} — </span>
-              {entry.summary}
+        <ul className="space-y-0 font-mono text-[13px] leading-6">
+          {latestLogEntries.map((entry) => (
+            <li key={entry.id} className="border-l border-border/70 pl-3 py-1.5">
+              <p className="min-w-0 break-words text-soft">
+                <span className="text-muted">› {entry.date}:</span>{' '}
+                <span>{entry.text}</span>
+              </p>
             </li>
           ))}
         </ul>
