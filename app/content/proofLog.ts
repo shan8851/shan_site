@@ -4,13 +4,33 @@ export type LogEntry = {
   text: string;
 };
 
-export const logLastUpdated = '2026-03-05';
+export const logLastUpdated = '2026-03-06';
 
 export const logEntries: LogEntry[] = [
+  {
+    id: 'LOG-2026-03-06-A',
+    date: '2026-03-06',
+    text: 'Built and published 3 new agent workflow skills.',
+  },
+  {
+    id: 'LOG-2026-03-06-B',
+    date: '2026-03-06',
+    text: 'Started building a skills UI to surface all installed agent skills.',
+  },
+  {
+    id: 'LOG-2026-03-06-C',
+    date: '2026-03-06',
+    text: 'Aligned team repo standards and improved testing flows at work.',
+  },
   {
     id: 'LOG-2026-03-05-A',
     date: '2026-03-05',
     text: 'Reshaped site messaging around full-stack systems, reliability, docs, and practical AI orchestration.',
+  },
+  {
+    id: 'LOG-2026-03-05-B',
+    date: '2026-03-05',
+    text: 'Overhauled personal site IA: renamed proof log to /log, added favicon, tightened navigation.',
   },
   {
     id: 'LOG-2026-03-04-A',
@@ -18,9 +38,29 @@ export const logEntries: LogEntry[] = [
     text: 'Published note: Prompting beat model choice on RoastMaster (until it didn’t).',
   },
   {
+    id: 'LOG-2026-03-04-B',
+    date: '2026-03-04',
+    text: 'Built a granular token usage dashboard for agent cost visibility.',
+  },
+  {
     id: 'LOG-2026-03-03-A',
     date: '2026-03-03',
     text: 'Published note: Surviving the overload.',
+  },
+  {
+    id: 'LOG-2026-03-03-B',
+    date: '2026-03-03',
+    text: 'Wrote a GCP Workforce Identity Federation auth runbook for the team.',
+  },
+  {
+    id: 'LOG-2026-03-03-C',
+    date: '2026-03-03',
+    text: 'Set up a dedicated health and fitness accountability agent.',
+  },
+  {
+    id: 'LOG-2026-03-03-D',
+    date: '2026-03-03',
+    text: 'Populated public skills-and-playbooks repo as shareable proof of work.',
   },
   {
     id: 'LOG-2026-03-02-A',
