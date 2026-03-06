@@ -6,6 +6,7 @@ import { ThemeToggle } from './ThemeToggle';
 const navigationItems = [
   { href: '/now', label: '/now' },
   { href: '/projects', label: '/projects' },
+  { href: '/labs', label: '/labs' },
   { href: '/log', label: '/log' },
   { href: '/uses', label: '/uses' },
   { href: '/notes', label: '/notes' },
@@ -15,7 +16,7 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-text">
       <header className="border-b border-border">
-        <div className="mx-auto flex max-w-3xl flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-3xl flex-col gap-2 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <div className="flex flex-wrap items-center gap-6">
             <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
               <span aria-hidden className="inline-flex h-5 w-5 text-text/90">
@@ -26,7 +27,7 @@ export function Shell({ children }: { children: ReactNode }) {
               </span>
               <span>Shan</span>
             </Link>
-            <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
+            <nav className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted sm:gap-x-4">
               {navigationItems.map((navigationItem) => (
                 <Link
                   key={navigationItem.href}

@@ -123,6 +123,7 @@ export default async function HomePage() {
         </ul>
       </section>
 
+
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-bold tracking-tight">Notes</h2>
