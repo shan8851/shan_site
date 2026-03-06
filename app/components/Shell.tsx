@@ -73,7 +73,7 @@ export function Shell({ children }: { children: ReactNode }) {
             telegram
           </a>{' '}
           /{' '}
-          <a href="mailto:shan8851@proton.me" className="transition-colors hover:text-text">
+          <a href="mailto:asamshan456@gmail.com" className="transition-colors hover:text-text">
             email
           </a>
         </div>

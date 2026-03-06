@@ -30,7 +30,7 @@ export const PROFILE: Profile = {
     github: 'https://github.com/shan8851',
     x: 'https://x.com/shan8851',
     telegram: 'https://t.me/shan8851',
-    email: 'mailto:shan8851@proton.me',
+    email: 'mailto:asamshan456@gmail.com',
     // optional, de-emphasised in UI but useful for future-you.
     linkedin: 'https://www.linkedin.com/',
   },
