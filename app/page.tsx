@@ -12,6 +12,7 @@ import {
   workingStylePoints,
 } from './content/operatorFrontDoor';
 import { logEntries } from './content/proofLog';
+import { labs } from './content/labs';
 import { formatIsoDateForDisplay, getIsoDateSortValue } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
 
@@ -29,6 +30,7 @@ export default async function HomePage() {
   const homeProjects = homeProjectTitleOrder
     .map((title) => activeProjects.find((project) => project.title === title))
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
+  const homeLabs = labs.slice(0, 1);
   const latestLogEntries = [...logEntries]
     .sort((entryA, entryB) => getIsoDateSortValue(entryB.date) - getIsoDateSortValue(entryA.date))
     .slice(0, 5);
@@ -118,6 +120,36 @@ export default async function HomePage() {
                   {getProjectLinkLabel(project.href)}
                 </a>
               ) : null}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="space-y-5 border-t border-border pt-10">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="text-xl font-bold tracking-tight">Labs</h2>
+          <Link href="/labs" className="text-sm text-muted transition-colors hover:text-text hover:underline">
+            all labs
+          </Link>
+        </div>
+
+        <ul className="space-y-4">
+          {homeLabs.map((lab) => (
+            <li key={lab.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href={lab.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold tracking-tight underline-offset-4 transition-colors hover:text-text hover:underline"
+                >
+                  {lab.title}
+                </a>
+                <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
+                  {lab.status}
+                </span>
+              </div>
+              <p className="text-sm text-soft">{lab.summary}</p>
             </li>
           ))}
         </ul>
