@@ -35,7 +35,7 @@ export const logEntries: LogEntry[] = [
   {
     id: 'LOG-2026-03-04-A',
     date: '2026-03-04',
-    text: 'Published note: Prompting beat model choice on RoastMaster (until it didn't).',
+    text: 'Published note: Prompting beat model choice on RoastMaster (until it didn’t).',
   },
   {
     id: 'LOG-2026-03-04-B',
@@ -170,7 +170,7 @@ export const logEntries: LogEntry[] = [
   {
     id: 'LOG-2026-02-04-A',
     date: '2026-02-04',
-    text: 'Published note: Working harder isn't the lever anymore.',
+    text: 'Published note: Working harder isn’t the lever anymore.',
   },
   {
     id: 'LOG-2026-02-03-A',
