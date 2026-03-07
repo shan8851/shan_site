@@ -22,4 +22,11 @@ export const labs: LabEntry[] = [
       'Terminal-style CV surface with downloadable formats and clear work signal.',
     href: 'https://cv.shan8851.com',
   },
+  {
+    title: 'viewports.shan8851.com',
+    status: 'live',
+    summary:
+      'Quick responsive-testing surface to preview UIs across multiple viewports at once.',
+    href: 'https://viewports.shan8851.com/',
+  },
 ];
