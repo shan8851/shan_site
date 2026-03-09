@@ -13,9 +13,29 @@ export const logEntries: LogEntry[] = [
     text: 'Designed and documented an async task-orchestration control plane with planner, worker, and reviewer roles.',
   },
   {
+    id: 'LOG-2026-03-08-B',
+    date: '2026-03-08',
+    text: 'Tightened agent context and memory defaults to cut token overhead while keeping output quality high.',
+  },
+  {
     id: 'LOG-2026-03-07-A',
     date: '2026-03-07',
     text: 'Shipped an updated CV site at cv.shan8851.com with improved download options.',
+  },
+  {
+    id: 'LOG-2026-03-07-B',
+    date: '2026-03-07',
+    text: 'Fixed cv.shan8851.com OG/Twitter metadata so previews resolve to the CV domain image.',
+  },
+  {
+    id: 'LOG-2026-03-07-C',
+    date: '2026-03-07',
+    text: 'Launched viewports.shan8851.com and wired it into Labs for quick multi-viewport responsive checks.',
+  },
+  {
+    id: 'LOG-2026-03-07-D',
+    date: '2026-03-07',
+    text: 'Kept strong delivery momentum on a work project while shipping site and Labs upgrades.',
   },
   {
     id: 'LOG-2026-03-06-A',
@@ -31,6 +51,16 @@ export const logEntries: LogEntry[] = [
     id: 'LOG-2026-03-06-C',
     date: '2026-03-06',
     text: 'Aligned team repo standards and improved testing flows at work.',
+  },
+  {
+    id: 'LOG-2026-03-06-D',
+    date: '2026-03-06',
+    text: 'Added a dedicated /labs page on shan8851.com and launched skills.shan8851.com as the first live lab.',
+  },
+  {
+    id: 'LOG-2026-03-06-E',
+    date: '2026-03-06',
+    text: 'Reworked navigation and page flow to surface Labs cleanly without homepage duplication.',
   },
   {
     id: 'LOG-2026-03-05-A',
