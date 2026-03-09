@@ -4,9 +4,19 @@ export type LogEntry = {
   text: string;
 };
 
-export const logLastUpdated = '2026-03-06';
+export const logLastUpdated = '2026-03-09';
 
 export const logEntries: LogEntry[] = [
+  {
+    id: 'LOG-2026-03-08-A',
+    date: '2026-03-08',
+    text: 'Designed and documented an async task-orchestration control plane with planner, worker, and reviewer roles.',
+  },
+  {
+    id: 'LOG-2026-03-07-A',
+    date: '2026-03-07',
+    text: 'Shipped an updated CV site at cv.shan8851.com with improved download options.',
+  },
   {
     id: 'LOG-2026-03-06-A',
     date: '2026-03-06',
