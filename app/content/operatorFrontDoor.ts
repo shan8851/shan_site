@@ -35,7 +35,7 @@ export type ShippedWorkItem = {
   href: string;
 };
 
-export const siteLastUpdated = '2026-03-02';
+export const siteLastUpdated = '2026-03-12';
 
 export const homeIntro =
   'I work full-stack on payments, bridging, and staking at Polygon, focused on shipping systems that improve speed and confidence through testing, reliability, and clear docs. Outside work, I build with AI and use personal projects to sharpen agent orchestration in real-world workflows.';
@@ -182,6 +182,16 @@ export const activeProjects: ActiveProject[] = [
     summary: 'Unified client interface for native and aggregator bridging.',
     nextMove: 'Keep hardening ergonomics and integration reliability.',
     href: 'https://github.com/agglayer/sdk',
+  },
+  {
+    title: 'llm-usage',
+    track: 'core',
+    status: 'live',
+    summary:
+      'CLI tool for tracking token usage across Claude Code, Codex, and OpenRouter. Published on npm.',
+    nextMove:
+      'Explore cost estimation and broader provider support based on community feedback.',
+    href: 'https://github.com/shan8851/llm-usage',
   },
   {
     title: 'FairSide',
