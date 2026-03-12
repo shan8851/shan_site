@@ -13,11 +13,21 @@ const getLinkLabel = (href: string) =>
     : href.includes('agglayer.dev') ||
         href.includes('roastmyphoto.app') ||
         href.includes('excuse-me.xyz') ||
-        href.includes('fairside.app')
+        href.includes('fairside.app') ||
+        href.includes('chaingrep.xyz')
       ? 'view live'
       : 'view project';
 
 const featuredProjectConfigs = [
+  {
+    title: 'chaingrep',
+    outcome: 'Live web tool for searching decoded on-chain event logs across multiple EVM chains with zero setup.',
+    technicalHighlights: [
+      'Streaming event decoding with automatic ABI resolution via Sourcify and Etherscan fallback.',
+      'Two query modes: hosted sample API with rate limiting (Hono) and direct BYOK where queries never touch the server.',
+      'Monorepo with shared query engine, CSV/JSON export, and GitHub Actions CI/CD deploying both API and frontend.',
+    ],
+  },
   {
     title: 'llm-usage',
     outcome: 'Published npm CLI for unified token-usage tracking across local AI coding tools.',

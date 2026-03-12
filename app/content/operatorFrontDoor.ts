@@ -184,6 +184,16 @@ export const activeProjects: ActiveProject[] = [
     href: 'https://github.com/agglayer/sdk',
   },
   {
+    title: 'chaingrep',
+    track: 'core',
+    status: 'live',
+    summary:
+      'Grep for on-chain events. Point at a contract and block range, get decoded event logs streamed back. No indexer, no SQL, no setup.',
+    nextMove:
+      'Add more chains, improve query UX, and explore saved-query workflows.',
+    href: 'https://chaingrep.xyz',
+  },
+  {
     title: 'llm-usage',
     track: 'core',
     status: 'live',
