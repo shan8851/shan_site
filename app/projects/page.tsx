@@ -19,6 +19,15 @@ const getLinkLabel = (href: string) =>
 
 const featuredProjectConfigs = [
   {
+    title: 'llm-usage',
+    outcome: 'Published npm CLI for unified token-usage tracking across local AI coding tools.',
+    technicalHighlights: [
+      'Multi-provider log parsing for Claude Code and Codex session JSONL files.',
+      'OpenRouter account snapshot via API (`/key` + `/credits`) for remote usage context.',
+      'Zod-validated TOML config, Commander flag validation, and JSON output mode for scripting.',
+    ],
+  },
+  {
     title: 'Agglayer UI',
     outcome: 'Production bridge UI covering native Agglayer routes and aggregator paths.',
     technicalHighlights: [
