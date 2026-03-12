@@ -18,14 +18,14 @@ import { getAllWritingPosts } from '../lib/writing';
 const getProjectLinkLabel = (href: string) =>
   href.includes('github.com')
     ? 'view repo'
-    : href.includes('agglayer.dev') || href.includes('roastmyphoto.app') || href.includes('excuse-me.xyz')
+    : href.includes('agglayer.dev') || href.includes('roastmyphoto.app') || href.includes('excuse-me.xyz') || href.includes('chaingrep.xyz')
       ? 'view live'
       : 'view project';
 
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 3);
-  const homeProjectTitleOrder = ['llm-usage', 'RoastMaster', 'Agglayer UI'];
+  const homeProjectTitleOrder = ['chaingrep', 'llm-usage', 'Agglayer UI'];
   const homeProjects = homeProjectTitleOrder
     .map((title) => activeProjects.find((project) => project.title === title))
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
