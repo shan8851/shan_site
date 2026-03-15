@@ -13,6 +13,7 @@ export default async function sitemap() {
     { url: `${baseUrl}/labs`, lastModified },
     { url: `${baseUrl}/log`, lastModified },
     { url: `${baseUrl}/uses`, lastModified },
+    { url: `${baseUrl}/chat`, lastModified },
     { url: `${baseUrl}/notes`, lastModified },
     ...posts.map((post) => ({
       url: `${baseUrl}/notes/${post.slug}`,
