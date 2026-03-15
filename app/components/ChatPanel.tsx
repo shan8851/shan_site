@@ -21,31 +21,16 @@ const renderMessageWithLinks = (text: string): ReactNode[] => {
     const url = match[0].replace(/[.,]+$/, '');
     regex.lastIndex = match.index + url.length;
 
-    const isInternal = url.startsWith('/');
-
-    if (isInternal) {
-      parts.push(
-        <Link
-          key={`${match.index}-${url}`}
-          href={url}
-          className="underline underline-offset-4 transition-colors hover:text-text"
-        >
-          {url}
-        </Link>
-      );
-    } else {
-      parts.push(
-        <a
-          key={`${match.index}-${url}`}
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          className="underline underline-offset-4 transition-colors hover:text-text"
-        >
-          {url}
-        </a>
-      );
-    }
+    parts.push(
+      <Link
+        key={`${match.index}-${url}`}
+        href={url}
+        target={url.startsWith('/') ? undefined : '_blank'}
+        className="underline underline-offset-4 transition-colors hover:text-text"
+      >
+        {url}
+      </Link>
+    );
 
     lastIndex = match.index + url.length;
   }
