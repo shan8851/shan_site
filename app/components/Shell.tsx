@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
+import { ChatButton } from './ChatButton';
 import { ThemeToggle } from './ThemeToggle';
 
 const navigationItems = [
@@ -9,6 +10,7 @@ const navigationItems = [
   { href: '/labs', label: '/labs' },
   { href: '/log', label: '/log' },
   { href: '/uses', label: '/uses' },
+  { href: '/chat', label: '/chat' },
   { href: '/notes', label: '/notes' },
 ] as const;
 
@@ -44,6 +46,7 @@ export function Shell({ children }: { children: ReactNode }) {
       </header>
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-14 md:py-16">{children}</main>
+      <ChatButton />
 
       <footer className="border-t border-border">
         <div className="mx-auto max-w-3xl px-5 py-6 text-sm text-muted">

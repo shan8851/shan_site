@@ -5,9 +5,16 @@ export type LabEntry = {
   href: string;
 };
 
-export const labsLastUpdated = '2026-03-07';
+export const labsLastUpdated = '2026-03-15';
 
 export const labs: LabEntry[] = [
+  {
+    title: 'chat.shan8851.com',
+    status: 'live',
+    summary:
+      'Grounded Ask Shan chat surface for questions about work, projects, writing, and current focus.',
+    href: 'https://chat.shan8851.com',
+  },
   {
     title: 'skills.shan8851.com',
     status: 'live',
