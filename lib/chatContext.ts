@@ -271,6 +271,20 @@ export const buildSiteContext = (): string => {
     ]),
   ]);
 
+  const cvSection = formatSection('CV / Work History (cv.shan8851.com)', [
+    'Title: Senior Full Stack Engineer (Applications)',
+    'Summary: Frontend-focused engineer shipping production web3 products across bridging, governance, and analytics. Builds clear UX for complex onchain workflows and improves release quality through CI/CD, e2e coverage, runbooks, and observability.',
+    'Core skills: TypeScript, React, Next.js, GraphQL, REST APIs, Redux/TanStack Query, EVM integrations (Viem/Wagmi), frontend architecture, CI/CD, e2e/integration testing, Datadog, docs/runbooks.',
+    '',
+    'Experience:',
+    '- Polygon (Oct 2025 – present) — Senior Full Stack Engineer. Built Agglayer UI from 0 to 1 as near-sole engineer. Built Agglayer Dev UI (open source). Integrated LI.FI routing and multihop support. Implemented e2e test flows with funded testnet wallets. Partnered on CI/CD improvements including Argo/Kargo release paths. Added Datadog monitoring and deployment runbooks.',
+    '- Aragon (Jul 2024 – Oct 2025) — Senior Software Engineer. Shipped modular governance UX (token wrapping, delegation). Built composable frontend patterns. Contributed to open-source Governance UI Kit.',
+    '- Cielo Finance (Oct 2022 – Jul 2024) — Senior Software Engineer. Helped evolve Cielo from bot-first tooling into a wallet discovery and analytics platform across 16+ EVM chains. Contributed to growth to 10k+ MAU.',
+    '- Earlier: Co-Founder & CTO at Let\'s Eat (2021–2022), Software Engineer at Library of Things (2021), Software Engineer at North Link Digital (2019–2021).',
+    '',
+    'Community: Mentors engineers through Coding Coach and The Mentoring Club. Started Tech-Leap newsletter. Writes at shan8851.com.',
+  ]);
+
   const routeHintsSection = formatSection('Internal Route Hints', [
     '- Home page: /',
     '- Current focus: /now',
@@ -285,6 +299,7 @@ export const buildSiteContext = (): string => {
   return [
     profileSection,
     operatorSection,
+    cvSection,
     writingSection,
     logSection,
     labsSection,
