@@ -225,22 +225,24 @@ export const ChatPanel = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {isFloating ? (
               <Link
                 href="/chat"
                 className="text-xs text-muted underline-offset-4 transition-colors hover:text-text hover:underline"
+                title="Open full page chat"
               >
-                full page
+                ↗
               </Link>
             ) : null}
             {onClose ? (
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-md border border-border px-2 py-1 text-xs text-muted transition-colors hover:text-text"
+                className="text-lg leading-none text-muted transition-colors hover:text-text"
+                title="Close chat"
               >
-                close
+                ×
               </button>
             ) : null}
           </div>
@@ -282,18 +284,18 @@ export const ChatPanel = ({
                     className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-[88%] rounded-2xl border px-3 py-2 text-sm leading-6 sm:max-w-[85%] ${
+                      className={`max-w-[88%] rounded-2xl px-3 py-2 text-sm leading-relaxed sm:max-w-[85%] ${
                         message.role === 'user'
-                          ? 'border-border bg-background text-text'
-                          : 'border-border bg-surface text-soft'
+                          ? 'border border-text/20 bg-text/10 text-text'
+                          : 'text-soft'
                       }`}
                     >
                       <p className="whitespace-pre-wrap break-words">
-                        {message.text || (isAssistantStreaming ? 'Thinking...' : '')}
+                        {message.text || (isAssistantStreaming ? 'Thinking…' : '')}
+                        {isAssistantStreaming && message.text ? (
+                          <span className="ml-1 inline-flex h-1.5 w-1.5 rounded-full bg-text/60 align-middle animate-pulse" />
+                        ) : null}
                       </p>
-                      {isAssistantStreaming ? (
-                        <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-text/70 align-middle animate-pulse" />
-                      ) : null}
                     </div>
                   </div>
                 );
@@ -319,7 +321,7 @@ export const ChatPanel = ({
                 value={inputValue}
                 maxLength={CHAT_INPUT_LIMIT}
                 onChange={(event) => setInputValue(event.target.value)}
-                placeholder="Ask about projects, notes, or experience"
+                placeholder="Ask me anything about Shan"
                 disabled={isStreaming || (isFloating && !open)}
                 className="h-11 flex-1 rounded-xl border border-border bg-background px-3 text-sm text-text outline-none transition-colors placeholder:text-muted focus:border-text disabled:cursor-not-allowed disabled:opacity-70"
               />
