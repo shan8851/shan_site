@@ -52,6 +52,7 @@ type OpenRouterResponseChunk = {
 };
 
 export const runtime = 'nodejs';
+export const maxDuration = 30;
 
 const jsonResponse = (body: Record<string, string>, status: number): Response =>
   Response.json(body, { status });
