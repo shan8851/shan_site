@@ -7,9 +7,7 @@ const CHAT_INPUT_LIMIT = 500;
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const OPENROUTER_MODEL = 'anthropic/claude-sonnet-4.6';
 
-const siteContext = buildSiteContext();
-
-const systemPrompt = `You are an AI assistant for Shan's personal website (shan8851.com). Answer questions about Shan's work, projects, writing, experience, and interests based ONLY on the site content provided below.
+const SYSTEM_PROMPT_PREFIX = `You are an AI assistant for Shan's personal website (shan8851.com). Answer questions about Shan's work, projects, writing, experience, and interests based ONLY on the site content provided below.
 
 Rules:
 - Only answer from the provided context. If the answer isn't in the context, say "I don't have info on that from the site, but you can reach Shan at asamshan456@gmail.com"
@@ -23,7 +21,20 @@ Rules:
 - Use UK English spelling
 
 Site content:
-${siteContext}`;
+`;
+
+let cachedSystemPrompt: string | null = null;
+
+const getSystemPrompt = async (): Promise<string> => {
+  if (cachedSystemPrompt) {
+    return cachedSystemPrompt;
+  }
+
+  const siteContext = await buildSiteContext();
+  cachedSystemPrompt = SYSTEM_PROMPT_PREFIX + siteContext;
+
+  return cachedSystemPrompt;
+};
 
 type ChatRequestBody = {
   message?: unknown;
@@ -40,7 +51,7 @@ type OpenRouterResponseChunk = {
   }>;
 };
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 const jsonResponse = (body: Record<string, string>, status: number): Response =>
   Response.json(body, { status });
@@ -341,6 +352,8 @@ export async function POST(request: Request): Promise<Response> {
   if (!openRouterApiKey) {
     return jsonResponse({ error: 'Chat is temporarily unavailable.' }, 503);
   }
+
+  const systemPrompt = await getSystemPrompt();
 
   let upstreamResponse: Response;
 
