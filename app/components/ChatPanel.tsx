@@ -1,9 +1,61 @@
 'use client';
 
 import Link from 'next/link';
-import type { FormEvent } from 'react';
+import type { FormEvent, ReactNode } from 'react';
 import type { ReactElement } from 'react';
 import { useEffect, useRef, useState } from 'react';
+
+const LINK_PATTERN = /(https?:\/\/[^\s,)]+|\/(?:projects|notes|now|log|labs|uses|chat)(?:\/[a-z0-9-]+)*)/gi;
+
+const renderMessageWithLinks = (text: string): ReactNode[] => {
+  const parts: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  const regex = new RegExp(LINK_PATTERN.source, 'gi');
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    const url = match[0].replace(/[.,]+$/, '');
+    regex.lastIndex = match.index + url.length;
+
+    const isInternal = url.startsWith('/');
+
+    if (isInternal) {
+      parts.push(
+        <Link
+          key={`${match.index}-${url}`}
+          href={url}
+          className="underline underline-offset-4 transition-colors hover:text-text"
+        >
+          {url}
+        </Link>
+      );
+    } else {
+      parts.push(
+        <a
+          key={`${match.index}-${url}`}
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-4 transition-colors hover:text-text"
+        >
+          {url}
+        </a>
+      );
+    }
+
+    lastIndex = match.index + url.length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts;
+};
 
 type ChatMessage = {
   id: string;
@@ -291,7 +343,9 @@ export const ChatPanel = ({
                       }`}
                     >
                       <p className="whitespace-pre-wrap break-words">
-                        {message.text || (isAssistantStreaming ? 'Thinking…' : '')}
+                        {message.text
+                          ? (message.role === 'assistant' ? renderMessageWithLinks(message.text) : message.text)
+                          : (isAssistantStreaming ? 'Thinking…' : '')}
                         {isAssistantStreaming && message.text ? (
                           <span className="ml-1 inline-flex h-1.5 w-1.5 rounded-full bg-text/60 align-middle animate-pulse" />
                         ) : null}
