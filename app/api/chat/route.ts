@@ -1,7 +1,7 @@
 import { buildSiteContext } from '../../../lib/chatContext';
 
-const CHAT_DAILY_LIMIT = 100;
-const CHAT_FIFTEEN_MINUTE_LIMIT = 10;
+const CHAT_DAILY_LIMIT = 200;
+const CHAT_FIFTEEN_MINUTE_LIMIT = 25;
 const CHAT_FIFTEEN_MINUTE_WINDOW_MS = 15 * 60 * 1000;
 const CHAT_INPUT_LIMIT = 500;
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
@@ -129,7 +129,23 @@ const incrementKey = async (key: string, ttlSeconds: number, signal: AbortSignal
   return Number(incrementedCount);
 };
 
+const hasBypassToken = (request: Request): boolean => {
+  const bypassToken = process.env.CHAT_BYPASS_TOKEN;
+
+  if (!bypassToken) {
+    return false;
+  }
+
+  const url = new URL(request.url);
+
+  return url.searchParams.get('bypass') === bypassToken;
+};
+
 const enforceRateLimits = async (request: Request): Promise<Response | null> => {
+  if (hasBypassToken(request)) {
+    return null;
+  }
+
   if (!getRedisConfig()) {
     if (process.env.NODE_ENV === 'production') {
       return jsonResponse({ error: 'Chat is temporarily unavailable.' }, 503);

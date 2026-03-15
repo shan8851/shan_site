@@ -98,7 +98,11 @@ export const ChatPanel = ({
     ]);
 
     try {
-      const response = await fetch('/api/chat', {
+      const pageParams = new URLSearchParams(window.location.search);
+      const bypassValue = pageParams.get('bypass');
+      const chatEndpoint = bypassValue ? `/api/chat?bypass=${encodeURIComponent(bypassValue)}` : '/api/chat';
+
+      const response = await fetch(chatEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
