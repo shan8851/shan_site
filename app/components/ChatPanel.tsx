@@ -209,24 +209,16 @@ export const ChatPanel = ({
           )
         );
       }
-    } catch (error) {
-      console.error('[ask-shan] stream error:', error);
+    } catch {
       setMessages((currentMessages) =>
-        currentMessages.map((message) => {
-          if (message.id !== assistantMessageId) {
-            return message;
-          }
-
-          // If we already got partial text, keep it instead of replacing
-          if (message.text.trim().length > 0) {
-            return message;
-          }
-
-          return {
-            ...message,
-            text: 'Something went wrong while streaming the reply. Try again in a moment.',
-          };
-        })
+        currentMessages.map((message) =>
+          message.id === assistantMessageId
+            ? {
+                ...message,
+                text: 'Something went wrong while streaming the reply. Try again in a moment.',
+              }
+            : message
+        )
       );
     } finally {
       setIsStreaming(false);
