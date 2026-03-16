@@ -4,9 +4,39 @@ export type LogEntry = {
   text: string;
 };
 
-export const logLastUpdated = '2026-03-09';
+export const logLastUpdated = '2026-03-16';
 
 export const logEntries: LogEntry[] = [
+  {
+    id: 'LOG-2026-03-15-A',
+    date: '2026-03-15',
+    text: 'Added chat/LLM integration to my personal site with rate limiting and prompt-injection guardrails.',
+  },
+  {
+    id: 'LOG-2026-03-14-A',
+    date: '2026-03-14',
+    text: 'Fixed and promoted a backend indexer by completing a secrets migration and validating production recovery.',
+  },
+  {
+    id: 'LOG-2026-03-13-A',
+    date: '2026-03-13',
+    text: 'Released my first backend service end-to-end, including debug, promotion, and observability flows.',
+  },
+  {
+    id: 'LOG-2026-03-12-A',
+    date: '2026-03-12',
+    text: 'Built a dump-to-briefing pipeline that turns daily notes into priorities and staff-eng prompts.',
+  },
+  {
+    id: 'LOG-2026-03-12-B',
+    date: '2026-03-12',
+    text: 'Built a staff-engineer evidence tracker to map weekly work against impact dimensions over time.',
+  },
+  {
+    id: 'LOG-2026-03-11-A',
+    date: '2026-03-11',
+    text: 'Published the llm-usage CLI to npm as a lightweight way to inspect local and OpenRouter usage.',
+  },
   {
     id: 'LOG-2026-03-08-A',
     date: '2026-03-08',
