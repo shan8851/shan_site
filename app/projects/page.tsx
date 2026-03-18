@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactElement } from 'react';
 
 import { activeProjects, selectedShippedWork, siteLastUpdated } from '../content/operatorFrontDoor';
 
@@ -7,14 +8,12 @@ export const metadata: Metadata = {
   description: 'Featured builds, shipped-at-scale work, and selected active projects by Shan.',
 };
 
+const liveProjectHosts = ['agglayer.dev', 'chaingrep.xyz', 'excuse-me.xyz', 'fairside.app', 'roastmyphoto.app', 'shan8851.com'] as const;
+
 const getLinkLabel = (href: string) =>
   href.includes('github.com')
     ? 'view repo'
-    : href.includes('agglayer.dev') ||
-        href.includes('roastmyphoto.app') ||
-        href.includes('excuse-me.xyz') ||
-        href.includes('fairside.app') ||
-        href.includes('chaingrep.xyz')
+    : liveProjectHosts.some((host) => href.includes(host))
       ? 'view live'
       : 'view project';
 
@@ -66,9 +65,9 @@ const featuredProjectConfigs = [
   },
 ] as const;
 
-const otherActiveProjectTitles = ['FairSide', 'Excuse Me', 'OpenClaw dashboard + API'] as const;
+const otherActiveProjectTitles = ['FairSide', 'Excuse Me', 'OpenClaw dashboard + API', 'skills', 'viewports'] as const;
 
-export default function ProjectsPage() {
+export default function ProjectsPage(): ReactElement {
   const featuredProjects = featuredProjectConfigs
     .map((config) => ({
       ...config,
@@ -151,7 +150,7 @@ export default function ProjectsPage() {
       </section>
 
       <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">Other active work</h2>
+        <h2 className="text-lg font-semibold tracking-tight">More projects</h2>
         <ul className="space-y-3">
           {otherActiveProjects.map((project) => (
             <li key={project.title} className="space-y-1 border-b border-border/60 pb-3 last:border-b-0 last:pb-0">

@@ -252,6 +252,26 @@ export const activeProjects: ActiveProject[] = [
     href: 'https://github.com/shan8851/giles-dashboard',
   },
   {
+    title: 'skills',
+    track: 'experiments',
+    status: 'live',
+    summary:
+      'Small web UI for browsing installed agent skills and related workflows more cleanly.',
+    nextMove:
+      'Keep improving navigation and discovery as the skill set grows.',
+    href: 'https://skills.shan8851.com',
+  },
+  {
+    title: 'viewports',
+    track: 'experiments',
+    status: 'live',
+    summary:
+      'Quick responsive-testing tool for previewing a UI across multiple viewport sizes at once.',
+    nextMove:
+      'Keep tightening the daily utility for fast layout and breakpoint checks.',
+    href: 'https://viewports.shan8851.com/',
+  },
+  {
     title: 'clawtop',
     track: 'experiments',
     status: 'exploring',

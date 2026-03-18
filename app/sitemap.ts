@@ -10,7 +10,6 @@ export default async function sitemap() {
     { url: baseUrl, lastModified },
     { url: `${baseUrl}/now`, lastModified },
     { url: `${baseUrl}/projects`, lastModified },
-    { url: `${baseUrl}/labs`, lastModified },
     { url: `${baseUrl}/log`, lastModified },
     { url: `${baseUrl}/uses`, lastModified },
     { url: `${baseUrl}/chat`, lastModified },

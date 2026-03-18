@@ -14,7 +14,6 @@ import {
   siteLastUpdated,
   workingStylePoints,
 } from '../app/content/operatorFrontDoor';
-import { labs, labsLastUpdated } from '../app/content/labs';
 import { PROFILE } from '../app/content/profile';
 import { logEntries, logLastUpdated } from '../app/content/proofLog';
 import { usesLastUpdated, usesSections } from '../app/content/uses';
@@ -86,11 +85,6 @@ export const buildSiteContext = async (): Promise<string> => {
     ...recentLogEntries.map((entry) => `- ${entry.date} | ${entry.id} | ${entry.text}`),
   ]);
 
-  const labsSection = formatSection('Labs (/labs)', [
-    `Last updated: ${labsLastUpdated}`,
-    ...labs.map((lab) => `- ${lab.title} [${lab.status}]: ${lab.summary} (${lab.href})`),
-  ]);
-
   const usesSection = formatSection('Uses (/uses)', [
     `Last updated: ${usesLastUpdated}`,
     ...usesSections.flatMap((section) => [
@@ -117,7 +111,6 @@ export const buildSiteContext = async (): Promise<string> => {
     '- Home page: /',
     '- Current focus: /now',
     '- Projects: /projects',
-    '- Labs: /labs',
     '- Log: /log',
     '- Uses: /uses',
     '- Writing index: /notes',
@@ -130,7 +123,6 @@ export const buildSiteContext = async (): Promise<string> => {
     cvSection,
     writingSection,
     logSection,
-    labsSection,
     usesSection,
     routeHintsSection,
   ].join('\n\n');

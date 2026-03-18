@@ -5,7 +5,7 @@ import type { FormEvent, ReactNode } from 'react';
 import type { ReactElement } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-const LINK_PATTERN = /(https?:\/\/[^\s,)]+|\/(?:projects|notes|now|log|labs|uses|chat)(?:\/[a-z0-9-]+)*)/gi;
+const LINK_PATTERN = /(https?:\/\/[^\s,)]+|\/(?:projects|notes|now|log|uses|chat)(?:\/[a-z0-9-]+)*)/gi;
 
 const renderMessageWithLinks = (text: string): ReactNode[] => {
   const parts: ReactNode[] = [];
