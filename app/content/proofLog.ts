@@ -4,9 +4,14 @@ export type LogEntry = {
   text: string;
 };
 
-export const logLastUpdated = '2026-03-16';
+export const logLastUpdated = '2026-03-21';
 
 export const logEntries: LogEntry[] = [
+  {
+    id: 'LOG-2026-03-21-A',
+    date: '2026-03-21',
+    text: 'Added GitHub Action to auto-bump siteLastUpdated on every push to main.',
+  },
   {
     id: 'LOG-2026-03-15-A',
     date: '2026-03-15',
