@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Featured builds, shipped-at-scale work, and selected active projects by Shan.',
 };
 
-const liveProjectHosts = ['agglayer.dev', 'chaingrep.xyz', 'excuse-me.xyz', 'fairside.app', 'roastmyphoto.app', 'shan8851.com'] as const;
+const liveProjectHosts = ['agglayer.dev', 'chaingrep.xyz', 'ch-cli.xyz', 'excuse-me.xyz', 'fairside.app', 'roastmyphoto.app', 'shan8851.com', 'tfl-cli.xyz'] as const;
 
 const getLinkLabel = (href: string) =>
   href.includes('github.com')
@@ -18,6 +18,26 @@ const getLinkLabel = (href: string) =>
       : 'view project';
 
 const featuredProjectConfigs = [
+  {
+    title: 'tfl-cli',
+    outcome: 'Published npm CLI for live TfL data — status, journey planning, arrivals, disruptions, and bike availability. Agent-first design.',
+    repoHref: 'https://github.com/shan8851/tfl-cli',
+    technicalHighlights: [
+      'Auto-detects TTY: colourised human output in terminal, structured JSON when piped to agents.',
+      'Journey planning with multi-leg routing, live line status with severity and closure reasons.',
+      'Zero auth required for basic use; optional API key for higher rate limits.',
+    ],
+  },
+  {
+    title: 'companies-house-cli',
+    outcome: 'Published npm CLI for UK company data — search, directors, filings, ownership, charges, and insolvency. Agent-first design.',
+    repoHref: 'https://github.com/shan8851/companies-house-cli',
+    technicalHighlights: [
+      'Eight subcommands covering the full Companies House API surface (search, info, officers, filings, PSC, charges, insolvency, search-person).',
+      'Colourised terminal output with ANSI codes, --no-color flag, and automatic JSON mode for agent pipelines.',
+      'Zod-validated responses, auto zero-padding of company numbers, and comprehensive test coverage.',
+    ],
+  },
   {
     title: 'chaingrep',
     outcome: 'Live web tool for searching decoded on-chain event logs across multiple EVM chains with zero setup.',
@@ -114,16 +134,28 @@ export default function ProjectsPage(): ReactElement {
 
               {item.project.nextMove ? <p className="text-sm text-soft">Current focus: {item.project.nextMove}</p> : null}
 
-              {item.project.href ? (
-                <a
-                  href={item.project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
-                >
-                  {getLinkLabel(item.project.href)}
-                </a>
-              ) : null}
+              <div className="flex flex-wrap items-center gap-4">
+                {item.project.href ? (
+                  <a
+                    href={item.project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                  >
+                    {getLinkLabel(item.project.href)}
+                  </a>
+                ) : null}
+                {'repoHref' in item && typeof item.repoHref === 'string' ? (
+                  <a
+                    href={item.repoHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                  >
+                    view repo
+                  </a>
+                ) : null}
+              </div>
             </li>
           ))}
         </ul>

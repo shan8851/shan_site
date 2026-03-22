@@ -25,7 +25,7 @@ const getProjectLinkLabel = (href: string) =>
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 3);
-  const homeProjectTitleOrder = ['chaingrep', 'llm-usage', 'Agglayer UI'];
+  const homeProjectTitleOrder = ['tfl-cli', 'companies-house-cli', 'chaingrep'];
   const homeProjects = homeProjectTitleOrder
     .map((title) => activeProjects.find((project) => project.title === title))
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
