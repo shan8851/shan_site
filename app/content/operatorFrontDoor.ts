@@ -111,7 +111,7 @@ export const aiProjects: AIProject[] = [
 ];
 
 export const nowFocusNarrative =
-  'Current loop: deliver reliable full-stack systems at work, and sharpen practical agent orchestration through fast shipping outside work.';
+  'Current loop: deliver reliable full-stack systems at work, and ship agent-first CLI tools and products outside work.';
 
 export const nowLogItems: NowLogItem[] = [
   {
@@ -119,12 +119,12 @@ export const nowLogItems: NowLogItem[] = [
     text: 'shipping full-stack outcomes across payments, bridging, and staking with stronger testing, reliability, docs, and observability.',
   },
   {
-    label: 'Docs & runbooks',
-    text: 'turning tribal knowledge into clear, operable context so teams can move faster with confidence.',
+    label: 'Agent-first CLI tools',
+    text: 'shipping published npm CLIs (tfl-cli, companies-house-cli, llm-usage) designed for both humans and AI agents with automatic JSON output.',
   },
   {
-    label: 'AI systems work',
-    text: 'tightening agent orchestration through better prompt patterns, token budgets, and context assembly under messy real input.',
+    label: 'Docs & runbooks',
+    text: 'turning tribal knowledge into clear, operable context so teams can move faster with confidence.',
   },
   {
     label: 'Public sharing',
@@ -191,7 +191,7 @@ export const activeProjects: ActiveProject[] = [
       'Transport for London in your terminal. Live tube status, journey planning, arrivals, disruptions, and bike availability. Agent-first with automatic JSON output when piped.',
     nextMove:
       'Add more transport modes and explore notification workflows.',
-    href: 'https://github.com/shan8851/tfl-cli',
+    href: 'https://tfl-cli.xyz',
   },
   {
     title: 'companies-house-cli',
@@ -201,7 +201,7 @@ export const activeProjects: ActiveProject[] = [
       'UK company data in your terminal. Search companies, directors, filings, ownership, and insolvency records via the Companies House API. Built for AI agents, still useful for humans.',
     nextMove:
       'Add more data endpoints and improve output formatting.',
-    href: 'https://github.com/shan8851/companies-house-cli',
+    href: 'https://ch-cli.xyz',
   },
   {
     title: 'chaingrep',

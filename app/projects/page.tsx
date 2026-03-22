@@ -21,6 +21,7 @@ const featuredProjectConfigs = [
   {
     title: 'tfl-cli',
     outcome: 'Published npm CLI for live TfL data — status, journey planning, arrivals, disruptions, and bike availability. Agent-first design.',
+    repoHref: 'https://github.com/shan8851/tfl-cli',
     technicalHighlights: [
       'Auto-detects TTY: colourised human output in terminal, structured JSON when piped to agents.',
       'Journey planning with multi-leg routing, live line status with severity and closure reasons.',
@@ -30,6 +31,7 @@ const featuredProjectConfigs = [
   {
     title: 'companies-house-cli',
     outcome: 'Published npm CLI for UK company data — search, directors, filings, ownership, charges, and insolvency. Agent-first design.',
+    repoHref: 'https://github.com/shan8851/companies-house-cli',
     technicalHighlights: [
       'Eight subcommands covering the full Companies House API surface (search, info, officers, filings, PSC, charges, insolvency, search-person).',
       'Colourised terminal output with ANSI codes, --no-color flag, and automatic JSON mode for agent pipelines.',
@@ -132,16 +134,28 @@ export default function ProjectsPage(): ReactElement {
 
               {item.project.nextMove ? <p className="text-sm text-soft">Current focus: {item.project.nextMove}</p> : null}
 
-              {item.project.href ? (
-                <a
-                  href={item.project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
-                >
-                  {getLinkLabel(item.project.href)}
-                </a>
-              ) : null}
+              <div className="flex flex-wrap items-center gap-4">
+                {item.project.href ? (
+                  <a
+                    href={item.project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                  >
+                    {getLinkLabel(item.project.href)}
+                  </a>
+                ) : null}
+                {'repoHref' in item && typeof item.repoHref === 'string' ? (
+                  <a
+                    href={item.repoHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                  >
+                    view repo
+                  </a>
+                ) : null}
+              </div>
             </li>
           ))}
         </ul>
