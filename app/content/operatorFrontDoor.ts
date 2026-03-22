@@ -55,7 +55,7 @@ export const rightNowNarrative =
 
 export const rightNowSnapshot: string[] = [
   'At work: full-stack delivery on payments, bridging, and staking with stronger testing, reliability, and docs.',
-  'Outside work: sharpening agent orchestration through real shipped tools and tight iteration loops.',
+  'Outside work: shipping agent-first CLI tools and sharpening orchestration through real shipped products.',
   'Writing: sharing practical notes on what worked, what failed, and what changed.',
 ];
 
@@ -182,6 +182,26 @@ export const activeProjects: ActiveProject[] = [
     summary: 'Unified client interface for native and aggregator bridging.',
     nextMove: 'Keep hardening ergonomics and integration reliability.',
     href: 'https://github.com/agglayer/sdk',
+  },
+  {
+    title: 'tfl-cli',
+    track: 'core',
+    status: 'live',
+    summary:
+      'Transport for London in your terminal. Live tube status, journey planning, arrivals, disruptions, and bike availability. Agent-first with automatic JSON output when piped.',
+    nextMove:
+      'Add more transport modes and explore notification workflows.',
+    href: 'https://github.com/shan8851/tfl-cli',
+  },
+  {
+    title: 'companies-house-cli',
+    track: 'core',
+    status: 'live',
+    summary:
+      'UK company data in your terminal. Search companies, directors, filings, ownership, and insolvency records via the Companies House API. Built for AI agents, still useful for humans.',
+    nextMove:
+      'Add more data endpoints and improve output formatting.',
+    href: 'https://github.com/shan8851/companies-house-cli',
   },
   {
     title: 'chaingrep',
