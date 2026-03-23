@@ -4,9 +4,6 @@ import type { Metadata } from 'next';
 import { DM_Mono } from 'next/font/google';
 import Script from 'next/script';
 
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-
 import { Shell } from './components/Shell';
 export const metadata: Metadata = {
   metadataBase: new URL('https://shan8851.com'),
@@ -83,8 +80,11 @@ export default function RootLayout({
           })();`}
         </Script>
         <Shell>{children}</Shell>
-        <Analytics />
-        <SpeedInsights />
+        <Script
+          defer
+          src="https://tux.taild7426e.ts.net:8443/script.js"
+          data-website-id="b43ec14e-bca4-4340-acac-679222b62935"
+        />
       </body>
     </html>
   );
