@@ -4,9 +4,24 @@ export type LogEntry = {
   text: string;
 };
 
-export const logLastUpdated = '2026-03-21';
+export const logLastUpdated = '2026-03-23';
 
 export const logEntries: LogEntry[] = [
+  {
+    id: 'LOG-2026-03-22-A',
+    date: '2026-03-22',
+    text: 'Shipped companies-house-cli and tfl-cli with dedicated landing pages.',
+  },
+  {
+    id: 'LOG-2026-03-21-B',
+    date: '2026-03-21',
+    text: 'Set up full Discord search across my workflow stack so almost nothing gets lost.',
+  },
+  {
+    id: 'LOG-2026-03-17-A',
+    date: '2026-03-17',
+    text: 'Merged a cleanup and improvement pass for a staking backend flow into staging.',
+  },
   {
     id: 'LOG-2026-03-21-A',
     date: '2026-03-21',
