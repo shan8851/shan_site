@@ -35,7 +35,7 @@ export type ShippedWorkItem = {
   href: string;
 };
 
-export const siteLastUpdated = '2026-03-23';
+export const siteLastUpdated = '2026-03-24';
 
 export const homeIntro =
   'I work full-stack on payments, bridging, and staking at Polygon, focused on shipping systems that improve speed and confidence through testing, reliability, and clear docs. Outside work, I build with AI and use personal projects to sharpen agent orchestration in real-world workflows.';
