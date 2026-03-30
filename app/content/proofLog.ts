@@ -4,9 +4,29 @@ export type LogEntry = {
   text: string;
 };
 
-export const logLastUpdated = '2026-03-23';
+export const logLastUpdated = '2026-03-30';
 
 export const logEntries: LogEntry[] = [
+  {
+    id: 'LOG-2026-03-29-A',
+    date: '2026-03-29',
+    text: 'Shipped the Open Markets mini-series with all episodes live on a dedicated site.',
+  },
+  {
+    id: 'LOG-2026-03-25-A',
+    date: '2026-03-25',
+    text: 'Published a more agent-friendly pass across my CLI tools and refreshed the related skills.',
+  },
+  {
+    id: 'LOG-2026-03-24-A',
+    date: '2026-03-24',
+    text: 'Shipped rail-cli as my third public-facing CLI tool for agent workflows.',
+  },
+  {
+    id: 'LOG-2026-03-23-A',
+    date: '2026-03-23',
+    text: 'Set up self-hosted analytics across key projects to track everything from one dashboard.',
+  },
   {
     id: 'LOG-2026-03-22-A',
     date: '2026-03-22',
