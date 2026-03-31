@@ -51,12 +51,12 @@ export const northStarOutsideWork =
 export const northStar = `${northStarLead} At work: ${northStarWork} Outside work: ${northStarOutsideWork}`;
 
 export const rightNowNarrative =
-  'Current focus across work and outside-work systems.';
+  'Current focus across work, public tooling, and the personal systems behind both.';
 
 export const rightNowSnapshot: string[] = [
-  'At work: full-stack delivery on payments, bridging, and staking with stronger testing, reliability, and docs.',
-  'Outside work: shipping agent-first CLI tools and sharpening orchestration through real shipped products.',
-  'Writing: sharing practical notes on what worked, what failed, and what changed.',
+  'At work: stepping into Polygon\'s Open Money Stack while keeping the bar high on reliability, testing, docs, and observability.',
+  'Outside work: building agent-first CLI tools that are actually useful; tfl-cli, companies-house-cli, and rail-cli are the clearest proof right now.',
+  'Personal systems: tightening family planning, nutrition, and fitness so the setup supports the rest of the work instead of competing with it.',
 ];
 
 export const rightNowItems: HomeRightNowItem[] = [
@@ -111,34 +111,34 @@ export const aiProjects: AIProject[] = [
 ];
 
 export const nowFocusNarrative =
-  'Current loop: deliver reliable full-stack systems at work, and ship agent-first CLI tools and products outside work.';
+  'Current loop: bigger scope at work, sharper public tooling outside work, and cleaner systems at home.';
 
 export const nowLogItems: NowLogItem[] = [
   {
     label: 'Polygon',
-    text: 'shipping full-stack outcomes across payments, bridging, and staking with stronger testing, reliability, docs, and observability.',
+    text: 'moving into Open Money Stack while still supporting core application work when needed. Same priorities as ever: reliability, testing, docs, and operability.',
   },
   {
-    label: 'Agent-first CLI tools',
-    text: 'shipping published npm CLIs (tfl-cli, companies-house-cli, llm-usage) designed for both humans and AI agents with automatic JSON output.',
+    label: 'CLI tools',
+    text: 'tfl-cli and companies-house-cli are now joined by rail-cli. I am tightening the agent-first pass across all three: predictable output, cleaner JSON, better landing pages, and better surrounding skills.',
   },
   {
-    label: 'Docs & runbooks',
-    text: 'turning tribal knowledge into clear, operable context so teams can move faster with confidence.',
+    label: 'OpenClaw stability',
+    text: 'cleaning up the upgrade churn so the stack is boring again: fewer false alarms, healthier crons, clearer memory behaviour, and less dead operational baggage.',
   },
   {
-    label: 'Public sharing',
-    text: 'writing practical notes on what worked, what failed, and what changed.',
+    label: 'Open Markets mini-series',
+    text: 'shipped a three-part AI-assisted audio series on DEXs. It is a useful portfolio piece for voice, scripting, and shipping something weird but real.',
   },
   {
-    label: 'Operator tooling',
-    text: 'building practical CLI/TUI workflows for daily execution.',
+    label: 'Family ops',
+    text: 'putting more structure around shared planning, nutrition, and training so personal life is not running on loose notes and good intentions.',
   },
 ];
 
 export const nowOpenQuestionsAndAsks: string[] = [
-  'Looking for a small, high-signal builder community to learn and ship with (Discord + occasional calls works).',
-  'Open to comparing notes with people building practical agent systems for engineering, ops, and product execution.',
+  'Always interested in comparing notes with people building practical agent systems, especially CLI/TUI tools or operator workflows that have to work in the mess of real life.',
+  'Still looking for a small, high-signal builder circle where people ship, share the rough edges, and do the occasional call instead of endless noise.',
 ];
 
 export const workingStylePoints: string[] = [
@@ -151,9 +151,9 @@ export const workingStylePoints: string[] = [
 ];
 
 export const deprioritizedItems: string[] = [
-  'Chasing vanity posting volume over useful signal.',
-  'Turning this site into a gimmicky personal dashboard.',
-  'Trying to optimise every goal at once; this season is about depth in systems and AI craft.',
+  'Dragging weak projects along just because time is already sunk. If the signal is bad, I would rather cut scope and move on.',
+  'Building dashboards or automation that look clever but do not change behaviour.',
+  'Trying to keep every work, builder, and personal lane equally hot at the same time.',
 ];
 
 export const activeProjects: ActiveProject[] = [

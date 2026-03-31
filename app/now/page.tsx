@@ -6,6 +6,7 @@ import {
   northStarLead,
   northStarOutsideWork,
   northStarWork,
+  nowFocusNarrative,
   nowLogItems,
   nowOpenQuestionsAndAsks,
   siteLastUpdated,
@@ -13,7 +14,7 @@ import {
 
 export const metadata: Metadata = {
   title: 'Now',
-  description: 'What Shan is focused on over the next few months.',
+  description: 'Current priorities across work, tooling, and life ops.',
 };
 
 export default function NowPage() {
@@ -22,8 +23,8 @@ export default function NowPage() {
       <header className="space-y-3">
         <h1 className="text-4xl font-bold tracking-tight">Now</h1>
         <p className="max-w-2xl text-soft">
-          A quarter-by-quarter snapshot of what I am focused on, what I am
-          de-prioritising, and where I am looking for signal.
+          Current priorities, deliberate omissions, and the places I am still
+          looking for signal.
         </p>
         <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
@@ -43,6 +44,7 @@ export default function NowPage() {
 
       <section className="space-y-3 border-t border-border pt-8">
         <h2 className="text-xl font-semibold tracking-tight">Current focus</h2>
+        <p className="max-w-2xl text-soft">{nowFocusNarrative}</p>
         <ul className="list-disc space-y-3 pl-5 text-soft">
           {nowLogItems.map((item) => (
             <li key={item.label}>
