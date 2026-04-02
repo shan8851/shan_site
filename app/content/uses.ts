@@ -9,22 +9,24 @@ export const usesSections: Array<{ title: string; items: UseItem[] }> = [
   {
     title: 'AI + model stack',
     items: [
-      { label: 'Coding', value: 'Codex 5.3 (primary)' },
-      { label: 'Search/research', value: 'Perplexity (default)' },
+      { label: 'Coding', value: 'Codex 5.4 (primary)' },
+      { label: 'Search/research', value: 'Exa for AI search' },
       { label: 'Fast/cheap tasks', value: 'Gemini + Claude Haiku/Sonnet' },
-      { label: 'Voice/transcription', value: 'Whisper, plus playing with Pocket TTS' },
+      {
+        label: 'Voice/transcription',
+        value: 'OpenAI + ElevenLabs, with Whisper still useful when I want local transcription',
+      },
       { label: 'Image generation', value: 'Nano Banana Pro (still great)' },
       { label: 'Routing', value: 'OpenRouter for one API key + easy model switching' },
-      { label: 'Want to try', value: 'Kimi K2.5' },
     ],
   },
   {
     title: 'Agent stack',
     items: [
-      { label: 'Platform', value: 'OpenClaw' },
+      { label: 'Harness', value: 'Hermes Agent' },
       {
         label: 'Current direction',
-        value: 'OpenClaw + custom OpenClaw dashboard is slowly eating everything else.',
+        value: 'Hermes Agent with lean playbooks, skills, and crons. More deterministic, less swarm theatre.',
       },
       { label: 'Experimental lane', value: 'Onchain agents + broader autonomy (shopping/email)' },
     ],
@@ -41,7 +43,7 @@ export const usesSections: Array<{ title: string; items: UseItem[] }> = [
   {
     title: 'Dev environment',
     items: [
-      { label: 'Editor/IDE', value: 'VS Code (less these days thanks to Codex)' },
+      { label: 'Editor/IDE', value: 'VS Code, with the terminal doing more of the heavy lifting now' },
       { label: 'Terminal', value: 'Ghostty (macOS), Kitty (Linux)' },
       { label: 'Shell', value: 'zsh + powerlevel10k' },
       { label: 'Notes', value: 'Notesnook + markdown files in git' },
@@ -51,9 +53,9 @@ export const usesSections: Array<{ title: string; items: UseItem[] }> = [
   {
     title: 'Comms + productivity',
     items: [
-      { label: 'Messaging', value: 'Telegram' },
-      { label: 'Calendar', value: 'Google Calendar' },
-      { label: 'Tasks', value: 'Google Tasks' },
+      { label: 'Messaging', value: 'Agent-first; Telegram is mostly just one surface now' },
+      { label: 'Calendar', value: 'Google Calendar, usually handled through the agent' },
+      { label: 'Tasks', value: 'Mostly handled through the agent now; tools are secondary' },
       { label: 'Focus', value: 'pomo CLI pomodoro app' },
     ],
   },
