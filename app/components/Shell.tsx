@@ -47,37 +47,46 @@ export function Shell({ children }: { children: ReactNode }) {
       <ChatButton />
 
       <footer className="border-t border-border">
-        <div className="mx-auto max-w-3xl px-5 py-6 text-sm text-muted">
-          <a
-            href="https://x.com/shan8851"
-            target="_blank"
-            rel="noreferrer"
-            className="transition-colors hover:text-text"
-          >
-            x
-          </a>{' '}
-          /{' '}
-          <a
-            href="https://github.com/shan8851"
-            target="_blank"
-            rel="noreferrer"
-            className="transition-colors hover:text-text"
-          >
-            github
-          </a>{' '}
-          /{' '}
-          <a
-            href="https://t.me/shan8851"
-            target="_blank"
-            rel="noreferrer"
-            className="transition-colors hover:text-text"
-          >
-            telegram
-          </a>{' '}
-          /{' '}
-          <a href="mailto:asamshan456@gmail.com" className="transition-colors hover:text-text">
-            email
-          </a>
+        <div className="mx-auto max-w-3xl space-y-2 px-5 py-6 text-sm text-muted">
+          <div>
+            <a
+              href="https://x.com/shan8851"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-text"
+            >
+              x
+            </a>{' '}
+            /{' '}
+            <a
+              href="https://github.com/shan8851"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-text"
+            >
+              github
+            </a>{' '}
+            /{' '}
+            <a
+              href="https://t.me/shan8851"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-text"
+            >
+              telegram
+            </a>{' '}
+            /{' '}
+            <a href="mailto:asamshan456@gmail.com" className="transition-colors hover:text-text">
+              email
+            </a>
+          </div>
+          <p className="text-xs text-muted">
+            if you are a robot, check{' '}
+            <Link href="/agents" className="underline underline-offset-4 hover:text-text">
+              /agents
+            </Link>{' '}
+            😉
+          </p>
         </div>
       </footer>
     </div>

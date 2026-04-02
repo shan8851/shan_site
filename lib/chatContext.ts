@@ -115,6 +115,8 @@ export const buildSiteContext = async (): Promise<string> => {
     '- Uses: /uses',
     '- Writing index: /notes',
     '- Chat page: /chat',
+    '- Agent front door: /agents',
+    '- Machine-readable profile: /agents.json',
   ]);
 
   return [
