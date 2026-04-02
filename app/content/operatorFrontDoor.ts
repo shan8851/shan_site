@@ -204,6 +204,16 @@ export const activeProjects: ActiveProject[] = [
     href: 'https://ch-cli.xyz',
   },
   {
+    title: 'rail-cli',
+    track: 'core',
+    status: 'live',
+    summary:
+      'UK rail in your terminal. Live departures, arrivals, station search, and agent-friendly output.',
+    nextMove:
+      'Keep tightening the suite and add more useful workflows around real-world travel queries.',
+    href: 'https://rail-cli.xyz',
+  },
+  {
     title: 'chaingrep',
     track: 'core',
     status: 'live',
@@ -262,13 +272,13 @@ export const activeProjects: ActiveProject[] = [
     nextMove: 'Tighten first-run UX and get it in shape for broader sharing.',
   },
   {
-    title: 'OpenClaw dashboard + API',
+    title: 'Operator Console',
     track: 'core',
     status: 'in-progress',
     summary:
-      'Mission-control-lite setup for agent runs, personal tracking, and server health, spanning both giles-dashboard and giles-api layers.',
+      'Mission-control-lite for agent runs, operator visibility, and system health.',
     nextMove:
-      'Keep pushing reliability, clean reporting, and practical operator visibility.',
+      'Turn the rough dashboard/API foundations into a cleaner Hermes-era control surface.',
     href: 'https://github.com/shan8851/giles-dashboard',
   },
   {
