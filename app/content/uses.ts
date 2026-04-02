@@ -1,9 +1,9 @@
+export { siteLastUpdated as usesLastUpdated } from './siteMeta';
+
 export type UseItem = {
   label: string;
   value: string;
 };
-
-export const usesLastUpdated = '2026-02-20';
 
 export const usesSections: Array<{ title: string; items: UseItem[] }> = [
   {

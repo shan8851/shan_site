@@ -1,8 +1,10 @@
-import { baseUrl } from './site';
 import { getAllWritingPosts } from '../lib/writing';
 
+import { siteLastUpdated } from './content/siteMeta';
+import { baseUrl } from './site';
+
 export default async function sitemap() {
-  const lastModified = new Date().toISOString().split('T')[0];
+  const lastModified = siteLastUpdated;
 
   const posts = await getAllWritingPosts();
 
@@ -17,7 +19,7 @@ export default async function sitemap() {
     { url: `${baseUrl}/notes`, lastModified },
     ...posts.map((post) => ({
       url: `${baseUrl}/notes/${post.slug}`,
-      lastModified: post.date,
+      lastModified: post.updated ?? post.date,
     })),
   ];
 }
