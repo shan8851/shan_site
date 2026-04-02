@@ -1,3 +1,5 @@
+export { siteLastUpdated } from './siteMeta';
+
 export type HomeRightNowItem = {
   title: string;
   summary: string;
@@ -34,8 +36,6 @@ export type ShippedWorkItem = {
   summary: string;
   href: string;
 };
-
-export const siteLastUpdated = '2026-04-02';
 
 export const homeIntro =
   'I work full-stack on payments, bridging, and staking at Polygon, focused on shipping systems that improve speed and confidence through testing, reliability, and clear docs. Outside work, I build with AI and use personal projects to sharpen agent orchestration in real-world workflows.';

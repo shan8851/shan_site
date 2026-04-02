@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { PROFILE } from '../content/profile';
+import { siteLastUpdatedIso } from '../content/siteMeta';
 
 export const runtime = 'edge';
 
@@ -12,7 +13,7 @@ export function GET() {
       version: 1,
       type: 'shan-profile',
       url: 'https://shan8851.com',
-      updatedAt: new Date().toISOString(),
+      updatedAt: siteLastUpdatedIso,
       profile: {
         handle: PROFILE.handle,
         name: PROFILE.name,

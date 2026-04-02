@@ -1,10 +1,10 @@
+export { siteLastUpdated as logLastUpdated } from './siteMeta';
+
 export type LogEntry = {
   id: string;
   date: string;
   text: string;
 };
-
-export const logLastUpdated = '2026-03-30';
 
 export const logEntries: LogEntry[] = [
   {
