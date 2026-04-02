@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import {
-  activeProjects,
   homeIntro,
   northStarLead,
   northStarOutsideWork,
@@ -15,20 +14,9 @@ import { logEntries } from './content/proofLog';
 import { formatIsoDateForDisplay, getIsoDateSortValue } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
 
-const getProjectLinkLabel = (href: string) =>
-  href.includes('github.com')
-    ? 'view repo'
-    : href.includes('agglayer.dev') || href.includes('roastmyphoto.app') || href.includes('excuse-me.xyz') || href.includes('chaingrep.xyz')
-      ? 'view live'
-      : 'view project';
-
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 3);
-  const homeProjectTitleOrder = ['tfl-cli', 'companies-house-cli', 'chaingrep'];
-  const homeProjects = homeProjectTitleOrder
-    .map((title) => activeProjects.find((project) => project.title === title))
-    .filter((project): project is NonNullable<typeof project> => Boolean(project));
   const latestLogEntries = [...logEntries]
     .sort((entryA, entryB) => getIsoDateSortValue(entryB.date) - getIsoDateSortValue(entryA.date))
     .slice(0, 5);
@@ -76,53 +64,7 @@ export default async function HomePage() {
             <li key={item}>{item}</li>
           ))}
         </ul>
-
       </section>
-
-      <section className="space-y-5 border-t border-border pt-10">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Projects</h2>
-          <Link href="/projects" className="text-sm text-muted transition-colors hover:text-text hover:underline">
-            all projects
-          </Link>
-        </div>
-
-        <ul className="space-y-4">
-          {homeProjects.map((project) => (
-            <li key={project.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
-              <div className="flex flex-wrap items-center gap-2">
-                {project.href ? (
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-semibold tracking-tight underline-offset-4 transition-colors hover:text-text hover:underline"
-                  >
-                    {project.title}
-                  </a>
-                ) : (
-                  <h3 className="font-semibold tracking-tight">{project.title}</h3>
-                )}
-                <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted">
-                  {project.status}
-                </span>
-              </div>
-              <p className="text-sm text-soft">{project.summary}</p>
-              {project.href ? (
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
-                >
-                  {getProjectLinkLabel(project.href)}
-                </a>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </section>
-
 
       <section className="space-y-5 border-t border-border pt-10">
         <div className="flex items-end justify-between gap-4">
