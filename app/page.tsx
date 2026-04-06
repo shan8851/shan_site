@@ -24,14 +24,14 @@ export default async function HomePage() {
   return (
     <div className="space-y-16">
       <section className="space-y-4">
-        <h1 className="text-5xl font-bold tracking-tight md:text-6xl">Shan</h1>
-        <p className="text-2xl font-semibold tracking-tight">engineer. builder. systems+ai.</p>
+        <h1 className="text-5xl tracking-tight md:text-6xl">Shan</h1>
+        <p className="text-2xl tracking-tight">engineer. <span className="text-accent">builder.</span> systems+ai.</p>
         <p className="max-w-2xl text-muted">{homeIntro}</p>
         <p className="max-w-2xl text-sm text-muted">Last updated: {siteLastUpdated}</p>
       </section>
 
-      <section className="space-y-3 border-t border-border pt-10">
-        <h2 className="text-xl font-semibold tracking-tight">North star</h2>
+      <section className="section-divider space-y-3 pt-10">
+        <h2 className="text-xl tracking-tight"><span className="text-accent">{'//'}</span> North star</h2>
         <p className="max-w-2xl text-muted">{northStarLead}</p>
         <p className="max-w-2xl text-muted">
           <span className="font-semibold text-text">At work:</span> {northStarWork}
@@ -41,8 +41,8 @@ export default async function HomePage() {
         </p>
       </section>
 
-      <section className="space-y-4 border-t border-border pt-10">
-        <h2 className="text-xl font-semibold tracking-tight">How I work</h2>
+      <section className="section-divider space-y-4 pt-10">
+        <h2 className="text-xl tracking-tight"><span className="text-accent">{'//'}</span> How I work</h2>
         <ul className="list-disc space-y-1 pl-5 text-muted">
           {workingStylePoints.map((point) => (
             <li key={point}>{point}</li>
@@ -50,10 +50,10 @@ export default async function HomePage() {
         </ul>
       </section>
 
-      <section className="space-y-5 border-t border-border pt-10">
+      <section className="section-divider space-y-5 pt-10">
         <div className="flex items-end justify-between gap-3">
-          <h2 className="text-xl font-semibold tracking-tight">Right now</h2>
-          <Link href="/now" className="text-sm text-muted transition-colors hover:text-text hover:underline">
+          <h2 className="text-xl tracking-tight"><span className="text-accent">{'//'}</span> Right now</h2>
+          <Link href="/now" className="link-splash text-sm text-muted">
             full now page
           </Link>
         </div>
@@ -66,10 +66,10 @@ export default async function HomePage() {
         </ul>
       </section>
 
-      <section className="space-y-5 border-t border-border pt-10">
+      <section className="section-divider space-y-5 pt-10">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Notes</h2>
-          <Link href="/notes" className="text-sm text-muted transition-colors hover:text-text hover:underline">
+          <h2 className="text-xl tracking-tight"><span className="text-accent">{'//'}</span> Notes</h2>
+          <Link href="/notes" className="link-splash text-sm text-muted">
             all
           </Link>
         </div>
@@ -96,19 +96,19 @@ export default async function HomePage() {
         )}
       </section>
 
-      <section className="space-y-5 border-t border-border pt-10">
+      <section className="section-divider space-y-5 pt-10">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight">Latest log</h2>
-          <Link href="/log" className="text-sm text-muted transition-colors hover:text-text hover:underline">
+          <h2 className="text-xl tracking-tight"><span className="text-accent">{'//'}</span> Latest log</h2>
+          <Link href="/log" className="link-splash text-sm text-muted">
             full log
           </Link>
         </div>
 
         <ul className="space-y-0 font-mono text-[13px] leading-6">
           {latestLogEntries.map((entry) => (
-            <li key={entry.id} className="border-l border-border/70 pl-3 py-1.5">
+            <li key={entry.id} className="border-l border-accent/25 pl-3 py-1.5">
               <p className="min-w-0 break-words text-soft">
-                <span className="text-muted">› {entry.date}:</span>{' '}
+                <span className="text-muted"><span className="text-accent">›</span> {entry.date}:</span>{' '}
                 <span>{entry.text}</span>
               </p>
             </li>

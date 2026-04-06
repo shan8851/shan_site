@@ -109,11 +109,11 @@ export default async function WritingPostPage(
       <ReadingProgressRail />
 
       <div className="space-y-5">
-        <Link href="/notes" className="text-sm text-muted hover:text-text">
+        <Link href="/notes" className="link-splash text-sm text-muted">
           ← Back to notes
         </Link>
         <header className="max-w-[65ch] space-y-3">
-          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+          <h1 className="text-3xl tracking-tight md:text-4xl">
             {post.title}
           </h1>
           <p className="text-sm text-muted">
@@ -123,10 +123,10 @@ export default async function WritingPostPage(
           <p className="text-muted">{post.summary}</p>
           <div className="flex items-center gap-3 text-xs text-muted">
             <span>share:</span>
-            <a href={xShareUrl} target="_blank" rel="noreferrer" className="hover:text-text hover:underline">
+            <a href={xShareUrl} target="_blank" rel="noreferrer" className="link-splash">
               X
             </a>
-            <a href={canonicalUrl} className="hover:text-text hover:underline">
+            <a href={canonicalUrl} className="link-splash">
               link
             </a>
           </div>
@@ -140,8 +140,8 @@ export default async function WritingPostPage(
       />
 
       {nextReadPosts.length > 0 ? (
-        <section className="space-y-4 border-t border-border pt-8">
-          <h2 className="text-lg font-semibold tracking-tight">Next read</h2>
+        <section className="section-divider space-y-4 pt-8">
+          <h2 className="text-lg tracking-tight"><span className="text-accent">{'//'}</span> Next read</h2>
           <ul className="space-y-4">
             {nextReadPosts.map((nextPost) => (
               <li key={nextPost.slug}>

@@ -8,6 +8,8 @@
   --muted: #72675e;
   --border: #d9d0c4;
   --link: #171412;
+  --accent: #c84b31;
+  --accent-contrast: #fdfaf4;
   --status-shipping: #2d8d66;
   --status-active: #a37714;
   --status-tightening: #4a739f;
@@ -32,6 +34,8 @@ html[data-theme='dark'] {
   --muted: #b2b2b2;
   --border: #323232;
   --link: #ffffff;
+  --accent: #e8714a;
+  --accent-contrast: #0a0a0a;
   --status-shipping: #76dfab;
   --status-active: #f2c14d;
   --status-tightening: #8db6e2;
@@ -56,19 +60,23 @@ html[data-theme='dark'] {
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-link: var(--link);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
 
-  --font-family-mono: var(--font-mono), 'DM Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --font-family-mono: ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
 }
 
 html {
   min-width: 320px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
 }
 
 body {
   background: var(--background);
   color: var(--text);
+  font-family: var(--font-departure-mono), ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -78,7 +86,66 @@ body {
    and inherited text color for nav/footer links. */
 
 ::selection {
-  background: color-mix(in oklab, var(--text) 18%, transparent);
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Link hover splash — content/footer links */
+.link-splash {
+  padding: 1px 4px;
+  margin: -1px -4px;
+  border-radius: 2px;
+  transition: background-color 150ms ease, color 150ms ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.link-splash:hover {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Link hover splash — nav links (animated wipe) */
+.link-splash-nav {
+  position: relative;
+  isolation: isolate;
+  padding: 2px 6px;
+  margin: -2px -6px;
+  border-radius: 3px;
+  transition: color 150ms ease;
+}
+
+.link-splash-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.link-splash-nav:hover::before {
+  transform: scaleX(1);
+}
+
+.link-splash-nav:hover {
+  color: var(--accent-contrast);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-splash-nav::before {
+    transition: none;
+  }
+}
+
+/* Section divider — accent gradient fade */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  border-image: linear-gradient(to right, var(--accent), var(--border) 40%, transparent) 1;
 }
 
 input[type='text'],
@@ -141,6 +208,30 @@ input[type='email'] {
 .article-prose a {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  padding: 1px 3px;
+  margin: -1px -3px;
+  border-radius: 2px;
+  transition: background-color 150ms ease, color 150ms ease, text-decoration-color 150ms ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.article-prose h1 a,
+.article-prose h2 a,
+.article-prose h3 a,
+.article-prose h4 a {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  background-color: transparent;
+  color: inherit;
+  transition: none;
+}
+
+.article-prose a:not(:where(h1 a, h2 a, h3 a, h4 a)):hover {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  text-decoration-color: transparent;
 }
 
 .article-prose blockquote {

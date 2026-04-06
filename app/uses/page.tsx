@@ -11,7 +11,7 @@ export default function UsesPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-3">
-        <h1 className="text-4xl font-bold tracking-tight">Uses</h1>
+        <h1 className="text-4xl tracking-tight">Uses</h1>
         <p className="max-w-2xl text-soft">
           Tools and stack I actually use day to day. This is a practical snapshot, not a forever list.
         </p>
@@ -19,8 +19,8 @@ export default function UsesPage() {
       </header>
 
       {usesSections.map((section) => (
-        <section key={section.title} className="space-y-3 border-t border-border pt-8">
-          <h2 className="text-xl font-semibold tracking-tight">{section.title}</h2>
+        <section key={section.title} className="section-divider space-y-3 pt-8">
+          <h2 className="text-xl tracking-tight"><span className="text-accent">{'//'}</span> {section.title}</h2>
           <ul className="space-y-2">
             {section.items.map((item) => (
               <li key={`${section.title}-${item.label}`} className="text-soft">

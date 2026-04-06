@@ -64,7 +64,7 @@ export const ThemeToggle = () => {
             className={
               'rounded px-2 py-1 text-xs tracking-wide transition-colors cursor-pointer ' +
               (isActive
-                ? 'bg-text text-background'
+                ? 'bg-accent text-accent-contrast'
                 : 'text-muted hover:text-text')
             }
           >

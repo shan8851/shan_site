@@ -91,8 +91,8 @@ export const ChatButton = (): ReactElement | null => {
           )}
           {showAttentionDot ? (
             <span className="absolute right-3 top-3 flex h-3 w-3">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-text/30 animate-ping" />
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-text" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-accent/30 animate-ping" />
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-accent" />
             </span>
           ) : null}
         </button>
