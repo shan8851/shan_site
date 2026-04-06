@@ -15,7 +15,7 @@ export default async function WritingPage() {
   return (
     <div className="max-w-3xl space-y-6">
       <div className="space-y-3">
-        <h1 className="text-4xl font-bold tracking-tight">Notes</h1>
+        <h1 className="text-4xl tracking-tight">Notes</h1>
         <p className="max-w-2xl text-soft">
           Thoughts and musings on anything and everything, mostly around crypto, AI, and engineering.
           Short, direct notes intended to be useful signal, not long essays.

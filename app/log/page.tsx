@@ -37,12 +37,12 @@ export default async function LogPage(props: {
   return (
     <div className="space-y-10">
       <header className="space-y-3">
-        <h1 className="text-4xl font-bold tracking-tight">Log</h1>
+        <h1 className="text-4xl tracking-tight">Log</h1>
         <p className="max-w-2xl text-soft">Shareable updates only. Format: date, short text.</p>
         <p className="text-xs text-muted">last updated: {logLastUpdated}</p>
       </header>
 
-      <section className="space-y-4 border-t border-border pt-8">
+      <section className="section-divider space-y-4 pt-8">
         <div className="flex items-center justify-between text-xs text-muted">
           <span>{sortedEntries.length} entries</span>
           <span>
@@ -54,10 +54,10 @@ export default async function LogPage(props: {
           {paginatedEntries.map((entry, index) => (
             <li
               key={`${entry.id}-${startIndex + index}`}
-              className="border-l border-border/70 pl-3 py-1.5"
+              className="border-l border-accent/25 pl-3 py-1.5"
             >
               <p className="min-w-0 break-words text-soft">
-                <span className="text-muted">› {entry.date}:</span>{' '}
+                <span className="text-muted"><span className="text-accent">›</span> {entry.date}:</span>{' '}
                 <span>{entry.text}</span>
               </p>
             </li>
@@ -66,7 +66,7 @@ export default async function LogPage(props: {
 
         <div className="flex items-center justify-between pt-2 text-sm">
           {currentPage < totalPages ? (
-            <Link href={pageHref(currentPage + 1)} className="text-muted underline underline-offset-4 hover:text-text">
+            <Link href={pageHref(currentPage + 1)} className="link-splash text-muted underline underline-offset-4">
               older entries
             </Link>
           ) : (
@@ -74,7 +74,7 @@ export default async function LogPage(props: {
           )}
 
           {currentPage > 1 ? (
-            <Link href={pageHref(currentPage - 1)} className="text-muted underline underline-offset-4 hover:text-text">
+            <Link href={pageHref(currentPage - 1)} className="link-splash text-muted underline underline-offset-4">
               newer entries
             </Link>
           ) : null}

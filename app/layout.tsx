@@ -1,10 +1,18 @@
 import './global.css';
 
 import type { Metadata } from 'next';
-import { DM_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 
 import { Shell } from './components/Shell';
+
+const departureMono = localFont({
+  src: './fonts/DepartureMono-Regular.woff2',
+  variable: '--font-departure-mono',
+  weight: '400',
+  style: 'normal',
+  display: 'swap',
+});
 export const metadata: Metadata = {
   metadataBase: new URL('https://shan8851.com'),
   title: 'Shan',
@@ -49,20 +57,14 @@ export const metadata: Metadata = {
   },
 };
 
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  weight: ['400', '500'],
-});
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={dmMono.variable} suppressHydrationWarning>
-      <body className="font-mono antialiased">
+    <html lang="en" className={departureMono.variable} suppressHydrationWarning>
+      <body className="font-mono">
         <Script id="theme-mode-init" strategy="beforeInteractive">
           {`(() => {
             try {

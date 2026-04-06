@@ -322,7 +322,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
           type="search"
           aria-label="Search notes"
           inputMode="search"
-          className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-text placeholder:text-muted focus:border-text focus:outline-none"
+          className="w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-text placeholder:text-muted focus:border-accent focus:outline-none"
         />
 
         {quickFilterTags.length > 0 ? (
@@ -335,7 +335,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
               <button
                 type="button"
                 onClick={() => applyTagFilter(null)}
-                className="text-xs text-muted underline-offset-2 transition-colors hover:text-text hover:underline"
+                className="link-splash text-xs text-muted"
               >
                 clear
               </button>
@@ -404,7 +404,7 @@ export default function WritingIndexClient({ posts }: { posts: WritingIndexPost[
                     };
                   })
                 }
-                className="rounded-md border border-border px-3 py-1.5 text-xs text-muted transition-colors hover:border-text hover:text-text"
+                className="rounded-md border border-border px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-accent"
               >
                 load more
               </button>
@@ -430,8 +430,8 @@ const FilterButton = ({
     onClick={onClick}
     aria-pressed={active}
     className={
-      'text-xs transition-colors underline-offset-2 cursor-pointer ' +
-      (active ? 'text-text underline' : 'text-muted hover:text-text hover:underline')
+      'link-splash text-xs cursor-pointer ' +
+      (active ? 'text-accent' : 'text-muted')
     }
   >
     {label}

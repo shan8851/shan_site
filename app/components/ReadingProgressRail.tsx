@@ -74,7 +74,7 @@ export const ReadingProgressRail = () => {
       className="pointer-events-none fixed inset-x-0 top-0 z-40 h-0.5 bg-border/40"
     >
       <div
-        className="h-full origin-left bg-text/45 will-change-transform"
+        className="h-full origin-left bg-accent will-change-transform"
         style={{
           transform: `scaleX(${readingProgress})`,
           transition: prefersReducedMotion ? undefined : 'transform 140ms linear',

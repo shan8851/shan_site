@@ -95,7 +95,7 @@ export default function ProjectsPage(): ReactElement {
   return (
     <div className="space-y-10">
       <header className="space-y-3">
-        <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+        <h1 className="text-4xl tracking-tight">Projects</h1>
         <p className="max-w-2xl text-muted">
           Short by design. The main public bets, the serious shipped work, and one operator-facing build I
           expect to matter more over time.
@@ -103,8 +103,8 @@ export default function ProjectsPage(): ReactElement {
         <p className="text-xs text-muted">last updated: {siteLastUpdated}</p>
       </header>
 
-      <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">Featured builds</h2>
+      <section className="section-divider space-y-4 pt-8">
+        <h2 className="text-lg tracking-tight"><span className="text-accent">{'//'}</span> Featured builds</h2>
         <ul className="space-y-6">
           {featuredProjects.map((item) => (
             <li key={item.title} className="space-y-3 border-b border-border/60 pb-6 last:border-b-0 last:pb-0">
@@ -128,7 +128,7 @@ export default function ProjectsPage(): ReactElement {
                           href={tool.href}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-medium underline underline-offset-4 transition-colors hover:text-text"
+                          className="link-splash font-medium underline underline-offset-4"
                         >
                           {tool.title}
                         </a>
@@ -136,7 +136,7 @@ export default function ProjectsPage(): ReactElement {
                           href={tool.repoHref}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-xs text-muted underline underline-offset-4 transition-colors hover:text-text"
+                          className="link-splash text-xs text-muted underline underline-offset-4"
                         >
                           repo
                         </a>
@@ -148,7 +148,7 @@ export default function ProjectsPage(): ReactElement {
               ) : null}
 
               <div>
-                <p className="text-xs uppercase tracking-wide text-muted">Why it matters</p>
+                <p className="text-xs uppercase tracking-wide text-accent">Why it matters</p>
                 <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-soft">
                   {item.technicalHighlights.map((highlight) => (
                     <li key={highlight}>{highlight}</li>
@@ -164,7 +164,7 @@ export default function ProjectsPage(): ReactElement {
                     href={item.project.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                    className="link-splash inline-block text-sm underline underline-offset-4"
                   >
                     {getLinkLabel(item.project.href)}
                   </a>
@@ -175,8 +175,8 @@ export default function ProjectsPage(): ReactElement {
         </ul>
       </section>
 
-      <section className="space-y-4 border-t border-border pt-8">
-        <h2 className="text-lg font-semibold tracking-tight">Shipped at scale</h2>
+      <section className="section-divider space-y-4 pt-8">
+        <h2 className="text-lg tracking-tight"><span className="text-accent">{'//'}</span> Shipped at scale</h2>
         <ul className="space-y-4">
           {shippedAtScaleProjects.map((project) => (
             <li key={project.title} className="space-y-1 border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
@@ -188,7 +188,7 @@ export default function ProjectsPage(): ReactElement {
                   href={project.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                  className="link-splash inline-block text-sm underline underline-offset-4"
                 >
                   {getLinkLabel(project.href)}
                 </a>
@@ -204,7 +204,7 @@ export default function ProjectsPage(): ReactElement {
                 href={work.href}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block text-sm underline underline-offset-4 transition-colors hover:text-text"
+                className="link-splash inline-block text-sm underline underline-offset-4"
               >
                 {getLinkLabel(work.href)}
               </a>
