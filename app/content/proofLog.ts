@@ -13,6 +13,11 @@ export const logEntries: LogEntry[] = [
     text: 'Shipped the Open Markets mini-series with all episodes live on a dedicated site.',
   },
   {
+    id: 'LOG-2026-04-10-A',
+    date: '2026-04-10',
+    text: 'Shipped fuel-cli with landing page and npm publish — fourth CLI tool in the agent-first suite.',
+  },
+  {
     id: 'LOG-2026-03-25-A',
     date: '2026-03-25',
     text: 'Published a more agent-friendly pass across my CLI tools and refreshed the related skills.',

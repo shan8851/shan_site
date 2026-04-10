@@ -55,7 +55,7 @@ export const rightNowNarrative =
 
 export const rightNowSnapshot: string[] = [
   'At work: stepping into Polygon\'s Open Money Stack while keeping the bar high on reliability, testing, docs, and observability.',
-  'Outside work: building agent-first CLI tools that are actually useful; tfl-cli, companies-house-cli, and rail-cli are the clearest proof right now.',
+  'Outside work: building agent-first CLI tools that are actually useful; tfl-cli, companies-house-cli, rail-cli, and fuel-cli are the clearest proof right now.',
   'Personal systems: tightening family planning, nutrition, and fitness so the setup supports the rest of the work instead of competing with it.',
 ];
 
@@ -120,7 +120,7 @@ export const nowLogItems: NowLogItem[] = [
   },
   {
     label: 'CLI tools',
-    text: 'tfl-cli and companies-house-cli are now joined by rail-cli. I am tightening the agent-first pass across all three: predictable output, cleaner JSON, better landing pages, and better surrounding skills.',
+    text: 'tfl-cli, companies-house-cli, rail-cli, and fuel-cli — a growing suite. I am tightening the agent-first pass across all of them: predictable output, cleaner JSON, better landing pages, and better surrounding skills.',
   },
   {
     label: 'OpenClaw stability',
@@ -212,6 +212,16 @@ export const activeProjects: ActiveProject[] = [
     nextMove:
       'Keep tightening the suite and add more useful workflows around real-world travel queries.',
     href: 'https://rail-cli.xyz',
+  },
+  {
+    title: 'fuel-cli',
+    track: 'core',
+    status: 'live',
+    summary:
+      'UK fuel prices in your terminal. Find the cheapest petrol and diesel nearby, ranked by price, distance, or freshness.',
+    nextMove:
+      'Expand fuel type coverage and explore price alert workflows.',
+    href: 'https://fuel-cli.xyz',
   },
   {
     title: 'chaingrep',

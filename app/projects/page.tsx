@@ -14,6 +14,7 @@ const liveProjectHosts = [
   'ch-cli.xyz',
   'excuse-me.xyz',
   'fairside.app',
+  'fuel-cli.xyz',
   'rail-cli.xyz',
   'roastmyphoto.app',
   'shan8851.com',
@@ -60,6 +61,12 @@ const featuredProjectConfigs = [
         href: 'https://rail-cli.xyz',
         summary: 'UK rail departures, arrivals, station search, and fast travel queries.',
         repoHref: 'https://github.com/shan8851/rail-cli',
+      },
+      {
+        title: 'fuel-cli',
+        href: 'https://fuel-cli.xyz',
+        summary: 'UK fuel prices, ranked by price, distance, or freshness.',
+        repoHref: 'https://github.com/shan8851/fuel-cli',
       },
     ],
     technicalHighlights: [
