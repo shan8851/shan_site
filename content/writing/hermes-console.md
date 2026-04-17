@@ -1,5 +1,5 @@
 ---
-title: Hermes Console: a read-only dashboard for Hermes
+title: "Hermes Console: a read-only dashboard for Hermes"
 summary: Running Hermes locally means checking files, logs, cron output, and CLI state in too many places. Hermes Console is a read-only UI I built to make that easier.
 date: "2026-04-14"
 tags:

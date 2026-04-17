@@ -161,8 +161,14 @@ function assertFrontmatter(data: unknown, slug: string): WritingFrontmatter {
 async function readPostFile(slug: string) {
   const filePath = path.join(WRITING_DIR, `${slug}.md`);
   const raw = await fs.readFile(filePath, 'utf8');
-  const parsed = matter(raw);
-  return { ...parsed, raw };
+
+  try {
+    const parsed = matter(raw);
+    return { ...parsed, raw };
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error);
+    throw new Error(`Failed to parse writing post frontmatter in ${filePath}: ${detail}`);
+  }
 }
 
 export const getAllWritingPosts = cache(
@@ -187,8 +193,12 @@ export const getAllWritingPosts = cache(
       );
 
       return posts.sort((a, b) => getIsoDateSortValue(b.date) - getIsoDateSortValue(a.date));
-    } catch {
-      return [];
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+        return [];
+      }
+
+      throw error;
     }
   }
 );
