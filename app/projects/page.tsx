@@ -76,13 +76,13 @@ const featuredProjectConfigs = [
     ],
   },
   {
-    title: 'Operator Console',
+    title: 'Hermes Console',
     outcome:
-      'Mission-control-lite for agent runs, operator visibility, and system health. Still rough, but likely to matter more over time.',
+      'Local-first web dashboard for Hermes Agent: runtime health, sessions, cron, skills, memory, files, and usage in one place.',
     technicalHighlights: [
-      'Built from the real pain of wanting practical visibility instead of hand-wavy agent dashboards.',
-      'Aims to make runs, health, and operational signal easier to inspect without ceremony.',
-      'Likely to evolve with Hermes rather than stay tied to older tooling names.',
+      'Built from the real pain of checking too many files, logs, and cron outputs just to understand what the system is doing.',
+      'Read-only by design so you can inspect a live agent setup without immediately mutating it from the browser.',
+      'A practical operator surface, not another vague AI dashboard with a lot of glow and not much signal.',
     ],
   },
 ] as const;

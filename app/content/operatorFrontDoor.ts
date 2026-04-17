@@ -1,37 +1,21 @@
 export { siteLastUpdated } from './siteMeta';
 
-export type HomeRightNowItem = {
-  title: string;
-  summary: string;
-  detail?: string;
-  href?: string;
-};
-
-export type AIProject = {
-  title: string;
-  status: 'live' | 'in-progress';
-  summary: string;
-  learning: string;
-  href: string;
-};
-
-export type NowLogItem = {
+type NowLogItem = {
   label: string;
   text: string;
   href?: string;
 };
 
-export type ActiveProject = {
+type ActiveProject = {
   title: string;
   track: 'core' | 'experiments';
-  status: 'live' | 'in-progress' | 'exploring';
+  status: 'live' | 'in-progress';
   summary: string;
   nextMove?: string;
-  maturity?: 'raw';
   href?: string;
 };
 
-export type ShippedWorkItem = {
+type ShippedWorkItem = {
   title: string;
   summary: string;
   href: string;
@@ -57,57 +41,6 @@ export const rightNowSnapshot: string[] = [
   'At work: stepping into Polygon\'s Open Money Stack while keeping the bar high on reliability, testing, docs, and observability.',
   'Outside work: building agent-first CLI tools that are actually useful; tfl-cli, companies-house-cli, rail-cli, and fuel-cli are the clearest proof right now.',
   'Personal systems: tightening family planning, nutrition, and fitness so the setup supports the rest of the work instead of competing with it.',
-];
-
-export const rightNowItems: HomeRightNowItem[] = [
-  {
-    title: 'Excuse Me',
-    summary:
-      'Simple app: give it context, get a believable excuse fast.',
-    detail: 'Fresh launch. Now tuning tone and weird edge cases.',
-    href: 'https://excuse-me.xyz/',
-  },
-  {
-    title: 'RoastMaster',
-    summary:
-      'Photo roast/glaze app with auth, credits, and share loops.',
-    detail: 'Still improving output quality and first-run flow.',
-    href: 'https://roastmyphoto.app/',
-  },
-  {
-    title: 'AI systems loop',
-    summary:
-      'Using these apps to sharpen prompts, context packing, and safer output behaviour.',
-  },
-  {
-    title: 'Core Polygon execution',
-    summary:
-      'Shipping user-facing outcomes across payments, bridging, and staking.',
-  },
-];
-
-export const aiProjectsFraming =
-  'Most apps now have an AI layer. I use these projects to get better at model tuning, context shaping, safety, and turning messy user input into useful output.';
-
-export const aiProjects: AIProject[] = [
-  {
-    title: 'Excuse Me',
-    status: 'live',
-    summary:
-      'Fast AI excuse generator built for quick, useful copy with controllable tone.',
-    learning:
-      'Keeping prompts tight, handling edge-case context cleanly, and staying useful without sounding robotic.',
-    href: 'https://excuse-me.xyz/',
-  },
-  {
-    title: 'RoastMaster',
-    status: 'live',
-    summary:
-      'Roast and glaze photo app with uploads, auth, credits, and share loops.',
-    learning:
-      'Balancing style and safety, improving consistency, and finding loops that bring people back.',
-    href: 'https://roastmyphoto.app/',
-  },
 ];
 
 export const nowFocusNarrative =
@@ -282,14 +215,14 @@ export const activeProjects: ActiveProject[] = [
     nextMove: 'Tighten first-run UX and get it in shape for broader sharing.',
   },
   {
-    title: 'Operator Console',
+    title: 'Hermes Console',
     track: 'core',
-    status: 'in-progress',
+    status: 'live',
     summary:
-      'Mission-control-lite for agent runs, operator visibility, and system health.',
+      'Local-first web dashboard for Hermes Agent. Runtime health, sessions, cron, skills, memory, files, and usage in one place.',
     nextMove:
-      'Turn the rough dashboard/API foundations into a cleaner Hermes-era control surface.',
-    href: 'https://github.com/shan8851/giles-dashboard',
+      'Keep dogfooding the operator surfaces and tighten what is genuinely useful versus just interesting once.',
+    href: 'https://github.com/shan8851/hermes-console',
   },
   {
     title: 'skills',
@@ -311,48 +244,14 @@ export const activeProjects: ActiveProject[] = [
       'Keep tightening the daily utility for fast layout and breakpoint checks.',
     href: 'https://viewports.shan8851.com/',
   },
-  {
-    title: 'clawtop',
-    track: 'experiments',
-    status: 'exploring',
-    maturity: 'raw',
-    summary:
-      'Raw experiment while I play with agent-native interaction patterns.',
-    nextMove:
-      'Keep exploring and decide whether it graduates into a clearer product shape.',
-    href: 'https://github.com/shan8851/clawtop',
-  },
-  {
-    title: 'scratch',
-    track: 'experiments',
-    status: 'exploring',
-    maturity: 'raw',
-    summary: 'Sandbox repo for fast trials, prototypes, and rough ideas.',
-    nextMove:
-      'Keep using it as a pressure release valve for rapid experiments.',
-    href: 'https://github.com/shan8851/scratch',
-  },
-  {
-    title: 'pomo',
-    track: 'experiments',
-    status: 'exploring',
-    summary: 'Small project for focus and time-structure experiments.',
-    nextMove:
-      'Decide whether to keep it lightweight or fold insights into broader systems.',
-    href: 'https://github.com/shan8851/pomo',
-  },
-  {
-    title: 'Onchain agent experiments',
-    track: 'experiments',
-    status: 'exploring',
-    summary:
-      'Playing with agent workflows around DeFi and meme-coin style experimentation.',
-    nextMove:
-      'Keep this experimental and risk-aware while patterns are still forming.',
-  },
 ];
 
 export const selectedShippedWork: ShippedWorkItem[] = [
+  {
+    title: 'sPOL liquid staking',
+    summary: 'Polygon\'s native liquid staking product for staking, unstaking, migration, and DeFi-ready sPOL positions.',
+    href: 'https://staking.polygon.technology/lst',
+  },
   {
     title: 'Cielo',
     summary:
@@ -364,10 +263,5 @@ export const selectedShippedWork: ShippedWorkItem[] = [
     summary:
       'Major contributor to the open-source governance UI kit used to build onchain governance experiences.',
     href: 'https://uikit.aragon.org/?path=/docs/docs-documentation--docs',
-  },
-  {
-    title: 'Aragon App 2.0',
-    summary: 'Helped bring Aragon App 2.0 to life, shipping modular onchain governance UX.',
-    href: 'https://app.aragon.org/?daoFilter=all',
   },
 ];

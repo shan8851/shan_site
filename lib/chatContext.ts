@@ -65,7 +65,7 @@ export const buildSiteContext = async (): Promise<string> => {
     'Active projects (see /projects for the full page):',
     ...activeProjects.map(
       (project) =>
-        `- ${project.title} [track=${project.track}; status=${project.status}${project.maturity ? `; maturity=${project.maturity}` : ''}]: ${project.summary}${project.nextMove ? ` Next move: ${project.nextMove}.` : ''}${project.href ? ` (${project.href})` : ''}`
+        `- ${project.title} [track=${project.track}; status=${project.status}]: ${project.summary}${project.nextMove ? ` Next move: ${project.nextMove}.` : ''}${project.href ? ` (${project.href})` : ''}`
     ),
     'Selected shipped work:',
     ...selectedShippedWork.map((workItem) => `- ${workItem.title}: ${workItem.summary} (${workItem.href})`),
