@@ -8,6 +8,11 @@ export type LogEntry = {
 
 export const logEntries: LogEntry[] = [
   {
+    id: 'LOG-2026-04-09-A',
+    date: '2026-04-09',
+    text: 'Published my first new blog post in a while and got back to a more direct, practical writing voice.',
+  },
+  {
     id: 'LOG-2026-04-12-A',
     date: '2026-04-12',
     text: 'Built an automated backup, wiki, and persistent memory system for a multi-agent Hermes setup — cron-driven, local-first, fully self-hosted.',
