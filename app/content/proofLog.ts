@@ -8,6 +8,36 @@ export type LogEntry = {
 
 export const logEntries: LogEntry[] = [
   {
+    id: 'LOG-2026-04-19-A',
+    date: '2026-04-19',
+    text: 'Shipped Parliament CLI, then published the companion site, Shan skill, and Clawhub skill.',
+  },
+  {
+    id: 'LOG-2026-04-19-B',
+    date: '2026-04-19',
+    text: 'Revived the Giles dashboard and API projects, and added analytics into the UI.',
+  },
+  {
+    id: 'LOG-2026-04-17-A',
+    date: '2026-04-17',
+    text: 'Kept the Portal refactor moving, with the Redux to React Query migration now in a much better place.',
+  },
+  {
+    id: 'LOG-2026-04-16-A',
+    date: '2026-04-16',
+    text: 'Merged template/docs PRs and landed the first Portal migration tooling slice to staging.',
+  },
+  {
+    id: 'LOG-2026-04-14-A',
+    date: '2026-04-14',
+    text: 'Shipped Polygon Liquid Staking and Portal to production, then fixed the immediate bugs.',
+  },
+  {
+    id: 'LOG-2026-04-13-A',
+    date: '2026-04-13',
+    text: 'Shipped Hermes Console v0.4.0 and tightened the supporting workflows and memory handling.',
+  },
+  {
     id: 'LOG-2026-04-12-A',
     date: '2026-04-12',
     text: 'Built an automated backup, wiki, and persistent memory system for a multi-agent Hermes setup — cron-driven, local-first, fully self-hosted.',
