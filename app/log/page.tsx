@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import { logEntries, logLastUpdated } from '../content/proofLog';
+import { LogFeed } from '../components/logFeed';
+import { logEntries, logLastUpdated, sortLogEntriesDescending } from '../content/proofLog';
 
 export const metadata: Metadata = {
   title: 'Log',
@@ -27,7 +28,7 @@ export default async function LogPage(props: {
 }) {
   const searchParams = await props.searchParams;
 
-  const sortedEntries = [...logEntries].sort((leftEntry, rightEntry) => rightEntry.date.localeCompare(leftEntry.date));
+  const sortedEntries = sortLogEntriesDescending(logEntries);
   const totalPages = Math.max(1, Math.ceil(sortedEntries.length / pageSize));
   const currentPage = parsePage(searchParams.page, totalPages);
 
@@ -43,26 +44,7 @@ export default async function LogPage(props: {
       </header>
 
       <section className="section-divider space-y-4 pt-8">
-        <div className="flex items-center justify-between text-xs text-muted">
-          <span>{sortedEntries.length} entries</span>
-          <span>
-            page {currentPage} / {totalPages}
-          </span>
-        </div>
-
-        <ul className="space-y-0 font-mono text-[13px] leading-6">
-          {paginatedEntries.map((entry, index) => (
-            <li
-              key={`${entry.id}-${startIndex + index}`}
-              className="border-l border-accent/25 pl-3 py-1.5"
-            >
-              <p className="min-w-0 break-words text-soft">
-                <span className="text-muted"><span className="text-accent">›</span> {entry.date}:</span>{' '}
-                <span>{entry.text}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
+        <LogFeed entries={paginatedEntries} variant="full" />
 
         <div className="flex items-center justify-between pt-2 text-sm">
           {currentPage < totalPages ? (

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { LogFeed } from './components/logFeed';
 import {
   homeIntro,
   northStarLead,
@@ -10,16 +11,14 @@ import {
   siteLastUpdated,
   workingStylePoints,
 } from './content/operatorFrontDoor';
-import { logEntries } from './content/proofLog';
-import { formatIsoDateForDisplay, getIsoDateSortValue } from '../lib/noteDates';
+import { logEntries, sortLogEntriesDescending } from './content/proofLog';
+import { formatIsoDateForDisplay } from '../lib/noteDates';
 import { getAllWritingPosts } from '../lib/writing';
 
 export default async function HomePage() {
   const writingPosts = await getAllWritingPosts();
   const homeNotes = writingPosts.slice(0, 3);
-  const latestLogEntries = [...logEntries]
-    .sort((entryA, entryB) => getIsoDateSortValue(entryB.date) - getIsoDateSortValue(entryA.date))
-    .slice(0, 5);
+  const latestLogEntries = sortLogEntriesDescending(logEntries).slice(0, 5);
 
   return (
     <div className="space-y-16">
@@ -104,16 +103,7 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <ul className="space-y-0 font-mono text-[13px] leading-6">
-          {latestLogEntries.map((entry) => (
-            <li key={entry.id} className="border-l border-accent/25 pl-3 py-1.5">
-              <p className="min-w-0 break-words text-soft">
-                <span className="text-muted"><span className="text-accent">›</span> {entry.date}:</span>{' '}
-                <span>{entry.text}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
+        <LogFeed entries={latestLogEntries} variant="preview" />
       </section>
     </div>
   );

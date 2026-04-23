@@ -13,6 +13,15 @@
   --status-shipping: #2d8d66;
   --status-active: #a37714;
   --status-tightening: #4a739f;
+  --log-surface: color-mix(in oklab, var(--surface) 94%, var(--background));
+  --log-surface-alt: color-mix(in oklab, var(--surface) 86%, var(--background));
+  --log-grid: color-mix(in oklab, var(--border) 82%, var(--background));
+  --log-row-hover: color-mix(in oklab, var(--accent) 10%, var(--surface));
+  --log-channel-projects: #b75035;
+  --log-channel-work: #8b651a;
+  --log-channel-write: #6e5acb;
+  --log-channel-ops: #2d7392;
+  --log-channel-life: #2f7a63;
   color-scheme: light;
 
   --sh-class: #1d4ed8;
@@ -39,6 +48,15 @@ html[data-theme='dark'] {
   --status-shipping: #76dfab;
   --status-active: #f2c14d;
   --status-tightening: #8db6e2;
+  --log-surface: color-mix(in oklab, var(--surface) 96%, var(--background));
+  --log-surface-alt: color-mix(in oklab, var(--surface) 82%, var(--background));
+  --log-grid: color-mix(in oklab, var(--border) 92%, var(--background));
+  --log-row-hover: color-mix(in oklab, var(--accent) 12%, var(--surface));
+  --log-channel-projects: #ff936c;
+  --log-channel-work: #f2c14d;
+  --log-channel-write: #aeb7ff;
+  --log-channel-ops: #7ac7ec;
+  --log-channel-life: #7bd9bb;
   color-scheme: dark;
 
   --sh-class: #93c5fd;
@@ -139,6 +157,11 @@ body {
   .link-splash-nav::before {
     transition: none;
   }
+
+  .log-row-preview,
+  .log-row-full {
+    transition: none;
+  }
 }
 
 /* Section divider — accent gradient fade */
@@ -146,6 +169,27 @@ body {
   border: none;
   border-top: 1px solid var(--border);
   border-image: linear-gradient(to right, var(--accent), var(--border) 40%, transparent) 1;
+}
+
+.log-feed-preview,
+.log-feed-full {
+  border-top: 1px solid var(--log-grid);
+}
+
+.log-row-preview,
+.log-row-full {
+  border-top: 1px solid var(--log-grid);
+  transition: background-color 150ms ease;
+}
+
+.log-row-preview:first-child,
+.log-row-full:first-child {
+  border-top: 0;
+}
+
+.log-row-preview:hover,
+.log-row-full:hover {
+  background-color: var(--log-row-hover);
 }
 
 input[type='text'],
