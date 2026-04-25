@@ -15,6 +15,7 @@ const liveProjectHosts = [
   'excuse-me.xyz',
   'fairside.app',
   'fuel-cli.xyz',
+  'parliment-cli.xyz',
   'rail-cli.xyz',
   'roastmyphoto.app',
   'shan8851.com',
@@ -49,24 +50,35 @@ const featuredProjectConfigs = [
         href: 'https://tfl-cli.xyz',
         summary: 'London transport: status, journeys, arrivals, disruptions, bike docks.',
         repoHref: 'https://github.com/shan8851/tfl-cli',
+        npmHref: 'https://www.npmjs.com/package/@shan8851/tfl-cli',
       },
       {
         title: 'companies-house-cli',
         href: 'https://ch-cli.xyz',
         summary: 'UK company search, filings, officers, ownership, insolvency.',
         repoHref: 'https://github.com/shan8851/companies-house-cli',
+        npmHref: 'https://www.npmjs.com/package/@shan8851/companies-house-cli',
       },
       {
         title: 'rail-cli',
         href: 'https://rail-cli.xyz',
         summary: 'UK rail departures, arrivals, station search, and fast travel queries.',
         repoHref: 'https://github.com/shan8851/rail-cli',
+        npmHref: 'https://www.npmjs.com/package/@shan8851/rail-cli',
       },
       {
         title: 'fuel-cli',
         href: 'https://fuel-cli.xyz',
         summary: 'UK fuel prices, ranked by price, distance, or freshness.',
         repoHref: 'https://github.com/shan8851/fuel-cli',
+        npmHref: 'https://www.npmjs.com/package/@shan8851/fuel-cli',
+      },
+      {
+        title: 'parliament-cli',
+        href: 'https://www.parliment-cli.xyz',
+        summary: 'UK Parliament bills, members, votes, and written questions from official APIs.',
+        repoHref: 'https://github.com/shan8851/parliament-cli',
+        npmHref: 'https://www.npmjs.com/package/@shan8851/parliament-cli',
       },
     ],
     technicalHighlights: [
@@ -146,6 +158,14 @@ export default function ProjectsPage(): ReactElement {
                           className="link-splash text-xs text-muted underline underline-offset-4"
                         >
                           repo
+                        </a>
+                        <a
+                          href={tool.npmHref}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="link-splash text-xs text-muted underline underline-offset-4"
+                        >
+                          npm
                         </a>
                       </div>
                       <p>{tool.summary}</p>
