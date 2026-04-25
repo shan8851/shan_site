@@ -86,9 +86,8 @@ html[data-theme='dark'] {
 
 html {
   min-width: 320px;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
-  font-smooth: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -96,7 +95,7 @@ body {
   color: var(--text);
   font-family: var(--font-departure-mono), ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Note: don’t force a default <a> color here.
