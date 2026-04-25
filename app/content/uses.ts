@@ -9,26 +9,27 @@ export const usesSections: Array<{ title: string; items: UseItem[] }> = [
   {
     title: 'AI + model stack',
     items: [
-      { label: 'Coding', value: 'Codex 5.4 (primary)' },
-      { label: 'Search/research', value: 'Exa for AI search' },
-      { label: 'Fast/cheap tasks', value: 'Gemini + Claude Haiku/Sonnet' },
+      { label: 'Coding', value: 'OpenAI Codex 5.5 (primary)' },
+      { label: 'Search/research', value: 'OpenClaw web search + browser when source access matters' },
+      { label: 'Fast/cheap tasks', value: 'Gemini + Claude Haiku/Sonnet when the job does not need the big gun' },
       {
         label: 'Voice/transcription',
         value: 'OpenAI + ElevenLabs, with Whisper still useful when I want local transcription',
       },
-      { label: 'Image generation', value: 'Nano Banana Pro (still great)' },
-      { label: 'Routing', value: 'OpenRouter for one API key + easy model switching' },
+      { label: 'Image generation', value: 'GPT Image 2' },
+      { label: 'Routing', value: 'OpenClaw provider routing across OpenAI, Claude, Gemini, and OpenRouter' },
     ],
   },
   {
     title: 'Agent stack',
     items: [
-      { label: 'Harness', value: 'Hermes Agent' },
+      { label: 'Harness', value: 'OpenClaw' },
       {
         label: 'Current direction',
-        value: 'Hermes Agent with lean playbooks, skills, and crons. More deterministic, less swarm theatre.',
+        value: 'OpenClaw with lean playbooks, skills, crons, memory, and channel-native workflows. More deterministic, less swarm theatre.',
       },
-      { label: 'Experimental lane', value: 'Onchain agents + broader autonomy (shopping/email)' },
+      { label: 'Agent email', value: 'AgentMail.to for dedicated agent inboxes and email-native workflows' },
+      { label: 'Experimental lane', value: 'Useful autonomy around research, inboxes, household ops, and public-data CLIs' },
     ],
   },
   {
@@ -46,14 +47,14 @@ export const usesSections: Array<{ title: string; items: UseItem[] }> = [
       { label: 'Editor/IDE', value: 'VS Code, with the terminal doing more of the heavy lifting now' },
       { label: 'Terminal', value: 'Ghostty (macOS), Kitty (Linux)' },
       { label: 'Shell', value: 'zsh + powerlevel10k' },
-      { label: 'Notes', value: 'Notesnook + markdown files in git' },
+      { label: 'Notes', value: 'Markdown files in git + wiki for durable knowledge; Notesnook for personal notes' },
       { label: 'Browser', value: 'Brave + Chrome' },
     ],
   },
   {
     title: 'Comms + productivity',
     items: [
-      { label: 'Messaging', value: 'Agent-first; Telegram is mostly just one surface now' },
+      { label: 'Messaging', value: 'Agent-first across Discord and WhatsApp, with channels treated as surfaces rather than separate workflows' },
       { label: 'Calendar', value: 'Google Calendar, usually handled through the agent' },
       { label: 'Tasks', value: 'Mostly handled through the agent now; tools are secondary' },
       { label: 'Focus', value: 'pomo CLI pomodoro app' },
