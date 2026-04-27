@@ -13,6 +13,30 @@ export type LogEntry = {
 
 export const logEntries: LogEntry[] = [
   {
+    id: 'LOG-2026-04-26-A',
+    date: '2026-04-26',
+    channel: 'work',
+    text: 'Finished TRM documentation and packaged wallet-kit for reuse across app UIs.',
+  },
+  {
+    id: 'LOG-2026-04-24-A',
+    date: '2026-04-24',
+    channel: 'work',
+    text: 'Built an early mocked staking rewards demo to get stakeholder feedback sooner.',
+  },
+  {
+    id: 'LOG-2026-04-22-A',
+    date: '2026-04-22',
+    channel: 'work',
+    text: 'Started the staking rewards UI against mock data and picked up the OMS Playwright rollout.',
+  },
+  {
+    id: 'LOG-2026-04-21-A',
+    date: '2026-04-21',
+    channel: 'work',
+    text: 'Fixed the Portal regressions and merged the Tailwind migration changes.',
+  },
+  {
     id: 'LOG-2026-04-19-A',
     date: '2026-04-19',
     channel: 'projects',
